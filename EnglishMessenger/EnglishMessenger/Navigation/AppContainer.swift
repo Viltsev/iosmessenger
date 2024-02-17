@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct AppContainer: View {
+    @StateObject var router = StartNavigationRouter()
+    
     var body: some View {
-        RegistrationView()
+        StartView()
+            .environmentObject(router)
     }
 }
 

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-final class NavigationRouter: ObservableObject {
+final class StartNavigationRouter: ObservableObject {
     
     @Published var path = NavigationPath() {
         didSet {

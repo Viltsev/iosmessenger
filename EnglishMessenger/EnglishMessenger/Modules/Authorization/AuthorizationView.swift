@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AuthorizationView: View {
     @StateObject private var viewModel: AuthorizationViewModel = AuthorizationViewModel()
+    @EnvironmentObject var router: StartNavigationRouter
     var body: some View {
         content()
     }

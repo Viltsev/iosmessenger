@@ -9,6 +9,7 @@ import SwiftUI
 
 struct RegistrationView: View {
     @StateObject var viewModel: RegistrationViewModel = RegistrationViewModel()
+    @EnvironmentObject var router: StartNavigationRouter
     
     var body: some View {
         content()

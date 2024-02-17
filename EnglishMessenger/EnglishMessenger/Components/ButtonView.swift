@@ -13,6 +13,7 @@ struct ButtonView: View {
     var buttonColor: Color
     var textColor: Color
     var actionPublisher: PassthroughSubject<Void, Never>? = nil
+    var action: (() -> Void)? = nil
     
     var body: some View {
         content(text: self.text, buttonColor: self.buttonColor, textColor: self.textColor)
@@ -42,6 +43,8 @@ extension ButtonView {
     func buttonTap() {
         if let actionPublisher = actionPublisher {
             actionPublisher.send()
+        } else if let action = action {
+            action()
         }
     }
 }
