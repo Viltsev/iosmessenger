@@ -27,16 +27,22 @@ extension GenaralApi {
         }
     }
     
-    func authUser(user: UserAuthorization) {
-        providerAuthorization.request(.authUser(user: user)) { result in
-            switch result {
-            case .success(let response):
-                print("Успешный ответ: \(response)")
-                AuthenticationService.shared.status.send(true)
-            case .failure(let error):
-                print("Ошибка: \(error)")
+    func authUser(user: UserAuthorization) -> AnyPublisher<User, ErrorAPI> {
+        providerAuthorization.requestPublisher(.authUser(user: user))
+            .filterSuccessfulStatusCodes()
+            .map(ServerUser.self)
+            .map {
+                UserModelMapper().toLocal(serverEntity: $0)
             }
-        }
+            .mapError { error in
+                if error.response?.statusCode == 404 {
+                    return ErrorAPI.notFound
+                } else {
+                    return ErrorAPI.network
+                }
+            }
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
     }
     
 }
