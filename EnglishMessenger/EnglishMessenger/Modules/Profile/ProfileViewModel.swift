@@ -20,13 +20,21 @@ class ProfileViewModel: ObservableObject {
 
 extension ProfileViewModel {
     func bind() {
-        
+        logout()
+    }
+    
+    func logout() {
+        input.logoutSubject
+            .sink {
+                AuthenticationService.shared.status.send(false)
+            }
+            .store(in: &cancellable)
     }
 }
 
 extension ProfileViewModel {
     struct Input {
-        
+        let logoutSubject = PassthroughSubject<Void, Never>()
     }
     
     struct Output {

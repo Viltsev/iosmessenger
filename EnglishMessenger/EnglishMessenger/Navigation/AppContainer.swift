@@ -9,10 +9,20 @@ import SwiftUI
 
 struct AppContainer: View {
     @StateObject var router = StartNavigationRouter()
+    @State private var isAuth = AuthenticationService.shared.status.value
     
     var body: some View {
-        StartView()
-            .environmentObject(router)
+        Group {
+            if isAuth {
+                ProfileView()
+            } else {
+                StartView()
+                    .environmentObject(router)
+            }
+        }
+        .onReceive(AuthenticationService.shared.status) { status in
+            isAuth = status
+        }
     }
 }
 

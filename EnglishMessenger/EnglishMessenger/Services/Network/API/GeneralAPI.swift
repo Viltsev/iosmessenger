@@ -20,6 +20,7 @@ extension GenaralApi {
             switch result {
             case .success(let response):
                 print("Успешный ответ: \(response)")
+                AuthenticationService.shared.status.send(true)
             case .failure(let error):
                 print("Ошибка: \(error)")
             }
@@ -31,6 +32,7 @@ extension GenaralApi {
             switch result {
             case .success(let response):
                 print("Успешный ответ: \(response)")
+                AuthenticationService.shared.status.send(true)
             case .failure(let error):
                 print("Ошибка: \(error)")
             }

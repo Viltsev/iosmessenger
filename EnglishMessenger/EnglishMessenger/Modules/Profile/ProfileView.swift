@@ -23,6 +23,18 @@ extension ProfileView {
     func content(username: String, dateBirth: String, languageLevel: String) -> some View {
         VStack(alignment: .leading) {
             HStack {
+                Spacer()
+                Button {
+                    viewModel.input.logoutSubject.send()
+                } label: {
+                    Text("Logout")
+                        .font(.headline)
+                        .fontDesign(.serif)
+                        .foregroundStyle(.red)
+                }
+            }
+            .padding(.horizontal)
+            HStack {
                 Circle()
                     .frame(height: 130)
                     .foregroundStyle(Color.indigo)
