@@ -25,6 +25,17 @@
 		83103EE32B7FF73C00932A96 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83103EE22B7FF73C00932A96 /* ProfileView.swift */; };
 		831AE0682B80CAC300C5B6AF /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831AE0672B80CAC300C5B6AF /* ProfileViewModel.swift */; };
 		831AE06A2B80CDCB00C5B6AF /* StartNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831AE0692B80CDCB00C5B6AF /* StartNavigation.swift */; };
+		831AE06D2B80D87500C5B6AF /* BaseModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831AE06C2B80D87500C5B6AF /* BaseModelMapper.swift */; };
+		831AE06F2B80D93E00C5B6AF /* UserRegistration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831AE06E2B80D93E00C5B6AF /* UserRegistration.swift */; };
+		831AE0722B80DFCA00C5B6AF /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831AE0712B80DFCA00C5B6AF /* Provider.swift */; };
+		831AE0752B80E12D00C5B6AF /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 831AE0742B80E12D00C5B6AF /* Alamofire */; };
+		831AE0782B80E1ED00C5B6AF /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 831AE0772B80E1ED00C5B6AF /* CombineMoya */; };
+		831AE07A2B80E1ED00C5B6AF /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 831AE0792B80E1ED00C5B6AF /* Moya */; };
+		831AE07C2B80E1ED00C5B6AF /* ReactiveMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 831AE07B2B80E1ED00C5B6AF /* ReactiveMoya */; };
+		831AE07E2B80E1ED00C5B6AF /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 831AE07D2B80E1ED00C5B6AF /* RxMoya */; };
+		831AE0802B80E21900C5B6AF /* RegistrationEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831AE07F2B80E21900C5B6AF /* RegistrationEndpoint.swift */; };
+		831AE0822B80F4F000C5B6AF /* GeneralAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831AE0812B80F4F000C5B6AF /* GeneralAPI.swift */; };
+		831AE0842B80F55000C5B6AF /* ErrorAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831AE0832B80F55000C5B6AF /* ErrorAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +58,12 @@
 		83103EE22B7FF73C00932A96 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		831AE0672B80CAC300C5B6AF /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		831AE0692B80CDCB00C5B6AF /* StartNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartNavigation.swift; sourceTree = "<group>"; };
+		831AE06C2B80D87500C5B6AF /* BaseModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModelMapper.swift; sourceTree = "<group>"; };
+		831AE06E2B80D93E00C5B6AF /* UserRegistration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegistration.swift; sourceTree = "<group>"; };
+		831AE0712B80DFCA00C5B6AF /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
+		831AE07F2B80E21900C5B6AF /* RegistrationEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationEndpoint.swift; sourceTree = "<group>"; };
+		831AE0812B80F4F000C5B6AF /* GeneralAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralAPI.swift; sourceTree = "<group>"; };
+		831AE0832B80F55000C5B6AF /* ErrorAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +71,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				831AE07E2B80E1ED00C5B6AF /* RxMoya in Frameworks */,
+				831AE0782B80E1ED00C5B6AF /* CombineMoya in Frameworks */,
+				831AE07C2B80E1ED00C5B6AF /* ReactiveMoya in Frameworks */,
+				831AE0752B80E12D00C5B6AF /* Alamofire in Frameworks */,
+				831AE07A2B80E1ED00C5B6AF /* Moya in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,6 +163,7 @@
 		83103EC72B7F5F8A00932A96 /* Mappers */ = {
 			isa = PBXGroup;
 			children = (
+				831AE06C2B80D87500C5B6AF /* BaseModelMapper.swift */,
 			);
 			path = Mappers;
 			sourceTree = "<group>";
@@ -155,6 +178,7 @@
 		83103EC92B7F5F9E00932A96 /* LocalModel */ = {
 			isa = PBXGroup;
 			children = (
+				831AE06E2B80D93E00C5B6AF /* UserRegistration.swift */,
 			);
 			path = LocalModel;
 			sourceTree = "<group>";
@@ -162,6 +186,7 @@
 		83103ECA2B7F5FE900932A96 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				831AE0702B80DFB400C5B6AF /* Network */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -237,6 +262,41 @@
 			path = StartNavigation;
 			sourceTree = "<group>";
 		};
+		831AE0702B80DFB400C5B6AF /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				831AE0872B80F80500C5B6AF /* API */,
+				831AE0852B80F7E800C5B6AF /* Endpoints */,
+				831AE0862B80F7FB00C5B6AF /* Provider */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		831AE0852B80F7E800C5B6AF /* Endpoints */ = {
+			isa = PBXGroup;
+			children = (
+				831AE07F2B80E21900C5B6AF /* RegistrationEndpoint.swift */,
+			);
+			path = Endpoints;
+			sourceTree = "<group>";
+		};
+		831AE0862B80F7FB00C5B6AF /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				831AE0712B80DFCA00C5B6AF /* Provider.swift */,
+			);
+			path = Provider;
+			sourceTree = "<group>";
+		};
+		831AE0872B80F80500C5B6AF /* API */ = {
+			isa = PBXGroup;
+			children = (
+				831AE0812B80F4F000C5B6AF /* GeneralAPI.swift */,
+				831AE0832B80F55000C5B6AF /* ErrorAPI.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -253,6 +313,13 @@
 			dependencies = (
 			);
 			name = EnglishMessenger;
+			packageProductDependencies = (
+				831AE0742B80E12D00C5B6AF /* Alamofire */,
+				831AE0772B80E1ED00C5B6AF /* CombineMoya */,
+				831AE0792B80E1ED00C5B6AF /* Moya */,
+				831AE07B2B80E1ED00C5B6AF /* ReactiveMoya */,
+				831AE07D2B80E1ED00C5B6AF /* RxMoya */,
+			);
 			productName = EnglishMessenger;
 			productReference = 83103EAC2B7F574300932A96 /* EnglishMessenger.app */;
 			productType = "com.apple.product-type.application";
@@ -281,6 +348,10 @@
 				Base,
 			);
 			mainGroup = 83103EA32B7F574300932A96;
+			packageReferences = (
+				831AE0732B80E12D00C5B6AF /* XCRemoteSwiftPackageReference "Alamofire" */,
+				831AE0762B80E1ED00C5B6AF /* XCRemoteSwiftPackageReference "Moya" */,
+			);
 			productRefGroup = 83103EAD2B7F574300932A96 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -309,15 +380,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				83103EE02B7FD75100932A96 /* AuthorizationViewModel.swift in Sources */,
+				831AE0842B80F55000C5B6AF /* ErrorAPI.swift in Sources */,
+				831AE06D2B80D87500C5B6AF /* BaseModelMapper.swift in Sources */,
 				83103EE32B7FF73C00932A96 /* ProfileView.swift in Sources */,
 				83103EB22B7F574300932A96 /* StartView.swift in Sources */,
+				831AE0722B80DFCA00C5B6AF /* Provider.swift in Sources */,
 				83103EDE2B7F9DA900932A96 /* RegistrationViewModel.swift in Sources */,
 				83103ED62B7F993F00932A96 /* StartViewModel.swift in Sources */,
+				831AE0822B80F4F000C5B6AF /* GeneralAPI.swift in Sources */,
 				83103EC42B7F5EC600932A96 /* Colors.swift in Sources */,
 				831AE0682B80CAC300C5B6AF /* ProfileViewModel.swift in Sources */,
 				83103EDA2B7F9B9800932A96 /* RegistrationView.swift in Sources */,
+				831AE0802B80E21900C5B6AF /* RegistrationEndpoint.swift in Sources */,
 				83103ED12B7F924800932A96 /* StartNavigationRouter.swift in Sources */,
 				83103ECF2B7F91EF00932A96 /* AppContainer.swift in Sources */,
+				831AE06F2B80D93E00C5B6AF /* UserRegistration.swift in Sources */,
 				83103EC22B7F5EB600932A96 /* Strings.swift in Sources */,
 				83103EB02B7F574300932A96 /* EnglishMessengerApp.swift in Sources */,
 				831AE06A2B80CDCB00C5B6AF /* StartNavigation.swift in Sources */,
@@ -464,6 +541,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -493,6 +571,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -528,6 +607,53 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		831AE0732B80E12D00C5B6AF /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.8.1;
+			};
+		};
+		831AE0762B80E1ED00C5B6AF /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 15.0.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		831AE0742B80E12D00C5B6AF /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 831AE0732B80E12D00C5B6AF /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		831AE0772B80E1ED00C5B6AF /* CombineMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 831AE0762B80E1ED00C5B6AF /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = CombineMoya;
+		};
+		831AE0792B80E1ED00C5B6AF /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 831AE0762B80E1ED00C5B6AF /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+		831AE07B2B80E1ED00C5B6AF /* ReactiveMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 831AE0762B80E1ED00C5B6AF /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = ReactiveMoya;
+		};
+		831AE07D2B80E1ED00C5B6AF /* RxMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 831AE0762B80E1ED00C5B6AF /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = RxMoya;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 83103EA42B7F574300932A96 /* Project object */;
 }

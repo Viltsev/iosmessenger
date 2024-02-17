@@ -7,11 +7,14 @@
 
 import Foundation
 import Combine
+import Moya
 
 class RegistrationViewModel: ObservableObject {
     let input: Input = Input()
     @Published var output: Output = Output()
     var cancellable = Set<AnyCancellable>()
+    
+    let apiService = GenaralApi()
     
     init() {
         bind()
@@ -21,10 +24,11 @@ class RegistrationViewModel: ObservableObject {
 
 extension RegistrationViewModel {
     func bind() {
-        registration()
+        registrationButtonEnable()
+        registerUser()
     }
     
-    func registration() {
+    func registrationButtonEnable() {
         input.usernameSubject
             .combineLatest(input.emailSubject, input.passwordSubject)
             .map {_ in 
@@ -35,6 +39,21 @@ extension RegistrationViewModel {
             }
             .store(in: &cancellable)
     }
+    
+    func registerUser() {
+        input.registerUserSubject
+            .sink { [weak self] in
+                guard let username = self?.output.userNameFieldText,
+                      let email = self?.output.emailFieldText,
+                      let password = self?.output.passwordFieldText else { return }
+                
+                let userToRegistration = UserRegistration(username: username,
+                                                      email: email,
+                                                      password: password)
+                self?.apiService.registerUser(user: userToRegistration)
+            }
+            .store(in: &cancellable)
+    }
 }
 
 extension RegistrationViewModel {
@@ -42,6 +61,7 @@ extension RegistrationViewModel {
         let usernameSubject = PassthroughSubject<Void, Never>()
         let emailSubject = PassthroughSubject<Void, Never>()
         let passwordSubject = PassthroughSubject<Void, Never>()
+        let registerUserSubject = PassthroughSubject<Void, Never>()
     }
     
     struct Output {

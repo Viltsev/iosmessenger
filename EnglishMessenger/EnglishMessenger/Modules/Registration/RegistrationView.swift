@@ -54,7 +54,7 @@ extension RegistrationView {
     
     @ViewBuilder
     func button() -> some View {
-        ButtonView(text: "Зарегистрироваться", buttonColor: .indigo, textColor: .white)
+        ButtonView(text: "Зарегистрироваться", buttonColor: .indigo, textColor: .white, actionPublisher: viewModel.input.registerUserSubject)
             .padding(.vertical, 20)
             .disabled(viewModel.output.isEnabledButton)
     }
