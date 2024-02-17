@@ -1,5 +1,5 @@
 //
-//  GeneralEndpoint.swift
+//  AuthorizationEndpoint.swift
 //  EnglishMessenger
 //
 //  Created by Данила on 17.02.2024.
@@ -8,19 +8,19 @@
 import Foundation
 import Moya
 
-enum RegistrationEndpoint {
-    case registerUser(user: UserRegistration)
+enum AuthorizationEndpoint {
+    case authUser(user: UserAuthorization)
 }
 
-extension RegistrationEndpoint: TargetType {
+extension AuthorizationEndpoint: TargetType {
     var baseURL: URL {
         URL(string: "http://localhost:8080")!
     }
     
     var path: String {
         switch self {
-        case .registerUser:
-            return "/register"
+        case .authUser:
+            return "/auth"
         }
     }
     
@@ -30,7 +30,7 @@ extension RegistrationEndpoint: TargetType {
     
     var task: Moya.Task {
             switch self {
-            case let .registerUser(user):
+            case let .authUser(user):
                 do {
                     let jsonData = try JSONEncoder().encode(user)
                     if let jsonString = String(data: jsonData, encoding: .utf8) {

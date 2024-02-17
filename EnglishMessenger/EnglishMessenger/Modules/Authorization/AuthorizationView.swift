@@ -47,7 +47,7 @@ extension AuthorizationView {
 extension AuthorizationView {
     @ViewBuilder
     func button() -> some View {
-        ButtonView(text: "Войти в аккаунт", buttonColor: .indigo, textColor: .white)
+        ButtonView(text: "Войти в аккаунт", buttonColor: .indigo, textColor: .white, actionPublisher: viewModel.input.authUserSubject)
             .padding(.vertical, 20)
             .disabled(viewModel.output.isEnabledButton)
     }

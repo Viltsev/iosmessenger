@@ -13,6 +13,8 @@ class AuthorizationViewModel: ObservableObject {
     @Published var output: Output = Output()
     var cancellable = Set<AnyCancellable>()
     
+    let apiService = GenaralApi()
+    
     init() {
         bind()
     }
@@ -20,10 +22,11 @@ class AuthorizationViewModel: ObservableObject {
 
 extension AuthorizationViewModel {
     func bind() {
-        auth()
+        authButtonEnable()
+        authUser()
     }
     
-    func auth() {
+    func authButtonEnable() {
         input.emailSubject
             .combineLatest(input.passwordSubject)
             .map { _ in
@@ -34,12 +37,25 @@ extension AuthorizationViewModel {
             }
             .store(in: &cancellable)
     }
+    
+    func authUser() {
+        input.authUserSubject
+            .sink { [weak self] in
+                guard let email = self?.output.emailField,
+                      let password = self?.output.passwordField else { return }
+                
+                let userAuth = UserAuthorization(email: email, password: password)
+                self?.apiService.authUser(user: userAuth)
+            }
+            .store(in: &cancellable)
+    }
 }
 
 extension AuthorizationViewModel {
     struct Input {
         let emailSubject = PassthroughSubject<Void, Never>()
         let passwordSubject = PassthroughSubject<Void, Never>()
+        let authUserSubject = PassthroughSubject<Void, Never>()
     }
     
     struct Output {

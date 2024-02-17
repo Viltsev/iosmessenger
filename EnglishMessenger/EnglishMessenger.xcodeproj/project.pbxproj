@@ -36,6 +36,8 @@
 		831AE0802B80E21900C5B6AF /* RegistrationEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831AE07F2B80E21900C5B6AF /* RegistrationEndpoint.swift */; };
 		831AE0822B80F4F000C5B6AF /* GeneralAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831AE0812B80F4F000C5B6AF /* GeneralAPI.swift */; };
 		831AE0842B80F55000C5B6AF /* ErrorAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831AE0832B80F55000C5B6AF /* ErrorAPI.swift */; };
+		831AE0892B80F87E00C5B6AF /* AuthorizationEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831AE0882B80F87E00C5B6AF /* AuthorizationEndpoint.swift */; };
+		831AE08B2B80F8B900C5B6AF /* UserAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831AE08A2B80F8B900C5B6AF /* UserAuthorization.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +66,8 @@
 		831AE07F2B80E21900C5B6AF /* RegistrationEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationEndpoint.swift; sourceTree = "<group>"; };
 		831AE0812B80F4F000C5B6AF /* GeneralAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralAPI.swift; sourceTree = "<group>"; };
 		831AE0832B80F55000C5B6AF /* ErrorAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAPI.swift; sourceTree = "<group>"; };
+		831AE0882B80F87E00C5B6AF /* AuthorizationEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationEndpoint.swift; sourceTree = "<group>"; };
+		831AE08A2B80F8B900C5B6AF /* UserAuthorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthorization.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				831AE06E2B80D93E00C5B6AF /* UserRegistration.swift */,
+				831AE08A2B80F8B900C5B6AF /* UserAuthorization.swift */,
 			);
 			path = LocalModel;
 			sourceTree = "<group>";
@@ -276,6 +281,7 @@
 			isa = PBXGroup;
 			children = (
 				831AE07F2B80E21900C5B6AF /* RegistrationEndpoint.swift */,
+				831AE0882B80F87E00C5B6AF /* AuthorizationEndpoint.swift */,
 			);
 			path = Endpoints;
 			sourceTree = "<group>";
@@ -382,6 +388,7 @@
 				83103EE02B7FD75100932A96 /* AuthorizationViewModel.swift in Sources */,
 				831AE0842B80F55000C5B6AF /* ErrorAPI.swift in Sources */,
 				831AE06D2B80D87500C5B6AF /* BaseModelMapper.swift in Sources */,
+				831AE08B2B80F8B900C5B6AF /* UserAuthorization.swift in Sources */,
 				83103EE32B7FF73C00932A96 /* ProfileView.swift in Sources */,
 				83103EB22B7F574300932A96 /* StartView.swift in Sources */,
 				831AE0722B80DFCA00C5B6AF /* Provider.swift in Sources */,
@@ -395,6 +402,7 @@
 				83103ED12B7F924800932A96 /* StartNavigationRouter.swift in Sources */,
 				83103ECF2B7F91EF00932A96 /* AppContainer.swift in Sources */,
 				831AE06F2B80D93E00C5B6AF /* UserRegistration.swift in Sources */,
+				831AE0892B80F87E00C5B6AF /* AuthorizationEndpoint.swift in Sources */,
 				83103EC22B7F5EB600932A96 /* Strings.swift in Sources */,
 				83103EB02B7F574300932A96 /* EnglishMessengerApp.swift in Sources */,
 				831AE06A2B80CDCB00C5B6AF /* StartNavigation.swift in Sources */,
