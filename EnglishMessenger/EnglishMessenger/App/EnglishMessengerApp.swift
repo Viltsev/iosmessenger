@@ -11,7 +11,7 @@ import SwiftUI
 struct EnglishMessengerApp: App {
     var body: some Scene {
         WindowGroup {
-            StartView()
+            AppContainer()
         }
     }
 }
