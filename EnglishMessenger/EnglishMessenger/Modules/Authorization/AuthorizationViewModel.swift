@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import CombineExt
 
 class AuthorizationViewModel: ObservableObject {
     let input: Input = Input()
@@ -39,13 +40,46 @@ extension AuthorizationViewModel {
     }
     
     func authUser() {
-        input.authUserSubject
-            .sink { [weak self] in
-                guard let email = self?.output.emailField,
-                      let password = self?.output.passwordField else { return }
+        let request = input.authUserSubject
+            .map { [unowned self] in
+                let userAuth = UserAuthorization(email: self.output.emailField, password: self.output.passwordField)
+                return self.apiService.authUser(user: userAuth)
+                    .materialize()
+            }
+            .switchToLatest()
+            .share()
+        
+        request
+            .failures()
+            .sink { error in
+                print(error)
+            }
+            .store(in: &cancellable)
+        
+        request
+            .values()
+            .sink { [weak self] user in
+                guard let self else { return }
+                let dateOfBirth = user.dateOfBirth
                 
-                let userAuth = UserAuthorization(email: email, password: password)
-                self?.apiService.authUser(user: userAuth)
+                let dateFormatter = DateFormatter()
+
+                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+
+                let dateString = dateOfBirth
+
+                if let date = dateFormatter.date(from: dateString) {
+                    dateFormatter.dateFormat = "dd.MM.yyyy"
+                    
+                    let formattedDateString = dateFormatter.string(from: date)
+                    UserDefaults.standard.setValue(formattedDateString, forKey: "dateOfBirth")
+                } else {
+                    print("Невозможно преобразовать строку в дату")
+                }
+                
+                UserDefaults.standard.setValue(user.username, forKey: "username")
+                UserDefaults.standard.setValue(user.languageLevel, forKey: "languageLevel")
+                AuthenticationService.shared.status.send(true)
             }
             .store(in: &cancellable)
     }
@@ -62,5 +96,6 @@ extension AuthorizationViewModel {
         var emailField = ""
         var passwordField = ""
         var isEnabledButton: Bool = true
+        var user: User?
     }
 }

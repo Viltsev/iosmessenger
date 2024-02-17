@@ -40,6 +40,10 @@
 		831AE08B2B80F8B900C5B6AF /* UserAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831AE08A2B80F8B900C5B6AF /* UserAuthorization.swift */; };
 		831AE08E2B81081E00C5B6AF /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831AE08D2B81081E00C5B6AF /* AuthenticationService.swift */; };
 		831AE0912B81089A00C5B6AF /* UserStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831AE0902B81089A00C5B6AF /* UserStorage.swift */; };
+		831AE0932B811FD700C5B6AF /* ServerUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831AE0922B811FD700C5B6AF /* ServerUser.swift */; };
+		831AE0952B81203800C5B6AF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831AE0942B81203800C5B6AF /* User.swift */; };
+		831AE0972B8120B300C5B6AF /* UserModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831AE0962B8120B300C5B6AF /* UserModelMapper.swift */; };
+		831AE09A2B81236300C5B6AF /* CombineExt in Frameworks */ = {isa = PBXBuildFile; productRef = 831AE0992B81236300C5B6AF /* CombineExt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +76,9 @@
 		831AE08A2B80F8B900C5B6AF /* UserAuthorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthorization.swift; sourceTree = "<group>"; };
 		831AE08D2B81081E00C5B6AF /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
 		831AE0902B81089A00C5B6AF /* UserStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStorage.swift; sourceTree = "<group>"; };
+		831AE0922B811FD700C5B6AF /* ServerUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerUser.swift; sourceTree = "<group>"; };
+		831AE0942B81203800C5B6AF /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		831AE0962B8120B300C5B6AF /* UserModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModelMapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +90,7 @@
 				831AE0782B80E1ED00C5B6AF /* CombineMoya in Frameworks */,
 				831AE07C2B80E1ED00C5B6AF /* ReactiveMoya in Frameworks */,
 				831AE0752B80E12D00C5B6AF /* Alamofire in Frameworks */,
+				831AE09A2B81236300C5B6AF /* CombineExt in Frameworks */,
 				831AE07A2B80E1ED00C5B6AF /* Moya in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -172,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				831AE06C2B80D87500C5B6AF /* BaseModelMapper.swift */,
+				831AE0962B8120B300C5B6AF /* UserModelMapper.swift */,
 			);
 			path = Mappers;
 			sourceTree = "<group>";
@@ -179,6 +188,7 @@
 		83103EC82B7F5F9300932A96 /* ServerModel */ = {
 			isa = PBXGroup;
 			children = (
+				831AE0922B811FD700C5B6AF /* ServerUser.swift */,
 			);
 			path = ServerModel;
 			sourceTree = "<group>";
@@ -188,6 +198,7 @@
 			children = (
 				831AE06E2B80D93E00C5B6AF /* UserRegistration.swift */,
 				831AE08A2B80F8B900C5B6AF /* UserAuthorization.swift */,
+				831AE0942B81203800C5B6AF /* User.swift */,
 			);
 			path = LocalModel;
 			sourceTree = "<group>";
@@ -347,6 +358,7 @@
 				831AE0792B80E1ED00C5B6AF /* Moya */,
 				831AE07B2B80E1ED00C5B6AF /* ReactiveMoya */,
 				831AE07D2B80E1ED00C5B6AF /* RxMoya */,
+				831AE0992B81236300C5B6AF /* CombineExt */,
 			);
 			productName = EnglishMessenger;
 			productReference = 83103EAC2B7F574300932A96 /* EnglishMessenger.app */;
@@ -379,6 +391,7 @@
 			packageReferences = (
 				831AE0732B80E12D00C5B6AF /* XCRemoteSwiftPackageReference "Alamofire" */,
 				831AE0762B80E1ED00C5B6AF /* XCRemoteSwiftPackageReference "Moya" */,
+				831AE0982B81236300C5B6AF /* XCRemoteSwiftPackageReference "CombineExt" */,
 			);
 			productRefGroup = 83103EAD2B7F574300932A96 /* Products */;
 			projectDirPath = "";
@@ -408,10 +421,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				83103EE02B7FD75100932A96 /* AuthorizationViewModel.swift in Sources */,
+				831AE0972B8120B300C5B6AF /* UserModelMapper.swift in Sources */,
 				831AE0842B80F55000C5B6AF /* ErrorAPI.swift in Sources */,
 				831AE06D2B80D87500C5B6AF /* BaseModelMapper.swift in Sources */,
 				831AE08B2B80F8B900C5B6AF /* UserAuthorization.swift in Sources */,
 				83103EE32B7FF73C00932A96 /* ProfileView.swift in Sources */,
+				831AE0952B81203800C5B6AF /* User.swift in Sources */,
+				831AE0932B811FD700C5B6AF /* ServerUser.swift in Sources */,
 				83103EB22B7F574300932A96 /* StartView.swift in Sources */,
 				831AE0722B80DFCA00C5B6AF /* Provider.swift in Sources */,
 				83103EDE2B7F9DA900932A96 /* RegistrationViewModel.swift in Sources */,
@@ -657,6 +673,14 @@
 				minimumVersion = 15.0.3;
 			};
 		};
+		831AE0982B81236300C5B6AF /* XCRemoteSwiftPackageReference "CombineExt" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/CombineCommunity/CombineExt";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.8.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -684,6 +708,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 831AE0762B80E1ED00C5B6AF /* XCRemoteSwiftPackageReference "Moya" */;
 			productName = RxMoya;
+		};
+		831AE0992B81236300C5B6AF /* CombineExt */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 831AE0982B81236300C5B6AF /* XCRemoteSwiftPackageReference "CombineExt" */;
+			productName = CombineExt;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

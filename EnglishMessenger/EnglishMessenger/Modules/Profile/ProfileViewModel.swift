@@ -38,8 +38,8 @@ extension ProfileViewModel {
     }
     
     struct Output {
-        var username: String = "Danila Viltsev"
-        var dateBirth: String = "24.12.2001"
-        var languageLevel: String = "B2"
+        var username: String = UserDefaults.standard.string(forKey: "username") ?? "Username"
+        var dateBirth: String = UserDefaults.standard.string(forKey: "dateOfBirth") ?? "DateOfBirth"
+        var languageLevel: String = UserDefaults.standard.string(forKey: "languageLevel") ?? "Level"
     }
 }
