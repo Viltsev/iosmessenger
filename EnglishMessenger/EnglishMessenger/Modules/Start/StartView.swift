@@ -8,12 +8,19 @@
 import SwiftUI
 
 struct StartView: View {
+    @StateObject private var viewModel: StartViewModel = StartViewModel()
+    
     var body: some View {
+        content()
+    }
+}
+
+extension StartView {
+    @ViewBuilder
+    func content() -> some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            ButtonView(text: "Регистрация", buttonColor: .indigo, textColor: .white, actionPublisher: viewModel.input.pushRegistrationSubject)
+            ButtonView(text: "Авторизация", buttonColor: .indigo, textColor: .white, actionPublisher: viewModel.input.pushAuthSubject)
         }
         .padding()
     }
