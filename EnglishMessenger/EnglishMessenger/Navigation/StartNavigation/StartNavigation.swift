@@ -10,4 +10,5 @@ import Foundation
 enum StartNavigation: Hashable {
     case pushRegistrationView
     case pushAuthorizationView
+    case pushOnboardingView
 }

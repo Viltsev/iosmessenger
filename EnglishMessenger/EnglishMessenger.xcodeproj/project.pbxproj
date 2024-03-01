@@ -69,6 +69,8 @@
 		83505D1B2B922FE3005FD7DC /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83505D1A2B922FE3005FD7DC /* CustomTextField.swift */; };
 		83505D1D2B923673005FD7DC /* OnboardingNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83505D1C2B923673005FD7DC /* OnboardingNavigationView.swift */; };
 		83505D202B923D91005FD7DC /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83505D1F2B923D91005FD7DC /* OnboardingView.swift */; };
+		83505D262B9268A0005FD7DC /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83505D252B9268A0005FD7DC /* OnboardingViewModel.swift */; };
+		83505D282B92782D005FD7DC /* MaskedDateTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83505D272B92782D005FD7DC /* MaskedDateTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -130,6 +132,8 @@
 		83505D1A2B922FE3005FD7DC /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		83505D1C2B923673005FD7DC /* OnboardingNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingNavigationView.swift; sourceTree = "<group>"; };
 		83505D1F2B923D91005FD7DC /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		83505D252B9268A0005FD7DC /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
+		83505D272B92782D005FD7DC /* MaskedDateTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskedDateTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -303,6 +307,7 @@
 				83505CF32B9226D3005FD7DC /* CustomTextFieldStyle.swift */,
 				83505D1A2B922FE3005FD7DC /* CustomTextField.swift */,
 				83505D1C2B923673005FD7DC /* OnboardingNavigationView.swift */,
+				83505D272B92782D005FD7DC /* MaskedDateTextField.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -433,6 +438,7 @@
 			isa = PBXGroup;
 			children = (
 				83505D1F2B923D91005FD7DC /* OnboardingView.swift */,
+				83505D252B9268A0005FD7DC /* OnboardingViewModel.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -550,11 +556,13 @@
 				831AE0952B81203800C5B6AF /* User.swift in Sources */,
 				831AE0932B811FD700C5B6AF /* ServerUser.swift in Sources */,
 				83505D1D2B923673005FD7DC /* OnboardingNavigationView.swift in Sources */,
+				83505D262B9268A0005FD7DC /* OnboardingViewModel.swift in Sources */,
 				83103EB22B7F574300932A96 /* StartView.swift in Sources */,
 				831AE0722B80DFCA00C5B6AF /* Provider.swift in Sources */,
 				83103EDE2B7F9DA900932A96 /* RegistrationViewModel.swift in Sources */,
 				83103ED62B7F993F00932A96 /* StartViewModel.swift in Sources */,
 				831AE0912B81089A00C5B6AF /* UserStorage.swift in Sources */,
+				83505D282B92782D005FD7DC /* MaskedDateTextField.swift in Sources */,
 				831AE0822B80F4F000C5B6AF /* GeneralAPI.swift in Sources */,
 				83505CF42B9226D3005FD7DC /* CustomTextFieldStyle.swift in Sources */,
 				83103EC42B7F5EC600932A96 /* Colors.swift in Sources */,

@@ -56,13 +56,17 @@ extension RegistrationView {
 extension RegistrationView {
     @ViewBuilder
     func button() -> some View {
-        ButtonView(text: "Create an account", buttonColor: .mainPurple, size: 30, actionPublisher: viewModel.input.registerUserSubject)
+        ButtonView(text: "Create an account", buttonColor: .mainPurple, size: 30, action: goToOnboarding)
             .padding(.vertical, 20)
             .disabled(viewModel.output.isEnabledButton)
     }
 }
 
 extension RegistrationView {
+    func goToOnboarding() {
+        router.pushView(StartNavigation.pushOnboardingView)
+    }
+    
     func backButtonAction() {
         router.popView()
     }

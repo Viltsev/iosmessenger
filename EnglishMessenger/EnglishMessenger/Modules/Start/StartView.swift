@@ -24,6 +24,8 @@ struct StartView: View {
                                 AuthorizationView()
                             case .pushRegistrationView:
                                 RegistrationView()
+                            case .pushOnboardingView:
+                                OnboardingView()
                             }
                         }
                         .navigationBarBackButtonHidden(true)

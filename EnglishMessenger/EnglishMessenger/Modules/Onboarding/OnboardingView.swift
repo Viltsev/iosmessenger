@@ -6,11 +6,14 @@
 //
 
 import SwiftUI
+import Combine
 
 struct OnboardingView: View {
+    @StateObject private var viewModel: OnboardingViewModel = OnboardingViewModel()
+    @EnvironmentObject var router: StartNavigationRouter
     @State private var pageNumber = 0
-    @State private var text = ""
     @State private var age = ""
+    @State private var dateText = ""
     
     var body: some View {
         Color.lightPinky
@@ -34,7 +37,23 @@ struct OnboardingView: View {
                     OnboardingNavigationView(pageNumber: pageNumber)
                 }
             }
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button {
+                        backButtonAction()
+                    } label: {
+                        Image("backButton")
+                            .imageScale(.large)
+                    }
+                }
+            }
         
+    }
+}
+
+extension OnboardingView {
+    func backButtonAction() {
+        router.popView()
     }
 }
 
@@ -44,7 +63,7 @@ extension OnboardingView {
         VStack(alignment: .center, spacing: 15) {
             Spacer()
             TitleTextView(text: "Your Username", size: 35)
-            TextField("@username", text: $text)
+            TextField("@username", text: $viewModel.output.username)
                 .foregroundColor(.mainPurple)
                 .font(.custom("Montserrat-Light", size: 30))
                 .multilineTextAlignment(.center)
@@ -57,8 +76,8 @@ extension OnboardingView {
     func birthView() -> some View {
         VStack(alignment: .center, spacing: 15) {
             Spacer()
-            TitleTextView(text: "What’s your age?", size: 35)
-            CustomTextField(textFieldLabel: "Age", text: $age)
+            TitleTextView(text: "What’s your birth date?", size: 35)
+            MaskedDateTextField(text: $dateText)
             Spacer()
         }
         .padding(.horizontal, 16)
