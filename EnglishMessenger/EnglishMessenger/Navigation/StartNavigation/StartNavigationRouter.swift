@@ -22,4 +22,10 @@ final class StartNavigationRouter: ObservableObject {
     func popToRoot() {
         self.path = NavigationPath()
     }
+    
+    func popView() {
+        if !path.isEmpty {
+            path.removeLast()
+        }
+    }
 }

@@ -53,7 +53,7 @@ extension RegistrationView {
     }
 }
 
-extension RegistrationView {    
+extension RegistrationView {
     @ViewBuilder
     func button() -> some View {
         ButtonView(text: "Create an account", buttonColor: .mainPurple, size: 30, actionPublisher: viewModel.input.registerUserSubject)
@@ -64,7 +64,7 @@ extension RegistrationView {
 
 extension RegistrationView {
     func backButtonAction() {
-        router.popToRoot()
+        router.popView()
     }
     
     func usernameAction() {

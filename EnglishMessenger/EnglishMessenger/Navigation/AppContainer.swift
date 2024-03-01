@@ -16,8 +16,9 @@ struct AppContainer: View {
             if isAuth {
                 ProfileView()
             } else {
-                StartView()
-                    .environmentObject(router)
+                OnboardingView()
+//                StartView()
+//                    .environmentObject(router)
             }
         }
         .onReceive(AuthenticationService.shared.status) { status in

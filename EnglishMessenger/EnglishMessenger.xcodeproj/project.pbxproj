@@ -67,6 +67,8 @@
 		83505D182B922948005FD7DC /* Montserrat-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 83505D062B922948005FD7DC /* Montserrat-SemiBoldItalic.ttf */; };
 		83505D192B922948005FD7DC /* Montserrat-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 83505D072B922948005FD7DC /* Montserrat-ExtraBoldItalic.ttf */; };
 		83505D1B2B922FE3005FD7DC /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83505D1A2B922FE3005FD7DC /* CustomTextField.swift */; };
+		83505D1D2B923673005FD7DC /* OnboardingNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83505D1C2B923673005FD7DC /* OnboardingNavigationView.swift */; };
+		83505D202B923D91005FD7DC /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83505D1F2B923D91005FD7DC /* OnboardingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -126,6 +128,8 @@
 		83505D062B922948005FD7DC /* Montserrat-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		83505D072B922948005FD7DC /* Montserrat-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
 		83505D1A2B922FE3005FD7DC /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		83505D1C2B923673005FD7DC /* OnboardingNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingNavigationView.swift; sourceTree = "<group>"; };
+		83505D1F2B923D91005FD7DC /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -273,6 +277,7 @@
 		83103ECC2B7F601700932A96 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				83505D1E2B923AEC005FD7DC /* Onboarding */,
 				83103EE12B7FEC6600932A96 /* Profile */,
 				83103ED82B7F9B7200932A96 /* Authorization */,
 				83103ED72B7F9B5E00932A96 /* Registration */,
@@ -297,6 +302,7 @@
 				83505CF12B91FF97005FD7DC /* TitleTextView.swift */,
 				83505CF32B9226D3005FD7DC /* CustomTextFieldStyle.swift */,
 				83505D1A2B922FE3005FD7DC /* CustomTextField.swift */,
+				83505D1C2B923673005FD7DC /* OnboardingNavigationView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -423,6 +429,14 @@
 			path = monteserrat;
 			sourceTree = "<group>";
 		};
+		83505D1E2B923AEC005FD7DC /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				83505D1F2B923D91005FD7DC /* OnboardingView.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -535,6 +549,7 @@
 				83103EE32B7FF73C00932A96 /* ProfileView.swift in Sources */,
 				831AE0952B81203800C5B6AF /* User.swift in Sources */,
 				831AE0932B811FD700C5B6AF /* ServerUser.swift in Sources */,
+				83505D1D2B923673005FD7DC /* OnboardingNavigationView.swift in Sources */,
 				83103EB22B7F574300932A96 /* StartView.swift in Sources */,
 				831AE0722B80DFCA00C5B6AF /* Provider.swift in Sources */,
 				83103EDE2B7F9DA900932A96 /* RegistrationViewModel.swift in Sources */,
@@ -547,6 +562,7 @@
 				83103EDA2B7F9B9800932A96 /* RegistrationView.swift in Sources */,
 				83505D1B2B922FE3005FD7DC /* CustomTextField.swift in Sources */,
 				831AE0802B80E21900C5B6AF /* RegistrationEndpoint.swift in Sources */,
+				83505D202B923D91005FD7DC /* OnboardingView.swift in Sources */,
 				83103ED12B7F924800932A96 /* StartNavigationRouter.swift in Sources */,
 				83505CF22B91FF97005FD7DC /* TitleTextView.swift in Sources */,
 				831AE08E2B81081E00C5B6AF /* AuthenticationService.swift in Sources */,

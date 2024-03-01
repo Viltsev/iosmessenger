@@ -4,6 +4,7 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
+		<string>Montserrat-Regular.ttf</string>
 		<string>Alice-Regular.ttf</string>
 		<string>Montserrat-Light.ttf</string>
 	</array>

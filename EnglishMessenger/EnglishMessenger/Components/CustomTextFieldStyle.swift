@@ -10,7 +10,8 @@ import SwiftUI
 struct CustomTextFieldStyle: TextFieldStyle {
     func _body(configuration: TextField<Self._Label>) -> some View {
         configuration
-            .padding(10)
+            .padding(.vertical, 10)
+            .padding(.horizontal, 16)
             .background(.lightPinky)
             .cornerRadius(25)
             .overlay(

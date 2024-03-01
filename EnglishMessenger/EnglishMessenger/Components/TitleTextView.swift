@@ -13,6 +13,7 @@ struct TitleTextView: View {
     
     var body: some View {
         Text(text)
+            .multilineTextAlignment(.center)
             .font(.custom("Alice-Regular", size: size))
             .foregroundStyle(.mainPurple)
     }
