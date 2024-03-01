@@ -8,6 +8,8 @@
 import Foundation
 import Combine
 import CombineExt
+import UIKit
+import SwiftUI
 
 class AuthorizationViewModel: ObservableObject {
     let input: Input = Input()
@@ -72,13 +74,18 @@ extension AuthorizationViewModel {
                     dateFormatter.dateFormat = "dd.MM.yyyy"
                     
                     let formattedDateString = dateFormatter.string(from: date)
+                    UserDefaults.standard.removeObject(forKey: "dateOfBirth")
                     UserDefaults.standard.setValue(formattedDateString, forKey: "dateOfBirth")
                 } else {
                     print("Невозможно преобразовать строку в дату")
                 }
-                
+                // loadImage(dataFromServer: user.photo)
+                UserDefaults.standard.removeObject(forKey: "username")
+                UserDefaults.standard.removeObject(forKey: "languageLevel")
                 UserDefaults.standard.setValue(user.username, forKey: "username")
                 UserDefaults.standard.setValue(user.languageLevel, forKey: "languageLevel")
+                UserDefaults.standard.setValue(user.photo, forKey: "photo")
+                
                 AuthenticationService.shared.status.send(true)
             }
             .store(in: &cancellable)

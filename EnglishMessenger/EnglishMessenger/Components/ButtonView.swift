@@ -11,30 +11,22 @@ import Combine
 struct ButtonView: View {
     var text: String
     var buttonColor: Color
-    var textColor: Color
+    var size: Int
     var actionPublisher: PassthroughSubject<Void, Never>? = nil
     var action: (() -> Void)? = nil
     
     var body: some View {
-        content(text: self.text, buttonColor: self.buttonColor, textColor: self.textColor)
+        content(text: self.text, buttonColor: self.buttonColor, size: CGFloat(self.size))
     }
 }
 
 extension ButtonView {
     @ViewBuilder
-    func content(text: String, buttonColor: Color, textColor: Color) -> some View {
+    func content(text: String, buttonColor: Color, size: CGFloat) -> some View {
         Button(action: buttonTap, label: {
-            HStack {
-                Text(text)
-                    .font(.title2)
-                    .fontDesign(.serif)
-                    .foregroundStyle(textColor)
-                    .padding()
-            }
-            .frame(maxWidth: .infinity)
-            .background(buttonColor)
-            .clipShape(.buttonBorder)
-            .padding(.horizontal, 16)
+            Text(text)
+                .font(.custom("Alice-Regular", size: size))
+                .foregroundStyle(buttonColor)
         })
     }
 }
@@ -49,6 +41,6 @@ extension ButtonView {
     }
 }
 
-#Preview {
-    ButtonView(text: "Registration", buttonColor: .mint, textColor: .white)
-}
+//#Preview {
+//    ButtonView(text: "Registration", buttonColor: .mint)
+//}

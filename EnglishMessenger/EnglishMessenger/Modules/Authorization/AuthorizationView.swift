@@ -11,7 +11,21 @@ struct AuthorizationView: View {
     @StateObject private var viewModel: AuthorizationViewModel = AuthorizationViewModel()
     @EnvironmentObject var router: StartNavigationRouter
     var body: some View {
-        content()
+        Color.lightPinky
+            .ignoresSafeArea()
+            .overlay {
+                content()
+            }
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button {
+                        backButtonAction()
+                    } label: {
+                        Image("backButton")
+                            .imageScale(.large)
+                    }
+                }
+            }
     }
 }
 
@@ -19,10 +33,20 @@ extension AuthorizationView {
     @ViewBuilder
     func content() -> some View {
         VStack {
-            authField(title: "Email", textFieldLabel: "Enter your email", text: $viewModel.output.emailField)
+            TitleTextView(text: "Sign Up", size: 40)
+                .padding(.bottom, 30)
+            
+            Image("koalaImage")
+                .imageScale(.large)
+            
+            Spacer()
+            
+            CustomTextField(textFieldLabel: "Email", text: $viewModel.output.emailField)
                 .onChange(of: viewModel.output.emailField, emailAction)
-            authField(title: "Password", textFieldLabel: "Enter your password", text: $viewModel.output.passwordField)
+            
+            CustomTextField(textFieldLabel: "Password", text: $viewModel.output.passwordField)
                 .onChange(of: viewModel.output.passwordField, passwordAction)
+            
             button()
         }
         .padding()
@@ -31,29 +55,18 @@ extension AuthorizationView {
 
 extension AuthorizationView {
     @ViewBuilder
-    func authField(title: String, textFieldLabel: String, text: Binding<String>) -> some View {
-        VStack(alignment: .leading) {
-            Text(title)
-                .font(.title3)
-                .fontDesign(.serif)
-                .foregroundStyle(.black)
-            TextField(textFieldLabel, text: text)
-                .textFieldStyle(.roundedBorder)
-        }
-        .padding([.horizontal, .vertical], 16)
-    }
-}
-
-extension AuthorizationView {
-    @ViewBuilder
     func button() -> some View {
-        ButtonView(text: "Войти в аккаунт", buttonColor: .indigo, textColor: .white, actionPublisher: viewModel.input.authUserSubject)
+        ButtonView(text: "Login to account", buttonColor: .mainPurple, size: 30, actionPublisher: viewModel.input.authUserSubject)
             .padding(.vertical, 20)
             .disabled(viewModel.output.isEnabledButton)
     }
 }
 
 extension AuthorizationView {
+    func backButtonAction() {
+        router.popToRoot()
+    }
+    
     func emailAction() {
         viewModel.input.emailSubject.send()
     }

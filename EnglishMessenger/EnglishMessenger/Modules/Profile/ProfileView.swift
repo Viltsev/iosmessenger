@@ -40,6 +40,11 @@ extension ProfileView {
                     .foregroundStyle(Color.indigo)
                     .padding(.leading, 16)
                     .padding(.top, 25)
+                //                Image(uiImage: viewModel.output.photo)
+                //                    .frame(width: 30, height: 30)
+                //                    .scaledToFill()
+                //                    .padding(.leading, 16)
+                //                    .padding(.top, 25)
                 Spacer()
                 VStack(alignment: .leading) {
                     Text(username)

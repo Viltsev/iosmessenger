@@ -13,6 +13,7 @@ final class UserModelMapper: BaseModelMapper<ServerUser, User> {
              email: serverEntity.email ?? "", 
              phone: serverEntity.phone ?? "",
              dateOfBirth: serverEntity.dateOfBirth ?? "",
-             languageLevel: serverEntity.languageLevel ?? "")
+             languageLevel: serverEntity.languageLevel ?? "",
+             photo: serverEntity.photo ?? Data())
     }
 }
