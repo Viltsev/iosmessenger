@@ -19,23 +19,7 @@ struct OnboardingView: View {
         Color.lightPinky
             .ignoresSafeArea()
             .overlay {
-                VStack {
-                    TabView(selection: $pageNumber) {
-                        usernameView()
-                            .tag(0)
-                        birthView()
-                            .tag(1)
-                        photoView()
-                            .tag(2)
-                        interestsView()
-                            .tag(3)
-                        pretestView()
-                            .tag(4)
-                    }
-                    .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-                    Spacer()
-                    OnboardingNavigationView(pageNumber: pageNumber)
-                }
+                content()
             }
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
@@ -58,6 +42,28 @@ extension OnboardingView {
 }
 
 extension OnboardingView {
+    
+    @ViewBuilder
+    func content() -> some View {
+        VStack {
+            TabView(selection: $pageNumber) {
+                usernameView()
+                    .tag(0)
+                birthView()
+                    .tag(1)
+                photoView()
+                    .tag(2)
+                interestsView()
+                    .tag(3)
+                pretestView()
+                    .tag(4)
+            }
+            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+            Spacer()
+            OnboardingNavigationView(pageNumber: pageNumber)
+        }
+    }
+    
     @ViewBuilder
     func usernameView() -> some View {
         VStack(alignment: .center, spacing: 15) {

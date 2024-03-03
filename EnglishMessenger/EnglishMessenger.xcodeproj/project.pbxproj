@@ -71,6 +71,11 @@
 		83505D202B923D91005FD7DC /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83505D1F2B923D91005FD7DC /* OnboardingView.swift */; };
 		83505D262B9268A0005FD7DC /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83505D252B9268A0005FD7DC /* OnboardingViewModel.swift */; };
 		83505D282B92782D005FD7DC /* MaskedDateTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83505D272B92782D005FD7DC /* MaskedDateTextField.swift */; };
+		83BD01EE2B93698A0059AB53 /* TestingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BD01ED2B93698A0059AB53 /* TestingView.swift */; };
+		83BD01F02B936ABB0059AB53 /* BackButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BD01EF2B936ABB0059AB53 /* BackButtonView.swift */; };
+		83BD01F62B936B620059AB53 /* TestProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BD01F52B936B620059AB53 /* TestProgressView.swift */; };
+		83C2B3162B94D73900B69E69 /* TestButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C2B3152B94D73900B69E69 /* TestButtonView.swift */; };
+		83C2B3182B94EE9C00B69E69 /* PurpleButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C2B3172B94EE9C00B69E69 /* PurpleButtonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -134,6 +139,11 @@
 		83505D1F2B923D91005FD7DC /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		83505D252B9268A0005FD7DC /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		83505D272B92782D005FD7DC /* MaskedDateTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskedDateTextField.swift; sourceTree = "<group>"; };
+		83BD01ED2B93698A0059AB53 /* TestingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingView.swift; sourceTree = "<group>"; };
+		83BD01EF2B936ABB0059AB53 /* BackButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButtonView.swift; sourceTree = "<group>"; };
+		83BD01F52B936B620059AB53 /* TestProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestProgressView.swift; sourceTree = "<group>"; };
+		83C2B3152B94D73900B69E69 /* TestButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestButtonView.swift; sourceTree = "<group>"; };
+		83C2B3172B94EE9C00B69E69 /* PurpleButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurpleButtonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -281,6 +291,7 @@
 		83103ECC2B7F601700932A96 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				83BD01EC2B9369520059AB53 /* Test */,
 				83505D1E2B923AEC005FD7DC /* Onboarding */,
 				83103EE12B7FEC6600932A96 /* Profile */,
 				83103ED82B7F9B7200932A96 /* Authorization */,
@@ -302,12 +313,10 @@
 		83103ED22B7F93E700932A96 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				83103ED32B7F940600932A96 /* ButtonView.swift */,
-				83505CF12B91FF97005FD7DC /* TitleTextView.swift */,
-				83505CF32B9226D3005FD7DC /* CustomTextFieldStyle.swift */,
-				83505D1A2B922FE3005FD7DC /* CustomTextField.swift */,
-				83505D1C2B923673005FD7DC /* OnboardingNavigationView.swift */,
-				83505D272B92782D005FD7DC /* MaskedDateTextField.swift */,
+				83BD01F42B936B440059AB53 /* TapBar */,
+				83BD01F32B936B330059AB53 /* TextFields */,
+				83BD01F22B936B280059AB53 /* Texts */,
+				83BD01F12B936B1A0059AB53 /* Buttons */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -443,6 +452,52 @@
 			path = Onboarding;
 			sourceTree = "<group>";
 		};
+		83BD01EC2B9369520059AB53 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				83BD01ED2B93698A0059AB53 /* TestingView.swift */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
+		83BD01F12B936B1A0059AB53 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				83103ED32B7F940600932A96 /* ButtonView.swift */,
+				83BD01EF2B936ABB0059AB53 /* BackButtonView.swift */,
+				83C2B3152B94D73900B69E69 /* TestButtonView.swift */,
+				83C2B3172B94EE9C00B69E69 /* PurpleButtonView.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		83BD01F22B936B280059AB53 /* Texts */ = {
+			isa = PBXGroup;
+			children = (
+				83505CF12B91FF97005FD7DC /* TitleTextView.swift */,
+			);
+			path = Texts;
+			sourceTree = "<group>";
+		};
+		83BD01F32B936B330059AB53 /* TextFields */ = {
+			isa = PBXGroup;
+			children = (
+				83505D272B92782D005FD7DC /* MaskedDateTextField.swift */,
+				83505CF32B9226D3005FD7DC /* CustomTextFieldStyle.swift */,
+				83505D1A2B922FE3005FD7DC /* CustomTextField.swift */,
+			);
+			path = TextFields;
+			sourceTree = "<group>";
+		};
+		83BD01F42B936B440059AB53 /* TapBar */ = {
+			isa = PBXGroup;
+			children = (
+				83505D1C2B923673005FD7DC /* OnboardingNavigationView.swift */,
+				83BD01F52B936B620059AB53 /* TestProgressView.swift */,
+			);
+			path = TapBar;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -552,6 +607,7 @@
 				831AE0842B80F55000C5B6AF /* ErrorAPI.swift in Sources */,
 				831AE06D2B80D87500C5B6AF /* BaseModelMapper.swift in Sources */,
 				831AE08B2B80F8B900C5B6AF /* UserAuthorization.swift in Sources */,
+				83BD01EE2B93698A0059AB53 /* TestingView.swift in Sources */,
 				83103EE32B7FF73C00932A96 /* ProfileView.swift in Sources */,
 				831AE0952B81203800C5B6AF /* User.swift in Sources */,
 				831AE0932B811FD700C5B6AF /* ServerUser.swift in Sources */,
@@ -565,14 +621,18 @@
 				83505D282B92782D005FD7DC /* MaskedDateTextField.swift in Sources */,
 				831AE0822B80F4F000C5B6AF /* GeneralAPI.swift in Sources */,
 				83505CF42B9226D3005FD7DC /* CustomTextFieldStyle.swift in Sources */,
+				83BD01F02B936ABB0059AB53 /* BackButtonView.swift in Sources */,
 				83103EC42B7F5EC600932A96 /* Colors.swift in Sources */,
 				831AE0682B80CAC300C5B6AF /* ProfileViewModel.swift in Sources */,
 				83103EDA2B7F9B9800932A96 /* RegistrationView.swift in Sources */,
 				83505D1B2B922FE3005FD7DC /* CustomTextField.swift in Sources */,
+				83C2B3182B94EE9C00B69E69 /* PurpleButtonView.swift in Sources */,
 				831AE0802B80E21900C5B6AF /* RegistrationEndpoint.swift in Sources */,
 				83505D202B923D91005FD7DC /* OnboardingView.swift in Sources */,
+				83C2B3162B94D73900B69E69 /* TestButtonView.swift in Sources */,
 				83103ED12B7F924800932A96 /* StartNavigationRouter.swift in Sources */,
 				83505CF22B91FF97005FD7DC /* TitleTextView.swift in Sources */,
+				83BD01F62B936B620059AB53 /* TestProgressView.swift in Sources */,
 				831AE08E2B81081E00C5B6AF /* AuthenticationService.swift in Sources */,
 				83103ECF2B7F91EF00932A96 /* AppContainer.swift in Sources */,
 				831AE06F2B80D93E00C5B6AF /* UserRegistration.swift in Sources */,
