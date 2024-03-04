@@ -12,7 +12,21 @@ struct RegistrationView: View {
     @EnvironmentObject var router: StartNavigationRouter
     
     var body: some View {
-        content()
+        Color.lightPinky
+            .ignoresSafeArea()
+            .overlay {
+                content()
+            }
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button {
+                        backButtonAction()
+                    } label: {
+                        Image("backButton")
+                            .imageScale(.large)
+                    }
+                }
+            }
     }
 }
 
@@ -20,18 +34,19 @@ extension RegistrationView {
     @ViewBuilder
     func content() -> some View {
         VStack {
-            registrationField(title: "Username",
-                              textFieldLabel: "Enter your username",
-                              text: $viewModel.output.userNameFieldText)
-            .onChange(of: viewModel.output.userNameFieldText, usernameAction)
-            registrationField(title: "Email",
-                              textFieldLabel: "Enter your email",
-                              text: $viewModel.output.emailFieldText)
-            .onChange(of: viewModel.output.emailFieldText, emailAction)
-            registrationField(title: "Password",
-                              textFieldLabel: "Enter your password",
-                              text: $viewModel.output.passwordFieldText)
-            .onChange(of: viewModel.output.passwordFieldText, passwordAction)
+            TitleTextView(text: "Sign In", size: 40)
+            
+            Image("foxImage")
+                .imageScale(.medium)
+            
+            Spacer()
+            
+            CustomTextField(textFieldLabel: "Username", text: $viewModel.output.userNameFieldText)
+                .onChange(of: viewModel.output.userNameFieldText, usernameAction)
+            CustomTextField(textFieldLabel: "Email", text: $viewModel.output.emailFieldText)
+                .onChange(of: viewModel.output.emailFieldText, emailAction)
+            CustomTextField(textFieldLabel: "Password", text: $viewModel.output.passwordFieldText)
+                .onChange(of: viewModel.output.passwordFieldText, passwordAction)
             button()
         }
         .padding()
@@ -40,27 +55,22 @@ extension RegistrationView {
 
 extension RegistrationView {
     @ViewBuilder
-    func registrationField(title: String, textFieldLabel: String, text: Binding<String>) -> some View {
-        VStack(alignment: .leading) {
-           Text(title)
-                .font(.title3)
-                .fontDesign(.serif)
-                .foregroundStyle(.black)
-            TextField(textFieldLabel, text: text)
-                .textFieldStyle(.roundedBorder)
-        }
-        .padding([.horizontal, .vertical], 16)
-    }
-    
-    @ViewBuilder
     func button() -> some View {
-        ButtonView(text: "Зарегистрироваться", buttonColor: .indigo, textColor: .white, actionPublisher: viewModel.input.registerUserSubject)
+        ButtonView(text: "Create an account", buttonColor: .mainPurple, size: 30, action: goToOnboarding)
             .padding(.vertical, 20)
             .disabled(viewModel.output.isEnabledButton)
     }
 }
 
 extension RegistrationView {
+    func goToOnboarding() {
+        router.pushView(StartNavigation.pushOnboardingView)
+    }
+    
+    func backButtonAction() {
+        router.popView()
+    }
+    
     func usernameAction() {
         viewModel.input.usernameSubject.send()
     }

@@ -13,18 +13,25 @@ struct StartView: View {
     
     var body: some View {
         NavigationStack(path: $router.path) {
-            content()
-                .navigationDestination(for: StartNavigation.self) { nav in
-                    Group {
-                        switch nav {
-                        case .pushAuthorizationView:
-                            AuthorizationView()
-                        case .pushRegistrationView:
-                            RegistrationView()
+            Color.lightPinky
+            .ignoresSafeArea()
+            .overlay {
+                content()
+                    .navigationDestination(for: StartNavigation.self) { nav in
+                        Group {
+                            switch nav {
+                            case .pushAuthorizationView:
+                                AuthorizationView()
+                            case .pushRegistrationView:
+                                RegistrationView()
+                            case .pushOnboardingView:
+                                OnboardingView()
+                            }
                         }
+                        .navigationBarBackButtonHidden(true)
+                        .environmentObject(router)
                     }
-                    .environmentObject(router)
-                }
+            }
         }
         
     }
@@ -34,10 +41,30 @@ extension StartView {
     @ViewBuilder
     func content() -> some View {
         VStack {
-            ButtonView(text: "Регистрация", buttonColor: .indigo, textColor: .white, action: regButtonAction)
-            ButtonView(text: "Авторизация", buttonColor: .indigo, textColor: .white, action: authButtonAction)
+            HStack {
+                Image("blueBlob")
+                    .imageScale(.small)
+                    
+                Spacer()
+            }
+            Spacer()
+            VStack(alignment: .leading) {
+                Spacer()
+                TitleTextView(text: "Communicate.\nLearn.\nEnglish.", size: 40)
+                Spacer()
+                VStack(alignment: .leading, spacing: 10) {
+                    ButtonView(text: "Sign In", buttonColor: .mainPurple, size: 35, action: regButtonAction)
+                    ButtonView(text: "Sign Up", buttonColor: .lightPurple, size: 35, action: authButtonAction)
+                }
+            }
+            Spacer()
+            HStack {
+                Spacer()
+                Image("pinkBlob")
+                    .imageScale(.small)
+            }
         }
-        .padding()
+        .ignoresSafeArea()
     }
 }
 
