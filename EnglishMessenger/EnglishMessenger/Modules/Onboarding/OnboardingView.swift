@@ -10,6 +10,7 @@ import Combine
 
 struct OnboardingView: View {
     @StateObject private var viewModel: OnboardingViewModel = OnboardingViewModel()
+    @EnvironmentObject var viewModelTest: TestingViewModel
     @EnvironmentObject var router: StartNavigationRouter
     @State private var pageNumber = 0
     @State private var age = ""
@@ -38,6 +39,11 @@ struct OnboardingView: View {
 extension OnboardingView {
     func backButtonAction() {
         router.popView()
+    }
+    
+    func goToTestingView() {
+        viewModelTest.input.fetchTestDataSubject.send()
+        router.pushView(StartNavigation.pushTestView)
     }
 }
 
@@ -153,7 +159,7 @@ extension OnboardingView {
             
             Spacer()
             Button {
-                // todo: continue action
+                goToTestingView()
             } label: {
                 VStack {
                     Text("Continue")

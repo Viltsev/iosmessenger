@@ -6,20 +6,24 @@
 //
 
 import SwiftUI
+import Combine
 
 struct TestButtonView: View {
-    @State private var isActive: Bool = false
+    let id: Int
+    var actionPublisher: PassthroughSubject<(Int, Int, String), Never>
     var text: String
+    let currentAnswerId: Int
+    let buttonId: Int
     
     var body: some View {
         Button {
-            withAnimation(.smooth) {
-                isActive.toggle()
+            withAnimation(.bouncy) {
+                actionPublisher.send((id, buttonId, text))
             }
         } label: {
             VStack {
                 Text(text)
-                    .foregroundColor(isActive ? .lightPinky : .mainPurple)
+                    .foregroundColor(currentAnswerId == buttonId ? .lightPinky : .mainPurple)
                     .font(.custom("Montserrat-Light", size: 25))
                     .multilineTextAlignment(.center)
                     .padding(.vertical, 16)
@@ -36,7 +40,7 @@ struct TestButtonView: View {
 extension TestButtonView {
     @ViewBuilder
     func roundedRectangle() -> some View {
-        if !isActive {
+        if currentAnswerId != buttonId {
             RoundedRectangle(cornerSize: CGSize(width: 20, height: 20))
                 .stroke(style: StrokeStyle(lineWidth: 2, dash: [5]))
                 .foregroundColor(.mainPurple)
@@ -46,7 +50,3 @@ extension TestButtonView {
         }
     }
 }
-
-//#Preview {
-//    TestButtonView()
-//}

@@ -12,6 +12,7 @@ import CombineMoya
 struct GenaralApi {
     let providerRegistration = Provider<RegistrationEndpoint>()
     let providerAuthorization = Provider<AuthorizationEndpoint>()
+    let providerTesting = Provider<TestEndpoint>()
 }
 
 extension GenaralApi {
@@ -33,6 +34,24 @@ extension GenaralApi {
             .map(ServerUser.self)
             .map {
                 UserModelMapper().toLocal(serverEntity: $0)
+            }
+            .mapError { error in
+                if error.response?.statusCode == 404 {
+                    return ErrorAPI.notFound
+                } else {
+                    return ErrorAPI.network
+                }
+            }
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+    }
+    
+    func fetchTestData() -> AnyPublisher<[LocalTest], ErrorAPI> {
+        providerTesting.requestPublisher(.fetchQuestions)
+            .filterSuccessfulStatusCodes()
+            .map([ServerTest].self)
+            .map { serverTests in
+                TestModelMapper().toLocal(list: serverTests)
             }
             .mapError { error in
                 if error.response?.statusCode == 404 {

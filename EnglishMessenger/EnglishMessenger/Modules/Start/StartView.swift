@@ -9,6 +9,7 @@ import SwiftUI
 
 struct StartView: View {
     @StateObject private var viewModel: StartViewModel = StartViewModel()
+    @StateObject private var viewModelTest = TestingViewModel()
     @EnvironmentObject var router: StartNavigationRouter
     
     var body: some View {
@@ -26,6 +27,10 @@ struct StartView: View {
                                 RegistrationView()
                             case .pushOnboardingView:
                                 OnboardingView()
+                                    .environmentObject(viewModelTest)
+                            case .pushTestView:
+                                TestingView()
+                                    .environmentObject(viewModelTest)
                             }
                         }
                         .navigationBarBackButtonHidden(true)

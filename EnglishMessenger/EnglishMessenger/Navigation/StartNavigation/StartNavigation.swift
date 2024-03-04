@@ -11,4 +11,5 @@ enum StartNavigation: Hashable {
     case pushRegistrationView
     case pushAuthorizationView
     case pushOnboardingView
+    case pushTestView
 }

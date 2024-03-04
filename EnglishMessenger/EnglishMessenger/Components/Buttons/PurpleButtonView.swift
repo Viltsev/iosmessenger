@@ -6,13 +6,15 @@
 //
 
 import SwiftUI
+import Combine
 
 struct PurpleButtonView: View {
     let text: String
+    var actionPublisher: PassthroughSubject<Void, Never>
     
     var body: some View {
         Button {
-            
+            actionPublisher.send()
         } label: {
             VStack {
                 Text(text)
