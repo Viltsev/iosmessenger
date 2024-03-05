@@ -47,6 +47,11 @@ extension RegistrationViewModel {
                       let email = self?.output.emailFieldText,
                       let password = self?.output.passwordFieldText else { return }
                 
+                UserDefaults.standard.removeObject(forKey: "username")
+                UserDefaults.standard.removeObject(forKey: "email")
+                UserDefaults.standard.setValue(username, forKey: "username")
+                UserDefaults.standard.setValue(email, forKey: "email")
+                
                 let userToRegistration = UserRegistration(username: username,
                                                       email: email,
                                                       password: password)

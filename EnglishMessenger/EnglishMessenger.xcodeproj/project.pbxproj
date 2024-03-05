@@ -44,6 +44,14 @@
 		831AE0952B81203800C5B6AF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831AE0942B81203800C5B6AF /* User.swift */; };
 		831AE0972B8120B300C5B6AF /* UserModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831AE0962B8120B300C5B6AF /* UserModelMapper.swift */; };
 		831AE09A2B81236300C5B6AF /* CombineExt in Frameworks */ = {isa = PBXBuildFile; productRef = 831AE0992B81236300C5B6AF /* CombineExt */; };
+		8331F8422B95FD2300058CEC /* ServerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8331F8412B95FD2300058CEC /* ServerTest.swift */; };
+		8331F8442B95FE6600058CEC /* LocalTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8331F8432B95FE6600058CEC /* LocalTest.swift */; };
+		8331F8462B95FE9700058CEC /* TestModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8331F8452B95FE9700058CEC /* TestModelMapper.swift */; };
+		8331F8482B96014B00058CEC /* TestEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8331F8472B96014B00058CEC /* TestEndpoint.swift */; };
+		8331F84A2B96317E00058CEC /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8331F8492B96317E00058CEC /* Answer.swift */; };
+		83385A7C2B96FA6F007CC6FB /* TestResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83385A7B2B96FA6F007CC6FB /* TestResultsView.swift */; };
+		83385A7E2B970790007CC6FB /* TestResultsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83385A7D2B970790007CC6FB /* TestResultsEndpoint.swift */; };
+		83454FBC2B95B611006E608E /* TestingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83454FBB2B95B611006E608E /* TestingViewModel.swift */; };
 		83505CEE2B91E177005FD7DC /* Alice-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 83505CEC2B91E177005FD7DC /* Alice-Regular.ttf */; };
 		83505CEF2B91E177005FD7DC /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 83505CED2B91E177005FD7DC /* OFL.txt */; };
 		83505CF22B91FF97005FD7DC /* TitleTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83505CF12B91FF97005FD7DC /* TitleTextView.swift */; };
@@ -111,6 +119,14 @@
 		831AE0922B811FD700C5B6AF /* ServerUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerUser.swift; sourceTree = "<group>"; };
 		831AE0942B81203800C5B6AF /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		831AE0962B8120B300C5B6AF /* UserModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModelMapper.swift; sourceTree = "<group>"; };
+		8331F8412B95FD2300058CEC /* ServerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerTest.swift; sourceTree = "<group>"; };
+		8331F8432B95FE6600058CEC /* LocalTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalTest.swift; sourceTree = "<group>"; };
+		8331F8452B95FE9700058CEC /* TestModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModelMapper.swift; sourceTree = "<group>"; };
+		8331F8472B96014B00058CEC /* TestEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestEndpoint.swift; sourceTree = "<group>"; };
+		8331F8492B96317E00058CEC /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
+		83385A7B2B96FA6F007CC6FB /* TestResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResultsView.swift; sourceTree = "<group>"; };
+		83385A7D2B970790007CC6FB /* TestResultsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResultsEndpoint.swift; sourceTree = "<group>"; };
+		83454FBB2B95B611006E608E /* TestingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingViewModel.swift; sourceTree = "<group>"; };
 		83505CEC2B91E177005FD7DC /* Alice-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Alice-Regular.ttf"; sourceTree = "<group>"; };
 		83505CED2B91E177005FD7DC /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
 		83505CF02B91F722005FD7DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -249,6 +265,7 @@
 			children = (
 				831AE06C2B80D87500C5B6AF /* BaseModelMapper.swift */,
 				831AE0962B8120B300C5B6AF /* UserModelMapper.swift */,
+				8331F8452B95FE9700058CEC /* TestModelMapper.swift */,
 			);
 			path = Mappers;
 			sourceTree = "<group>";
@@ -257,6 +274,7 @@
 			isa = PBXGroup;
 			children = (
 				831AE0922B811FD700C5B6AF /* ServerUser.swift */,
+				8331F8412B95FD2300058CEC /* ServerTest.swift */,
 			);
 			path = ServerModel;
 			sourceTree = "<group>";
@@ -267,6 +285,8 @@
 				831AE06E2B80D93E00C5B6AF /* UserRegistration.swift */,
 				831AE08A2B80F8B900C5B6AF /* UserAuthorization.swift */,
 				831AE0942B81203800C5B6AF /* User.swift */,
+				8331F8432B95FE6600058CEC /* LocalTest.swift */,
+				8331F8492B96317E00058CEC /* Answer.swift */,
 			);
 			path = LocalModel;
 			sourceTree = "<group>";
@@ -372,6 +392,8 @@
 			children = (
 				831AE07F2B80E21900C5B6AF /* RegistrationEndpoint.swift */,
 				831AE0882B80F87E00C5B6AF /* AuthorizationEndpoint.swift */,
+				8331F8472B96014B00058CEC /* TestEndpoint.swift */,
+				83385A7D2B970790007CC6FB /* TestResultsEndpoint.swift */,
 			);
 			path = Endpoints;
 			sourceTree = "<group>";
@@ -456,6 +478,8 @@
 			isa = PBXGroup;
 			children = (
 				83BD01ED2B93698A0059AB53 /* TestingView.swift */,
+				83454FBB2B95B611006E608E /* TestingViewModel.swift */,
+				83385A7B2B96FA6F007CC6FB /* TestResultsView.swift */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -612,13 +636,17 @@
 				831AE0952B81203800C5B6AF /* User.swift in Sources */,
 				831AE0932B811FD700C5B6AF /* ServerUser.swift in Sources */,
 				83505D1D2B923673005FD7DC /* OnboardingNavigationView.swift in Sources */,
+				8331F8422B95FD2300058CEC /* ServerTest.swift in Sources */,
 				83505D262B9268A0005FD7DC /* OnboardingViewModel.swift in Sources */,
 				83103EB22B7F574300932A96 /* StartView.swift in Sources */,
 				831AE0722B80DFCA00C5B6AF /* Provider.swift in Sources */,
 				83103EDE2B7F9DA900932A96 /* RegistrationViewModel.swift in Sources */,
 				83103ED62B7F993F00932A96 /* StartViewModel.swift in Sources */,
 				831AE0912B81089A00C5B6AF /* UserStorage.swift in Sources */,
+				83385A7C2B96FA6F007CC6FB /* TestResultsView.swift in Sources */,
 				83505D282B92782D005FD7DC /* MaskedDateTextField.swift in Sources */,
+				8331F8462B95FE9700058CEC /* TestModelMapper.swift in Sources */,
+				8331F8442B95FE6600058CEC /* LocalTest.swift in Sources */,
 				831AE0822B80F4F000C5B6AF /* GeneralAPI.swift in Sources */,
 				83505CF42B9226D3005FD7DC /* CustomTextFieldStyle.swift in Sources */,
 				83BD01F02B936ABB0059AB53 /* BackButtonView.swift in Sources */,
@@ -632,8 +660,12 @@
 				83C2B3162B94D73900B69E69 /* TestButtonView.swift in Sources */,
 				83103ED12B7F924800932A96 /* StartNavigationRouter.swift in Sources */,
 				83505CF22B91FF97005FD7DC /* TitleTextView.swift in Sources */,
+				83454FBC2B95B611006E608E /* TestingViewModel.swift in Sources */,
 				83BD01F62B936B620059AB53 /* TestProgressView.swift in Sources */,
+				8331F8482B96014B00058CEC /* TestEndpoint.swift in Sources */,
 				831AE08E2B81081E00C5B6AF /* AuthenticationService.swift in Sources */,
+				8331F84A2B96317E00058CEC /* Answer.swift in Sources */,
+				83385A7E2B970790007CC6FB /* TestResultsEndpoint.swift in Sources */,
 				83103ECF2B7F91EF00932A96 /* AppContainer.swift in Sources */,
 				831AE06F2B80D93E00C5B6AF /* UserRegistration.swift in Sources */,
 				831AE0892B80F87E00C5B6AF /* AuthorizationEndpoint.swift in Sources */,

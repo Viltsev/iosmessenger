@@ -51,7 +51,7 @@ extension ProfileViewModel {
     struct Output {
         var username: String = UserDefaults.standard.string(forKey: "username") ?? "Username"
         var dateBirth: String = UserDefaults.standard.string(forKey: "dateOfBirth") ?? "DateOfBirth"
-        var languageLevel: String = UserDefaults.standard.string(forKey: "languageLevel") ?? "Level"
+        var languageLevel: String = UserDefaults.standard.string(forKey: "languageLevel") ?? "Level not found"
         var photoData: Data? = UserDefaults.standard.data(forKey: "photo")
         var photo: UIImage = UIImage(named: "default")!
     }

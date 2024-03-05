@@ -8,36 +8,8 @@
 import SwiftUI
 
 struct TestingView: View {
-    @State private var pageNumber = 0
-    @State var progress: CGFloat = 0.0
-    
-    private let mockTestData: [MockTestData] = [
-        MockTestData(questionNumber: 1, question: "Question 1",
-                     answer1: "answer 1",
-                     answer2: "answer 2",
-                     answer3: "answer 3",
-                     answer4: "answer 4"),
-        MockTestData(questionNumber: 2, question: "Question 2",
-                     answer1: "answer 1",
-                     answer2: "answer 2",
-                     answer3: "answer 3",
-                     answer4: "answer 4"),
-        MockTestData(questionNumber: 3, question: "Question 3",
-                     answer1: "answer 1",
-                     answer2: "answer 2",
-                     answer3: "answer 3",
-                     answer4: "answer 4"),
-        MockTestData(questionNumber: 4, question: "Question 4",
-                     answer1: "answer 1",
-                     answer2: "answer 2",
-                     answer3: "answer 3",
-                     answer4: "answer 4"),
-        MockTestData(questionNumber: 5, question: "Question 5",
-                     answer1: "answer 1",
-                     answer2: "answer 2",
-                     answer3: "answer 3",
-                     answer4: "answer 4")
-    ]
+    @EnvironmentObject var viewModel: TestingViewModel
+    @EnvironmentObject var router: StartNavigationRouter
     
     var body: some View {
         Color.lightPinky
@@ -62,16 +34,16 @@ extension TestingView {
     @ViewBuilder
     func content() -> some View {
         VStack {
-            TabView(selection: $pageNumber) {
-                ForEach(mockTestData, id: \.id) { data in
-                    let answersArray = [data.answer1, data.answer2, data.answer3, data.answer4]
-                    questionView(question: data.question, answers: answersArray, number: data.questionNumber)
-                        .tag(data.questionNumber)
+            TabView(selection: $viewModel.output.pageNumber) {
+                ForEach(viewModel.output.testData, id: \.id) { data in
+                    let answersArray = [(1, data.answerOne), (2, data.answerTwo), (3, data.answerThree), (4, data.answerFour ?? "")]
+                    questionView(question: data.question, answers: answersArray, questionId: data.id, currentAnswerId: data.currentAnswerId)
+                        .tag(data.id)
                 }
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
             Spacer()
-            TestProgressView(progress: CGFloat(Double(pageNumber) * 0.2))
+            TestProgressView(progress: CGFloat(Double(viewModel.output.pageNumber) * 0.04))
                 .frame(height: 10)
                 .padding(.horizontal, 50)
                 .padding(.bottom, 16)
@@ -79,34 +51,34 @@ extension TestingView {
     }
     
     @ViewBuilder
-    func questionView(question: String, answers: [String], number: Int) -> some View {
+    func questionView(question: String, answers: [(Int, String)], questionId: Int, currentAnswerId: Int) -> some View {
         VStack {
             TitleTextView(text: question, size: 30)
                 .padding(.top, 50)
             Spacer()
             VStack(spacing: 20) {
-                ForEach(answers, id: \.self) { answer in
-                    TestButtonView(text: answer)
+                ForEach(answers, id: \.0) { (id, answer) in
+                    if !answer.isEmpty {
+                        TestButtonView(id: questionId, actionPublisher: viewModel.input.setAnswersSubject, text: answer, currentAnswerId: currentAnswerId, buttonId: id)
+                    }
                 }
             }
             Spacer()
-            if number == 5 {
-                PurpleButtonView(text: "Check results")
+            if questionId == 25 {
+                PurpleButtonView(text: "Check results", actionPublisher: viewModel.input.checkResultsSubject, action: checkResultsAction)
                     .padding(.bottom, 20)
             }
         }
     }
 }
 
-struct MockTestData {
-    let id: UUID = UUID()
-    let questionNumber: Int
-    let question: String
-    let answer1: String
-    let answer2: String
-    let answer3: String
-    let answer4: String
+extension TestingView {
+    func checkResultsAction() {
+        router.pushView(StartNavigation.pushTestResultsView)
+    }
 }
+
+
 
 #Preview {
     TestingView()

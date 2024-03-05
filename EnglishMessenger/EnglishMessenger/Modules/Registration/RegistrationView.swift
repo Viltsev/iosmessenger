@@ -64,6 +64,7 @@ extension RegistrationView {
 
 extension RegistrationView {
     func goToOnboarding() {
+        viewModel.input.registerUserSubject.send()
         router.pushView(StartNavigation.pushOnboardingView)
     }
     
