@@ -25,6 +25,7 @@ extension TestingViewModel {
         fetchTestData()
         setAnswers()
         checkResults()
+        goToProfileAction()
     }
     
     func fetchTestData() {
@@ -72,20 +73,36 @@ extension TestingViewModel {
     }
     
     func checkResults() {
-        input.checkResultsSubject
-            .sink { [weak self] in
-                guard let self = self else { return }
-                
-                do {
-                    let encoder = JSONEncoder()
-                    encoder.outputFormatting = .prettyPrinted
-                    let jsonData = try encoder.encode(self.output.answers)
-                    if let jsonString = String(data: jsonData, encoding: .utf8) {
-                        print(jsonString)
-                    }
-                } catch {
-                    print("Failed to encode answers array: \(error)")
-                }
+        let request = input.checkResultsSubject
+            .map { [unowned self] in
+                self.apiService.getCurrentLevel(answerList: self.output.answers)
+                    .materialize()
+            }
+            .switchToLatest()
+            .share()
+        
+        request
+            .failures()
+            .sink { error in
+                print(error)
+            }
+            .store(in: &cancellable)
+        
+        request
+            .values()
+            .sink { [weak self] level in
+                guard let self else { return }
+                self.output.currentLevel = level
+                UserDefaults.standard.removeObject(forKey: "languageLevel")
+                UserDefaults.standard.setValue(level, forKey: "languageLevel")
+            }
+            .store(in: &cancellable)
+    }
+    
+    func goToProfileAction() {
+        input.goToProfileSubject
+            .sink { 
+                AuthenticationService.shared.status.send(true)
             }
             .store(in: &cancellable)
     }
@@ -96,11 +113,13 @@ extension TestingViewModel {
         let fetchTestDataSubject = PassthroughSubject<Void, Never>()
         let setAnswersSubject = PassthroughSubject<(Int, Int, String), Never>()
         let checkResultsSubject = PassthroughSubject<Void, Never>()
+        let goToProfileSubject = PassthroughSubject<Void, Never>()
     }
     
     struct Output {
         var pageNumber: Int = 0
         var testData: [LocalTest] = []
         var answers: [Answer] = []
+        var currentLevel: String = ""
     }
 }

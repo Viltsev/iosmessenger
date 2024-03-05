@@ -49,6 +49,8 @@
 		8331F8462B95FE9700058CEC /* TestModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8331F8452B95FE9700058CEC /* TestModelMapper.swift */; };
 		8331F8482B96014B00058CEC /* TestEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8331F8472B96014B00058CEC /* TestEndpoint.swift */; };
 		8331F84A2B96317E00058CEC /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8331F8492B96317E00058CEC /* Answer.swift */; };
+		83385A7C2B96FA6F007CC6FB /* TestResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83385A7B2B96FA6F007CC6FB /* TestResultsView.swift */; };
+		83385A7E2B970790007CC6FB /* TestResultsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83385A7D2B970790007CC6FB /* TestResultsEndpoint.swift */; };
 		83454FBC2B95B611006E608E /* TestingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83454FBB2B95B611006E608E /* TestingViewModel.swift */; };
 		83505CEE2B91E177005FD7DC /* Alice-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 83505CEC2B91E177005FD7DC /* Alice-Regular.ttf */; };
 		83505CEF2B91E177005FD7DC /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 83505CED2B91E177005FD7DC /* OFL.txt */; };
@@ -122,6 +124,8 @@
 		8331F8452B95FE9700058CEC /* TestModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModelMapper.swift; sourceTree = "<group>"; };
 		8331F8472B96014B00058CEC /* TestEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestEndpoint.swift; sourceTree = "<group>"; };
 		8331F8492B96317E00058CEC /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
+		83385A7B2B96FA6F007CC6FB /* TestResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResultsView.swift; sourceTree = "<group>"; };
+		83385A7D2B970790007CC6FB /* TestResultsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResultsEndpoint.swift; sourceTree = "<group>"; };
 		83454FBB2B95B611006E608E /* TestingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingViewModel.swift; sourceTree = "<group>"; };
 		83505CEC2B91E177005FD7DC /* Alice-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Alice-Regular.ttf"; sourceTree = "<group>"; };
 		83505CED2B91E177005FD7DC /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
@@ -389,6 +393,7 @@
 				831AE07F2B80E21900C5B6AF /* RegistrationEndpoint.swift */,
 				831AE0882B80F87E00C5B6AF /* AuthorizationEndpoint.swift */,
 				8331F8472B96014B00058CEC /* TestEndpoint.swift */,
+				83385A7D2B970790007CC6FB /* TestResultsEndpoint.swift */,
 			);
 			path = Endpoints;
 			sourceTree = "<group>";
@@ -474,6 +479,7 @@
 			children = (
 				83BD01ED2B93698A0059AB53 /* TestingView.swift */,
 				83454FBB2B95B611006E608E /* TestingViewModel.swift */,
+				83385A7B2B96FA6F007CC6FB /* TestResultsView.swift */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -637,6 +643,7 @@
 				83103EDE2B7F9DA900932A96 /* RegistrationViewModel.swift in Sources */,
 				83103ED62B7F993F00932A96 /* StartViewModel.swift in Sources */,
 				831AE0912B81089A00C5B6AF /* UserStorage.swift in Sources */,
+				83385A7C2B96FA6F007CC6FB /* TestResultsView.swift in Sources */,
 				83505D282B92782D005FD7DC /* MaskedDateTextField.swift in Sources */,
 				8331F8462B95FE9700058CEC /* TestModelMapper.swift in Sources */,
 				8331F8442B95FE6600058CEC /* LocalTest.swift in Sources */,
@@ -658,6 +665,7 @@
 				8331F8482B96014B00058CEC /* TestEndpoint.swift in Sources */,
 				831AE08E2B81081E00C5B6AF /* AuthenticationService.swift in Sources */,
 				8331F84A2B96317E00058CEC /* Answer.swift in Sources */,
+				83385A7E2B970790007CC6FB /* TestResultsEndpoint.swift in Sources */,
 				83103ECF2B7F91EF00932A96 /* AppContainer.swift in Sources */,
 				831AE06F2B80D93E00C5B6AF /* UserRegistration.swift in Sources */,
 				831AE0892B80F87E00C5B6AF /* AuthorizationEndpoint.swift in Sources */,

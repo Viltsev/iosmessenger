@@ -31,6 +31,10 @@ struct StartView: View {
                             case .pushTestView:
                                 TestingView()
                                     .environmentObject(viewModelTest)
+                            case .pushTestResultsView:
+                                TestResultsView()
+                                    .environmentObject(viewModelTest)
+                                
                             }
                         }
                         .navigationBarBackButtonHidden(true)

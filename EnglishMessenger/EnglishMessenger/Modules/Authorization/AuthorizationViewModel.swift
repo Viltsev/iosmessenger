@@ -60,8 +60,7 @@ extension AuthorizationViewModel {
         
         request
             .values()
-            .sink { [weak self] user in
-                guard let self else { return }
+            .sink { user in
                 let dateOfBirth = user.dateOfBirth
                 
                 let dateFormatter = DateFormatter()

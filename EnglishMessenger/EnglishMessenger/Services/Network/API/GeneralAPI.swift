@@ -13,6 +13,7 @@ struct GenaralApi {
     let providerRegistration = Provider<RegistrationEndpoint>()
     let providerAuthorization = Provider<AuthorizationEndpoint>()
     let providerTesting = Provider<TestEndpoint>()
+    let providerTestResults = Provider<TestResultsEndpoint>()
 }
 
 extension GenaralApi {
@@ -21,7 +22,7 @@ extension GenaralApi {
             switch result {
             case .success(let response):
                 print("Успешный ответ: \(response)")
-                AuthenticationService.shared.status.send(true)
+//                AuthenticationService.shared.status.send(true)
             case .failure(let error):
                 print("Ошибка: \(error)")
             }
@@ -56,6 +57,26 @@ extension GenaralApi {
             .mapError { error in
                 if error.response?.statusCode == 404 {
                     return ErrorAPI.notFound
+                } else {
+                    return ErrorAPI.network
+                }
+            }
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+    }
+    
+    func getCurrentLevel(answerList: [Answer]) -> AnyPublisher<String, ErrorAPI> {
+        providerTestResults.requestPublisher(.getResults(answerList: answerList))
+            .filterSuccessfulStatusCodes()
+            .tryMap({ response in
+                guard let level = String(data: response.data, encoding: .utf8) else {
+                    throw ErrorAPI.network
+                }
+                return level
+            })
+            .mapError { error in
+                if let error = error as? ErrorAPI {
+                    return error
                 } else {
                     return ErrorAPI.network
                 }

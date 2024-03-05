@@ -17,7 +17,7 @@ struct AppContainer: View {
             if isAuth {
                 ProfileView()
             } else {       
-                //TestingView()
+                // TestResultsView()
                 StartView()
                     .environmentObject(router)
             }

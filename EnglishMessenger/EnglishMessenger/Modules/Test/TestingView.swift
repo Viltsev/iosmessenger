@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TestingView: View {
     @EnvironmentObject var viewModel: TestingViewModel
+    @EnvironmentObject var router: StartNavigationRouter
     
     var body: some View {
         Color.lightPinky
@@ -64,10 +65,16 @@ extension TestingView {
             }
             Spacer()
             if questionId == 25 {
-                PurpleButtonView(text: "Check results", actionPublisher: viewModel.input.checkResultsSubject)
+                PurpleButtonView(text: "Check results", actionPublisher: viewModel.input.checkResultsSubject, action: checkResultsAction)
                     .padding(.bottom, 20)
             }
         }
+    }
+}
+
+extension TestingView {
+    func checkResultsAction() {
+        router.pushView(StartNavigation.pushTestResultsView)
     }
 }
 

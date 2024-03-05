@@ -10,11 +10,13 @@ import Combine
 
 struct PurpleButtonView: View {
     let text: String
-    var actionPublisher: PassthroughSubject<Void, Never>
+    var actionPublisher: PassthroughSubject<Void, Never>? = nil
+    var action: (() -> Void)? = nil
     
     var body: some View {
         Button {
-            actionPublisher.send()
+            buttonTap()
+            //actionPublisher.send()
         } label: {
             VStack {
                 Text(text)
@@ -30,6 +32,17 @@ struct PurpleButtonView: View {
             )
         }
         .padding(.horizontal, 16)
+    }
+}
+
+extension PurpleButtonView {
+    func buttonTap() {
+        if let actionPublisher = actionPublisher {
+            actionPublisher.send()
+        }
+        if let action = action {
+            action()
+        }
     }
 }
 
