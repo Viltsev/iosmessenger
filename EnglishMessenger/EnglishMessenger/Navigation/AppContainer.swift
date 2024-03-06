@@ -15,8 +15,9 @@ struct AppContainer: View {
     var body: some View {
         Group {
             if isAuth {
-                ProfileView()
-            } else {       
+                HomeView()
+                //ProfileView()
+            } else {
                 // TestResultsView()
                 StartView()
                     .environmentObject(router)

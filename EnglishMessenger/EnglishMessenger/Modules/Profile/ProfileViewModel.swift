@@ -26,10 +26,8 @@ extension ProfileViewModel {
     }
     
     func loadImage() {
-        // Предполагая, что data содержит данные изображения, полученные с сервера
         guard let data = self.output.photoData else { return }
 
-        // Создание UIImage из данных
         guard let uiImage = UIImage(data: data) else { return }
         self.output.photo = uiImage
     }

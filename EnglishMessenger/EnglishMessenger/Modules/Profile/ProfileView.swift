@@ -11,85 +11,116 @@ struct ProfileView: View {
     @StateObject private var viewModel = ProfileViewModel()
     
     var body: some View {
-        content(username: viewModel.output.username,
-                dateBirth: viewModel.output.dateBirth,
-                languageLevel: viewModel.output.languageLevel)
+        Color.profilePinky
+            .ignoresSafeArea()
+            .overlay {
+                profileBlock()
+            }
     }
 }
 
 extension ProfileView {
-    
     @ViewBuilder
-    func content(username: String, dateBirth: String, languageLevel: String) -> some View {
-        VStack(alignment: .leading) {
-            HStack {
-                Spacer()
-                Button {
-                    viewModel.input.logoutSubject.send()
-                } label: {
-                    Text("Logout")
-                        .font(.headline)
-                        .fontDesign(.serif)
-                        .foregroundStyle(.red)
-                }
-            }
-            .padding(.horizontal)
-            HStack {
-                Circle()
-                    .frame(height: 130)
-                    .foregroundStyle(Color.indigo)
-                    .padding(.leading, 16)
-                    .padding(.top, 25)
-                //                Image(uiImage: viewModel.output.photo)
-                //                    .frame(width: 30, height: 30)
-                //                    .scaledToFill()
-                //                    .padding(.leading, 16)
-                //                    .padding(.top, 25)
-                Spacer()
-                VStack(alignment: .leading) {
-                    Text(username)
-                        .font(.title)
-                        .fontDesign(.serif)
-                        .foregroundStyle(.black)
-                        .padding(.horizontal)
-                    Divider()
-                        .background(Color.black)
-                        .padding(.trailing, 16)
-                        .padding(.bottom, 10)
-                    HStack {
-                        Text("\(dateBirth),   \(languageLevel)")
-                            .font(.title3)
-                            .fontDesign(.serif)
-                            .foregroundStyle(.gray)
-                            .padding(.horizontal)
+    func profileBlock() -> some View {
+        Color.profilePinky
+            .ignoresSafeArea()
+            .overlay {
+                VStack {
+                    Image("profileEllipse")
+                        .resizable()
+                        .scaledToFit()
+                        .ignoresSafeArea()
+                        .overlay {
+                            VStack {
+                                Spacer()
+                                HStack {
+                                    profileButton(title: "Settings", action: nil)
+                                    Spacer()
+                                    profileButton(title: "Sign Out", action: logout)
+                                }
+                                .padding(.horizontal, 16)
+                                GeometryReader { geometry in
+                                    Circle()
+                                        .foregroundColor(.blue)
+                                        .frame(width: 200)
+                                        .background(
+                                            Circle()
+                                                .stroke(style: StrokeStyle(lineWidth: 2))
+                                                .foregroundColor(.white)
+                                        )
+                                        .offset(x: geometry.size.width / 4, y: 40)
+                                }
+                            }
+                        }
+                    VStack(spacing: 15) {
+                        HStack {
+                            Text("Danila")
+                                .foregroundColor(.black)
+                                .font(.custom("Montserrat-Regular", size: 35))
+                            Text("Viltsev")
+                                .foregroundColor(.black)
+                                .font(.custom("Montserrat-Regular", size: 35))
+                        }
+                        Text("@viltsev")
+                            .foregroundColor(.mainPurple)
+                            .font(.custom("Montserrat-Light", size: 20))
+                            .multilineTextAlignment(.center)
+                        ScrollView {
+                            VStack(spacing: 15) {
+                                infoBlock(text: "Birthday:", value: "24.12.2001", arrow: false)
+                                infoBlock(text: "Language level:", value: "B2", arrow: false)
+                                infoBlock(text: "Friends:", value: "100", arrow: true)
+                                infoBlock(text: "Interests", value: "", arrow: true)
+                            }
+                        }
                     }
+                    .padding(.top, 50)
+                    
+                    Spacer()
                 }
-                .padding(.top, 30)
             }
-            // friendsBlock()
-            Spacer()
-        }
+        
     }
     
     @ViewBuilder
-    func friendsBlock() -> some View {
-        Button {
-            
-        } label: {
-            HStack {
-                Text("146 друзей")
+    func infoBlock(text: String, value: String, arrow: Bool) -> some View {
+        HStack {
+            Text("\(text) \(value)")
+                .foregroundColor(.mainPurple)
+                .font(.custom("Montserrat-Light", size: 15))
+                .padding(.horizontal, 15)
+                .padding(.vertical, 20)
+            Spacer()
+            if arrow {
+                Image(systemName: "chevron.right")
                     .font(.title3)
-                    .fontDesign(.serif)
-                    .foregroundStyle(.black)
-                    .padding()
-                Spacer()
+                    .padding(.horizontal, 15)
+                    .padding(.vertical, 20)
             }
-            .frame(maxWidth: .infinity)
-            .background(Color.white)
-            .clipShape(.buttonBorder)
-            .shadow(color: .gray, radius: 3)
-            .padding([.horizontal, .top], 25)
         }
+        .frame(maxWidth: .infinity)
+        .background(.white)
+        .cornerRadius(15)
+        .padding(.horizontal, 16)
+    }
+    
+    @ViewBuilder
+    func profileButton(title: String, action: (() -> Void)?) -> some View {
+        Button {
+            if let action = action {
+                action()
+            }
+        } label: {
+            Text(title)
+                .foregroundColor(.mainPurple)
+                .font(.custom("Montserrat-Light", size: 15))
+        }
+    }
+}
+
+extension ProfileView {
+    func logout() {
+        viewModel.input.logoutSubject.send()
     }
 }
 
