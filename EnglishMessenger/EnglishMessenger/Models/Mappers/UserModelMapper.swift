@@ -9,8 +9,10 @@ import Foundation
 
 final class UserModelMapper: BaseModelMapper<ServerUser, User> {
     override func toLocal(serverEntity: ServerUser) -> User {
-        User(username: serverEntity.username ?? "",
-             email: serverEntity.email ?? "", 
+        User(firstName: serverEntity.firstName ?? "",
+             lastName: serverEntity.lastName ?? "",
+             username: serverEntity.username ?? "",
+             email: serverEntity.email ?? "",
              phone: serverEntity.phone ?? "",
              dateOfBirth: serverEntity.dateOfBirth ?? "",
              languageLevel: serverEntity.languageLevel ?? "",

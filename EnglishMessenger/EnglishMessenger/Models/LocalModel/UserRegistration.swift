@@ -8,7 +8,8 @@
 import Foundation
 
 struct UserRegistration: Codable {
-    let username: String
+    let firstName: String
+    let lastName: String
     let email: String
     let password: String
 }

@@ -54,21 +54,21 @@ extension ProfileView {
                         }
                     VStack(spacing: 15) {
                         HStack {
-                            Text("Danila")
+                            Text(viewModel.output.firstName)
                                 .foregroundColor(.black)
                                 .font(.custom("Montserrat-Regular", size: 35))
-                            Text("Viltsev")
+                            Text(viewModel.output.lastName)
                                 .foregroundColor(.black)
                                 .font(.custom("Montserrat-Regular", size: 35))
                         }
-                        Text("@viltsev")
+                        Text(viewModel.output.username)
                             .foregroundColor(.mainPurple)
                             .font(.custom("Montserrat-Light", size: 20))
                             .multilineTextAlignment(.center)
                         ScrollView {
                             VStack(spacing: 15) {
-                                infoBlock(text: "Birthday:", value: "24.12.2001", arrow: false)
-                                infoBlock(text: "Language level:", value: "B2", arrow: false)
+                                infoBlock(text: "Birthday:", value: viewModel.output.dateBirth, arrow: false)
+                                infoBlock(text: "Language level:", value: viewModel.output.languageLevel, arrow: false)
                                 infoBlock(text: "Friends:", value: "100", arrow: true)
                                 infoBlock(text: "Interests", value: "", arrow: true)
                             }

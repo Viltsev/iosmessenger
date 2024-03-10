@@ -47,6 +47,8 @@ extension AuthorizationView {
             CustomTextField(textFieldLabel: "Password", text: $viewModel.output.passwordField)
                 .onChange(of: viewModel.output.passwordField, passwordAction)
             
+            Spacer()
+            
             button()
         }
         .padding()
