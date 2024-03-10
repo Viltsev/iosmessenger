@@ -9,6 +9,8 @@ import Foundation
 
 struct User: Identifiable {
     var id = UUID()
+    var firstName: String
+    var lastName: String
     var username: String
     var email: String
     var phone: String

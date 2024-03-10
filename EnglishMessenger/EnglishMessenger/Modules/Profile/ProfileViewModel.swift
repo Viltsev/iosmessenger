@@ -25,14 +25,12 @@ extension ProfileViewModel {
         
     }
     
-    func loadImage() {
-        // Предполагая, что data содержит данные изображения, полученные с сервера
-        guard let data = self.output.photoData else { return }
-
-        // Создание UIImage из данных
-        guard let uiImage = UIImage(data: data) else { return }
-        self.output.photo = uiImage
-    }
+//    func loadImage() {
+//        guard let data = self.output.photoData else { return }
+//
+//        guard let uiImage = UIImage(data: data) else { return }
+//        self.output.photo = uiImage
+//    }
     
     func logout() {
         input.logoutSubject
@@ -49,10 +47,13 @@ extension ProfileViewModel {
     }
     
     struct Output {
-        var username: String = UserDefaults.standard.string(forKey: "username") ?? "Username"
+        var firstName: String = UserDefaults.standard.string(forKey: "firstName") ?? "First Name"
+        var lastName: String = UserDefaults.standard.string(forKey: "lastName") ?? "Last Name"
+        var username: String = UserDefaults.standard.string(forKey: "username") ?? "@username"
         var dateBirth: String = UserDefaults.standard.string(forKey: "dateOfBirth") ?? "DateOfBirth"
         var languageLevel: String = UserDefaults.standard.string(forKey: "languageLevel") ?? "Level not found"
-        var photoData: Data? = UserDefaults.standard.data(forKey: "photo")
-        var photo: UIImage = UIImage(named: "default")!
+        // todo: add photo
+//        var photoData: Data? = UserDefaults.standard.data(forKey: "photo")
+//        var photo: UIImage = UIImage(named: "default")!
     }
 }

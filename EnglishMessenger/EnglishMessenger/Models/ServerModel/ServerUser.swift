@@ -8,6 +8,8 @@
 import Foundation
 
 struct ServerUser: Codable {
+    var firstName: String?
+    var lastName: String?
     var username: String?
     var email: String?
     var phone: String?

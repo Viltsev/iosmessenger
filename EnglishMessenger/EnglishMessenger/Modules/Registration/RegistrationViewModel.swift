@@ -29,10 +29,13 @@ extension RegistrationViewModel {
     }
     
     func registrationButtonEnable() {
-        input.usernameSubject
-            .combineLatest(input.emailSubject, input.passwordSubject)
-            .map {_ in 
-                !self.output.userNameFieldText.isEmpty && !self.output.emailFieldText.isEmpty && !self.output.passwordFieldText.isEmpty
+        input.firstNameSubject
+            .combineLatest(input.lastNameSubject, input.emailSubject, input.passwordSubject)
+            .map { [unowned self] _ in
+                !self.output.firstNameFieldText.isEmpty
+                && !self.output.lastNameFieldText.isEmpty
+                && !self.output.emailFieldText.isEmpty
+                && !self.output.passwordFieldText.isEmpty
             }
             .sink { isEnabled in
                 self.output.isEnabledButton = !isEnabled
@@ -43,34 +46,49 @@ extension RegistrationViewModel {
     func registerUser() {
         input.registerUserSubject
             .sink { [weak self] in
-                guard let username = self?.output.userNameFieldText,
+                guard let firstName = self?.output.firstNameFieldText,
+                      let lastName = self?.output.lastNameFieldText,
                       let email = self?.output.emailFieldText,
                       let password = self?.output.passwordFieldText else { return }
                 
-                UserDefaults.standard.removeObject(forKey: "username")
-                UserDefaults.standard.removeObject(forKey: "email")
-                UserDefaults.standard.setValue(username, forKey: "username")
-                UserDefaults.standard.setValue(email, forKey: "email")
+                self?.saveToUserDefaults(firstName, lastName, email)
                 
-                let userToRegistration = UserRegistration(username: username,
-                                                      email: email,
-                                                      password: password)
+                let userToRegistration = UserRegistration(firstName: firstName,
+                                                          lastName: lastName,
+                                                          email: email,
+                                                          password: password)
                 self?.apiService.registerUser(user: userToRegistration)
             }
             .store(in: &cancellable)
+    }
+    
+    func saveToUserDefaults(_ firstName: String, _ lastName: String, _ email: String) {
+        // remove current values
+        UserDefaults.standard.removeObject(forKey: "firstName")
+        UserDefaults.standard.removeObject(forKey: "lastName")
+        UserDefaults.standard.removeObject(forKey: "email")
+        
+        // add new values
+        UserDefaults.standard.setValue(firstName, forKey: "firstName")
+        UserDefaults.standard.setValue(lastName, forKey: "lastName")
+        UserDefaults.standard.setValue(email, forKey: "email")
     }
 }
 
 extension RegistrationViewModel {
     struct Input {
-        let usernameSubject = PassthroughSubject<Void, Never>()
+        let firstNameSubject = PassthroughSubject<Void, Never>()
+        let lastNameSubject = PassthroughSubject<Void, Never>()
+//        let usernameSubject = PassthroughSubject<Void, Never>()
         let emailSubject = PassthroughSubject<Void, Never>()
         let passwordSubject = PassthroughSubject<Void, Never>()
         let registerUserSubject = PassthroughSubject<Void, Never>()
     }
     
     struct Output {
-        var userNameFieldText: String = ""
+        var firstNameFieldText: String = ""
+        var lastNameFieldText: String = ""
+//        var userNameFieldText: String = ""
         var emailFieldText: String = ""
         var passwordFieldText: String = ""
         var isEnabledButton: Bool = true

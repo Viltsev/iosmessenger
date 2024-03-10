@@ -41,8 +41,10 @@ extension RegistrationView {
             
             Spacer()
             
-            CustomTextField(textFieldLabel: "Username", text: $viewModel.output.userNameFieldText)
-                .onChange(of: viewModel.output.userNameFieldText, usernameAction)
+            CustomTextField(textFieldLabel: "First Name", text: $viewModel.output.firstNameFieldText)
+                .onChange(of: viewModel.output.firstNameFieldText, firstNameAction)
+            CustomTextField(textFieldLabel: "Last Name", text: $viewModel.output.lastNameFieldText)
+                .onChange(of: viewModel.output.lastNameFieldText, lastNameAction)
             CustomTextField(textFieldLabel: "Email", text: $viewModel.output.emailFieldText)
                 .onChange(of: viewModel.output.emailFieldText, emailAction)
             CustomTextField(textFieldLabel: "Password", text: $viewModel.output.passwordFieldText)
@@ -72,8 +74,12 @@ extension RegistrationView {
         router.popView()
     }
     
-    func usernameAction() {
-        viewModel.input.usernameSubject.send()
+    func firstNameAction() {
+        viewModel.input.firstNameSubject.send()
+    }
+    
+    func lastNameAction() {
+        viewModel.input.lastNameSubject.send()
     }
     
     func emailAction() {
