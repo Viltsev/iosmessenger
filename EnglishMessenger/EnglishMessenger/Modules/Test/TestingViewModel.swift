@@ -100,11 +100,49 @@ extension TestingViewModel {
     }
     
     func goToProfileAction() {
-        input.goToProfileSubject
-            .sink { 
+        let request = input.goToProfileSubject
+            .map { [unowned self] in
+                let email = UserDefaults.standard.string(forKey: "email") ?? ""
+                let password = KeyChainStorage.getStringFromKeychain(forKey: email) ?? ""
+                let userAuth = UserAuthorization(email: email, password: password)
+                return self.apiService.authUser(user: userAuth)
+                    .materialize()
+            }
+            .switchToLatest()
+            .share()
+        
+        request
+            .failures()
+            .sink { error in
+                print(error)
+            }
+            .store(in: &cancellable)
+        
+        request
+            .values()
+            .sink { [unowned self] user in
+                self.saveUserData(user)
                 AuthenticationService.shared.status.send(true)
             }
             .store(in: &cancellable)
+    }
+    
+    func saveUserData(_ user: User) {
+        // delete current values from UserDefaults
+        UserDefaults.standard.removeObject(forKey: "dateOfBirth")
+        UserDefaults.standard.removeObject(forKey: "firstName")
+        UserDefaults.standard.removeObject(forKey: "lastName")
+        UserDefaults.standard.removeObject(forKey: "username")
+        UserDefaults.standard.removeObject(forKey: "languageLevel")
+        UserDefaults.standard.removeObject(forKey: "avatar")
+        
+        // add new values to UserDefaults
+        UserDefaults.standard.setValue(user.firstName, forKey: "firstName")
+        UserDefaults.standard.setValue(user.lastName, forKey: "lastName")
+        UserDefaults.standard.setValue(user.username, forKey: "username")
+        UserDefaults.standard.setValue(user.languageLevel, forKey: "languageLevel")
+        UserDefaults.standard.setValue(user.photo, forKey: "avatar")
+        FormatDate.formatDate(dateOfBirth: user.dateOfBirth)
     }
 }
 

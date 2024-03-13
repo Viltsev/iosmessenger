@@ -16,5 +16,5 @@ struct User: Identifiable {
     var phone: String
     var dateOfBirth: String
     var languageLevel: String
-    var photo: Data
+    var photo: String
 }

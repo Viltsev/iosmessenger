@@ -14,6 +14,7 @@ struct GenaralApi {
     let providerAuthorization = Provider<AuthorizationEndpoint>()
     let providerTesting = Provider<TestEndpoint>()
     let providerTestResults = Provider<TestResultsEndpoint>()
+    let providerOnboardingData = Provider<OnboardingEndpoint>()
 }
 
 extension GenaralApi {
@@ -84,4 +85,14 @@ extension GenaralApi {
             .eraseToAnyPublisher()
     }
     
+    func sendOnboardingData(onboardingData: Onboarding) {
+        providerOnboardingData.request(.sendOnboardingData(onboarding: onboardingData)) { result in
+            switch result {
+            case .success(let response):
+                print("Успешный ответ: \(response)")
+            case .failure(let error):
+                print("Ошибка: \(error)")
+            }
+        }
+    }
 }

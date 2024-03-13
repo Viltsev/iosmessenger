@@ -13,14 +13,16 @@ struct OnboardingView: View {
     @EnvironmentObject var viewModelTest: TestingViewModel
     @EnvironmentObject var router: StartNavigationRouter
     @State private var pageNumber = 0
-    @State private var age = ""
     @State private var dateText = ""
+    @State private var showingImagePicker = false
+    @State private var inputImage: UIImage?
     
     var body: some View {
         Color.lightPinky
             .ignoresSafeArea()
             .overlay {
                 content()
+                    .onChange(of: inputImage) { _ in loadImage() }
             }
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
@@ -32,17 +34,39 @@ struct OnboardingView: View {
                     }
                 }
             }
+            .sheet(isPresented: $showingImagePicker) {
+                ImagePicker(image: $inputImage)
+            }
         
     }
 }
 
 extension OnboardingView {
+    func imageToBase64(_ image: UIImage) -> String? {
+        guard let imageData = image.jpegData(compressionQuality: 1.0) else {
+            return nil
+        }
+        return imageData.base64EncodedString(options: [])
+    }
+    
+    func loadImage() {
+        guard let inputImage = inputImage else { return }
+        //let image = Image(uiImage: inputImage)
+        let base64String = imageToBase64(inputImage)
+        if let base64String = base64String {
+            viewModel.output.photo = base64String
+        }
+        //viewModel.output.image = image.uiImage()
+    }
+    
     func backButtonAction() {
         router.popView()
     }
     
     func goToTestingView() {
+        viewModel.output.dateOfBirth = dateText
         viewModelTest.input.fetchTestDataSubject.send()
+        viewModel.input.setupOnboardingSubject.send()
         router.pushView(StartNavigation.pushTestView)
     }
 }
@@ -75,7 +99,7 @@ extension OnboardingView {
         VStack(alignment: .center, spacing: 15) {
             Spacer()
             TitleTextView(text: "Your Username", size: 35)
-            TextField("@username", text: $viewModel.output.username)
+            TextField("@", text: $viewModel.output.username)
                 .foregroundColor(.mainPurple)
                 .font(.custom("Montserrat-Light", size: 30))
                 .multilineTextAlignment(.center)
@@ -102,15 +126,28 @@ extension OnboardingView {
             TitleTextView(text: "Add a photo?", size: 35)
             Button {
                 // todo: add photo action
+                showingImagePicker.toggle()
             } label: {
-                Circle()
-                    .stroke(style: StrokeStyle(lineWidth: 2, dash: [5]))
-                    .foregroundStyle(.mainPurple)
-                    .frame(width: 200, height: 200)
-                    .overlay {
-                        Image("cameraImage")
-                            .scaledToFit()
-                    }
+                if let image = viewModel.output.image {
+                    Image(uiImage: image)
+                        .frame(width: 200, height: 200)
+                        .overlay {
+                            Circle()
+                                .stroke(style: StrokeStyle(lineWidth: 2, dash: [5]))
+                                .foregroundStyle(.mainPurple)
+                                .frame(width: 200, height: 200)
+                        }
+                        .scaledToFit()
+                } else {
+                    Circle()
+                        .stroke(style: StrokeStyle(lineWidth: 2, dash: [5]))
+                        .foregroundStyle(.mainPurple)
+                        .frame(width: 200, height: 200)
+                        .overlay {
+                            Image("cameraImage")
+                                .scaledToFit()
+                        }
+                }
             }
             
             Spacer()

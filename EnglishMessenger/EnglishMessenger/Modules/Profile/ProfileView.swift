@@ -6,9 +6,12 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
+
 
 struct ProfileView: View {
     @StateObject private var viewModel = ProfileViewModel()
+    @EnvironmentObject var router: StartNavigationRouter
     
     var body: some View {
         Color.profilePinky
@@ -40,9 +43,11 @@ extension ProfileView {
                                 }
                                 .padding(.horizontal, 16)
                                 GeometryReader { geometry in
-                                    Circle()
-                                        .foregroundColor(.blue)
-                                        .frame(width: 200)
+                                    WebImage(url: viewModel.output.photo)
+                                        .resizable()
+                                        .scaledToFill()
+                                        .frame(width: 200, height: 200)
+                                        .cornerRadius(100)
                                         .background(
                                             Circle()
                                                 .stroke(style: StrokeStyle(lineWidth: 2))
@@ -120,7 +125,8 @@ extension ProfileView {
 
 extension ProfileView {
     func logout() {
-        viewModel.input.logoutSubject.send()
+        print(viewModel.output.photo ?? "non")
+        viewModel.input.logoutSubject.send(router)
     }
 }
 
