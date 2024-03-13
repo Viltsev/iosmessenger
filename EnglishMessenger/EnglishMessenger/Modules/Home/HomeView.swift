@@ -13,6 +13,8 @@ struct HomeView: View {
         AnimatedTab in
         return .init(tab: tab)
     }
+    @EnvironmentObject var router: StartNavigationRouter
+    
     var body: some View {
         VStack(spacing: 0) {
             TabView(selection: $activeTab) {
@@ -20,6 +22,7 @@ struct HomeView: View {
                     .setUpTab(.chats)
                 ProfileView()
                     .setUpTab(.profile)
+                    .environmentObject(router)
                 Text("dictionary")
                     .setUpTab(.dictionary)
                 Text("exercises")

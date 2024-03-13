@@ -16,13 +16,11 @@ struct AppContainer: View {
         Group {
             if isAuth {
                 HomeView()
-                //ProfileView()
             } else {
-                // TestResultsView()
                 StartView()
-                    .environmentObject(router)
             }
         }
+        .environmentObject(router)
         .onReceive(AuthenticationService.shared.status) { status in
             isAuth = status
         }

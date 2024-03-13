@@ -25,17 +25,11 @@ extension ProfileViewModel {
         
     }
     
-//    func loadImage() {
-//        guard let data = self.output.photoData else { return }
-//
-//        guard let uiImage = UIImage(data: data) else { return }
-//        self.output.photo = uiImage
-//    }
-    
     func logout() {
         input.logoutSubject
-            .sink {
+            .sink { router in
                 AuthenticationService.shared.status.send(false)
+                router.popToRoot()
             }
             .store(in: &cancellable)
     }
@@ -43,7 +37,7 @@ extension ProfileViewModel {
 
 extension ProfileViewModel {
     struct Input {
-        let logoutSubject = PassthroughSubject<Void, Never>()
+        let logoutSubject = PassthroughSubject<StartNavigationRouter, Never>()
     }
     
     struct Output {
@@ -52,8 +46,7 @@ extension ProfileViewModel {
         var username: String = UserDefaults.standard.string(forKey: "username") ?? "@username"
         var dateBirth: String = UserDefaults.standard.string(forKey: "dateOfBirth") ?? "DateOfBirth"
         var languageLevel: String = UserDefaults.standard.string(forKey: "languageLevel") ?? "Level not found"
-        // todo: add photo
-//        var photoData: Data? = UserDefaults.standard.data(forKey: "photo")
-//        var photo: UIImage = UIImage(named: "default")!
+        var photo: URL? = URL(string: UserDefaults.standard.string(forKey: "avatar") ?? "")
+        // var photo: URL? = UserDefaults.standard.url(forKey: "avatar")
     }
 }

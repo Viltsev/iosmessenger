@@ -51,7 +51,7 @@ extension RegistrationViewModel {
                       let email = self?.output.emailFieldText,
                       let password = self?.output.passwordFieldText else { return }
                 
-                self?.saveToUserDefaults(firstName, lastName, email)
+                self?.saveData(password, email)
                 
                 let userToRegistration = UserRegistration(firstName: firstName,
                                                           lastName: lastName,
@@ -62,16 +62,13 @@ extension RegistrationViewModel {
             .store(in: &cancellable)
     }
     
-    func saveToUserDefaults(_ firstName: String, _ lastName: String, _ email: String) {
+    func saveData(_ password: String, _ email: String) {
         // remove current values
-        UserDefaults.standard.removeObject(forKey: "firstName")
-        UserDefaults.standard.removeObject(forKey: "lastName")
         UserDefaults.standard.removeObject(forKey: "email")
         
         // add new values
-        UserDefaults.standard.setValue(firstName, forKey: "firstName")
-        UserDefaults.standard.setValue(lastName, forKey: "lastName")
         UserDefaults.standard.setValue(email, forKey: "email")
+        KeyChainStorage.saveStringToKeychain(string: password, forKey: email)
     }
 }
 
@@ -79,7 +76,6 @@ extension RegistrationViewModel {
     struct Input {
         let firstNameSubject = PassthroughSubject<Void, Never>()
         let lastNameSubject = PassthroughSubject<Void, Never>()
-//        let usernameSubject = PassthroughSubject<Void, Never>()
         let emailSubject = PassthroughSubject<Void, Never>()
         let passwordSubject = PassthroughSubject<Void, Never>()
         let registerUserSubject = PassthroughSubject<Void, Never>()
@@ -88,7 +84,6 @@ extension RegistrationViewModel {
     struct Output {
         var firstNameFieldText: String = ""
         var lastNameFieldText: String = ""
-//        var userNameFieldText: String = ""
         var emailFieldText: String = ""
         var passwordFieldText: String = ""
         var isEnabledButton: Bool = true
