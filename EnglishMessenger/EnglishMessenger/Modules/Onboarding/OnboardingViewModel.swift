@@ -25,6 +25,8 @@ class OnboardingViewModel: ObservableObject {
 extension OnboardingViewModel {
     func bind() {
         setupOnboardingData()
+        fetchTestData()
+        saveInterestId()
     }
     
     func setupOnboardingData() {
@@ -38,6 +40,7 @@ extension OnboardingViewModel {
                                                     dateOfBirth: date,
                                                     photo: output.photo)
                     self.apiService.sendOnboardingData(onboardingData: onboardingData)
+                    self.apiService.sendInterestsList(interestsIds: self.output.interestIdList)
                 }
                 UserDefaults.standard.removeObject(forKey: "avatar")
             }
@@ -55,11 +58,52 @@ extension OnboardingViewModel {
             return nil
         }
     }
+    
+    func fetchTestData() {
+        let request = input.fetchInterestSubject
+            .map {
+                self.apiService.fetchInterestsList()
+                    .materialize()
+            }
+            .switchToLatest()
+            .share()
+        
+        request
+            .failures()
+            .sink { error in
+                print(error)
+            }
+            .store(in: &cancellable)
+        
+        request
+            .values()
+            .sink { [weak self] interestsData in
+                guard let self else { return }
+                self.output.interestsArray = interestsData
+            }
+            .store(in: &cancellable)
+    }
+    
+    func saveInterestId() {
+        input.saveInterestIdSubject
+            .sink { id in
+                if self.output.interestsArray[id - 1].selection == .notSelected {
+                    self.output.interestIdList.append(id)
+                    self.output.interestsArray[id - 1].selection = .selected
+                } else {
+                    self.output.interestIdList.removeAll(where: { $0 == id })
+                    self.output.interestsArray[id - 1].selection = .notSelected
+                }
+            }
+            .store(in: &cancellable)
+    }
 }
 
 extension OnboardingViewModel {
     struct Input {
         let setupOnboardingSubject = PassthroughSubject<Void, Never>()
+        let fetchInterestSubject = PassthroughSubject<Void, Never>()
+        let saveInterestIdSubject = PassthroughSubject<Int, Never>()
     }
     
     struct Output {
@@ -67,5 +111,7 @@ extension OnboardingViewModel {
         var dateOfBirth: String = ""
         var image: UIImage?
         var photo: String = ""
+        var interestsArray: [LocalInterests] = []
+        var interestIdList: [Int] = []
     }
 }

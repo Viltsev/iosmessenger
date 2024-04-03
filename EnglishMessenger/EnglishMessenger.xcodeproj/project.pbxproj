@@ -83,6 +83,11 @@
 		83505D202B923D91005FD7DC /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83505D1F2B923D91005FD7DC /* OnboardingView.swift */; };
 		83505D262B9268A0005FD7DC /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83505D252B9268A0005FD7DC /* OnboardingViewModel.swift */; };
 		83505D282B92782D005FD7DC /* MaskedDateTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83505D272B92782D005FD7DC /* MaskedDateTextField.swift */; };
+		838AF0382BBD42D8002FDA88 /* ServerInterests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838AF0372BBD42D8002FDA88 /* ServerInterests.swift */; };
+		838AF03A2BBD4323002FDA88 /* LocalInterests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838AF0392BBD4323002FDA88 /* LocalInterests.swift */; };
+		838AF03C2BBD434B002FDA88 /* InterestsModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838AF03B2BBD434B002FDA88 /* InterestsModelMapper.swift */; };
+		838AF03F2BBD43FB002FDA88 /* InterestsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838AF03E2BBD43FB002FDA88 /* InterestsEndpoint.swift */; };
+		838AF0412BBD6315002FDA88 /* ScaleButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838AF0402BBD6315002FDA88 /* ScaleButtonStyle.swift */; };
 		838C30382B9F708300F098EE /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838C30372B9F708300F098EE /* ImagePicker.swift */; };
 		83A40A8A2B9885C3003A284E /* MainTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A40A892B9885C3003A284E /* MainTab.swift */; };
 		83A40A8C2B9889AA003A284E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A40A8B2B9889AA003A284E /* HomeView.swift */; };
@@ -167,6 +172,11 @@
 		83505D1F2B923D91005FD7DC /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		83505D252B9268A0005FD7DC /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		83505D272B92782D005FD7DC /* MaskedDateTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskedDateTextField.swift; sourceTree = "<group>"; };
+		838AF0372BBD42D8002FDA88 /* ServerInterests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerInterests.swift; sourceTree = "<group>"; };
+		838AF0392BBD4323002FDA88 /* LocalInterests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalInterests.swift; sourceTree = "<group>"; };
+		838AF03B2BBD434B002FDA88 /* InterestsModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestsModelMapper.swift; sourceTree = "<group>"; };
+		838AF03E2BBD43FB002FDA88 /* InterestsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestsEndpoint.swift; sourceTree = "<group>"; };
+		838AF0402BBD6315002FDA88 /* ScaleButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleButtonStyle.swift; sourceTree = "<group>"; };
 		838C30372B9F708300F098EE /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		83A40A892B9885C3003A284E /* MainTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTab.swift; sourceTree = "<group>"; };
 		83A40A8B2B9889AA003A284E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -282,6 +292,7 @@
 				831AE06C2B80D87500C5B6AF /* BaseModelMapper.swift */,
 				831AE0962B8120B300C5B6AF /* UserModelMapper.swift */,
 				8331F8452B95FE9700058CEC /* TestModelMapper.swift */,
+				838AF03B2BBD434B002FDA88 /* InterestsModelMapper.swift */,
 			);
 			path = Mappers;
 			sourceTree = "<group>";
@@ -291,6 +302,7 @@
 			children = (
 				831AE0922B811FD700C5B6AF /* ServerUser.swift */,
 				8331F8412B95FD2300058CEC /* ServerTest.swift */,
+				838AF0372BBD42D8002FDA88 /* ServerInterests.swift */,
 			);
 			path = ServerModel;
 			sourceTree = "<group>";
@@ -304,6 +316,7 @@
 				8331F8432B95FE6600058CEC /* LocalTest.swift */,
 				8331F8492B96317E00058CEC /* Answer.swift */,
 				8334B75C2B9DFFA80087716F /* Onboarding.swift */,
+				838AF0392BBD4323002FDA88 /* LocalInterests.swift */,
 			);
 			path = LocalModel;
 			sourceTree = "<group>";
@@ -415,6 +428,7 @@
 				8331F8472B96014B00058CEC /* TestEndpoint.swift */,
 				83385A7D2B970790007CC6FB /* TestResultsEndpoint.swift */,
 				8334B75E2B9E02050087716F /* OnboardingEndpoint.swift */,
+				838AF03E2BBD43FB002FDA88 /* InterestsEndpoint.swift */,
 			);
 			path = Endpoints;
 			sourceTree = "<group>";
@@ -529,6 +543,7 @@
 				83BD01EF2B936ABB0059AB53 /* BackButtonView.swift */,
 				83C2B3152B94D73900B69E69 /* TestButtonView.swift */,
 				83C2B3172B94EE9C00B69E69 /* PurpleButtonView.swift */,
+				838AF0402BBD6315002FDA88 /* ScaleButtonStyle.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -673,12 +688,14 @@
 				83A40A8C2B9889AA003A284E /* HomeView.swift in Sources */,
 				831AE06D2B80D87500C5B6AF /* BaseModelMapper.swift in Sources */,
 				831AE08B2B80F8B900C5B6AF /* UserAuthorization.swift in Sources */,
+				838AF0412BBD6315002FDA88 /* ScaleButtonStyle.swift in Sources */,
 				83BD01EE2B93698A0059AB53 /* TestingView.swift in Sources */,
 				83103EE32B7FF73C00932A96 /* ProfileView.swift in Sources */,
 				831AE0952B81203800C5B6AF /* User.swift in Sources */,
 				831AE0932B811FD700C5B6AF /* ServerUser.swift in Sources */,
 				83505D1D2B923673005FD7DC /* OnboardingNavigationView.swift in Sources */,
 				8331F8422B95FD2300058CEC /* ServerTest.swift in Sources */,
+				838AF03A2BBD4323002FDA88 /* LocalInterests.swift in Sources */,
 				83505D262B9268A0005FD7DC /* OnboardingViewModel.swift in Sources */,
 				83103EB22B7F574300932A96 /* StartView.swift in Sources */,
 				831AE0722B80DFCA00C5B6AF /* Provider.swift in Sources */,
@@ -686,6 +703,7 @@
 				83103EDE2B7F9DA900932A96 /* RegistrationViewModel.swift in Sources */,
 				83103ED62B7F993F00932A96 /* StartViewModel.swift in Sources */,
 				831AE0912B81089A00C5B6AF /* UserStorage.swift in Sources */,
+				838AF03C2BBD434B002FDA88 /* InterestsModelMapper.swift in Sources */,
 				83385A7C2B96FA6F007CC6FB /* TestResultsView.swift in Sources */,
 				83505D282B92782D005FD7DC /* MaskedDateTextField.swift in Sources */,
 				8331F8462B95FE9700058CEC /* TestModelMapper.swift in Sources */,
@@ -707,9 +725,11 @@
 				83505CF22B91FF97005FD7DC /* TitleTextView.swift in Sources */,
 				83454FBC2B95B611006E608E /* TestingViewModel.swift in Sources */,
 				83BD01F62B936B620059AB53 /* TestProgressView.swift in Sources */,
+				838AF0382BBD42D8002FDA88 /* ServerInterests.swift in Sources */,
 				8331F8482B96014B00058CEC /* TestEndpoint.swift in Sources */,
 				8334B75D2B9DFFA80087716F /* Onboarding.swift in Sources */,
 				831AE08E2B81081E00C5B6AF /* AuthenticationService.swift in Sources */,
+				838AF03F2BBD43FB002FDA88 /* InterestsEndpoint.swift in Sources */,
 				8331F84A2B96317E00058CEC /* Answer.swift in Sources */,
 				83385A7E2B970790007CC6FB /* TestResultsEndpoint.swift in Sources */,
 				83103ECF2B7F91EF00932A96 /* AppContainer.swift in Sources */,
