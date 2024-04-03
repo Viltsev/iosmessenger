@@ -22,6 +22,9 @@ struct OnboardingView: View {
             .ignoresSafeArea()
             .overlay {
                 content()
+                    .onAppear {
+                        viewModel.input.fetchInterestSubject.send()
+                    }
                     .onChange(of: inputImage) { _ in loadImage() }
             }
             .toolbar {
@@ -159,27 +162,32 @@ extension OnboardingView {
         VStack(alignment: .center, spacing: 25) {
             Spacer()
             TitleTextView(text: "Choose topics you interested", size: 35)
-            ForEach(0..<4) { index in
-                HStack(spacing: 10) {
-                    VStack {
-                        Text("Interest")
-                            .font(.custom("Montserrat-Regular", size: 16))
-                            .foregroundStyle(index % 2 == 0 ? Color.pinky2 : Color.lightPurple)
-                            .padding(.horizontal, 45)
-                            .padding(.vertical, 15)
+            ScrollView(.vertical, showsIndicators: false) {
+                VStack(spacing: 15) {
+                    ForEach(viewModel.output.interestsArray, id: \.id) { interest in
+                        Button {
+                            viewModel.input.saveInterestIdSubject.send(interest.id)
+                        } label: {
+                            VStack {
+                                Text(interest.interest)
+                                    .font(.custom("Montserrat-Regular", size: 16))
+                                    .foregroundStyle(
+                                        interest.selection == .selected ? .pinky2 :
+                                            interest.id % 2 == 0 ? Color.pinky2 : Color.lightPurple
+                                    )
+                                    .padding(.horizontal, 45)
+                                    .padding(.vertical, 15)
+                            }
+                            .frame(maxWidth: .infinity)
+                            .background(
+                                interest.selection == .selected ? .mainPurple :
+                                    interest.id % 2 == 0 ? Color.lightPurple : Color.pinky2
+                            )
+                            .clipShape(.buttonBorder)
+                            .padding(.horizontal, 25)
+                        }
+                        .buttonStyle(ScaleButtonStyle())
                     }
-                    .background(index % 2 == 0 ? Color.lightPurple : Color.pinky2)
-                    .clipShape(.buttonBorder)
-                    
-                    VStack {
-                        Text("Interest")
-                            .font(.custom("Montserrat-Regular", size: 16))
-                            .foregroundStyle(index % 2 == 0 ? Color.lightPurple : Color.pinky2)
-                            .padding(.horizontal, 45)
-                            .padding(.vertical, 15)
-                    }
-                    .background(index % 2 == 0 ? Color.pinky2 : Color.lightPurple)
-                    .clipShape(.buttonBorder)
                 }
             }
             Spacer()

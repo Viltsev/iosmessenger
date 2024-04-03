@@ -29,11 +29,11 @@ extension TestEndpoint: TargetType {
     }
     
     var task: Moya.Task {
-            switch self {
-            case .fetchQuestions:
-                return .requestPlain
-            }
+        switch self {
+        case .fetchQuestions:
+            return .requestPlain
         }
+    }
     
     var headers: [String: String]? {
         ["Content-Type": "application/json"]

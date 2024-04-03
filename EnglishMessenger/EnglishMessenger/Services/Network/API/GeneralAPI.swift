@@ -15,6 +15,7 @@ struct GenaralApi {
     let providerTesting = Provider<TestEndpoint>()
     let providerTestResults = Provider<TestResultsEndpoint>()
     let providerOnboardingData = Provider<OnboardingEndpoint>()
+    let providerInterestsData = Provider<InterestsEndpoint>()
 }
 
 extension GenaralApi {
@@ -87,6 +88,35 @@ extension GenaralApi {
     
     func sendOnboardingData(onboardingData: Onboarding) {
         providerOnboardingData.request(.sendOnboardingData(onboarding: onboardingData)) { result in
+            switch result {
+            case .success(let response):
+                print("Успешный ответ: \(response)")
+            case .failure(let error):
+                print("Ошибка: \(error)")
+            }
+        }
+    }
+    
+    func fetchInterestsList() -> AnyPublisher<[LocalInterests], ErrorAPI> {
+        providerInterestsData.requestPublisher(.getListInterests)
+            .filterSuccessfulStatusCodes()
+            .map([ServerInterests].self)
+            .map { serverInterests in
+                InterestsModelMapper().toLocal(list: serverInterests)
+            }
+            .mapError { error in
+                if error.response?.statusCode == 404 {
+                    return ErrorAPI.notFound
+                } else {
+                    return ErrorAPI.network
+                }
+            }
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+    }
+    
+    func sendInterestsList(interestsIds: [Int]) {
+        providerInterestsData.request(.sendInterestIds(interestIdList: interestsIds)) { result in
             switch result {
             case .success(let response):
                 print("Успешный ответ: \(response)")

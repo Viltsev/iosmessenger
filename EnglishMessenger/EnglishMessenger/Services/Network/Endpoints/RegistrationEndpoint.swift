@@ -29,21 +29,21 @@ extension RegistrationEndpoint: TargetType {
     }
     
     var task: Moya.Task {
-            switch self {
-            case let .registerUser(user):
-                do {
-                    let jsonData = try JSONEncoder().encode(user)
-                    if let jsonString = String(data: jsonData, encoding: .utf8) {
-                        print("JSON для отправки: \(jsonString)")
-                    } else {
-                        print("Невозможно преобразовать JSON данные в строку.")
-                    }
-                    return .requestData(jsonData)
-                } catch {
-                    fatalError("Unable to encode parameters: \(error)")
+        switch self {
+        case let .registerUser(user):
+            do {
+                let jsonData = try JSONEncoder().encode(user)
+                if let jsonString = String(data: jsonData, encoding: .utf8) {
+                    print("JSON для отправки: \(jsonString)")
+                } else {
+                    print("Невозможно преобразовать JSON данные в строку.")
                 }
+                return .requestData(jsonData)
+            } catch {
+                fatalError("Unable to encode parameters: \(error)")
             }
         }
+    }
     
     var headers: [String: String]? {
         ["Content-Type": "application/json"]

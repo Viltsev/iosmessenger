@@ -12,33 +12,51 @@ struct KeyChainStorage {
     static func saveStringToKeychain(string: String, forKey key: String) {
         guard let data = string.data(using: .utf8) else { return }
         
-        var query = [String: Any]()
-        query[kSecClass as String] = kSecClassGenericPassword
-        query[kSecAttrAccount as String] = key
-        query[kSecValueData as String] = data
-        query[kSecAttrAccessible as String] = kSecAttrAccessibleWhenUnlocked
+        let query = [
+            kSecValueData: data,
+            kSecClass: kSecClassGenericPassword,
+            kSecAttrAccount: key
+        ] as CFDictionary
         
-        SecItemDelete(query as CFDictionary)
+        let saveStatus = SecItemAdd(query, nil)
+        
+        if saveStatus != errSecSuccess {
+            print("Error: \(saveStatus)")
+        }
+        
+        if saveStatus == errSecDuplicateItem {
+            update(data, account: key)
+        }
+    }
+    
+    static func update(_ data: Data, account: String) {
+        let query = [
+            kSecClass: kSecClassGenericPassword,
+            kSecAttrAccount: account
+        ] as CFDictionary
+            
+        let updatedData = [kSecValueData: data] as CFDictionary
+        SecItemUpdate(query, updatedData)
     }
     
     static func getStringFromKeychain(forKey key: String) -> String? {
-        var query = [String: Any]()
-        query[kSecClass as String] = kSecClassGenericPassword
-        query[kSecAttrAccount as String] = key
-        query[kSecMatchLimit as String] = kSecMatchLimitOne
-        query[kSecReturnAttributes as String] = kCFBooleanFalse
-        query[kSecReturnData as String] = kCFBooleanTrue
+        let query = [
+            kSecClass: kSecClassGenericPassword,
+            kSecAttrAccount: key,
+            kSecReturnData: true
+        ] as CFDictionary
         
-        var dataTypeRef: AnyObject?
-    
-        let status = SecItemCopyMatching(query as CFDictionary, &dataTypeRef)
+        var result: AnyObject?
+        let status = SecItemCopyMatching(query, &result)
         
-        if status == errSecSuccess, let retrievedData = dataTypeRef as? Data {
-            if let retrievedString = String(data: retrievedData, encoding: .utf8) {
-                return retrievedString
+        if status == errSecSuccess, let data = result as? Data {
+            if let string = String(data: data, encoding: .utf8) {
+                return string
+            } else {
+                return nil
             }
+        } else {
+            return nil
         }
-        
-        return nil
     }
 }
