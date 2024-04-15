@@ -88,6 +88,8 @@
 		838AF03C2BBD434B002FDA88 /* InterestsModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838AF03B2BBD434B002FDA88 /* InterestsModelMapper.swift */; };
 		838AF03F2BBD43FB002FDA88 /* InterestsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838AF03E2BBD43FB002FDA88 /* InterestsEndpoint.swift */; };
 		838AF0412BBD6315002FDA88 /* ScaleButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838AF0402BBD6315002FDA88 /* ScaleButtonStyle.swift */; };
+		838AF0442BBDAE64002FDA88 /* ChatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838AF0432BBDAE64002FDA88 /* ChatsView.swift */; };
+		838AF0462BBDB45C002FDA88 /* BotResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838AF0452BBDB45C002FDA88 /* BotResponse.swift */; };
 		838C30382B9F708300F098EE /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838C30372B9F708300F098EE /* ImagePicker.swift */; };
 		83A40A8A2B9885C3003A284E /* MainTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A40A892B9885C3003A284E /* MainTab.swift */; };
 		83A40A8C2B9889AA003A284E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A40A8B2B9889AA003A284E /* HomeView.swift */; };
@@ -177,6 +179,8 @@
 		838AF03B2BBD434B002FDA88 /* InterestsModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestsModelMapper.swift; sourceTree = "<group>"; };
 		838AF03E2BBD43FB002FDA88 /* InterestsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestsEndpoint.swift; sourceTree = "<group>"; };
 		838AF0402BBD6315002FDA88 /* ScaleButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleButtonStyle.swift; sourceTree = "<group>"; };
+		838AF0432BBDAE64002FDA88 /* ChatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsView.swift; sourceTree = "<group>"; };
+		838AF0452BBDB45C002FDA88 /* BotResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BotResponse.swift; sourceTree = "<group>"; };
 		838C30372B9F708300F098EE /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		83A40A892B9885C3003A284E /* MainTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTab.swift; sourceTree = "<group>"; };
 		83A40A8B2B9889AA003A284E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -343,6 +347,7 @@
 		83103ECC2B7F601700932A96 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				838AF0422BBDAE58002FDA88 /* Chats */,
 				83A40A872B98859D003A284E /* Home */,
 				83BD01EC2B9369520059AB53 /* Test */,
 				83505D1E2B923AEC005FD7DC /* Onboarding */,
@@ -508,6 +513,15 @@
 				83505D252B9268A0005FD7DC /* OnboardingViewModel.swift */,
 			);
 			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		838AF0422BBDAE58002FDA88 /* Chats */ = {
+			isa = PBXGroup;
+			children = (
+				838AF0432BBDAE64002FDA88 /* ChatsView.swift */,
+				838AF0452BBDB45C002FDA88 /* BotResponse.swift */,
+			);
+			path = Chats;
 			sourceTree = "<group>";
 		};
 		838C30362B9F707100F098EE /* Image */ = {
@@ -706,11 +720,13 @@
 				838AF03C2BBD434B002FDA88 /* InterestsModelMapper.swift in Sources */,
 				83385A7C2B96FA6F007CC6FB /* TestResultsView.swift in Sources */,
 				83505D282B92782D005FD7DC /* MaskedDateTextField.swift in Sources */,
+				838AF0442BBDAE64002FDA88 /* ChatsView.swift in Sources */,
 				8331F8462B95FE9700058CEC /* TestModelMapper.swift in Sources */,
 				8331F8442B95FE6600058CEC /* LocalTest.swift in Sources */,
 				831AE0822B80F4F000C5B6AF /* GeneralAPI.swift in Sources */,
 				83505CF42B9226D3005FD7DC /* CustomTextFieldStyle.swift in Sources */,
 				83BD01F02B936ABB0059AB53 /* BackButtonView.swift in Sources */,
+				838AF0462BBDB45C002FDA88 /* BotResponse.swift in Sources */,
 				83103EC42B7F5EC600932A96 /* Colors.swift in Sources */,
 				831AE0682B80CAC300C5B6AF /* ProfileViewModel.swift in Sources */,
 				83103EDA2B7F9B9800932A96 /* RegistrationView.swift in Sources */,
