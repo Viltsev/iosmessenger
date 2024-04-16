@@ -26,7 +26,7 @@ struct ChatsView: View {
                     }
                 }.rotationEffect(.degrees(180))
             }.rotationEffect(.degrees(180))
-                .background(Color.gray.opacity(0.1))
+            .background(Color.gray.opacity(0.1))
             
             HStack {
                 TextField("Type...", text: $socketService.message)
@@ -122,42 +122,3 @@ struct ChatsView: View {
         }
     }
 }
-//
-//#Preview {
-//    ChatsView()
-//}
-
-
-//VStack {
-//    ScrollView {
-//        ForEach(socketService.messages, id: \.idChat) { message in
-//            if message.type == "JOIN" {
-//                Text("\(message.sender), joined")
-//            } else if message.type == "CHAT" {
-//                messageView(message: message)
-//            }
-//        }
-//    }
-//    Spacer()
-//    HStack {
-//        TextField("Type a message...", text: $socketService.message)
-//            .textFieldStyle(.roundedBorder)
-//        Button {
-//            socketService.sendMessage()
-//            socketService.message = ""
-//        } label: {
-//            HStack {
-//                Text("Send")
-//                    .font(.headline)
-//                    .foregroundStyle(.white)
-//                    .padding(.vertical, 8)
-//                    .padding(.horizontal, 12)
-//            }
-//            .background(Color.blue)
-//            .cornerRadius(16)
-//        }
-//    }
-//}
-
-
-

@@ -17,6 +17,7 @@ struct GenaralApi {
     let providerOnboardingData = Provider<OnboardingEndpoint>()
     let providerInterestsData = Provider<InterestsEndpoint>()
     let providerGetAllUsers = Provider<GetAllUsersEndpoint>()
+    let providerMessagesEndpoint = Provider<MessagesEndpoint>()
 }
 
 extension GenaralApi {
@@ -141,6 +142,29 @@ extension GenaralApi {
                 print("Успешный ответ: \(response)")
             case .failure(let error):
                 print("Ошибка: \(error)")
+            }
+        }
+    }
+    
+    
+    func getAllMessages(chatId: String) async throws -> [Message] {
+        return try await withCheckedThrowingContinuation { continuation in
+            providerMessagesEndpoint.request(.getAllChatMessages(chatId)) { result in
+                switch result {
+                case .success(let response):
+                    do {
+                        let serverMessages = try JSONDecoder().decode([Message].self, from: response.data)
+                        continuation.resume(returning: serverMessages)
+                    } catch {
+                        if response.statusCode == 404 {
+                            continuation.resume(throwing: ErrorAPI.notFound)
+                        } else {
+                            continuation.resume(throwing: ErrorAPI.network)
+                        }
+                    }
+                case .failure:
+                    continuation.resume(throwing: ErrorAPI.network)
+                }
             }
         }
     }

@@ -101,6 +101,8 @@
 		838C30382B9F708300F098EE /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838C30372B9F708300F098EE /* ImagePicker.swift */; };
 		83A40A8A2B9885C3003A284E /* MainTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A40A892B9885C3003A284E /* MainTab.swift */; };
 		83A40A8C2B9889AA003A284E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A40A8B2B9889AA003A284E /* HomeView.swift */; };
+		83B3D5E52BCE97F200B62413 /* MessagesEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B3D5E42BCE97F200B62413 /* MessagesEndpoint.swift */; };
+		83B3D5E72BCE996A00B62413 /* MessagesModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B3D5E62BCE996A00B62413 /* MessagesModelMapper.swift */; };
 		83BD01EE2B93698A0059AB53 /* TestingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BD01ED2B93698A0059AB53 /* TestingView.swift */; };
 		83BD01F02B936ABB0059AB53 /* BackButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BD01EF2B936ABB0059AB53 /* BackButtonView.swift */; };
 		83BD01F62B936B620059AB53 /* TestProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BD01F52B936B620059AB53 /* TestProgressView.swift */; };
@@ -199,6 +201,8 @@
 		838C30372B9F708300F098EE /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		83A40A892B9885C3003A284E /* MainTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTab.swift; sourceTree = "<group>"; };
 		83A40A8B2B9889AA003A284E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		83B3D5E42BCE97F200B62413 /* MessagesEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesEndpoint.swift; sourceTree = "<group>"; };
+		83B3D5E62BCE996A00B62413 /* MessagesModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesModelMapper.swift; sourceTree = "<group>"; };
 		83BD01ED2B93698A0059AB53 /* TestingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingView.swift; sourceTree = "<group>"; };
 		83BD01EF2B936ABB0059AB53 /* BackButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButtonView.swift; sourceTree = "<group>"; };
 		83BD01F52B936B620059AB53 /* TestProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestProgressView.swift; sourceTree = "<group>"; };
@@ -327,6 +331,7 @@
 				831AE0962B8120B300C5B6AF /* UserModelMapper.swift */,
 				8331F8452B95FE9700058CEC /* TestModelMapper.swift */,
 				838AF03B2BBD434B002FDA88 /* InterestsModelMapper.swift */,
+				83B3D5E62BCE996A00B62413 /* MessagesModelMapper.swift */,
 			);
 			path = Mappers;
 			sourceTree = "<group>";
@@ -468,6 +473,7 @@
 				8334B75E2B9E02050087716F /* OnboardingEndpoint.swift */,
 				838AF03E2BBD43FB002FDA88 /* InterestsEndpoint.swift */,
 				83524D3A2BCD624A00F86E2C /* GetAllUsersEndpoint.swift */,
+				83B3D5E42BCE97F200B62413 /* MessagesEndpoint.swift */,
 			);
 			path = Endpoints;
 			sourceTree = "<group>";
@@ -821,6 +827,7 @@
 				8334B75F2B9E02050087716F /* OnboardingEndpoint.swift in Sources */,
 				83103EDE2B7F9DA900932A96 /* RegistrationViewModel.swift in Sources */,
 				83103ED62B7F993F00932A96 /* StartViewModel.swift in Sources */,
+				83B3D5E52BCE97F200B62413 /* MessagesEndpoint.swift in Sources */,
 				831AE0912B81089A00C5B6AF /* UserStorage.swift in Sources */,
 				838AF03C2BBD434B002FDA88 /* InterestsModelMapper.swift in Sources */,
 				83385A7C2B96FA6F007CC6FB /* TestResultsView.swift in Sources */,
@@ -852,6 +859,7 @@
 				83524D3B2BCD624A00F86E2C /* GetAllUsersEndpoint.swift in Sources */,
 				83524D332BCD545000F86E2C /* Message.swift in Sources */,
 				83BD01F62B936B620059AB53 /* TestProgressView.swift in Sources */,
+				83B3D5E72BCE996A00B62413 /* MessagesModelMapper.swift in Sources */,
 				838AF0382BBD42D8002FDA88 /* ServerInterests.swift in Sources */,
 				8331F8482B96014B00058CEC /* TestEndpoint.swift in Sources */,
 				8334B75D2B9DFFA80087716F /* Onboarding.swift in Sources */,

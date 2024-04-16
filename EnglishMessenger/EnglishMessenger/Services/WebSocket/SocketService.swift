@@ -17,30 +17,27 @@ class SocketService: ObservableObject, StompClientLibDelegate {
     @Published var messages: [Message] = []
     
     private var socketClient: StompClientLib
+    let apiService = GenaralApi()
     
     init() {
         self.socketClient = StompClientLib()
         let url = URL(string: "http://localhost:8080/ws")!
         socketClient.openSocketWithURLRequest(request: NSURLRequest(url: url), delegate: self)
     }
-    
+        
     func connect() {
-        print("connecting! username: \(self.username)")
-        let chatMessage = ServerMessage(type: "JOIN", content: nil, sender: self.username, senderId: self.senderId, recipientId: self.recipientId)
         let chatId = generateChatId(senderId: self.senderId, recipientId: self.recipientId)
-        print(chatId)
-        do {
-            let jsonData = try JSONEncoder().encode(chatMessage)
-            if let jsonDict = try JSONSerialization.jsonObject(with: jsonData, options: []) as? [String: Any] {
-                socketClient.sendJSONForDict(dict: jsonDict as AnyObject, toDestination: "/app/chat.addUser/\(chatId)")
+        Task {
+            do {
+                let chatMessages = try await apiService.getAllMessages(chatId: chatId)
+                await updataMessages(chatMessages)
+            } catch {
+                print("Network error!")
             }
-        } catch {
-            print("Error encoding chat message: \(error)")
         }
     }
     
     func sendMessage() {
-        print("sending message... message: \(self.message)")
         let userMessage = ServerMessage(type: "CHAT", content: self.message, sender: self.username, senderId: self.senderId, recipientId: self.recipientId)
         let chatId = generateChatId(senderId: self.senderId, recipientId: self.recipientId)
         do {
@@ -53,19 +50,10 @@ class SocketService: ObservableObject, StompClientLibDelegate {
         }
     }
     
-    func jsonString(from jsonBody: AnyObject?) -> String? {
-        guard let jsonData = try? JSONSerialization.data(withJSONObject: jsonBody ?? [:], options: []),
-              let jsonString = String(data: jsonData, encoding: .utf8) else {
-            return nil
-        }
-        return jsonString
-    }
     
-    func generateChatId(senderId: String, recipientId: String) -> String {
-        let ids = [senderId, recipientId].sorted()
-        return ids[0] + ids[1]
-    }
-        
+}
+
+extension SocketService {
     func stompClient(client: StompClientLib,
                      didReceiveMessageWithJSONBody jsonBody: AnyObject?,
                      akaStringBody stringBody: String?,
@@ -75,9 +63,6 @@ class SocketService: ObservableObject, StompClientLibDelegate {
         if let jsonBodyString = jsonString(from: jsonBody),
            let jsonData = jsonBodyString.data(using: .utf8),
            let message = try? JSONDecoder().decode(Message.self, from: jsonData) {
-            print("Type: \(message.type)")
-            print("Content: \(message.content ?? "nil")")
-            print("Sender: \(message.sender)")
             self.messages.append(message)
         } else {
             print("Failed to parse JSON")
@@ -111,5 +96,25 @@ class SocketService: ObservableObject, StompClientLibDelegate {
     
     func serverDidSendPing() {
         print("to do")
+    }
+}
+
+extension SocketService {
+    @MainActor
+    private func updataMessages(_ chatMessages: [Message]) {
+        self.messages.append(contentsOf: chatMessages)
+    }
+    
+    func jsonString(from jsonBody: AnyObject?) -> String? {
+        guard let jsonData = try? JSONSerialization.data(withJSONObject: jsonBody ?? [:], options: []),
+              let jsonString = String(data: jsonData, encoding: .utf8) else {
+            return nil
+        }
+        return jsonString
+    }
+    
+    func generateChatId(senderId: String, recipientId: String) -> String {
+        let ids = [senderId, recipientId].sorted()
+        return ids[0] + ids[1]
     }
 }
