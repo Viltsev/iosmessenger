@@ -14,12 +14,14 @@ struct HomeView: View {
         return .init(tab: tab)
     }
     @EnvironmentObject var router: StartNavigationRouter
+    @EnvironmentObject var mainRouter: MainNavigationRouter
     
     var body: some View {
         VStack(spacing: 0) {
             TabView(selection: $activeTab) {
-                Text("chats")
+                ChatsStartView()
                     .setUpTab(.chats)
+                    .environmentObject(mainRouter)
                 ProfileView()
                     .setUpTab(.profile)
                     .environmentObject(router)

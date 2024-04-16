@@ -16,6 +16,7 @@ struct GenaralApi {
     let providerTestResults = Provider<TestResultsEndpoint>()
     let providerOnboardingData = Provider<OnboardingEndpoint>()
     let providerInterestsData = Provider<InterestsEndpoint>()
+    let providerGetAllUsers = Provider<GetAllUsersEndpoint>()
 }
 
 extension GenaralApi {
@@ -36,6 +37,24 @@ extension GenaralApi {
             .map(ServerUser.self)
             .map {
                 UserModelMapper().toLocal(serverEntity: $0)
+            }
+            .mapError { error in
+                if error.response?.statusCode == 404 {
+                    return ErrorAPI.notFound
+                } else {
+                    return ErrorAPI.network
+                }
+            }
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+    }
+    
+    func getAllUsers() -> AnyPublisher<[User], ErrorAPI> {
+        providerGetAllUsers.requestPublisher(.getAllUsers)
+            .filterSuccessfulStatusCodes()
+            .map([ServerUser].self)
+            .map { serverUsers in
+                UserModelMapper().toLocal(list: serverUsers)
             }
             .mapError { error in
                 if error.response?.statusCode == 404 {
