@@ -12,9 +12,6 @@ struct ChatsView: View {
     @EnvironmentObject var router: MainNavigationRouter
     @StateObject private var socketService: SocketService = SocketService()
     
-    @State private var messageText = ""
-    @State var messages: [String] = ["\(UserDefaults.standard.string(forKey: "email") ?? "email")"]
-    
     var body: some View {
         VStack {
             ScrollView {
@@ -75,17 +72,6 @@ struct ChatsView: View {
         }
     }
     
-    func sendMessage() {
-        withAnimation {
-            socketService.sendMessage()
-            socketService.message = ""
-        }
-    }
-    
-    func backButtonAction() {
-        router.popView()
-    }
-    
     @ViewBuilder
     func messageView(message: Message) -> some View {
         if message.sender == socketService.username {
@@ -120,5 +106,18 @@ struct ChatsView: View {
                 .padding(.bottom, 10)
             Spacer()
         }
+    }
+}
+
+extension ChatsView {
+    func sendMessage() {
+        withAnimation {
+            socketService.sendMessage()
+            socketService.message = ""
+        }
+    }
+    
+    func backButtonAction() {
+        router.popView()
     }
 }
