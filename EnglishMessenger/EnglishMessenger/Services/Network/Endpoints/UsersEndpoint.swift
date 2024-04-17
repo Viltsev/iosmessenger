@@ -8,11 +8,13 @@
 import Foundation
 import Moya
 
-enum GetAllUsersEndpoint {
+enum UsersEndpoint {
     case getAllUsers
+    case getUserByUsername(String)
+    case getChatUser
 }
 
-extension GetAllUsersEndpoint: TargetType {
+extension UsersEndpoint: TargetType {
     var baseURL: URL {
         URL(string: "http://localhost:8080")!
     }
@@ -21,6 +23,11 @@ extension GetAllUsersEndpoint: TargetType {
         switch self {
         case .getAllUsers:
             return "/api/v1/user/get_all_users"
+        case .getUserByUsername(let username):
+            return "/api/v1/user/get_user_by_username/\(username)"
+        case .getChatUser:
+            let currentEmail = UserDefaults.standard.string(forKey: "email")
+            return "/api/v1/users/fetch_all_chat_users/\(currentEmail ?? "")"
         }
     }
     
@@ -31,6 +38,10 @@ extension GetAllUsersEndpoint: TargetType {
     var task: Moya.Task {
         switch self {
         case .getAllUsers:
+            return .requestPlain
+        case .getUserByUsername:
+            return .requestPlain
+        case .getChatUser:
             return .requestPlain
         }
     }

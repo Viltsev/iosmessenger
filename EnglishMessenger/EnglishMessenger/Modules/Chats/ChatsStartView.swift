@@ -15,43 +15,101 @@ struct ChatsStartView: View {
         Color.profilePinky
             .ignoresSafeArea()
             .overlay {
-                chatsMain()
+                VStack {
+                    searchBar()
+                    switch viewModel.output.currentScreen {
+                    case .chats:
+                        chatsScreen()
+                    case .search:
+                        searchScreen()
+                    }
+                    Spacer()
+                }
+            }
+            .onAppear {
+                viewModel.input.fetchAllChatsSubject.send()
             }
     }
 }
 
 extension ChatsStartView {
     @ViewBuilder
-    func chatsMain() -> some View {
-        VStack {
-            HStack {
-                CustomTextField(textFieldLabel: "Find user...", text: $viewModel.output.findUserText)
-                    .padding(.vertical, 25)
+    func searchBar() -> some View {
+        HStack {
+            CustomTextField(textFieldLabel: "Find user...", text: $viewModel.output.findUserText)
+                .onTapGesture {
+                    withAnimation(.bouncy) {
+                        viewModel.input.changeCurrentScreenSubject.send(.search)
+                        viewModel.output.findUserText.append("@")
+                    }
+                }
+                .onSubmit {
+                    viewModel.input.findUserByUsernameSubject.send(viewModel.output.findUserText)
+                }
+                .padding(.vertical, 10)
+            if viewModel.output.currentScreen == .search {
                 Button {
-                    viewModel.input.findAllUsers.send()
+                    withAnimation(.bouncy) {
+                        viewModel.input.changeCurrentScreenSubject.send(.chats)
+                        viewModel.output.findUserText = ""
+                    }
                 } label: {
-                    Text("Search")
+                    Text("Cancel")
                         .foregroundStyle(Color.mainPurple)
                 }
             }
-            .padding(.horizontal, 25)
-            searchedUsers()
-            Spacer()
         }
+        .padding(.horizontal, 16)
     }
     
     @ViewBuilder
-    func searchedUsers() -> some View {
+    func chatsScreen() -> some View {
+        searchedChats()
+    }
+    
+    @ViewBuilder
+    func searchScreen() -> some View {
+        searchedUser()
+    }
+    
+    @ViewBuilder
+    func searchedChats() -> some View {
         VStack {
             ScrollView(showsIndicators: false) {
                 VStack {
-                    ForEach(viewModel.output.mockUsers, id: \.id) { user in
+                    ForEach(viewModel.output.userChatsUsers, id: \.id) { user in
                         Button {
                             router.pushView(MainNavigation.pushChatView(user))
                         } label: {
                             VStack {
                                 Text(user.email)
-                                    .font(.title2)
+                                    .font(.title)
+                                    .foregroundStyle(.mainPurple)
+                                    .padding(.vertical, 15)
+                            }
+                            .frame(maxWidth: .infinity)
+                            .background(.white)
+                            .cornerRadius(15)
+                            .padding(.horizontal, 25)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    @ViewBuilder
+    func searchedUser() -> some View {
+        VStack {
+            ScrollView(showsIndicators: false) {
+                VStack {
+                    ForEach(viewModel.output.findedUsers, id: \.id) { user in
+                        Button {
+                            router.pushView(MainNavigation.pushChatView(user))
+                        } label: {
+                            VStack {
+                                Text(user.email)
+                                    .font(.title)
                                     .foregroundStyle(.mainPurple)
                                     .padding(.vertical, 15)
                             }
