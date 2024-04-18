@@ -17,4 +17,9 @@ struct User: Identifiable, Hashable {
     var dateOfBirth: String
     var languageLevel: String
     var photo: String
+    var chatRoomList: [ChatRoomList]
+}
+
+struct ChatRoomList: Equatable, Hashable {
+    let lastMessage: String
 }

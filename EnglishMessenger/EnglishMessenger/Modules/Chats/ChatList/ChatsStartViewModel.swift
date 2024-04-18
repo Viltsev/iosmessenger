@@ -103,7 +103,7 @@ extension ChatsStartViewModel {
         request
             .values()
             .sink { [unowned self] users in
-                self.output.userChatsUsers = users
+                self.output.userChatsUsers = users.reversed()
             }
             .store(in: &cancellable)
         

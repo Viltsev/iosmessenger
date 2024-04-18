@@ -7,6 +7,7 @@
 
 import Foundation
 import StompClientLib
+import SwiftUI
 import Combine
 
 class SocketService: ObservableObject, StompClientLibDelegate {
@@ -63,7 +64,9 @@ extension SocketService {
         if let jsonBodyString = jsonString(from: jsonBody),
            let jsonData = jsonBodyString.data(using: .utf8),
            let message = try? JSONDecoder().decode(Message.self, from: jsonData) {
-            self.messages.append(message)
+            withAnimation(.bouncy) {
+                self.messages.append(message)
+            }
         } else {
             print("Failed to parse JSON")
         }
