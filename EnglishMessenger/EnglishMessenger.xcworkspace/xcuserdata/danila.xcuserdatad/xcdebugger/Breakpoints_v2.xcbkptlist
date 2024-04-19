@@ -3,4 +3,310 @@
    uuid = "1575A257-3A96-45FB-A4E1-4C439A998C51"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D994CC5E-D5EC-4FA6-A416-6BCE76FAE4D2"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EnglishMessenger/Modules/Chats/ChatList/ChatsStartViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "129"
+            endingLineNumber = "129"
+            landmarkName = "findLastMessage(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D994CC5E-D5EC-4FA6-A416-6BCE76FAE4D2 - 8779f45e6141e57b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EnglishMessenger.ChatsStartViewModel.findLastMessage(EnglishMessenger.User) -&gt; Swift.String"
+                  moduleName = "EnglishMessenger"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/danila/Desktop/2024/github/iosmessenger/EnglishMessenger/EnglishMessenger/Modules/Chats/ChatList/ChatsStartViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "130"
+                  endingLineNumber = "130"
+                  offsetFromSymbolStart = "77">
+               </Location>
+               <Location
+                  uuid = "D994CC5E-D5EC-4FA6-A416-6BCE76FAE4D2 - 8779f45e6141e57b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EnglishMessenger.ChatsStartViewModel.findLastMessage(EnglishMessenger.User) -&gt; Swift.String"
+                  moduleName = "EnglishMessenger"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/danila/Desktop/2024/github/iosmessenger/EnglishMessenger/EnglishMessenger/Modules/Chats/ChatList/ChatsStartViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "130"
+                  endingLineNumber = "130"
+                  offsetFromSymbolStart = "103">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2A0AE73D-5151-4B53-85C2-4CA9C6F8A7DE"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EnglishMessenger/Modules/Chats/ChatList/ChatsStartViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "130"
+            endingLineNumber = "130"
+            landmarkName = "findLastMessage(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2A0AE73D-5151-4B53-85C2-4CA9C6F8A7DE - 8779f45e6141e57b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EnglishMessenger.ChatsStartViewModel.findLastMessage(EnglishMessenger.User) -&gt; Swift.String"
+                  moduleName = "EnglishMessenger"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/danila/Desktop/2024/github/iosmessenger/EnglishMessenger/EnglishMessenger/Modules/Chats/ChatList/ChatsStartViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "130"
+                  endingLineNumber = "130"
+                  offsetFromSymbolStart = "77">
+               </Location>
+               <Location
+                  uuid = "2A0AE73D-5151-4B53-85C2-4CA9C6F8A7DE - 8779f45e6141e57b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EnglishMessenger.ChatsStartViewModel.findLastMessage(EnglishMessenger.User) -&gt; Swift.String"
+                  moduleName = "EnglishMessenger"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/danila/Desktop/2024/github/iosmessenger/EnglishMessenger/EnglishMessenger/Modules/Chats/ChatList/ChatsStartViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "130"
+                  endingLineNumber = "130"
+                  offsetFromSymbolStart = "103">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "643D885C-1224-45FD-B0F2-00897394C028"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EnglishMessenger/Modules/Chats/ChatList/ChatsStartViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
+            landmarkName = "findLastMessage(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "643D885C-1224-45FD-B0F2-00897394C028 - 8779f45e6141e5b5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EnglishMessenger.ChatsStartViewModel.findLastMessage(EnglishMessenger.User) -&gt; Swift.String"
+                  moduleName = "EnglishMessenger"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/danila/Desktop/2024/github/iosmessenger/EnglishMessenger/EnglishMessenger/Modules/Chats/ChatList/ChatsStartViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "132"
+                  endingLineNumber = "132"
+                  offsetFromSymbolStart = "509">
+               </Location>
+               <Location
+                  uuid = "643D885C-1224-45FD-B0F2-00897394C028 - 8779f45e6141e5b5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EnglishMessenger.ChatsStartViewModel.findLastMessage(EnglishMessenger.User) -&gt; Swift.String"
+                  moduleName = "EnglishMessenger"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/danila/Desktop/2024/github/iosmessenger/EnglishMessenger/EnglishMessenger/Modules/Chats/ChatList/ChatsStartViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "132"
+                  endingLineNumber = "132"
+                  offsetFromSymbolStart = "535">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "35DD7FAF-0241-4957-AE78-9DD490938450"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EnglishMessenger/Modules/Chats/ChatList/ChatsStartViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "134"
+            endingLineNumber = "134"
+            landmarkName = "findLastMessage(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "53BA9AB0-9861-4C7F-8E34-1EBD80E07CDF"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EnglishMessenger/Modules/Chats/ChatList/ChatsStartViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "131"
+            endingLineNumber = "131"
+            landmarkName = "findLastMessage(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5573332C-2938-4956-AFE4-CC10BE2E6D1E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EnglishMessenger/Modules/Chats/ChatList/ChatsStartViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "133"
+            endingLineNumber = "133"
+            landmarkName = "findLastMessage(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "5573332C-2938-4956-AFE4-CC10BE2E6D1E - 8779f45e6141e5d6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EnglishMessenger.ChatsStartViewModel.findLastMessage(EnglishMessenger.User) -&gt; Swift.String"
+                  moduleName = "EnglishMessenger"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/danila/Desktop/2024/github/iosmessenger/EnglishMessenger/EnglishMessenger/Modules/Chats/ChatList/ChatsStartViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "133"
+                  endingLineNumber = "133"
+                  offsetFromSymbolStart = "691">
+               </Location>
+               <Location
+                  uuid = "5573332C-2938-4956-AFE4-CC10BE2E6D1E - 1691135d241d73d6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (EnglishMessenger.ChatRoomList) -&gt; Swift.Bool in EnglishMessenger.ChatsStartViewModel.findLastMessage(EnglishMessenger.User) -&gt; Swift.String"
+                  moduleName = "EnglishMessenger"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/danila/Desktop/2024/github/iosmessenger/EnglishMessenger/EnglishMessenger/Modules/Chats/ChatList/ChatsStartViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "134"
+                  endingLineNumber = "134"
+                  offsetFromSymbolStart = "65">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3680340A-2F8F-4F72-A425-AFF06EC17801"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EnglishMessenger/Modules/Chats/ChatList/ChatsStartViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
+            landmarkName = "findLastMessage(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1E6CF1B0-0700-44D3-A978-5AE664106E82"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EnglishMessenger/Modules/Chats/ChatList/ChatsStartViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "139"
+            endingLineNumber = "139"
+            landmarkName = "findLastMessage(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "13A75131-FD25-4397-8D6D-88342BB7F4CC"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EnglishMessenger/Modules/Chats/ChatList/ChatsStartViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "137"
+            endingLineNumber = "137"
+            landmarkName = "findLastMessage(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4866CD29-580E-4F62-B814-1F26531DB58C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EnglishMessenger/Modules/Chats/ChatList/ChatsStartViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "138"
+            endingLineNumber = "138"
+            landmarkName = "findLastMessage(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "599DC75D-6EED-4A0F-A5FE-17A3151E6D79"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EnglishMessenger/Modules/Chats/ChatList/ChatsStartViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "135"
+            endingLineNumber = "135"
+            landmarkName = "findLastMessage(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

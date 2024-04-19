@@ -97,10 +97,10 @@ extension ChatsStartView {
                             .foregroundStyle(.mainPurple)
                             .padding(.vertical, 5)
                             
-//                        Text(user.chatRoomList[0].lastMessage)
-//                            .font(.subheadline)
-//                            .foregroundColor(.gray)
-//                            .padding(.vertical, 5)
+                        Text(viewModel.findLastMessage(user))
+                            .font(.subheadline)
+                            .foregroundColor(.gray)
+                            .padding(.vertical, 5)
                     }
                     .padding(.horizontal, 15)
                     
@@ -143,10 +143,10 @@ extension ChatsStartView {
                             .foregroundStyle(.mainPurple)
                             .padding(.vertical, 5)
                             
-//                        Text(user.chatRoomList[0].lastMessage)
-//                            .font(.subheadline)
-//                            .foregroundColor(.gray)
-//                            .padding(.vertical, 5)
+                        Text(viewModel.findLastMessage(user))
+                            .font(.subheadline)
+                            .foregroundColor(.gray)
+                            .padding(.vertical, 5)
                     }
                     .padding(.horizontal, 15)
                     

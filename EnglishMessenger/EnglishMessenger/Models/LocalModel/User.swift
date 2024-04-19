@@ -21,5 +21,6 @@ struct User: Identifiable, Hashable {
 }
 
 struct ChatRoomList: Equatable, Hashable {
+    let chatId: String
     let lastMessage: String
 }

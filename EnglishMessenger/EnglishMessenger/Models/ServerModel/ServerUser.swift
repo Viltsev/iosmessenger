@@ -20,5 +20,6 @@ struct ServerUser: Codable {
 }
 
 struct ServerChatRoomList: Codable {
+    var chatId: String?
     var lastMessage: String?
 }

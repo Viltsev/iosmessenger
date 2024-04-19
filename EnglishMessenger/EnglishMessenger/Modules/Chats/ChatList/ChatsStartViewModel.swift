@@ -125,6 +125,20 @@ extension ChatsStartViewModel {
         }
     }
     
+    @MainActor
+    func findLastMessage(_ recipientUser: User) -> String {
+        let currentEmail = UserDefaults.standard.string(forKey: "email")
+        if let currentEmail = currentEmail {
+            let chatId = generateChatId(senderId: currentEmail, recipientId: recipientUser.email)
+            let lastMessage = recipientUser.chatRoomList.first { chat in
+                chat.chatId == chatId
+            }
+            return lastMessage?.lastMessage ?? ""
+        } else {
+            return ""
+        }
+    }
+    
     func generateChatId(senderId: String, recipientId: String) -> String {
         let ids = [senderId, recipientId].sorted()
         return ids[0] + ids[1]
@@ -137,6 +151,7 @@ extension ChatsStartViewModel {
         let findUserByUsernameSubject = PassthroughSubject<String, Never>()
         let changeCurrentScreenSubject = PassthroughSubject<CurrentScreen, Never>()
         let fetchAllChatsSubject = PassthroughSubject<Void, Never>()
+//        let fetchLastMessage = PassthroughSubject<
     }
     
     struct Output {
