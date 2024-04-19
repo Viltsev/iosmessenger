@@ -104,10 +104,30 @@ extension ChatsStartViewModel {
             .values()
             .sink { [unowned self] users in
                 self.output.userChatsUsers = users.reversed()
+                print("delete chat!")
             }
             .store(in: &cancellable)
-        
-        
+    }
+    
+    func deleteChat(_ recipientEmail: String) {
+        Task {
+            let currentEmail = UserDefaults.standard.string(forKey: "email")
+            if let currentEmail = currentEmail {
+                let chatId = generateChatId(senderId: currentEmail, recipientId: recipientEmail)
+                do {
+                    let response = try await apiService.deleteChat(chatId: chatId)
+                    self.input.fetchAllChatsSubject.send()
+                    print(response)
+                } catch {
+                    print("Network error!")
+                }
+            }
+        }
+    }
+    
+    func generateChatId(senderId: String, recipientId: String) -> String {
+        let ids = [senderId, recipientId].sorted()
+        return ids[0] + ids[1]
     }
 }
 
@@ -125,5 +145,6 @@ extension ChatsStartViewModel {
         var findedUsers: [User] = []
         var mockUsers: [User] = []
         var currentScreen: CurrentScreen = .chats
+        var deletedMessage: Bool = false
     }
 }

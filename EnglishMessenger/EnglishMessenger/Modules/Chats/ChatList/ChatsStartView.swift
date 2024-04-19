@@ -106,6 +106,13 @@ extension ChatsStartView {
                     
                 }
             }
+            .contextMenu {
+                Button {
+                    viewModel.deleteChat(user.email)
+                } label: {
+                    Label("Delete", systemImage: "trash")
+                }
+            }
         }
         .background(Color.profilePinky)
         .listStyle(.sidebar)

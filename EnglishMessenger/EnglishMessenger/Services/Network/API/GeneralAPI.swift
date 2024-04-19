@@ -18,6 +18,7 @@ struct GenaralApi {
     let providerInterestsData = Provider<InterestsEndpoint>()
     let providerUsersData = Provider<UsersEndpoint>()
     let providerMessagesEndpoint = Provider<MessagesEndpoint>()
+    let providerGrammarEndpoint = Provider<GrammarEndpoint>()
 }
 
 extension GenaralApi {
@@ -198,6 +199,44 @@ extension GenaralApi {
                             continuation.resume(throwing: ErrorAPI.network)
                         }
                     }
+                case .failure:
+                    continuation.resume(throwing: ErrorAPI.network)
+                }
+            }
+        }
+    }
+    
+    func checkGrammar(text: String) -> AnyPublisher<[LocalGrammar], ErrorAPI> {
+        providerGrammarEndpoint.requestPublisher(.checkGrammar(text))
+            .filterSuccessfulStatusCodes()
+            .map([ServerGrammar].self)
+            .map { serverGrammar in
+                GrammarModelMapper().toLocal(list: serverGrammar)
+            }
+            .mapError { error in
+                if error.response?.statusCode == 404 {
+                    return ErrorAPI.notFound
+                } else {
+                    return ErrorAPI.network
+                }
+            }
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+    }
+    
+    func deleteChat(chatId: String) async throws -> String {
+        return try await withCheckedThrowingContinuation { continuation in
+            providerUsersData.request(.deleteChat(chatId)) { result in
+                switch result {
+                case .success(let response):
+                    guard let serverResponse = String(data: response.data, encoding: .utf8) else {
+                        if response.statusCode == 404 {
+                            return continuation.resume(throwing: ErrorAPI.notFound)
+                        } else {
+                            return continuation.resume(throwing: ErrorAPI.network)
+                        }
+                    }
+                    continuation.resume(returning: serverResponse)
                 case .failure:
                     continuation.resume(throwing: ErrorAPI.network)
                 }

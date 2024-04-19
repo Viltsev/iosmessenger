@@ -52,7 +52,7 @@ struct ChatsView: View {
             .background(Color.gray.opacity(0.1))
             Spacer()
             HStack {
-                TextField("Message...", text: $socketService.message)
+                TextField("Message...", text: $socketService.message, axis: .vertical)
                     .padding(.vertical, 10)
                     .padding(.horizontal, 10)
                     .background(Color.gray.opacity(0.1))
@@ -78,8 +78,13 @@ struct ChatsView: View {
                         .font(.system(size: 18))
                         .padding(.horizontal, 10)
                         .onTapGesture {
-                            print("check grammar message...")
+                            if !socketService.message.isEmpty {
+                                viewModel.input.checkGrammarSubject.send(socketService.message)
+                            }
                         }
+                        .onChange(of: viewModel.output.correctedMessage,  { oldValue, newValue in
+                            socketService.message = newValue
+                        })
                         .onLongPressGesture(minimumDuration: 0.5) {
                             withAnimation(.bouncy) {
                                 viewModel.input.changeChatModeSubject.send(.sendMessage)
