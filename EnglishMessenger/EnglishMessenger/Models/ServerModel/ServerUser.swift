@@ -16,4 +16,10 @@ struct ServerUser: Codable {
     var dateOfBirth: String?
     var languageLevel: String?
     var photo: String?
+    var chatRoomList: [ServerChatRoomList]?
+}
+
+struct ServerChatRoomList: Codable {
+    var chatId: String?
+    var lastMessage: String?
 }

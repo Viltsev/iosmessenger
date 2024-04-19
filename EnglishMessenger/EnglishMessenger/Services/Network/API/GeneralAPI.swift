@@ -16,6 +16,10 @@ struct GenaralApi {
     let providerTestResults = Provider<TestResultsEndpoint>()
     let providerOnboardingData = Provider<OnboardingEndpoint>()
     let providerInterestsData = Provider<InterestsEndpoint>()
+    let providerUsersData = Provider<UsersEndpoint>()
+    let providerMessagesEndpoint = Provider<MessagesEndpoint>()
+    let providerGrammarEndpoint = Provider<GrammarEndpoint>()
+    let providerGenerateDialogEndpoint = Provider<GenerateDialogEndpoint>()
 }
 
 extension GenaralApi {
@@ -36,6 +40,60 @@ extension GenaralApi {
             .map(ServerUser.self)
             .map {
                 UserModelMapper().toLocal(serverEntity: $0)
+            }
+            .mapError { error in
+                if error.response?.statusCode == 404 {
+                    return ErrorAPI.notFound
+                } else {
+                    return ErrorAPI.network
+                }
+            }
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+    }
+    
+    func getAllUsers() -> AnyPublisher<[User], ErrorAPI> {
+        providerUsersData.requestPublisher(.getAllUsers)
+            .filterSuccessfulStatusCodes()
+            .map([ServerUser].self)
+            .map { serverUsers in
+                UserModelMapper().toLocal(list: serverUsers)
+            }
+            .mapError { error in
+                if error.response?.statusCode == 404 {
+                    return ErrorAPI.notFound
+                } else {
+                    return ErrorAPI.network
+                }
+            }
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+    }
+    
+    func getChats() -> AnyPublisher<[User], ErrorAPI> {
+        providerUsersData.requestPublisher(.getChatUser)
+            .filterSuccessfulStatusCodes()
+            .map([ServerUser].self)
+            .map { serverUsers in
+                UserModelMapper().toLocal(list: serverUsers)
+            }
+            .mapError { error in
+                if error.response?.statusCode == 404 {
+                    return ErrorAPI.notFound
+                } else {
+                    return ErrorAPI.network
+                }
+            }
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+    }
+    
+    func getUserByUsername(_ username: String) -> AnyPublisher<User, ErrorAPI> {
+        providerUsersData.requestPublisher(.getUserByUsername(username))
+            .filterSuccessfulStatusCodes()
+            .map(ServerUser.self)
+            .map { serverUser in
+                UserModelMapper().toLocal(serverEntity: serverUser)
             }
             .mapError { error in
                 if error.response?.statusCode == 404 {
@@ -124,5 +182,84 @@ extension GenaralApi {
                 print("Ошибка: \(error)")
             }
         }
+    }
+    
+    
+    func getAllMessages(chatId: String) async throws -> [Message] {
+        return try await withCheckedThrowingContinuation { continuation in
+            providerMessagesEndpoint.request(.getAllChatMessages(chatId)) { result in
+                switch result {
+                case .success(let response):
+                    do {
+                        let serverMessages = try JSONDecoder().decode([Message].self, from: response.data)
+                        continuation.resume(returning: serverMessages)
+                    } catch {
+                        if response.statusCode == 404 {
+                            continuation.resume(throwing: ErrorAPI.notFound)
+                        } else {
+                            continuation.resume(throwing: ErrorAPI.network)
+                        }
+                    }
+                case .failure:
+                    continuation.resume(throwing: ErrorAPI.network)
+                }
+            }
+        }
+    }
+    
+    func checkGrammar(text: String) -> AnyPublisher<[LocalGrammar], ErrorAPI> {
+        providerGrammarEndpoint.requestPublisher(.checkGrammar(text))
+            .filterSuccessfulStatusCodes()
+            .map([ServerGrammar].self)
+            .map { serverGrammar in
+                GrammarModelMapper().toLocal(list: serverGrammar)
+            }
+            .mapError { error in
+                if error.response?.statusCode == 404 {
+                    return ErrorAPI.notFound
+                } else {
+                    return ErrorAPI.network
+                }
+            }
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+    }
+    
+    func deleteChat(chatId: String) async throws -> String {
+        return try await withCheckedThrowingContinuation { continuation in
+            providerUsersData.request(.deleteChat(chatId)) { result in
+                switch result {
+                case .success(let response):
+                    guard let serverResponse = String(data: response.data, encoding: .utf8) else {
+                        if response.statusCode == 404 {
+                            return continuation.resume(throwing: ErrorAPI.notFound)
+                        } else {
+                            return continuation.resume(throwing: ErrorAPI.network)
+                        }
+                    }
+                    continuation.resume(returning: serverResponse)
+                case .failure:
+                    continuation.resume(throwing: ErrorAPI.network)
+                }
+            }
+        }
+    }
+    
+    func generateDialog() -> AnyPublisher<User, ErrorAPI> {
+        providerGenerateDialogEndpoint.requestPublisher(.generateDialog)
+            .filterSuccessfulStatusCodes()
+            .map(ServerUser.self)
+            .map { serverUser in
+                UserModelMapper().toLocal(serverEntity: serverUser)
+            }
+            .mapError { error in
+                if error.response?.statusCode == 404 {
+                    return ErrorAPI.notFound
+                } else {
+                    return ErrorAPI.network
+                }
+            }
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
     }
 }

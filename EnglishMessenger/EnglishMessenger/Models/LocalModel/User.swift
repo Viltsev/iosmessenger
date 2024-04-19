@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct User: Identifiable {
+struct User: Identifiable, Hashable {
     var id = UUID()
     var firstName: String
     var lastName: String
@@ -17,4 +17,10 @@ struct User: Identifiable {
     var dateOfBirth: String
     var languageLevel: String
     var photo: String
+    var chatRoomList: [ChatRoomList]
+}
+
+struct ChatRoomList: Equatable, Hashable {
+    let chatId: String
+    let lastMessage: String
 }

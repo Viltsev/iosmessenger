@@ -9,13 +9,28 @@ import SwiftUI
 
 struct AppContainer: View {
     @StateObject var router = StartNavigationRouter()
+    @StateObject var mainRouter = MainNavigationRouter()
+    
     @State private var isAuth = AuthenticationService.shared.status.value
     
     
     var body: some View {
         Group {
             if isAuth {
-                HomeView()
+                NavigationStack(path: $mainRouter.path) {
+                    HomeView()
+                        .environmentObject(mainRouter)
+                        .navigationDestination(for: MainNavigation.self) { nav in
+                            Group {
+                                switch nav {
+                                case .pushChatView(let user):
+                                    ChatsView(user: user)
+                                }
+                            }
+                            .navigationBarBackButtonHidden(true)
+                            .environmentObject(mainRouter)
+                        }
+                }
             } else {
                 StartView()
             }
