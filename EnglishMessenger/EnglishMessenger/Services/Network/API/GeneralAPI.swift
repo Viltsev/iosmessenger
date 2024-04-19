@@ -19,6 +19,7 @@ struct GenaralApi {
     let providerUsersData = Provider<UsersEndpoint>()
     let providerMessagesEndpoint = Provider<MessagesEndpoint>()
     let providerGrammarEndpoint = Provider<GrammarEndpoint>()
+    let providerGenerateDialogEndpoint = Provider<GenerateDialogEndpoint>()
 }
 
 extension GenaralApi {
@@ -242,5 +243,23 @@ extension GenaralApi {
                 }
             }
         }
+    }
+    
+    func generateDialog() -> AnyPublisher<User, ErrorAPI> {
+        providerGenerateDialogEndpoint.requestPublisher(.generateDialog)
+            .filterSuccessfulStatusCodes()
+            .map(ServerUser.self)
+            .map { serverUser in
+                UserModelMapper().toLocal(serverEntity: serverUser)
+            }
+            .mapError { error in
+                if error.response?.statusCode == 404 {
+                    return ErrorAPI.notFound
+                } else {
+                    return ErrorAPI.network
+                }
+            }
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
     }
 }

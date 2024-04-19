@@ -118,6 +118,7 @@
 		83BD01F62B936B620059AB53 /* TestProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BD01F52B936B620059AB53 /* TestProgressView.swift */; };
 		83C2B3162B94D73900B69E69 /* TestButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C2B3152B94D73900B69E69 /* TestButtonView.swift */; };
 		83C2B3182B94EE9C00B69E69 /* PurpleButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C2B3172B94EE9C00B69E69 /* PurpleButtonView.swift */; };
+		83C8F6BA2BD29C6B00FEBE79 /* GenerateDialogEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C8F6B92BD29C6B00FEBE79 /* GenerateDialogEndpoint.swift */; };
 		83F740752BA06BEA004BA2F4 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 83F740742BA06BEA004BA2F4 /* SDWebImageSwiftUI */; };
 /* End PBXBuildFile section */
 
@@ -228,6 +229,7 @@
 		83BD01F52B936B620059AB53 /* TestProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestProgressView.swift; sourceTree = "<group>"; };
 		83C2B3152B94D73900B69E69 /* TestButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestButtonView.swift; sourceTree = "<group>"; };
 		83C2B3172B94EE9C00B69E69 /* PurpleButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurpleButtonView.swift; sourceTree = "<group>"; };
+		83C8F6B92BD29C6B00FEBE79 /* GenerateDialogEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateDialogEndpoint.swift; sourceTree = "<group>"; };
 		AB4A2B78B4A82802622FD4EB /* Pods-EnglishMessenger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnglishMessenger.debug.xcconfig"; path = "Target Support Files/Pods-EnglishMessenger/Pods-EnglishMessenger.debug.xcconfig"; sourceTree = "<group>"; };
 		F8F9FDD544FDC7BE716239E1 /* Pods-EnglishMessenger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnglishMessenger.release.xcconfig"; path = "Target Support Files/Pods-EnglishMessenger/Pods-EnglishMessenger.release.xcconfig"; sourceTree = "<group>"; };
 		F9F708B03441EBB0677C228B /* Pods_EnglishMessenger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EnglishMessenger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -499,6 +501,7 @@
 				83524D3A2BCD624A00F86E2C /* UsersEndpoint.swift */,
 				83B3D5E42BCE97F200B62413 /* MessagesEndpoint.swift */,
 				83A1F7E02BD1110500488032 /* GrammarEndpoint.swift */,
+				83C8F6B92BD29C6B00FEBE79 /* GenerateDialogEndpoint.swift */,
 			);
 			path = Endpoints;
 			sourceTree = "<group>";
@@ -866,6 +869,7 @@
 				83B035E52BCFD07E005C02BA /* SearchChatView.swift in Sources */,
 				83103EE02B7FD75100932A96 /* AuthorizationViewModel.swift in Sources */,
 				831AE0972B8120B300C5B6AF /* UserModelMapper.swift in Sources */,
+				83C8F6BA2BD29C6B00FEBE79 /* GenerateDialogEndpoint.swift in Sources */,
 				831AE0842B80F55000C5B6AF /* ErrorAPI.swift in Sources */,
 				83A40A8C2B9889AA003A284E /* HomeView.swift in Sources */,
 				831AE06D2B80D87500C5B6AF /* BaseModelMapper.swift in Sources */,

@@ -37,7 +37,7 @@ extension ChatsStartView {
     @ViewBuilder
     func searchBar() -> some View {
         HStack {
-            ChatsSearcherField(textFieldLabel: "Find user...", text: $viewModel.output.findUserText)
+            ChatsSearcherField(textFieldLabel: "Find user...", text: $viewModel.output.findUserText, action: viewModel.input.findCompanionSubject)
                 .onTapGesture {
                     withAnimation(.bouncy) {
                         viewModel.input.changeCurrentScreenSubject.send(.search)

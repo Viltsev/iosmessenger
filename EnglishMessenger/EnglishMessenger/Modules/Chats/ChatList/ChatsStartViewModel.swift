@@ -26,6 +26,7 @@ extension ChatsStartViewModel {
         findUserByUsername()
         changeScreen()
         fetchAllChats()
+        findCompanion()
     }
     
     func changeScreen() {
@@ -109,6 +110,36 @@ extension ChatsStartViewModel {
             .store(in: &cancellable)
     }
     
+    func findCompanion() {
+        let request = input.findCompanionSubject
+            .map { [unowned self] in
+                return self.apiService.generateDialog()
+                    .materialize()
+            }
+            .switchToLatest()
+            .share()
+        
+        request
+            .failures()
+            .sink { error in
+                print(error)
+            }
+            .store(in: &cancellable)
+        
+        request
+            .values()
+            .sink { [unowned self] dialog in
+                let isContains = self.output.userChatsUsers.contains { user in
+                    user.email == dialog.email
+                }
+                if !isContains {
+                    self.output.userChatsUsers.append(dialog)
+                    self.output.userChatsUsers.reverse()
+                }
+            }
+            .store(in: &cancellable)
+    }
+    
     func deleteChat(_ recipientEmail: String) {
         Task {
             let currentEmail = UserDefaults.standard.string(forKey: "email")
@@ -151,7 +182,7 @@ extension ChatsStartViewModel {
         let findUserByUsernameSubject = PassthroughSubject<String, Never>()
         let changeCurrentScreenSubject = PassthroughSubject<CurrentScreen, Never>()
         let fetchAllChatsSubject = PassthroughSubject<Void, Never>()
-//        let fetchLastMessage = PassthroughSubject<
+        let findCompanionSubject = PassthroughSubject<Void, Never>()
     }
     
     struct Output {
