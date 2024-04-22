@@ -12,4 +12,5 @@ enum MainNavigation: Hashable {
     case pushCardsView
     case pushCardsLearned
     case pushCardsLearning
+    case pushCardsSets
 }

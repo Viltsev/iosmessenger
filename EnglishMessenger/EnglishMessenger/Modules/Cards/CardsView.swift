@@ -130,7 +130,7 @@ extension CardsView {
     @ViewBuilder
     func buttonLearn() -> some View {
         Button {
-            
+            router.pushView(MainNavigation.pushCardsSets)
         } label: {
             VStack {
                 Text("Учить")

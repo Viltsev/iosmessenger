@@ -96,6 +96,7 @@
 		8356A2A32BD6CC1900B89B79 /* CardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8356A2A22BD6CC1900B89B79 /* CardsView.swift */; };
 		8356A2A52BD6DF8600B89B79 /* CardsLearnedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8356A2A42BD6DF8600B89B79 /* CardsLearnedView.swift */; };
 		8356A2A72BD6EAAC00B89B79 /* CardsLearningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8356A2A62BD6EAAC00B89B79 /* CardsLearningView.swift */; };
+		8356A2A92BD6EE4E00B89B79 /* CardsSetsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8356A2A82BD6EE4E00B89B79 /* CardsSetsView.swift */; };
 		838AF0382BBD42D8002FDA88 /* ServerInterests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838AF0372BBD42D8002FDA88 /* ServerInterests.swift */; };
 		838AF03A2BBD4323002FDA88 /* LocalInterests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838AF0392BBD4323002FDA88 /* LocalInterests.swift */; };
 		838AF03C2BBD434B002FDA88 /* InterestsModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838AF03B2BBD434B002FDA88 /* InterestsModelMapper.swift */; };
@@ -211,6 +212,7 @@
 		8356A2A22BD6CC1900B89B79 /* CardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsView.swift; sourceTree = "<group>"; };
 		8356A2A42BD6DF8600B89B79 /* CardsLearnedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsLearnedView.swift; sourceTree = "<group>"; };
 		8356A2A62BD6EAAC00B89B79 /* CardsLearningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsLearningView.swift; sourceTree = "<group>"; };
+		8356A2A82BD6EE4E00B89B79 /* CardsSetsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsSetsView.swift; sourceTree = "<group>"; };
 		838AF0372BBD42D8002FDA88 /* ServerInterests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerInterests.swift; sourceTree = "<group>"; };
 		838AF0392BBD4323002FDA88 /* LocalInterests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalInterests.swift; sourceTree = "<group>"; };
 		838AF03B2BBD434B002FDA88 /* InterestsModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestsModelMapper.swift; sourceTree = "<group>"; };
@@ -625,6 +627,7 @@
 				8356A2A22BD6CC1900B89B79 /* CardsView.swift */,
 				8356A2A42BD6DF8600B89B79 /* CardsLearnedView.swift */,
 				8356A2A62BD6EAAC00B89B79 /* CardsLearningView.swift */,
+				8356A2A82BD6EE4E00B89B79 /* CardsSetsView.swift */,
 			);
 			path = Cards;
 			sourceTree = "<group>";
@@ -939,6 +942,7 @@
 				83103EDA2B7F9B9800932A96 /* RegistrationView.swift in Sources */,
 				83A40A8A2B9885C3003A284E /* MainTab.swift in Sources */,
 				83524D312BCD506900F86E2C /* SocketService.swift in Sources */,
+				8356A2A92BD6EE4E00B89B79 /* CardsSetsView.swift in Sources */,
 				83505D1B2B922FE3005FD7DC /* CustomTextField.swift in Sources */,
 				83C2B3182B94EE9C00B69E69 /* PurpleButtonView.swift in Sources */,
 				8356A2A02BD6C1E800B89B79 /* EducationView.swift in Sources */,
