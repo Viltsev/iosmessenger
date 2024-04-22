@@ -92,6 +92,7 @@
 		83524D3B2BCD624A00F86E2C /* UsersEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83524D3A2BCD624A00F86E2C /* UsersEndpoint.swift */; };
 		83524D3E2BCD661500F86E2C /* MainNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83524D3D2BCD661500F86E2C /* MainNavigation.swift */; };
 		83524D402BCD663800F86E2C /* MainNavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83524D3F2BCD663800F86E2C /* MainNavigationRouter.swift */; };
+		8356A2A02BD6C1E800B89B79 /* EducationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8356A29F2BD6C1E800B89B79 /* EducationView.swift */; };
 		838AF0382BBD42D8002FDA88 /* ServerInterests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838AF0372BBD42D8002FDA88 /* ServerInterests.swift */; };
 		838AF03A2BBD4323002FDA88 /* LocalInterests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838AF0392BBD4323002FDA88 /* LocalInterests.swift */; };
 		838AF03C2BBD434B002FDA88 /* InterestsModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838AF03B2BBD434B002FDA88 /* InterestsModelMapper.swift */; };
@@ -203,6 +204,7 @@
 		83524D3A2BCD624A00F86E2C /* UsersEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersEndpoint.swift; sourceTree = "<group>"; };
 		83524D3D2BCD661500F86E2C /* MainNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigation.swift; sourceTree = "<group>"; };
 		83524D3F2BCD663800F86E2C /* MainNavigationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationRouter.swift; sourceTree = "<group>"; };
+		8356A29F2BD6C1E800B89B79 /* EducationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EducationView.swift; sourceTree = "<group>"; };
 		838AF0372BBD42D8002FDA88 /* ServerInterests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerInterests.swift; sourceTree = "<group>"; };
 		838AF0392BBD4323002FDA88 /* LocalInterests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalInterests.swift; sourceTree = "<group>"; };
 		838AF03B2BBD434B002FDA88 /* InterestsModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestsModelMapper.swift; sourceTree = "<group>"; };
@@ -411,6 +413,7 @@
 		83103ECC2B7F601700932A96 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				8356A29E2BD6C1C400B89B79 /* Education */,
 				838AF0422BBDAE58002FDA88 /* Chats */,
 				83A40A872B98859D003A284E /* Home */,
 				83BD01EC2B9369520059AB53 /* Test */,
@@ -599,6 +602,14 @@
 				83524D3F2BCD663800F86E2C /* MainNavigationRouter.swift */,
 			);
 			path = MainNavigation;
+			sourceTree = "<group>";
+		};
+		8356A29E2BD6C1C400B89B79 /* Education */ = {
+			isa = PBXGroup;
+			children = (
+				8356A29F2BD6C1E800B89B79 /* EducationView.swift */,
+			);
+			path = Education;
 			sourceTree = "<group>";
 		};
 		838AF0422BBDAE58002FDA88 /* Chats */ = {
@@ -911,6 +922,7 @@
 				83524D312BCD506900F86E2C /* SocketService.swift in Sources */,
 				83505D1B2B922FE3005FD7DC /* CustomTextField.swift in Sources */,
 				83C2B3182B94EE9C00B69E69 /* PurpleButtonView.swift in Sources */,
+				8356A2A02BD6C1E800B89B79 /* EducationView.swift in Sources */,
 				83A1F7D72BD10ADF00488032 /* ChatsSearcherField.swift in Sources */,
 				83524D392BCD5A7B00F86E2C /* ChatsStartViewModel.swift in Sources */,
 				831AE0802B80E21900C5B6AF /* RegistrationEndpoint.swift in Sources */,
