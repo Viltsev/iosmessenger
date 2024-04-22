@@ -64,7 +64,7 @@ extension CardsView {
     @ViewBuilder
     func contentLearned() -> some View {
         Button {
-            
+            router.pushView(MainNavigation.pushCardsLearned)
         } label: {
             HStack {
                 VStack(alignment: .leading) {
@@ -97,7 +97,7 @@ extension CardsView {
     @ViewBuilder
     func contentStillLearn() -> some View {
         Button {
-            
+            router.pushView(MainNavigation.pushCardsLearning)
         } label: {
             HStack {
                 VStack(alignment: .leading) {

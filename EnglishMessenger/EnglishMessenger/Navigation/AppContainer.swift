@@ -27,6 +27,10 @@ struct AppContainer: View {
                                     ChatsView(user: user)
                                 case .pushCardsView:
                                     CardsView()
+                                case .pushCardsLearned:
+                                    CardsLearnedView()
+                                case .pushCardsLearning:
+                                    CardsLearningView()
                                 }
                             }
                             .navigationBarBackButtonHidden(true)
