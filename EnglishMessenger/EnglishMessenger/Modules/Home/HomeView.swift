@@ -27,7 +27,7 @@ struct HomeView: View {
                     .environmentObject(router)
                 Text("dictionary")
                     .setUpTab(.dictionary)
-                Text("exercises")
+                EducationView()
                     .setUpTab(.exercises)
             }
             

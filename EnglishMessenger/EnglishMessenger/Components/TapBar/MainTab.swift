@@ -23,7 +23,7 @@ enum MainTab: String, CaseIterable {
         case .dictionary:
             return "Dictionary"
         case .exercises:
-            return "Exercises"
+            return "Education"
         }
     }
 }
