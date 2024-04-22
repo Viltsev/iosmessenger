@@ -29,6 +29,7 @@ struct HomeView: View {
                     .setUpTab(.dictionary)
                 EducationView()
                     .setUpTab(.exercises)
+                    .environmentObject(mainRouter)
             }
             
             CustomTabBar()

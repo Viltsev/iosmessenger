@@ -25,6 +25,8 @@ struct AppContainer: View {
                                 switch nav {
                                 case .pushChatView(let user):
                                     ChatsView(user: user)
+                                case .pushCardsView:
+                                    CardsView()
                                 }
                             }
                             .navigationBarBackButtonHidden(true)

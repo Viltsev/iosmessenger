@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct EducationView: View {
+    @EnvironmentObject var router: MainNavigationRouter
+    
     var body: some View {
         Color.profilePinky
             .ignoresSafeArea()
@@ -41,17 +43,17 @@ extension EducationView {
     @ViewBuilder
     func contentScroll() -> some View {
         VStack {
-            cardsView(title: "Карточки", description: "Изучай и повторяй новые слова и выражения")
-            cardsView(title: "Теория", description: "Краткие справки по основным грамматическим темам")
-            cardsView(title: "Упражнения", description: "Практикуйся в применении изученного материала ")
+            cardsView(title: "Карточки", description: "Изучай и повторяй новые слова и выражения", action: goToCards)
+            cardsView(title: "Теория", description: "Краткие справки по основным грамматическим темам", action: goToTheory)
+            cardsView(title: "Упражнения", description: "Практикуйся в применении изученного материала", action: goToExercises)
         }
         
     }
     
     @ViewBuilder
-    func cardsView(title: String, description: String) -> some View {
+    func cardsView(title: String, description: String, action: @escaping () -> Void) -> some View {
         Button {
-            print("action category")
+            action()
         } label: {
             HStack {
                 VStack(alignment: .leading) {
@@ -77,5 +79,17 @@ extension EducationView {
             .padding(.bottom, 15)
         }
         .buttonStyle(ScaleButtonStyle())
+    }
+    
+    func goToCards() {
+        router.pushView(MainNavigation.pushCardsView)
+    }
+    
+    func goToTheory() {
+        print("to do")
+    }
+    
+    func goToExercises() {
+        print("to do")
     }
 }

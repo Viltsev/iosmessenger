@@ -9,4 +9,5 @@ import Foundation
 
 enum MainNavigation: Hashable {
     case pushChatView(User)
+    case pushCardsView
 }
