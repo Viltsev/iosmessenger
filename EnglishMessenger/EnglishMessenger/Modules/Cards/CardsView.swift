@@ -9,12 +9,17 @@ import SwiftUI
 
 struct CardsView: View {
     @EnvironmentObject var router: MainNavigationRouter
+    @StateObject private var viewModel: CardsViewModel = CardsViewModel()
     
     var body: some View {
         Color.profilePinky
             .ignoresSafeArea()
             .overlay {
                 content()
+            }
+            .onAppear {
+                viewModel.input.getLearnedCardsSubject.send()
+                viewModel.input.getToLearnCardsSubject.send()
             }
     }
 }
@@ -80,7 +85,7 @@ extension CardsView {
                 }
                 .padding(.vertical, 10)
                 Spacer()
-                Text("0")
+                Text("\(viewModel.output.learnedCards.count)")
                     .foregroundStyle(.mainPurple)
                     .font(.custom("Montserrat-Bold", size: 36))
                     .padding(.horizontal, 15)
@@ -113,7 +118,7 @@ extension CardsView {
                 }
                 .padding(.vertical, 10)
                 Spacer()
-                Text("1")
+                Text("\(viewModel.output.toLearnCards.count)")
                     .foregroundStyle(.white)
                     .font(.custom("Montserrat-Bold", size: 36))
                     .padding(.horizontal, 15)

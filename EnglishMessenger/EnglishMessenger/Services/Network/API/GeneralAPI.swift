@@ -20,6 +20,7 @@ struct GenaralApi {
     let providerMessagesEndpoint = Provider<MessagesEndpoint>()
     let providerGrammarEndpoint = Provider<GrammarEndpoint>()
     let providerGenerateDialogEndpoint = Provider<GenerateDialogEndpoint>()
+    let providerCardsEndpoint = Provider<CardsEndpoint>()
 }
 
 extension GenaralApi {
@@ -252,6 +253,75 @@ extension GenaralApi {
             .map { serverUser in
                 UserModelMapper().toLocal(serverEntity: serverUser)
             }
+            .mapError { error in
+                if error.response?.statusCode == 404 {
+                    return ErrorAPI.notFound
+                } else {
+                    return ErrorAPI.network
+                }
+            }
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+    }
+    
+    func getToLearnCards() -> AnyPublisher<[LocalCard], ErrorAPI> {
+        providerCardsEndpoint.requestPublisher(.getAllToLearn)
+            .filterSuccessfulStatusCodes()
+            .map([ServerCard].self)
+            .map { serverCards in
+                CardModelMapper().toLocal(list: serverCards)
+            }
+            .mapError { error in
+                if error.response?.statusCode == 404 {
+                    return ErrorAPI.notFound
+                } else {
+                    return ErrorAPI.network
+                }
+            }
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+    }
+    
+    func getLearnedCards() -> AnyPublisher<[LocalCard], ErrorAPI> {
+        providerCardsEndpoint.requestPublisher(.getAllLearned)
+            .filterSuccessfulStatusCodes()
+            .map([ServerCard].self)
+            .map { serverCards in
+                CardModelMapper().toLocal(list: serverCards)
+            }
+            .mapError { error in
+                if error.response?.statusCode == 404 {
+                    return ErrorAPI.notFound
+                } else {
+                    return ErrorAPI.network
+                }
+            }
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+    }
+    
+    func getCardSets() -> AnyPublisher<[LocalCardSet], ErrorAPI> {
+        providerCardsEndpoint.requestPublisher(.getCardSets)
+            .filterSuccessfulStatusCodes()
+            .map([ServerCardSet].self)
+            .map { serverCardSets in
+                CardSetModelMapper().toLocal(list: serverCardSets)
+            }
+            .mapError { error in
+                if error.response?.statusCode == 404 {
+                    return ErrorAPI.notFound
+                } else {
+                    return ErrorAPI.network
+                }
+            }
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+    }
+    
+    func createSet(set: CreateSet) -> AnyPublisher<String, ErrorAPI> {
+        providerCardsEndpoint.requestPublisher(.createSet(set))
+            .filterSuccessfulStatusCodes()
+            .map(String.self)
             .mapError { error in
                 if error.response?.statusCode == 404 {
                     return ErrorAPI.notFound

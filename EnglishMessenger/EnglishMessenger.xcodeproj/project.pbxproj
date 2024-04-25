@@ -45,6 +45,17 @@
 		831AE0952B81203800C5B6AF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831AE0942B81203800C5B6AF /* User.swift */; };
 		831AE0972B8120B300C5B6AF /* UserModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831AE0962B8120B300C5B6AF /* UserModelMapper.swift */; };
 		831AE09A2B81236300C5B6AF /* CombineExt in Frameworks */ = {isa = PBXBuildFile; productRef = 831AE0992B81236300C5B6AF /* CombineExt */; };
+		832F0C5C2BD927DD00E8468D /* CardsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832F0C5B2BD927DD00E8468D /* CardsViewModel.swift */; };
+		832F0C5E2BD9288500E8468D /* CardsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832F0C5D2BD9288500E8468D /* CardsEndpoint.swift */; };
+		832F0C602BD9292C00E8468D /* ServerCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832F0C5F2BD9292C00E8468D /* ServerCard.swift */; };
+		832F0C622BD9296E00E8468D /* LocalCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832F0C612BD9296E00E8468D /* LocalCard.swift */; };
+		832F0C642BD92A0500E8468D /* CardModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832F0C632BD92A0500E8468D /* CardModelMapper.swift */; };
+		832F0C662BD92C8B00E8468D /* CardsLearningViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832F0C652BD92C8B00E8468D /* CardsLearningViewModel.swift */; };
+		832F0C682BD9340100E8468D /* CardsLearnedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832F0C672BD9340100E8468D /* CardsLearnedViewModel.swift */; };
+		832F0C6A2BD99C3400E8468D /* ServerCardSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832F0C692BD99C3400E8468D /* ServerCardSet.swift */; };
+		832F0C6C2BD99CA000E8468D /* LocalCardSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832F0C6B2BD99CA000E8468D /* LocalCardSet.swift */; };
+		832F0C6E2BD99CCE00E8468D /* CardSetModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832F0C6D2BD99CCE00E8468D /* CardSetModelMapper.swift */; };
+		832F0C702BD99F2D00E8468D /* CardsSetsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832F0C6F2BD99F2D00E8468D /* CardsSetsViewModel.swift */; };
 		8331F8422B95FD2300058CEC /* ServerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8331F8412B95FD2300058CEC /* ServerTest.swift */; };
 		8331F8442B95FE6600058CEC /* LocalTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8331F8432B95FE6600058CEC /* LocalTest.swift */; };
 		8331F8462B95FE9700058CEC /* TestModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8331F8452B95FE9700058CEC /* TestModelMapper.swift */; };
@@ -97,6 +108,7 @@
 		8356A2A52BD6DF8600B89B79 /* CardsLearnedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8356A2A42BD6DF8600B89B79 /* CardsLearnedView.swift */; };
 		8356A2A72BD6EAAC00B89B79 /* CardsLearningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8356A2A62BD6EAAC00B89B79 /* CardsLearningView.swift */; };
 		8356A2A92BD6EE4E00B89B79 /* CardsSetsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8356A2A82BD6EE4E00B89B79 /* CardsSetsView.swift */; };
+		8374B2112BDA5C0B00078DD0 /* CreateSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8374B2102BDA5C0B00078DD0 /* CreateSet.swift */; };
 		838AF0382BBD42D8002FDA88 /* ServerInterests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838AF0372BBD42D8002FDA88 /* ServerInterests.swift */; };
 		838AF03A2BBD4323002FDA88 /* LocalInterests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838AF0392BBD4323002FDA88 /* LocalInterests.swift */; };
 		838AF03C2BBD434B002FDA88 /* InterestsModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838AF03B2BBD434B002FDA88 /* InterestsModelMapper.swift */; };
@@ -125,6 +137,9 @@
 		83C2B3182B94EE9C00B69E69 /* PurpleButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C2B3172B94EE9C00B69E69 /* PurpleButtonView.swift */; };
 		83C8F6BA2BD29C6B00FEBE79 /* GenerateDialogEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C8F6B92BD29C6B00FEBE79 /* GenerateDialogEndpoint.swift */; };
 		83F740752BA06BEA004BA2F4 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 83F740742BA06BEA004BA2F4 /* SDWebImageSwiftUI */; };
+		83FC43BA2BD7C59E003FA5EB /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FC43B92BD7C59E003FA5EB /* CardView.swift */; };
+		83FC43BC2BD8217F003FA5EB /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FC43BB2BD8217F003FA5EB /* CardViewModel.swift */; };
+		83FC43C22BD84B9A003FA5EB /* CardsSetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FC43C12BD84B9A003FA5EB /* CardsSetView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -160,6 +175,17 @@
 		831AE0922B811FD700C5B6AF /* ServerUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerUser.swift; sourceTree = "<group>"; };
 		831AE0942B81203800C5B6AF /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		831AE0962B8120B300C5B6AF /* UserModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModelMapper.swift; sourceTree = "<group>"; };
+		832F0C5B2BD927DD00E8468D /* CardsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewModel.swift; sourceTree = "<group>"; };
+		832F0C5D2BD9288500E8468D /* CardsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsEndpoint.swift; sourceTree = "<group>"; };
+		832F0C5F2BD9292C00E8468D /* ServerCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerCard.swift; sourceTree = "<group>"; };
+		832F0C612BD9296E00E8468D /* LocalCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalCard.swift; sourceTree = "<group>"; };
+		832F0C632BD92A0500E8468D /* CardModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModelMapper.swift; sourceTree = "<group>"; };
+		832F0C652BD92C8B00E8468D /* CardsLearningViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsLearningViewModel.swift; sourceTree = "<group>"; };
+		832F0C672BD9340100E8468D /* CardsLearnedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsLearnedViewModel.swift; sourceTree = "<group>"; };
+		832F0C692BD99C3400E8468D /* ServerCardSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerCardSet.swift; sourceTree = "<group>"; };
+		832F0C6B2BD99CA000E8468D /* LocalCardSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalCardSet.swift; sourceTree = "<group>"; };
+		832F0C6D2BD99CCE00E8468D /* CardSetModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSetModelMapper.swift; sourceTree = "<group>"; };
+		832F0C6F2BD99F2D00E8468D /* CardsSetsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsSetsViewModel.swift; sourceTree = "<group>"; };
 		8331F8412B95FD2300058CEC /* ServerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerTest.swift; sourceTree = "<group>"; };
 		8331F8432B95FE6600058CEC /* LocalTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalTest.swift; sourceTree = "<group>"; };
 		8331F8452B95FE9700058CEC /* TestModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModelMapper.swift; sourceTree = "<group>"; };
@@ -213,6 +239,7 @@
 		8356A2A42BD6DF8600B89B79 /* CardsLearnedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsLearnedView.swift; sourceTree = "<group>"; };
 		8356A2A62BD6EAAC00B89B79 /* CardsLearningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsLearningView.swift; sourceTree = "<group>"; };
 		8356A2A82BD6EE4E00B89B79 /* CardsSetsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsSetsView.swift; sourceTree = "<group>"; };
+		8374B2102BDA5C0B00078DD0 /* CreateSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSet.swift; sourceTree = "<group>"; };
 		838AF0372BBD42D8002FDA88 /* ServerInterests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerInterests.swift; sourceTree = "<group>"; };
 		838AF0392BBD4323002FDA88 /* LocalInterests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalInterests.swift; sourceTree = "<group>"; };
 		838AF03B2BBD434B002FDA88 /* InterestsModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestsModelMapper.swift; sourceTree = "<group>"; };
@@ -240,6 +267,9 @@
 		83C2B3152B94D73900B69E69 /* TestButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestButtonView.swift; sourceTree = "<group>"; };
 		83C2B3172B94EE9C00B69E69 /* PurpleButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurpleButtonView.swift; sourceTree = "<group>"; };
 		83C8F6B92BD29C6B00FEBE79 /* GenerateDialogEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateDialogEndpoint.swift; sourceTree = "<group>"; };
+		83FC43B92BD7C59E003FA5EB /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		83FC43BB2BD8217F003FA5EB /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
+		83FC43C12BD84B9A003FA5EB /* CardsSetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsSetView.swift; sourceTree = "<group>"; };
 		AB4A2B78B4A82802622FD4EB /* Pods-EnglishMessenger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnglishMessenger.debug.xcconfig"; path = "Target Support Files/Pods-EnglishMessenger/Pods-EnglishMessenger.debug.xcconfig"; sourceTree = "<group>"; };
 		F8F9FDD544FDC7BE716239E1 /* Pods-EnglishMessenger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnglishMessenger.release.xcconfig"; path = "Target Support Files/Pods-EnglishMessenger/Pods-EnglishMessenger.release.xcconfig"; sourceTree = "<group>"; };
 		F9F708B03441EBB0677C228B /* Pods_EnglishMessenger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EnglishMessenger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -365,6 +395,8 @@
 				838AF03B2BBD434B002FDA88 /* InterestsModelMapper.swift */,
 				83B3D5E62BCE996A00B62413 /* MessagesModelMapper.swift */,
 				83A1F7DE2BD1102200488032 /* GrammarModelMapper.swift */,
+				832F0C632BD92A0500E8468D /* CardModelMapper.swift */,
+				832F0C6D2BD99CCE00E8468D /* CardSetModelMapper.swift */,
 			);
 			path = Mappers;
 			sourceTree = "<group>";
@@ -377,6 +409,9 @@
 				838AF0372BBD42D8002FDA88 /* ServerInterests.swift */,
 				83524D342BCD546700F86E2C /* ServerMessage.swift */,
 				83A1F7DA2BD10EB500488032 /* ServerGrammar.swift */,
+				832F0C5F2BD9292C00E8468D /* ServerCard.swift */,
+				832F0C692BD99C3400E8468D /* ServerCardSet.swift */,
+				8374B2102BDA5C0B00078DD0 /* CreateSet.swift */,
 			);
 			path = ServerModel;
 			sourceTree = "<group>";
@@ -393,6 +428,8 @@
 				838AF0392BBD4323002FDA88 /* LocalInterests.swift */,
 				83524D322BCD545000F86E2C /* Message.swift */,
 				83A1F7DC2BD10FBA00488032 /* LocalGrammar.swift */,
+				832F0C612BD9296E00E8468D /* LocalCard.swift */,
+				832F0C6B2BD99CA000E8468D /* LocalCardSet.swift */,
 			);
 			path = LocalModel;
 			sourceTree = "<group>";
@@ -514,6 +551,7 @@
 				83B3D5E42BCE97F200B62413 /* MessagesEndpoint.swift */,
 				83A1F7E02BD1110500488032 /* GrammarEndpoint.swift */,
 				83C8F6B92BD29C6B00FEBE79 /* GenerateDialogEndpoint.swift */,
+				832F0C5D2BD9288500E8468D /* CardsEndpoint.swift */,
 			);
 			path = Endpoints;
 			sourceTree = "<group>";
@@ -624,10 +662,13 @@
 		8356A2A12BD6CC0B00B89B79 /* Cards */ = {
 			isa = PBXGroup;
 			children = (
+				83FC43C32BD84B9E003FA5EB /* CardsSet */,
+				83FC43C02BD84B6D003FA5EB /* CardsSets */,
+				83FC43BF2BD84B62003FA5EB /* CardsLearning */,
+				83FC43BE2BD84B57003FA5EB /* CardsLearned */,
+				83FC43BD2BD84B17003FA5EB /* Card */,
 				8356A2A22BD6CC1900B89B79 /* CardsView.swift */,
-				8356A2A42BD6DF8600B89B79 /* CardsLearnedView.swift */,
-				8356A2A62BD6EAAC00B89B79 /* CardsLearningView.swift */,
-				8356A2A82BD6EE4E00B89B79 /* CardsSetsView.swift */,
+				832F0C5B2BD927DD00E8468D /* CardsViewModel.swift */,
 			);
 			path = Cards;
 			sourceTree = "<group>";
@@ -734,6 +775,50 @@
 				83A40A892B9885C3003A284E /* MainTab.swift */,
 			);
 			path = TapBar;
+			sourceTree = "<group>";
+		};
+		83FC43BD2BD84B17003FA5EB /* Card */ = {
+			isa = PBXGroup;
+			children = (
+				83FC43B92BD7C59E003FA5EB /* CardView.swift */,
+				83FC43BB2BD8217F003FA5EB /* CardViewModel.swift */,
+			);
+			path = Card;
+			sourceTree = "<group>";
+		};
+		83FC43BE2BD84B57003FA5EB /* CardsLearned */ = {
+			isa = PBXGroup;
+			children = (
+				8356A2A42BD6DF8600B89B79 /* CardsLearnedView.swift */,
+				832F0C672BD9340100E8468D /* CardsLearnedViewModel.swift */,
+			);
+			path = CardsLearned;
+			sourceTree = "<group>";
+		};
+		83FC43BF2BD84B62003FA5EB /* CardsLearning */ = {
+			isa = PBXGroup;
+			children = (
+				8356A2A62BD6EAAC00B89B79 /* CardsLearningView.swift */,
+				832F0C652BD92C8B00E8468D /* CardsLearningViewModel.swift */,
+			);
+			path = CardsLearning;
+			sourceTree = "<group>";
+		};
+		83FC43C02BD84B6D003FA5EB /* CardsSets */ = {
+			isa = PBXGroup;
+			children = (
+				8356A2A82BD6EE4E00B89B79 /* CardsSetsView.swift */,
+				832F0C6F2BD99F2D00E8468D /* CardsSetsViewModel.swift */,
+			);
+			path = CardsSets;
+			sourceTree = "<group>";
+		};
+		83FC43C32BD84B9E003FA5EB /* CardsSet */ = {
+			isa = PBXGroup;
+			children = (
+				83FC43C12BD84B9A003FA5EB /* CardsSetView.swift */,
+			);
+			path = CardsSet;
 			sourceTree = "<group>";
 		};
 		91F29E14AD713A5986835FDD /* Pods */ = {
@@ -895,6 +980,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				832F0C662BD92C8B00E8468D /* CardsLearningViewModel.swift in Sources */,
 				83A1F7DF2BD1102200488032 /* GrammarModelMapper.swift in Sources */,
 				83B035EE2BD04147005C02BA /* ChatsViewModel.swift in Sources */,
 				83B035E52BCFD07E005C02BA /* SearchChatView.swift in Sources */,
@@ -903,19 +989,24 @@
 				83C8F6BA2BD29C6B00FEBE79 /* GenerateDialogEndpoint.swift in Sources */,
 				831AE0842B80F55000C5B6AF /* ErrorAPI.swift in Sources */,
 				83A40A8C2B9889AA003A284E /* HomeView.swift in Sources */,
+				832F0C602BD9292C00E8468D /* ServerCard.swift in Sources */,
 				831AE06D2B80D87500C5B6AF /* BaseModelMapper.swift in Sources */,
 				83B035E82BCFE290005C02BA /* CurrentScreen.swift in Sources */,
 				831AE08B2B80F8B900C5B6AF /* UserAuthorization.swift in Sources */,
+				83FC43C22BD84B9A003FA5EB /* CardsSetView.swift in Sources */,
 				838AF0412BBD6315002FDA88 /* ScaleButtonStyle.swift in Sources */,
 				83BD01EE2B93698A0059AB53 /* TestingView.swift in Sources */,
 				83103EE32B7FF73C00932A96 /* ProfileView.swift in Sources */,
 				831AE0952B81203800C5B6AF /* User.swift in Sources */,
 				831AE0932B811FD700C5B6AF /* ServerUser.swift in Sources */,
+				832F0C6E2BD99CCE00E8468D /* CardSetModelMapper.swift in Sources */,
 				83505D1D2B923673005FD7DC /* OnboardingNavigationView.swift in Sources */,
 				8331F8422B95FD2300058CEC /* ServerTest.swift in Sources */,
 				838AF03A2BBD4323002FDA88 /* LocalInterests.swift in Sources */,
+				832F0C5E2BD9288500E8468D /* CardsEndpoint.swift in Sources */,
 				83505D262B9268A0005FD7DC /* OnboardingViewModel.swift in Sources */,
 				83A1F7D92BD10B3300488032 /* ChatsSearcherFieldStyle.swift in Sources */,
+				83FC43BC2BD8217F003FA5EB /* CardViewModel.swift in Sources */,
 				83103EB22B7F574300932A96 /* StartView.swift in Sources */,
 				831AE0722B80DFCA00C5B6AF /* Provider.swift in Sources */,
 				8334B75F2B9E02050087716F /* OnboardingEndpoint.swift in Sources */,
@@ -924,11 +1015,13 @@
 				83B3D5E52BCE97F200B62413 /* MessagesEndpoint.swift in Sources */,
 				831AE0912B81089A00C5B6AF /* UserStorage.swift in Sources */,
 				838AF03C2BBD434B002FDA88 /* InterestsModelMapper.swift in Sources */,
+				832F0C642BD92A0500E8468D /* CardModelMapper.swift in Sources */,
 				83385A7C2B96FA6F007CC6FB /* TestResultsView.swift in Sources */,
 				83505D282B92782D005FD7DC /* MaskedDateTextField.swift in Sources */,
 				838AF0442BBDAE64002FDA88 /* ChatsView.swift in Sources */,
 				83524D352BCD546700F86E2C /* ServerMessage.swift in Sources */,
 				8331F8462B95FE9700058CEC /* TestModelMapper.swift in Sources */,
+				832F0C5C2BD927DD00E8468D /* CardsViewModel.swift in Sources */,
 				8331F8442B95FE6600058CEC /* LocalTest.swift in Sources */,
 				83A1F7E12BD1110500488032 /* GrammarEndpoint.swift in Sources */,
 				831AE0822B80F4F000C5B6AF /* GeneralAPI.swift in Sources */,
@@ -945,6 +1038,7 @@
 				8356A2A92BD6EE4E00B89B79 /* CardsSetsView.swift in Sources */,
 				83505D1B2B922FE3005FD7DC /* CustomTextField.swift in Sources */,
 				83C2B3182B94EE9C00B69E69 /* PurpleButtonView.swift in Sources */,
+				832F0C6A2BD99C3400E8468D /* ServerCardSet.swift in Sources */,
 				8356A2A02BD6C1E800B89B79 /* EducationView.swift in Sources */,
 				83A1F7D72BD10ADF00488032 /* ChatsSearcherField.swift in Sources */,
 				83524D392BCD5A7B00F86E2C /* ChatsStartViewModel.swift in Sources */,
@@ -959,8 +1053,10 @@
 				83505CF22B91FF97005FD7DC /* TitleTextView.swift in Sources */,
 				83454FBC2B95B611006E608E /* TestingViewModel.swift in Sources */,
 				83524D3B2BCD624A00F86E2C /* UsersEndpoint.swift in Sources */,
+				832F0C702BD99F2D00E8468D /* CardsSetsViewModel.swift in Sources */,
 				83A1F7DB2BD10EB500488032 /* ServerGrammar.swift in Sources */,
 				83524D332BCD545000F86E2C /* Message.swift in Sources */,
+				832F0C682BD9340100E8468D /* CardsLearnedViewModel.swift in Sources */,
 				83BD01F62B936B620059AB53 /* TestProgressView.swift in Sources */,
 				83B3D5E72BCE996A00B62413 /* MessagesModelMapper.swift in Sources */,
 				838AF0382BBD42D8002FDA88 /* ServerInterests.swift in Sources */,
@@ -968,19 +1064,23 @@
 				8334B75D2B9DFFA80087716F /* Onboarding.swift in Sources */,
 				83524D402BCD663800F86E2C /* MainNavigationRouter.swift in Sources */,
 				83A1F7DD2BD10FBA00488032 /* LocalGrammar.swift in Sources */,
+				8374B2112BDA5C0B00078DD0 /* CreateSet.swift in Sources */,
 				831AE08E2B81081E00C5B6AF /* AuthenticationService.swift in Sources */,
 				838AF03F2BBD43FB002FDA88 /* InterestsEndpoint.swift in Sources */,
 				8331F84A2B96317E00058CEC /* Answer.swift in Sources */,
 				83385A7E2B970790007CC6FB /* TestResultsEndpoint.swift in Sources */,
 				83103ECF2B7F91EF00932A96 /* AppContainer.swift in Sources */,
 				831AE06F2B80D93E00C5B6AF /* UserRegistration.swift in Sources */,
+				832F0C6C2BD99CA000E8468D /* LocalCardSet.swift in Sources */,
 				831AE0892B80F87E00C5B6AF /* AuthorizationEndpoint.swift in Sources */,
 				83103EC22B7F5EB600932A96 /* Strings.swift in Sources */,
 				83103EB02B7F574300932A96 /* EnglishMessengerApp.swift in Sources */,
 				831AE06A2B80CDCB00C5B6AF /* StartNavigation.swift in Sources */,
 				83103EDC2B7F9BA500932A96 /* AuthorizationView.swift in Sources */,
+				832F0C622BD9296E00E8468D /* LocalCard.swift in Sources */,
 				838C30382B9F708300F098EE /* ImagePicker.swift in Sources */,
 				83103ED42B7F940600932A96 /* ButtonView.swift in Sources */,
+				83FC43BA2BD7C59E003FA5EB /* CardView.swift in Sources */,
 				833FF9B72BA1E9490032827B /* KeyChainStorage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

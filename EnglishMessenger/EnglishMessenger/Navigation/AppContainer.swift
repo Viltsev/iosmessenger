@@ -33,6 +33,8 @@ struct AppContainer: View {
                                     CardsLearningView()
                                 case .pushCardsSets:
                                     CardsSetsView()
+                                case .pushCardsSet(let set):
+                                    CardsSetView(set: set)
                                 }
                             }
                             .navigationBarBackButtonHidden(true)

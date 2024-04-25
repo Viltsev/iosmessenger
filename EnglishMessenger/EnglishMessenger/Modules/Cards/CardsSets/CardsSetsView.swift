@@ -9,12 +9,26 @@ import SwiftUI
 
 struct CardsSetsView: View {
     @EnvironmentObject var router: MainNavigationRouter
+    @StateObject private var viewModel: CardsSetsViewModel = CardsSetsViewModel()
     
     var body: some View {
         Color.profilePinky
             .ignoresSafeArea()
             .overlay {
                 content()
+            }
+            .onChange(of: viewModel.output.isSheet, { oldValue, newValue in
+                if oldValue == true {
+                    viewModel.input.getCardSetSubject.send()
+                }
+            })
+            .onAppear {
+                viewModel.input.getCardSetSubject.send()
+            }
+            .sheet(isPresented: $viewModel.output.isSheet) {
+                sheetView()
+                    .presentationDetents([.medium, .medium])
+                    .presentationCornerRadius(15)
             }
     }
 }
@@ -27,8 +41,37 @@ extension CardsSetsView {
                 .padding(.bottom, 30)
             createSet()
                 .padding(.bottom, 50)
-            setCard(title: "Все слова", description: "Все твои сохранённые слова")
+            scrollSets()
             Spacer()
+        }
+    }
+    
+    @ViewBuilder
+    func sheetView() -> some View {
+        VStack {
+            TextField("Название сета", text: $viewModel.output.setTitle)
+                .foregroundColor(.mainPurple)
+                .font(.custom("Montserrat-Light", size: 24))
+                .multilineTextAlignment(.center)
+                .padding()
+                .onChange(of: viewModel.output.setTitle,  setTitleAction)
+            
+            TextField("Описание сета", text: $viewModel.output.setDescription)
+                .foregroundColor(.mainPurple)
+                .font(.custom("Montserrat-Light", size: 24))
+                .multilineTextAlignment(.center)
+                .padding()
+                .onChange(of: viewModel.output.setDescription,  setDescriptionAction)
+            
+            Button {
+                viewModel.input.createSetSubject.send()
+            } label: {
+                Text("Создать")
+                    .foregroundColor(.lightPurple)
+                    .font(.custom("Montserrat-Bold", size: 24))
+                    .padding()
+            }
+            .disabled(viewModel.output.createSetEnabled)
         }
     }
     
@@ -55,7 +98,7 @@ extension CardsSetsView {
     @ViewBuilder
     func createSet() -> some View {
         Button {
-            
+            viewModel.output.isSheet.toggle()
         } label: {
             HStack {
                 Image("add")
@@ -79,19 +122,30 @@ extension CardsSetsView {
     }
     
     @ViewBuilder
-    func setCard(title: String, description: String) -> some View {
+    func scrollSets() -> some View {
+        ScrollView(showsIndicators: false) {
+            VStack {
+                ForEach(viewModel.output.sets, id: \.id) { set in
+                    setCard(set: set)
+                }
+            }
+        }
+    }
+    
+    @ViewBuilder
+    func setCard(set: LocalCardSet) -> some View {
         Button {
-            
+            router.pushView(MainNavigation.pushCardsSet(set))
         } label: {
             HStack {
                 VStack(alignment: .leading) {
-                    Text(title)
+                    Text(set.title)
                         .foregroundColor(.white)
                         .multilineTextAlignment(.leading)
                         .font(.custom("Montserrat-Bold", size: 20))
                         .padding(.top, 35)
                         .padding(.bottom, 15)
-                    Text(description)
+                    Text(set.description)
                         .foregroundColor(.white)
                         .multilineTextAlignment(.leading)
                         .font(.custom("Montserrat-Regular", size: 16))
@@ -107,5 +161,15 @@ extension CardsSetsView {
             .padding(.bottom, 15)
         }
         .buttonStyle(ScaleButtonStyle())
+    }
+}
+
+extension CardsSetsView {
+    func setTitleAction() {
+        viewModel.input.setTitleSubject.send()
+    }
+    
+    func setDescriptionAction() {
+        viewModel.input.setDescriptionSubject.send()
     }
 }

@@ -13,4 +13,5 @@ enum MainNavigation: Hashable {
     case pushCardsLearned
     case pushCardsLearning
     case pushCardsSets
+    case pushCardsSet(LocalCardSet)
 }
