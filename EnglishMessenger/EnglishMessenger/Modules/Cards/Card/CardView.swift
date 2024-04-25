@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct CardView: View {
     @EnvironmentObject var router: MainNavigationRouter
@@ -29,7 +30,7 @@ extension CardView {
             if viewModel.output.currentCount <= viewModel.output.cards.count {
                 ZStack {
                     ForEach(viewModel.output.cards, id: \.id) { card in
-                        CardDetailView(original: card.text ?? "", translation: card.explanation ?? "", currentCount: $viewModel.output.currentCount)
+                        CardDetailView(card: card, action: viewModel.input.saveToLearnedSubject, currentCount: $viewModel.output.currentCount)
                     }
                 }
                 Text("Нажми на карточку, чтобы перевернуть")
@@ -46,6 +47,7 @@ extension CardView {
         HStack {
             Button {
                 router.popView()
+                viewModel.output.currentCount = 1
             } label: {
                 Image(systemName: "multiply")
                     .font(.title3)
@@ -63,9 +65,9 @@ extension CardView {
 }
 
 struct CardDetailView: View {
-    var original: String
-    var translation: String
-    
+    var card: LocalCard
+    var action: PassthroughSubject<LocalCard, Never>
+
     @Binding var currentCount: Int
     @State private var isFlipped: Bool = false
     @State private var offset = CGSize.zero
@@ -74,13 +76,13 @@ struct CardDetailView: View {
     var body: some View {
     
         ZStack {
-            cardView(text: original)
+            cardView(text: card.text)
                 .rotation3DEffect(
                     .degrees(isFlipped ? 0 : -90),
                                           axis: (x: 0.0, y: 1.0, z: 0.0)
                 )
                 .animation(isFlipped ? .linear.delay(0.35) : .linear, value: isFlipped)
-            cardView(text: translation)
+            cardView(text: card.explanation)
                 .rotation3DEffect(
                     .degrees(isFlipped ? 90 : 0),
                                           axis: (x: 0.0, y: 1.0, z: 0.0)
@@ -134,12 +136,11 @@ struct CardDetailView: View {
     func swipeCard(width: CGFloat) {
         switch width {
         case -500...(-150):
-            print("\(original) removed")
             currentCount += 1
             offset = CGSize(width: -100000, height: 0)
             
         case 150...500:
-            print("\(original) added")
+            action.send(card)
             currentCount += 1
             offset = CGSize(width: 100000, height: 0)
             

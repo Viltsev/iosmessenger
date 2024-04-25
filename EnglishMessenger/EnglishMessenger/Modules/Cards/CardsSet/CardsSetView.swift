@@ -9,7 +9,9 @@ import SwiftUI
 
 struct CardsSetView: View {
     @EnvironmentObject var router: MainNavigationRouter
-    var set: LocalCardSet
+    @StateObject var viewModel: CardsSetViewModel
+    
+    //var set: LocalCardSet
     
     var body: some View {
         Color.profilePinky
@@ -27,7 +29,7 @@ extension CardsSetView {
             customToolBar()
                 .padding(.bottom, 25)
             HStack {
-                Text(self.set.title)
+                Text(viewModel.output.cardSet?.title ?? "")
                     .foregroundStyle(.mainPurple)
                     .font(.custom("Montserrat-ExtraBold", size: 36))
                 Spacer()
@@ -59,8 +61,10 @@ extension CardsSetView {
         VStack {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
-                    ForEach(self.set.cardList, id: \.id) { card in
-                        wordView(word: card.text ?? "", translation: card.explanation ?? "")
+                    if let cardList = viewModel.output.cardSet?.cardList {
+                        ForEach(cardList, id: \.id) { card in
+                            wordView(word: card.text, translation: card.explanation)
+                        }
                     }
                 }
                 .padding(.horizontal, 16)
@@ -112,7 +116,9 @@ extension CardsSetView {
     @ViewBuilder
     func buttonView(text: String) -> some View {
         Button {
-            router.pushView(MainNavigation.pushCardView(self.set.toLearn))
+            if let toLearn = viewModel.output.cardSet?.toLearn {
+                router.pushView(MainNavigation.pushCardView(toLearn))
+            }
         } label: {
             VStack {
                 Text(text)

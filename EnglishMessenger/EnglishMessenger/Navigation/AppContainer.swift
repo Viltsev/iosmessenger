@@ -11,6 +11,7 @@ struct AppContainer: View {
     @StateObject var router = StartNavigationRouter()
     @StateObject var mainRouter = MainNavigationRouter()
     @StateObject private var cardViewModel: CardViewModel = CardViewModel()
+    @StateObject private var cardsSetViewModel: CardsSetViewModel = CardsSetViewModel()
     
     @State private var isAuth = AuthenticationService.shared.status.value
     
@@ -35,10 +36,14 @@ struct AppContainer: View {
                                 case .pushCardsSets:
                                     CardsSetsView()
                                 case .pushCardsSet(let set):
-                                    CardsSetView(set: set)
+                                    CardsSetView(viewModel: cardsSetViewModel)
+                                        .onAppear {
+                                            cardsSetViewModel.output.cardSet = set
+                                        }
                                 case .pushCardView(let cardArray):
                                     CardView(viewModel: cardViewModel)
                                         .onAppear {
+                                            print("card array : \(cardArray)")
                                             cardViewModel.output.cards = cardArray
                                         }
                                 }

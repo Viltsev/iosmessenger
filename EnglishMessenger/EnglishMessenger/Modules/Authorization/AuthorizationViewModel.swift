@@ -16,7 +16,7 @@ class AuthorizationViewModel: ObservableObject {
     @Published var output: Output = Output()
     var cancellable = Set<AnyCancellable>()
     
-    let apiService = GenaralApi()
+    let apiService = GeneralApi()
     
     init() {
         bind()

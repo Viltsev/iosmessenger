@@ -18,7 +18,7 @@ class SocketService: ObservableObject, StompClientLibDelegate {
     @Published var messages: [Message] = []
     
     private var socketClient: StompClientLib
-    let apiService = GenaralApi()
+    let apiService = GeneralApi()
     
     init() {
         self.socketClient = StompClientLib()

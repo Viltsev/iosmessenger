@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct LocalCard: Identifiable {
+struct LocalCard: Identifiable, Hashable, Codable {
     let id: Int
     let setId: Int
     let text: String

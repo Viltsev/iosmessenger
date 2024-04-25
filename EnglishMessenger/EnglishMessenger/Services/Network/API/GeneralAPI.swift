@@ -9,7 +9,7 @@ import Foundation
 import Combine
 import CombineMoya
 
-struct GenaralApi {
+struct GeneralApi {
     let providerRegistration = Provider<RegistrationEndpoint>()
     let providerAuthorization = Provider<AuthorizationEndpoint>()
     let providerTesting = Provider<TestEndpoint>()
@@ -23,7 +23,7 @@ struct GenaralApi {
     let providerCardsEndpoint = Provider<CardsEndpoint>()
 }
 
-extension GenaralApi {
+extension GeneralApi {
     func registerUser(user: UserRegistration) {
         providerRegistration.request(.registerUser(user: user)) { result in
             switch result {
@@ -335,6 +335,21 @@ extension GenaralApi {
     
     func createCard(card: CreateCard) -> AnyPublisher<String, ErrorAPI> {
         providerCardsEndpoint.requestPublisher(.createCard(card))
+            .filterSuccessfulStatusCodes()
+            .map(String.self)
+            .mapError { error in
+                if error.response?.statusCode == 404 {
+                    return ErrorAPI.notFound
+                } else {
+                    return ErrorAPI.network
+                }
+            }
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+    }
+    
+    func saveToLearned(card: LocalCard) -> AnyPublisher<String, ErrorAPI> {
+        providerCardsEndpoint.requestPublisher(.saveToLearned(card))
             .filterSuccessfulStatusCodes()
             .map(String.self)
             .mapError { error in

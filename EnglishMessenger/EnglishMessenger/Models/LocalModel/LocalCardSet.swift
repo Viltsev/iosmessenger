@@ -12,8 +12,8 @@ struct LocalCardSet: Identifiable, Hashable {
     let title: String
     let description: String
     let userEmail: String
-    let cardList: [ServerCard]
-    let toLearn: [ServerCard]
-    let learned: [ServerCard]
+    let cardList: [LocalCard]
+    let toLearn: [LocalCard]
+    let learned: [LocalCard]
     var isChosen: Bool = false
 }

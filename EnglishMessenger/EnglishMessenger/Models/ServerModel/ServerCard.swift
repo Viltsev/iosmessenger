@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ServerCard: Codable, Hashable {
+struct ServerCard: Codable {
     let id: Int?
     let setId: Int?
     let text: String?

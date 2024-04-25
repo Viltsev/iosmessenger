@@ -110,6 +110,7 @@
 		8356A2A92BD6EE4E00B89B79 /* CardsSetsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8356A2A82BD6EE4E00B89B79 /* CardsSetsView.swift */; };
 		8374B2112BDA5C0B00078DD0 /* CreateSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8374B2102BDA5C0B00078DD0 /* CreateSet.swift */; };
 		8374B2132BDA763200078DD0 /* CreateCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8374B2122BDA763200078DD0 /* CreateCard.swift */; };
+		8374B2152BDABBE800078DD0 /* CardsSetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8374B2142BDABBE800078DD0 /* CardsSetViewModel.swift */; };
 		838AF0382BBD42D8002FDA88 /* ServerInterests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838AF0372BBD42D8002FDA88 /* ServerInterests.swift */; };
 		838AF03A2BBD4323002FDA88 /* LocalInterests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838AF0392BBD4323002FDA88 /* LocalInterests.swift */; };
 		838AF03C2BBD434B002FDA88 /* InterestsModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838AF03B2BBD434B002FDA88 /* InterestsModelMapper.swift */; };
@@ -242,6 +243,7 @@
 		8356A2A82BD6EE4E00B89B79 /* CardsSetsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsSetsView.swift; sourceTree = "<group>"; };
 		8374B2102BDA5C0B00078DD0 /* CreateSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSet.swift; sourceTree = "<group>"; };
 		8374B2122BDA763200078DD0 /* CreateCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCard.swift; sourceTree = "<group>"; };
+		8374B2142BDABBE800078DD0 /* CardsSetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsSetViewModel.swift; sourceTree = "<group>"; };
 		838AF0372BBD42D8002FDA88 /* ServerInterests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerInterests.swift; sourceTree = "<group>"; };
 		838AF0392BBD4323002FDA88 /* LocalInterests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalInterests.swift; sourceTree = "<group>"; };
 		838AF03B2BBD434B002FDA88 /* InterestsModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestsModelMapper.swift; sourceTree = "<group>"; };
@@ -820,6 +822,7 @@
 			isa = PBXGroup;
 			children = (
 				83FC43C12BD84B9A003FA5EB /* CardsSetView.swift */,
+				8374B2142BDABBE800078DD0 /* CardsSetViewModel.swift */,
 			);
 			path = CardsSet;
 			sourceTree = "<group>";
@@ -1022,6 +1025,7 @@
 				83385A7C2B96FA6F007CC6FB /* TestResultsView.swift in Sources */,
 				83505D282B92782D005FD7DC /* MaskedDateTextField.swift in Sources */,
 				838AF0442BBDAE64002FDA88 /* ChatsView.swift in Sources */,
+				8374B2152BDABBE800078DD0 /* CardsSetViewModel.swift in Sources */,
 				83524D352BCD546700F86E2C /* ServerMessage.swift in Sources */,
 				8331F8462B95FE9700058CEC /* TestModelMapper.swift in Sources */,
 				832F0C5C2BD927DD00E8468D /* CardsViewModel.swift in Sources */,

@@ -13,9 +13,9 @@ final class CardSetModelMapper: BaseModelMapper<ServerCardSet, LocalCardSet> {
                      title: serverEntity.title ?? "",
                      description: serverEntity.description ?? "",
                      userEmail: serverEntity.userEmail ?? "",
-                     cardList: serverEntity.cardList ?? [],
-                     toLearn: serverEntity.toLearn ?? [],
-                     learned: serverEntity.learned ?? []
+                     cardList: CardModelMapper().toLocal(list: serverEntity.cardList),
+                     toLearn: CardModelMapper().toLocal(list: serverEntity.toLearn),
+                     learned: CardModelMapper().toLocal(list: serverEntity.learned)
         )
     }
 }
