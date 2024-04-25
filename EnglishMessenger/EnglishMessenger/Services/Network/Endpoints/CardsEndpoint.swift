@@ -13,6 +13,7 @@ enum CardsEndpoint {
     case getAllLearned
     case getCardSets
     case createSet(CreateSet)
+    case createCard(CreateCard)
 }
 
 extension CardsEndpoint: TargetType {
@@ -33,6 +34,8 @@ extension CardsEndpoint: TargetType {
             return "/api/v1/cards/get_all_card_sets/\(currentEmail ?? "")"
         case .createSet:
             return "/api/v1/cards/createCardSet"
+        case .createCard:
+            return "/api/v1/cards/createCard"
         }
     }
     
@@ -45,6 +48,8 @@ extension CardsEndpoint: TargetType {
         case .getCardSets:
             return .get
         case .createSet:
+            return .post
+        case .createCard:
             return .post
         }
     }
@@ -69,7 +74,18 @@ extension CardsEndpoint: TargetType {
             } catch {
                 fatalError("Unable to encode parameters: \(error)")
             }
-            
+        case .createCard(let card):
+            do {
+                let jsonData = try JSONEncoder().encode(card)
+                if let jsonString = String(data: jsonData, encoding: .utf8) {
+                    print("JSON для отправки: \(jsonString)")
+                } else {
+                    print("Невозможно преобразовать JSON данные в строку.")
+                }
+                return .requestData(jsonData)
+            } catch {
+                fatalError("Unable to encode parameters: \(error)")
+            }
         }
     }
     

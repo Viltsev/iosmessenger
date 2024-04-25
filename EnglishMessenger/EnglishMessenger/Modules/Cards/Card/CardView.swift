@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct CardView: View {
-    
-    @StateObject private var viewModel = CardViewModel()
+    @EnvironmentObject var router: MainNavigationRouter
+    @StateObject var viewModel: CardViewModel
     
     var body: some View {
         Color.profilePinky
@@ -26,10 +26,10 @@ extension CardView {
         VStack {
             customToolBar()
             Spacer()
-            if viewModel.currentCount <= viewModel.cards.count {
+            if viewModel.output.currentCount <= viewModel.output.cards.count {
                 ZStack {
-                    ForEach(viewModel.cards, id: \.id) { card in
-                        CardDetailView(original: card.word, translation: card.translation, currentCount: $viewModel.currentCount)
+                    ForEach(viewModel.output.cards, id: \.id) { card in
+                        CardDetailView(original: card.text ?? "", translation: card.explanation ?? "", currentCount: $viewModel.output.currentCount)
                     }
                 }
                 Text("Нажми на карточку, чтобы перевернуть")
@@ -45,24 +45,21 @@ extension CardView {
     func customToolBar() -> some View {
         HStack {
             Button {
-                //router.popView()
+                router.popView()
             } label: {
                 Image(systemName: "multiply")
                     .font(.title3)
                     .bold()
             }
             Spacer()
-            Text(viewModel.currentCount > viewModel.cards.count ? "\(viewModel.currentCount - 1)/\(viewModel.cards.count)" : "\(viewModel.currentCount)/\(viewModel.cards.count)")
+            Text(viewModel.output.currentCount > viewModel.output.cards.count ? "\(viewModel.output.currentCount - 1)/\(viewModel.output.cards.count)"
+                 : "\(viewModel.output.currentCount)/\(viewModel.output.cards.count)")
                 .foregroundStyle(.mainPurple)
                 .font(.custom("Montserrat-ExtraBold", size: 24))
             Spacer()
         }
         .padding([.horizontal, .vertical], 16)
     }
-}
-
-#Preview {
-    CardView()
 }
 
 struct CardDetailView: View {

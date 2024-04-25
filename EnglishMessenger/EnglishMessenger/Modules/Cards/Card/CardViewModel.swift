@@ -9,19 +9,28 @@ import Foundation
 import Combine
 
 class CardViewModel: ObservableObject {
-    @Published var cards: [Card] = [
-        Card(word: "Hello", translation: "Привет"),
-        Card(word: "Trust", translation: "Доверять"),
-        Card(word: "Faith", translation: "Вера")
-    ]
-    @Published var currentCount: Int = 1
+    let input: Input = Input()
+    @Published var output: Output = Output()
+    var cancellable = Set<AnyCancellable>()
+    
+    init() {
+        bind()
+    }
 }
 
 extension CardViewModel {
-    struct Card: Identifiable {
-        var id: UUID = UUID()
-        var word: String
-        var translation: String
-        var isFlipped: Bool = false
+    func bind() {
+        
+    }
+}
+
+extension CardViewModel {
+    struct Input {
+        
+    }
+    
+    struct Output {
+        var cards: [ServerCard] = []
+        var currentCount: Int = 1
     }
 }

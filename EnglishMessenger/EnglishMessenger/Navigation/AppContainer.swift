@@ -10,6 +10,7 @@ import SwiftUI
 struct AppContainer: View {
     @StateObject var router = StartNavigationRouter()
     @StateObject var mainRouter = MainNavigationRouter()
+    @StateObject private var cardViewModel: CardViewModel = CardViewModel()
     
     @State private var isAuth = AuthenticationService.shared.status.value
     
@@ -35,6 +36,11 @@ struct AppContainer: View {
                                     CardsSetsView()
                                 case .pushCardsSet(let set):
                                     CardsSetView(set: set)
+                                case .pushCardView(let cardArray):
+                                    CardView(viewModel: cardViewModel)
+                                        .onAppear {
+                                            cardViewModel.output.cards = cardArray
+                                        }
                                 }
                             }
                             .navigationBarBackButtonHidden(true)

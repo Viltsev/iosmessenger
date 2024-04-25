@@ -75,7 +75,7 @@ extension CardsLearningView {
             .padding(.vertical, 25)
             
             Button {
-                //viewModel.input.createSetSubject.send()
+                viewModel.input.createCardSubject.send()
             } label: {
                 Text("Создать")
                     .foregroundColor(.lightPurple)

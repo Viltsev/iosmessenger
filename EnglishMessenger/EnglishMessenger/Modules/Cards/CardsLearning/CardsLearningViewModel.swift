@@ -25,6 +25,7 @@ extension CardsLearningViewModel {
         createWordButtonEnable()
         getCardSets()
         chooseSet()
+        createCard()
     }
     
     func getAllToLearnCards() {
@@ -114,6 +115,38 @@ extension CardsLearningViewModel {
             }
             .store(in: &cancellable)
     }
+    
+    func createCard() {
+        let request = input.createCardSubject
+            .map { [unowned self] in
+                let currentEmail = UserDefaults.standard.string(forKey: "email")
+                let card = CreateCard(setId: self.output.setId ?? 0,
+                                      text: self.output.word,
+                                      explanation: self.output.translation,
+                                      userEmail: currentEmail ?? "")
+                
+                return self.apiService.createCard(card: card)
+                    .materialize()
+            }
+            .switchToLatest()
+            .share()
+        
+        request
+            .failures()
+            .sink {
+                error in
+                print(error)
+            }
+            .store(in: &cancellable)
+        
+        request
+            .values()
+            .sink { [unowned self] string in
+                print(string)
+                self.output.isSheet = false
+            }
+            .store(in: &cancellable)
+    }
 }
 
 extension CardsLearningViewModel {
@@ -124,6 +157,7 @@ extension CardsLearningViewModel {
         let setTranslationSubject = PassthroughSubject<Void, Never>()
         let setIdSubject = PassthroughSubject<Void, Never>()
         let chooseSetSubject = PassthroughSubject<Int, Never>()
+        let createCardSubject = PassthroughSubject<Void, Never>()
     }
     
     struct Output {

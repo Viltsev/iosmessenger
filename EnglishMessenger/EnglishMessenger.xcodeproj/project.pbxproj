@@ -109,6 +109,7 @@
 		8356A2A72BD6EAAC00B89B79 /* CardsLearningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8356A2A62BD6EAAC00B89B79 /* CardsLearningView.swift */; };
 		8356A2A92BD6EE4E00B89B79 /* CardsSetsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8356A2A82BD6EE4E00B89B79 /* CardsSetsView.swift */; };
 		8374B2112BDA5C0B00078DD0 /* CreateSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8374B2102BDA5C0B00078DD0 /* CreateSet.swift */; };
+		8374B2132BDA763200078DD0 /* CreateCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8374B2122BDA763200078DD0 /* CreateCard.swift */; };
 		838AF0382BBD42D8002FDA88 /* ServerInterests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838AF0372BBD42D8002FDA88 /* ServerInterests.swift */; };
 		838AF03A2BBD4323002FDA88 /* LocalInterests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838AF0392BBD4323002FDA88 /* LocalInterests.swift */; };
 		838AF03C2BBD434B002FDA88 /* InterestsModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838AF03B2BBD434B002FDA88 /* InterestsModelMapper.swift */; };
@@ -240,6 +241,7 @@
 		8356A2A62BD6EAAC00B89B79 /* CardsLearningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsLearningView.swift; sourceTree = "<group>"; };
 		8356A2A82BD6EE4E00B89B79 /* CardsSetsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsSetsView.swift; sourceTree = "<group>"; };
 		8374B2102BDA5C0B00078DD0 /* CreateSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSet.swift; sourceTree = "<group>"; };
+		8374B2122BDA763200078DD0 /* CreateCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCard.swift; sourceTree = "<group>"; };
 		838AF0372BBD42D8002FDA88 /* ServerInterests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerInterests.swift; sourceTree = "<group>"; };
 		838AF0392BBD4323002FDA88 /* LocalInterests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalInterests.swift; sourceTree = "<group>"; };
 		838AF03B2BBD434B002FDA88 /* InterestsModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestsModelMapper.swift; sourceTree = "<group>"; };
@@ -412,6 +414,7 @@
 				832F0C5F2BD9292C00E8468D /* ServerCard.swift */,
 				832F0C692BD99C3400E8468D /* ServerCardSet.swift */,
 				8374B2102BDA5C0B00078DD0 /* CreateSet.swift */,
+				8374B2122BDA763200078DD0 /* CreateCard.swift */,
 			);
 			path = ServerModel;
 			sourceTree = "<group>";
@@ -1030,6 +1033,7 @@
 				83BD01F02B936ABB0059AB53 /* BackButtonView.swift in Sources */,
 				83103EC42B7F5EC600932A96 /* Colors.swift in Sources */,
 				83524D372BCD594400F86E2C /* ChatsStartView.swift in Sources */,
+				8374B2132BDA763200078DD0 /* CreateCard.swift in Sources */,
 				831AE0682B80CAC300C5B6AF /* ProfileViewModel.swift in Sources */,
 				8356A2A32BD6CC1900B89B79 /* CardsView.swift in Sources */,
 				83103EDA2B7F9B9800932A96 /* RegistrationView.swift in Sources */,

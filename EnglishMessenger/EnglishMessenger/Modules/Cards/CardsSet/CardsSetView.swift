@@ -103,14 +103,16 @@ extension CardsSetView {
         VStack(spacing: 20) {
             buttonView(text: "Карточки")
             buttonView(text: "Тест")
+                .disabled(true)
             buttonView(text: "Совоставить")
+                .disabled(true)
         }
     }
     
     @ViewBuilder
     func buttonView(text: String) -> some View {
         Button {
-            
+            router.pushView(MainNavigation.pushCardView(self.set.toLearn))
         } label: {
             VStack {
                 Text(text)

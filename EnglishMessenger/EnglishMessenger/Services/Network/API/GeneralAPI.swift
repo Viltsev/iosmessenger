@@ -332,4 +332,19 @@ extension GenaralApi {
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }
+    
+    func createCard(card: CreateCard) -> AnyPublisher<String, ErrorAPI> {
+        providerCardsEndpoint.requestPublisher(.createCard(card))
+            .filterSuccessfulStatusCodes()
+            .map(String.self)
+            .mapError { error in
+                if error.response?.statusCode == 404 {
+                    return ErrorAPI.notFound
+                } else {
+                    return ErrorAPI.network
+                }
+            }
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+    }
 }
