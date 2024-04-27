@@ -15,6 +15,8 @@ enum CardsEndpoint {
     case createSet(CreateSet)
     case createCard(CreateCard)
     case saveToLearned(LocalCard)
+    case getCardSet(Int)
+    case refreshCards(Int)
 }
 
 extension CardsEndpoint: TargetType {
@@ -39,6 +41,12 @@ extension CardsEndpoint: TargetType {
             return "/api/v1/cards/createCard"
         case .saveToLearned:
             return "/api/v1/cards/save_to_learned"
+        case .getCardSet(let id):
+            let currentEmail = UserDefaults.standard.string(forKey: "email")
+            return "/api/v1/cards/get_card_set/\(currentEmail ?? "")/\(id)"
+        case .refreshCards(let id):
+            let currentEmail = UserDefaults.standard.string(forKey: "email")
+            return "/api/v1/cards/refresh_set/\(id)/\(currentEmail ?? "")"
         }
     }
     
@@ -55,6 +63,10 @@ extension CardsEndpoint: TargetType {
         case .createCard:
             return .post
         case .saveToLearned:
+            return .post
+        case .getCardSet:
+            return .get
+        case .refreshCards:
             return .post
         }
     }
@@ -103,6 +115,10 @@ extension CardsEndpoint: TargetType {
             } catch {
                 fatalError("Unable to encode parameters: \(error)")
             }
+        case .getCardSet:
+            return .requestPlain
+        case .refreshCards:
+            return .requestPlain
         }
     }
     

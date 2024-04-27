@@ -362,4 +362,37 @@ extension GeneralApi {
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }
+    
+    func getCardSet(id: Int) -> AnyPublisher<LocalCardSet, ErrorAPI> {
+        providerCardsEndpoint.requestPublisher(.getCardSet(id))
+            .filterSuccessfulStatusCodes()
+            .map(ServerCardSet.self)
+            .map { serverCardSet in
+                CardSetModelMapper().toLocal(serverEntity: serverCardSet)
+            }
+            .mapError { error in
+                if error.response?.statusCode == 404 {
+                    return ErrorAPI.notFound
+                } else {
+                    return ErrorAPI.network
+                }
+            }
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+    }
+    
+    func refreshCardsSet(id: Int) -> AnyPublisher<String, ErrorAPI> {
+        providerCardsEndpoint.requestPublisher(.refreshCards(id))
+            .filterSuccessfulStatusCodes()
+            .map(String.self)
+            .mapError { error in
+                if error.response?.statusCode == 404 {
+                    return ErrorAPI.notFound
+                } else {
+                    return ErrorAPI.network
+                }
+            }
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+    }
 }

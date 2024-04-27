@@ -116,8 +116,8 @@ extension CardsSetView {
     @ViewBuilder
     func buttonView(text: String) -> some View {
         Button {
-            if let toLearn = viewModel.output.cardSet?.toLearn {
-                router.pushView(MainNavigation.pushCardView(toLearn))
+            if let id = viewModel.output.cardSet?.id {
+                router.pushView(MainNavigation.pushCardView(id))
             }
         } label: {
             VStack {
@@ -142,7 +142,3 @@ extension CardsSetView {
             .foregroundColor(.mainPurple)
     }
 }
-
-//#Preview {
-//    CardsSetView()
-//}

@@ -18,6 +18,13 @@ struct CardView: View {
             .overlay {
                 content()
             }
+            .onChange(of: viewModel.output.currentCount) { oldValue, newValue in
+                if (viewModel.output.currentCount - 1) == viewModel.output.cardsCount && !viewModel.output.cards.isEmpty {
+                    viewModel.output.state = .notAllLearned
+                } else if viewModel.output.cards.isEmpty {
+                    viewModel.output.state = .allLearned
+                }
+            }
     }
 }
 
@@ -27,7 +34,8 @@ extension CardView {
         VStack {
             customToolBar()
             Spacer()
-            if viewModel.output.currentCount <= viewModel.output.cards.count {
+            switch viewModel.output.state {
+            case .process:
                 ZStack {
                     ForEach(viewModel.output.cards, id: \.id) { card in
                         CardDetailView(card: card, action: viewModel.input.saveToLearnedSubject, currentCount: $viewModel.output.currentCount)
@@ -38,6 +46,10 @@ extension CardView {
                     .font(.custom("Montserrat-Regular", size: 13))
                     .padding()
                 Spacer()
+            case .allLearned:
+                allWordsLearned()
+            case .notAllLearned:
+                notAllWordsLearned()
             }
         }
     }
@@ -54,13 +66,119 @@ extension CardView {
                     .bold()
             }
             Spacer()
-            Text(viewModel.output.currentCount > viewModel.output.cards.count ? "\(viewModel.output.currentCount - 1)/\(viewModel.output.cards.count)"
-                 : "\(viewModel.output.currentCount)/\(viewModel.output.cards.count)")
-                .foregroundStyle(.mainPurple)
-                .font(.custom("Montserrat-ExtraBold", size: 24))
+            if viewModel.output.cards.isEmpty {
+                Text("\(viewModel.output.cardsCount)/\(viewModel.output.cardsCount)")
+                    .foregroundStyle(.mainPurple)
+                    .font(.custom("Montserrat-ExtraBold", size: 24))
+            } else {
+                Text(viewModel.output.currentCount > viewModel.output.cardsCount
+                     ? "\(viewModel.output.currentCount - 1)/\(viewModel.output.cardsCount)"
+                     : "\(viewModel.output.currentCount)/\(viewModel.output.cardsCount)")
+                    .foregroundStyle(.mainPurple)
+                    .font(.custom("Montserrat-ExtraBold", size: 24))
+            }
             Spacer()
         }
         .padding([.horizontal, .vertical], 16)
+    }
+    
+    @ViewBuilder
+    func allWordsLearned() -> some View {
+        VStack {
+            HStack {
+                Text("Поздравляем!\nВсе слова изучены!")
+                    .foregroundStyle(.mainPurple)
+                    .font(.custom("Montserrat-ExtraBold", size: 24))
+                Spacer()
+            }
+            .padding(.horizontal, 16)
+            
+            Spacer()
+            
+            Image("congrat")
+                .resizable()
+                .scaledToFill()
+                .frame(width: 250, height: 250)
+                .padding(.vertical, 25)
+            
+            Spacer()
+            
+            buttonAgain()
+        }
+    }
+    
+    @ViewBuilder
+    func notAllWordsLearned() -> some View {
+        VStack {
+            HStack {
+                Text("Прекрасно!\nПродолжайте изучение!")
+                    .foregroundStyle(.mainPurple)
+                    .font(.custom("Montserrat-ExtraBold", size: 24))
+                Spacer()
+            }
+            .padding(.horizontal, 16)
+            
+            Spacer()
+            
+            Image("kittyCards")
+                .resizable()
+                .scaledToFill()
+                .frame(width: 250, height: 250)
+                .padding(.vertical, 25)
+            
+            Spacer()
+            
+            buttonContinue()
+        }
+    }
+    
+    @ViewBuilder
+    func buttonContinue() -> some View {
+        Button {
+            viewModel.input.continueLearningSubject.send()
+        } label: {
+            VStack {
+                Text("Продожить\nизучение")
+                    .foregroundColor(.mainPurple)
+                    .font(.custom("Montserrat-Bold", size: 20))
+                    .multilineTextAlignment(.center)
+                    .padding(.vertical, 20)
+            }
+            .frame(maxWidth: .infinity)
+            .background (
+                roundedRectangle()
+            )
+            .padding()
+        }
+        .buttonStyle(ScaleButtonStyle())
+    }
+    
+    @ViewBuilder
+    func buttonAgain() -> some View {
+        Button {
+            viewModel.input.learnAgainSubject.send()
+        } label: {
+            VStack {
+                Text("Начать заново")
+                    .foregroundColor(.mainPurple)
+                    .font(.custom("Montserrat-Bold", size: 20))
+                    .multilineTextAlignment(.center)
+                    .padding(.vertical, 20)
+            }
+            .frame(maxWidth: .infinity)
+            .background (
+                roundedRectangle()
+            )
+            .padding()
+        }
+        .buttonStyle(ScaleButtonStyle())
+    }
+    
+    @ViewBuilder
+    func roundedRectangle() -> some View {
+        RoundedRectangle(cornerSize: CGSize(width: 20, height: 20))
+            .stroke(style: StrokeStyle(lineWidth: 2, dash: [5]))
+            .foregroundColor(.mainPurple)
     }
 }
 
@@ -138,12 +256,10 @@ struct CardDetailView: View {
         case -500...(-150):
             currentCount += 1
             offset = CGSize(width: -100000, height: 0)
-            
         case 150...500:
             action.send(card)
             currentCount += 1
             offset = CGSize(width: 100000, height: 0)
-            
         default:
             offset = .zero
             

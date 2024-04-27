@@ -40,11 +40,11 @@ struct AppContainer: View {
                                         .onAppear {
                                             cardsSetViewModel.output.cardSet = set
                                         }
-                                case .pushCardView(let cardArray):
+                                case .pushCardView(let id):
                                     CardView(viewModel: cardViewModel)
                                         .onAppear {
-                                            print("card array : \(cardArray)")
-                                            cardViewModel.output.cards = cardArray
+                                            cardViewModel.output.setId = id
+                                            cardViewModel.input.getCardSetSubject.send(id)
                                         }
                                 }
                             }

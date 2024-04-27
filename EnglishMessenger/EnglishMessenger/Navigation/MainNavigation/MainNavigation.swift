@@ -14,5 +14,5 @@ enum MainNavigation: Hashable {
     case pushCardsLearning
     case pushCardsSets
     case pushCardsSet(LocalCardSet)
-    case pushCardView([LocalCard])
+    case pushCardView(Int)
 }
