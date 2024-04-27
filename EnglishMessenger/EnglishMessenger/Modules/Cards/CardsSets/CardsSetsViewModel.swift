@@ -24,6 +24,7 @@ extension CardsSetsViewModel {
         getCardSets()
         createSet()
         createSetButtonEnable()
+        deleteSet()
     }
     
     func getCardSets() {
@@ -94,6 +95,35 @@ extension CardsSetsViewModel {
             }
             .store(in: &cancellable)
     }
+    
+    func deleteSet() {
+        let request = input.deleteSetSubject
+            .map { [unowned self] id in
+                if let index = self.output.sets.firstIndex(where: { $0.id == id }) {
+                    self.output.sets.remove(at: index)
+                }
+                return self.apiService.deleteSet(id: id)
+                    .materialize()
+            }
+            .switchToLatest()
+            .share()
+        
+        request
+            .failures()
+            .sink {
+                error in
+                print(error)
+            }
+            .store(in: &cancellable)
+        
+        request
+            .values()
+            .sink { [unowned self] string in
+                print(string)
+                self.output.isSheet = false
+            }
+            .store(in: &cancellable)
+    }
 }
 
 extension CardsSetsViewModel {
@@ -102,6 +132,7 @@ extension CardsSetsViewModel {
         let createSetSubject = PassthroughSubject<Void, Never>()
         let setTitleSubject = PassthroughSubject<Void, Never>()
         let setDescriptionSubject = PassthroughSubject<Void, Never>()
+        let deleteSetSubject = PassthroughSubject<Int, Never>()
     }
     
     struct Output {

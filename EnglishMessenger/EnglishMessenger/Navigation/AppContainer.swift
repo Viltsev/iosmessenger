@@ -39,6 +39,7 @@ struct AppContainer: View {
                                     CardsSetView(viewModel: cardsSetViewModel)
                                         .onAppear {
                                             cardsSetViewModel.output.cardSet = set
+                                            cardsSetViewModel.output.cardList = set.cardList
                                         }
                                 case .pushCardView(let id):
                                     CardView(viewModel: cardViewModel)

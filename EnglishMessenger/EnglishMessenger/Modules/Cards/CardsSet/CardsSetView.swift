@@ -61,10 +61,8 @@ extension CardsSetView {
         VStack {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
-                    if let cardList = viewModel.output.cardSet?.cardList {
-                        ForEach(cardList, id: \.id) { card in
-                            wordView(word: card.text, translation: card.explanation)
-                        }
+                    ForEach(viewModel.output.cardList, id: \.id) { card in
+                        wordView(card: card)
                     }
                 }
                 .padding(.horizontal, 16)
@@ -76,17 +74,17 @@ extension CardsSetView {
     }
     
     @ViewBuilder
-    func wordView(word: String, translation: String) -> some View {
+    func wordView(card: LocalCard) -> some View {
         HStack {
             Spacer()
             VStack(alignment: .center) {
-                Text(word)
+                Text(card.text)
                     .foregroundColor(.white)
                     .multilineTextAlignment(.center)
                     .font(.custom("Montserrat-Bold", size: 32))
                     .padding(.top, 35)
                     .padding(.bottom, 15)
-                Text(translation)
+                Text(card.explanation)
                     .foregroundColor(.white)
                     .multilineTextAlignment(.center)
                     .font(.custom("Montserrat-Regular", size: 16))
@@ -99,6 +97,13 @@ extension CardsSetView {
         .frame(maxWidth: .infinity)
         .background(.lightPurple)
         .cornerRadius(5)
+        .contextMenu {
+            Button {
+                viewModel.input.deleteCardSubject.send(card)
+            } label: {
+                Label("Delete", systemImage: "trash")
+            }
+        }
         .padding(.bottom, 15)
     }
     

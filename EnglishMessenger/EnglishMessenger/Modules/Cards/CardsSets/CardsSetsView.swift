@@ -157,6 +157,13 @@ extension CardsSetsView {
             .frame(maxWidth: .infinity)
             .background(.lightPurple)
             .cornerRadius(15)
+            .contextMenu {
+                Button {
+                    viewModel.input.deleteSetSubject.send(set.id)
+                } label: {
+                    Label("Delete", systemImage: "trash")
+                }
+            }
             .padding(.horizontal, 16)
             .padding(.bottom, 15)
         }

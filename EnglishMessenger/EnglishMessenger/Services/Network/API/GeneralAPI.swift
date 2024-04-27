@@ -395,4 +395,34 @@ extension GeneralApi {
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }
+    
+    func deleteCard(card: LocalCard) -> AnyPublisher<String, ErrorAPI> {
+        providerCardsEndpoint.requestPublisher(.deleteCard(card))
+            .filterSuccessfulStatusCodes()
+            .map(String.self)
+            .mapError { error in
+                if error.response?.statusCode == 404 {
+                    return ErrorAPI.notFound
+                } else {
+                    return ErrorAPI.network
+                }
+            }
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+    }
+    
+    func deleteSet(id: Int) -> AnyPublisher<String, ErrorAPI> {
+        providerCardsEndpoint.requestPublisher(.deleteSet(id))
+            .filterSuccessfulStatusCodes()
+            .map(String.self)
+            .mapError { error in
+                if error.response?.statusCode == 404 {
+                    return ErrorAPI.notFound
+                } else {
+                    return ErrorAPI.network
+                }
+            }
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+    }
 }
