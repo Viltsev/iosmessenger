@@ -6,11 +6,13 @@
 //
 
 import SwiftUI
+import ConfettiSwiftUI
 import Combine
 
 struct CardView: View {
     @EnvironmentObject var router: MainNavigationRouter
     @StateObject var viewModel: CardViewModel
+    @State private var counter: Int = 0
     
     var body: some View {
         Color.profilePinky
@@ -48,6 +50,10 @@ extension CardView {
                 Spacer()
             case .allLearned:
                 allWordsLearned()
+                    .confettiCannon(counter: $counter, num: 100, colors: [.mainPurple, .lightPurple, .lightPinky])
+                    .onAppear {
+                        counter += 1
+                    }
             case .notAllLearned:
                 notAllWordsLearned()
             }
