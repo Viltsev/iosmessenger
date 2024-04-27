@@ -10,6 +10,8 @@ import SwiftUI
 struct AppContainer: View {
     @StateObject var router = StartNavigationRouter()
     @StateObject var mainRouter = MainNavigationRouter()
+    @StateObject private var cardViewModel: CardViewModel = CardViewModel()
+    @StateObject private var cardsSetViewModel: CardsSetViewModel = CardsSetViewModel()
     
     @State private var isAuth = AuthenticationService.shared.status.value
     
@@ -25,6 +27,26 @@ struct AppContainer: View {
                                 switch nav {
                                 case .pushChatView(let user):
                                     ChatsView(user: user)
+                                case .pushCardsView:
+                                    CardsView()
+                                case .pushCardsLearned:
+                                    CardsLearnedView()
+                                case .pushCardsLearning:
+                                    CardsLearningView()
+                                case .pushCardsSets:
+                                    CardsSetsView()
+                                case .pushCardsSet(let set):
+                                    CardsSetView(viewModel: cardsSetViewModel)
+                                        .onAppear {
+                                            cardsSetViewModel.output.cardSet = set
+                                            cardsSetViewModel.output.cardList = set.cardList
+                                        }
+                                case .pushCardView(let id):
+                                    CardView(viewModel: cardViewModel)
+                                        .onAppear {
+                                            cardViewModel.output.setId = id
+                                            cardViewModel.input.getCardSetSubject.send(id)
+                                        }
                                 }
                             }
                             .navigationBarBackButtonHidden(true)
