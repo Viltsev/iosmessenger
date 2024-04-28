@@ -12,7 +12,7 @@ struct LocalTheory: Identifiable {
     let categories: [LocalCategory]
 }
 
-struct LocalCategory: Identifiable {
+struct LocalCategory: Identifiable, Hashable {
     let id: Int
     let title: String
     let description: String
@@ -20,7 +20,7 @@ struct LocalCategory: Identifiable {
     let theoryList: [LocalTheoryList]
 }
 
-struct LocalTopic: Identifiable {
+struct LocalTopic: Identifiable, Hashable {
     let id: Int
     let title: String
     let description: String
@@ -28,7 +28,7 @@ struct LocalTopic: Identifiable {
     let subtopicList: [LocalSubtopicList]
 }
 
-struct LocalTheoryList: Identifiable {
+struct LocalTheoryList: Identifiable, Hashable {
     let id: Int
     let title: String
     let level: String
@@ -39,7 +39,7 @@ struct LocalTheoryList: Identifiable {
     let cmRight: String
 }
 
-struct LocalSubtopicList: Identifiable {
+struct LocalSubtopicList: Identifiable, Hashable {
     let id: Int
     let title: String
     let description: String

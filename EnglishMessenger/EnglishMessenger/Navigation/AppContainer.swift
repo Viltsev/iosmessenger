@@ -13,6 +13,7 @@ struct AppContainer: View {
     @StateObject private var cardViewModel: CardViewModel = CardViewModel()
     @StateObject private var cardsSetViewModel: CardsSetViewModel = CardsSetViewModel()
     @StateObject private var theoryViewModel: TheoryMainViewModel = TheoryMainViewModel()
+    @StateObject private var theoryTopicsViewModel: TheoryTopicsViewModel = TheoryTopicsViewModel()
     
     @State private var isAuth = AuthenticationService.shared.status.value
     
@@ -52,6 +53,11 @@ struct AppContainer: View {
                                     TheoryMainView(viewModel: theoryViewModel)
                                         .onAppear {
                                             theoryViewModel.input.getTheorySubject.send()
+                                        }
+                                case .pushTheoryTopicsView(let category):
+                                    TheoryTopicsView(viewModel: theoryTopicsViewModel)
+                                        .onAppear {
+                                            theoryTopicsViewModel.output.theory = category
                                         }
                                 }
                             }

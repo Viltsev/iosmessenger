@@ -58,7 +58,7 @@ extension TheoryMainView {
             ScrollView(showsIndicators: false) {
                 VStack {
                     ForEach(viewModel.output.theory, id: \.id) { category in
-                        categoryView(title: category.title, description: category.description)
+                        categoryView(category: category)
                     }
                 }
             }
@@ -66,22 +66,32 @@ extension TheoryMainView {
     }
     
     @ViewBuilder
-    func categoryView(title: String, description: String) -> some View {
+    func categoryView(category: LocalCategory) -> some View {
         Button {
-//            action()
+            router.pushView(MainNavigation.pushTheoryTopicsView(category))
         } label: {
             HStack {
                 VStack(alignment: .leading) {
-                    Text(title)
+                    HStack {
+                        Text(category.title)
+                            .foregroundColor(.black)
+                            .multilineTextAlignment(.leading)
+                            .font(.custom("Montserrat-Regular", size: 20))
+                            .padding(.top, 20)
+                            .padding(.bottom, 10)
+                        Spacer()
+                        Text("\(category.topics.count) topics")
+                            .foregroundColor(.black)
+                            .multilineTextAlignment(.leading)
+                            .font(.custom("Montserrat-SemiBold", size: 15))
+                            .padding(.top, 20)
+                            .padding(.bottom, 10)
+                    }
+                    
+                    Text(category.description)
                         .foregroundColor(.black)
                         .multilineTextAlignment(.leading)
-                        .font(.custom("Montserrat-Regular", size: 24))
-                        .padding(.top, 20)
-                        .padding(.bottom, 10)
-                    Text(description)
-                        .foregroundColor(.black)
-                        .multilineTextAlignment(.leading)
-                        .font(.custom("Montserrat-Light", size: 16))
+                        .font(.custom("Montserrat-Light", size: 15))
                         .padding(.bottom, 20)
                 }
                 .padding(.horizontal, 16)

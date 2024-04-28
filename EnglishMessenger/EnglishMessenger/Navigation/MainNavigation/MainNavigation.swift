@@ -16,4 +16,5 @@ enum MainNavigation: Hashable {
     case pushCardsSet(LocalCardSet)
     case pushCardView(Int)
     case pushTheoryMainView
+    case pushTheoryTopicsView(LocalCategory)
 }

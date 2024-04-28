@@ -118,6 +118,8 @@
 		8378A7882BDEC8170090942B /* LocalTheory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8378A7872BDEC8170090942B /* LocalTheory.swift */; };
 		8378A78A2BDEC8560090942B /* TheoryModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8378A7892BDEC8560090942B /* TheoryModelMapper.swift */; };
 		8378A78C2BDECB740090942B /* TheoryMainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8378A78B2BDECB740090942B /* TheoryMainViewModel.swift */; };
+		8378A78F2BDED0D10090942B /* TheoryTopicsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8378A78E2BDED0D10090942B /* TheoryTopicsView.swift */; };
+		8378A7912BDED6160090942B /* TheoryTopicsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8378A7902BDED6160090942B /* TheoryTopicsViewModel.swift */; };
 		838AF0382BBD42D8002FDA88 /* ServerInterests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838AF0372BBD42D8002FDA88 /* ServerInterests.swift */; };
 		838AF03A2BBD4323002FDA88 /* LocalInterests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838AF0392BBD4323002FDA88 /* LocalInterests.swift */; };
 		838AF03C2BBD434B002FDA88 /* InterestsModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838AF03B2BBD434B002FDA88 /* InterestsModelMapper.swift */; };
@@ -257,6 +259,8 @@
 		8378A7872BDEC8170090942B /* LocalTheory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalTheory.swift; sourceTree = "<group>"; };
 		8378A7892BDEC8560090942B /* TheoryModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheoryModelMapper.swift; sourceTree = "<group>"; };
 		8378A78B2BDECB740090942B /* TheoryMainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheoryMainViewModel.swift; sourceTree = "<group>"; };
+		8378A78E2BDED0D10090942B /* TheoryTopicsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheoryTopicsView.swift; sourceTree = "<group>"; };
+		8378A7902BDED6160090942B /* TheoryTopicsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheoryTopicsViewModel.swift; sourceTree = "<group>"; };
 		838AF0372BBD42D8002FDA88 /* ServerInterests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerInterests.swift; sourceTree = "<group>"; };
 		838AF0392BBD4323002FDA88 /* LocalInterests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalInterests.swift; sourceTree = "<group>"; };
 		838AF03B2BBD434B002FDA88 /* InterestsModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestsModelMapper.swift; sourceTree = "<group>"; };
@@ -708,6 +712,7 @@
 		8378A77F2BDEC26B0090942B /* Theory */ = {
 			isa = PBXGroup;
 			children = (
+				8378A78D2BDED0AC0090942B /* Topics */,
 				8378A7802BDEC2760090942B /* TheoryMain */,
 			);
 			path = Theory;
@@ -720,6 +725,15 @@
 				8378A78B2BDECB740090942B /* TheoryMainViewModel.swift */,
 			);
 			path = TheoryMain;
+			sourceTree = "<group>";
+		};
+		8378A78D2BDED0AC0090942B /* Topics */ = {
+			isa = PBXGroup;
+			children = (
+				8378A78E2BDED0D10090942B /* TheoryTopicsView.swift */,
+				8378A7902BDED6160090942B /* TheoryTopicsViewModel.swift */,
+			);
+			path = Topics;
 			sourceTree = "<group>";
 		};
 		838AF0422BBDAE58002FDA88 /* Chats */ = {
@@ -1040,6 +1054,7 @@
 				831AE0972B8120B300C5B6AF /* UserModelMapper.swift in Sources */,
 				83C8F6BA2BD29C6B00FEBE79 /* GenerateDialogEndpoint.swift in Sources */,
 				831AE0842B80F55000C5B6AF /* ErrorAPI.swift in Sources */,
+				8378A78F2BDED0D10090942B /* TheoryTopicsView.swift in Sources */,
 				83A40A8C2B9889AA003A284E /* HomeView.swift in Sources */,
 				832F0C602BD9292C00E8468D /* ServerCard.swift in Sources */,
 				831AE06D2B80D87500C5B6AF /* BaseModelMapper.swift in Sources */,
@@ -1110,6 +1125,7 @@
 				83B035EA2BD001C4005C02BA /* ChatsStorage.swift in Sources */,
 				833FF9B92BA1ED020032827B /* FormatDate.swift in Sources */,
 				83103ED12B7F924800932A96 /* StartNavigationRouter.swift in Sources */,
+				8378A7912BDED6160090942B /* TheoryTopicsViewModel.swift in Sources */,
 				83505CF22B91FF97005FD7DC /* TitleTextView.swift in Sources */,
 				83454FBC2B95B611006E608E /* TestingViewModel.swift in Sources */,
 				83524D3B2BCD624A00F86E2C /* UsersEndpoint.swift in Sources */,
