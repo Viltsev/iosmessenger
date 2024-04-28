@@ -21,6 +21,7 @@ struct GeneralApi {
     let providerGrammarEndpoint = Provider<GrammarEndpoint>()
     let providerGenerateDialogEndpoint = Provider<GenerateDialogEndpoint>()
     let providerCardsEndpoint = Provider<CardsEndpoint>()
+    let providerTheoryEndpoint = Provider<TheoryEndpoint>()
 }
 
 extension GeneralApi {
@@ -415,6 +416,24 @@ extension GeneralApi {
         providerCardsEndpoint.requestPublisher(.deleteSet(id))
             .filterSuccessfulStatusCodes()
             .map(String.self)
+            .mapError { error in
+                if error.response?.statusCode == 404 {
+                    return ErrorAPI.notFound
+                } else {
+                    return ErrorAPI.network
+                }
+            }
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+    }
+    
+    func getTheory() -> AnyPublisher<LocalTheory, ErrorAPI> {
+        providerTheoryEndpoint.requestPublisher(.getTheory)
+            .filterSuccessfulStatusCodes()
+            .map(ServerTheory.self)
+            .map { serverTheory in
+                TheoryModelMapper().toLocal(serverEntity: serverTheory)
+            }
             .mapError { error in
                 if error.response?.statusCode == 404 {
                     return ErrorAPI.notFound

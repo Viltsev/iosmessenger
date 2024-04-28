@@ -1,14 +1,15 @@
 //
-//  EducationView.swift
+//  TheoryMainView.swift
 //  EnglishMessenger
 //
-//  Created by Данила on 22.04.2024.
+//  Created by Данила on 28.04.2024.
 //
 
 import SwiftUI
 
-struct EducationView: View {
+struct TheoryMainView: View {
     @EnvironmentObject var router: MainNavigationRouter
+    @StateObject var viewModel: TheoryMainViewModel
     
     var body: some View {
         Color.profilePinky
@@ -19,41 +20,55 @@ struct EducationView: View {
     }
 }
 
-extension EducationView {
+extension TheoryMainView {
     @ViewBuilder
     func content() -> some View {
         VStack {
             HStack {
-                Image("lightPinkBlob")
+                Image("darkPurpleBlob")
                     .imageScale(.small)
                     .overlay {
-                        Text("Обучение")
-                            .foregroundStyle(.mainPurple)
+                        Text("Теория")
+                            .foregroundStyle(.white)
                             .font(.custom("Montserrat-Regular", size: 35))
                     }
                 Spacer()
             }
             .padding(.bottom, 20)
-            contentScroll()
-            Spacer()
+            categoryList()
+                .padding(.bottom, 10)
         }
+        .toolbar(content: {
+            ToolbarItem(placement: .topBarTrailing) {
+                Button {
+                    router.popView()
+                } label: {
+                    Image(systemName: "multiply")
+                        .font(.title3)
+                        .bold()
+                }
+            }
+        })
         .ignoresSafeArea()
     }
     
     @ViewBuilder
-    func contentScroll() -> some View {
+    func categoryList() -> some View {
         VStack {
-            cardsView(title: "Карточки", description: "Изучай и повторяй новые слова и выражения", action: goToCards)
-            cardsView(title: "Теория", description: "Краткие справки по основным грамматическим темам", action: goToTheory)
-            cardsView(title: "Упражнения", description: "Практикуйся в применении изученного материала", action: goToExercises)
+            ScrollView(showsIndicators: false) {
+                VStack {
+                    ForEach(viewModel.output.theory, id: \.id) { category in
+                        categoryView(title: category.title, description: category.description)
+                    }
+                }
+            }
         }
-        
     }
     
     @ViewBuilder
-    func cardsView(title: String, description: String, action: @escaping () -> Void) -> some View {
+    func categoryView(title: String, description: String) -> some View {
         Button {
-            action()
+//            action()
         } label: {
             HStack {
                 VStack(alignment: .leading) {
@@ -79,17 +94,5 @@ extension EducationView {
             .padding(.bottom, 15)
         }
         .buttonStyle(ScaleButtonStyle())
-    }
-    
-    func goToCards() {
-        router.pushView(MainNavigation.pushCardsView)
-    }
-    
-    func goToTheory() {
-        router.pushView(MainNavigation.pushTheoryMainView)
-    }
-    
-    func goToExercises() {
-        print("to do")
     }
 }

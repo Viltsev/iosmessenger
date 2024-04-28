@@ -12,6 +12,7 @@ struct AppContainer: View {
     @StateObject var mainRouter = MainNavigationRouter()
     @StateObject private var cardViewModel: CardViewModel = CardViewModel()
     @StateObject private var cardsSetViewModel: CardsSetViewModel = CardsSetViewModel()
+    @StateObject private var theoryViewModel: TheoryMainViewModel = TheoryMainViewModel()
     
     @State private var isAuth = AuthenticationService.shared.status.value
     
@@ -46,6 +47,11 @@ struct AppContainer: View {
                                         .onAppear {
                                             cardViewModel.output.setId = id
                                             cardViewModel.input.getCardSetSubject.send(id)
+                                        }
+                                case .pushTheoryMainView:
+                                    TheoryMainView(viewModel: theoryViewModel)
+                                        .onAppear {
+                                            theoryViewModel.input.getTheorySubject.send()
                                         }
                                 }
                             }
