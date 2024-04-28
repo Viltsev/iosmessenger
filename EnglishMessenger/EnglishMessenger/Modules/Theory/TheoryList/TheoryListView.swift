@@ -1,5 +1,5 @@
 //
-//  TheoryTopicsView.swift
+//  TheoryListViewModel.swift
 //  EnglishMessenger
 //
 //  Created by Данила on 28.04.2024.
@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct TheoryTopicsView: View {
+struct TheoryListView: View {
     @EnvironmentObject var router: MainNavigationRouter
-    @StateObject var viewModel: TheoryTopicsViewModel
+    @StateObject var viewModel: TheoryListViewModel
     
     var body: some View {
         Color.profilePinky
@@ -20,13 +20,13 @@ struct TheoryTopicsView: View {
     }
 }
 
-extension TheoryTopicsView {
+extension TheoryListView {
     @ViewBuilder
     func content() -> some View {
         VStack {
             customToolBar()
                 .padding(.bottom, 30)
-            topicsList()
+            theoryList()
                 .padding(.bottom, 10)
         }
     }
@@ -52,13 +52,13 @@ extension TheoryTopicsView {
     }
     
     @ViewBuilder
-    func topicsList() -> some View {
+    func theoryList() -> some View {
         VStack {
             ScrollView(showsIndicators: false) {
                 VStack {
                     if let theory = viewModel.output.theory {
-                        ForEach(theory.topics, id: \.id) { topic in
-                            topicView(topic: topic)
+                        ForEach(theory.theoryList, id: \.id) { theory in
+                            theoryView(theory: theory)
                         }
                     }
                 }
@@ -67,21 +67,21 @@ extension TheoryTopicsView {
     }
     
     @ViewBuilder
-    func topicView(topic: LocalTopic) -> some View {
+    func theoryView(theory: LocalTheoryList) -> some View {
         Button {
-            router.pushView(MainNavigation.pushTheoryListView(topic))
+//            router.pushView(MainNavigation.pushTheoryListView(topic))
         } label: {
             HStack {
                 VStack(alignment: .leading) {
-                    Text(topic.title)
-                        .foregroundColor(.mainPurple)
+                    Text(theory.title)
+                        .foregroundColor(.white)
                         .multilineTextAlignment(.leading)
                         .font(.custom("Montserrat-Bold", size: 20))
                         .padding(.top, 20)
                         .padding(.bottom, 10)
                     
-                    Text(topic.description)
-                        .foregroundColor(.mainPurple)
+                    Text(theory.level)
+                        .foregroundColor(.white)
                         .multilineTextAlignment(.leading)
                         .font(.custom("Montserrat-Light", size: 15))
                         .padding(.bottom, 20)
@@ -90,7 +90,7 @@ extension TheoryTopicsView {
                 Spacer()
             }
             .frame(maxWidth: .infinity)
-            .background(.lightPinky)
+            .background(.lightPurple)
             .cornerRadius(15)
             .padding(.horizontal, 16)
             .padding(.bottom, 15)
