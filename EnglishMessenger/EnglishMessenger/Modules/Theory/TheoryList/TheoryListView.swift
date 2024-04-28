@@ -43,9 +43,16 @@ extension TheoryListView {
                     .bold()
             }
             Spacer()
-            Text(viewModel.output.theory?.title ?? "")
-                .foregroundStyle(.mainPurple)
-                .font(.custom("Montserrat-ExtraBold", size: 20))
+            if let title = viewModel.output.theory?.title {
+                Text(title)
+                    .foregroundStyle(.mainPurple)
+                    .font(.custom("Montserrat-ExtraBold", size: 20))
+            } else if let subTitle = viewModel.output.theorySubtopic?.title {
+                Text(subTitle)
+                    .foregroundStyle(.mainPurple)
+                    .font(.custom("Montserrat-ExtraBold", size: 20))
+            }
+            
             Spacer()
         }
         .padding([.horizontal, .vertical], 16)
@@ -57,7 +64,17 @@ extension TheoryListView {
             ScrollView(showsIndicators: false) {
                 VStack {
                     if let theory = viewModel.output.theory {
-                        ForEach(theory.theoryList, id: \.id) { theory in
+                        if !theory.theoryList.isEmpty {
+                            ForEach(theory.theoryList, id: \.id) { theory in
+                                theoryView(theory: theory)
+                            }
+                        } else {
+                            ForEach(theory.subtopicList, id: \.id) { subtopic in
+                                subtopicView(subtopic: subtopic)
+                            }
+                        }
+                    } else if let theorySub = viewModel.output.theorySubtopic {
+                        ForEach(theorySub.theoryList, id: \.id) { theory in
                             theoryView(theory: theory)
                         }
                     }
@@ -69,7 +86,7 @@ extension TheoryListView {
     @ViewBuilder
     func theoryView(theory: LocalTheoryList) -> some View {
         Button {
-//            router.pushView(MainNavigation.pushTheoryListView(topic))
+            router.pushView(MainNavigation.pushTheoryCardView(theory))
         } label: {
             HStack {
                 VStack(alignment: .leading) {
@@ -91,6 +108,38 @@ extension TheoryListView {
             }
             .frame(maxWidth: .infinity)
             .background(.lightPurple)
+            .cornerRadius(15)
+            .padding(.horizontal, 16)
+            .padding(.bottom, 15)
+        }
+        .buttonStyle(ScaleButtonStyle())
+    }
+    
+    @ViewBuilder
+    func subtopicView(subtopic: LocalSubtopicList) -> some View {
+        Button {
+            router.pushView(MainNavigation.pushTheoryListViewSub(subtopic))
+        } label: {
+            HStack {
+                VStack(alignment: .leading) {
+                    Text(subtopic.title)
+                        .foregroundColor(.mainPurple)
+                        .multilineTextAlignment(.leading)
+                        .font(.custom("Montserrat-Bold", size: 20))
+                        .padding(.top, 20)
+                        .padding(.bottom, 10)
+                    
+                    Text(subtopic.description)
+                        .foregroundColor(.mainPurple)
+                        .multilineTextAlignment(.leading)
+                        .font(.custom("Montserrat-Light", size: 15))
+                        .padding(.bottom, 20)
+                }
+                .padding(.horizontal, 16)
+                Spacer()
+            }
+            .frame(maxWidth: .infinity)
+            .background(.lightPinky)
             .cornerRadius(15)
             .padding(.horizontal, 16)
             .padding(.bottom, 15)

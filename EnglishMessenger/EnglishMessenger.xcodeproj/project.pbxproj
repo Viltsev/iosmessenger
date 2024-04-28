@@ -122,6 +122,8 @@
 		8378A7912BDED6160090942B /* TheoryTopicsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8378A7902BDED6160090942B /* TheoryTopicsViewModel.swift */; };
 		8378A7942BDEDAF20090942B /* TheoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8378A7932BDEDAF10090942B /* TheoryListView.swift */; };
 		8378A7962BDEDB530090942B /* TheoryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8378A7952BDEDB530090942B /* TheoryListViewModel.swift */; };
+		8378A7992BDEE32D0090942B /* TheoryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8378A7982BDEE32D0090942B /* TheoryCardView.swift */; };
+		8378A79B2BDEE4EE0090942B /* TheoryCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8378A79A2BDEE4EE0090942B /* TheoryCardViewModel.swift */; };
 		838AF0382BBD42D8002FDA88 /* ServerInterests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838AF0372BBD42D8002FDA88 /* ServerInterests.swift */; };
 		838AF03A2BBD4323002FDA88 /* LocalInterests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838AF0392BBD4323002FDA88 /* LocalInterests.swift */; };
 		838AF03C2BBD434B002FDA88 /* InterestsModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838AF03B2BBD434B002FDA88 /* InterestsModelMapper.swift */; };
@@ -265,6 +267,8 @@
 		8378A7902BDED6160090942B /* TheoryTopicsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheoryTopicsViewModel.swift; sourceTree = "<group>"; };
 		8378A7932BDEDAF10090942B /* TheoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheoryListView.swift; sourceTree = "<group>"; };
 		8378A7952BDEDB530090942B /* TheoryListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheoryListViewModel.swift; sourceTree = "<group>"; };
+		8378A7982BDEE32D0090942B /* TheoryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheoryCardView.swift; sourceTree = "<group>"; };
+		8378A79A2BDEE4EE0090942B /* TheoryCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheoryCardViewModel.swift; sourceTree = "<group>"; };
 		838AF0372BBD42D8002FDA88 /* ServerInterests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerInterests.swift; sourceTree = "<group>"; };
 		838AF0392BBD4323002FDA88 /* LocalInterests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalInterests.swift; sourceTree = "<group>"; };
 		838AF03B2BBD434B002FDA88 /* InterestsModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestsModelMapper.swift; sourceTree = "<group>"; };
@@ -716,6 +720,7 @@
 		8378A77F2BDEC26B0090942B /* Theory */ = {
 			isa = PBXGroup;
 			children = (
+				8378A7972BDEE3160090942B /* TheoryCard */,
 				8378A7922BDEDAD10090942B /* TheoryList */,
 				8378A78D2BDED0AC0090942B /* Topics */,
 				8378A7802BDEC2760090942B /* TheoryMain */,
@@ -748,6 +753,15 @@
 				8378A7952BDEDB530090942B /* TheoryListViewModel.swift */,
 			);
 			path = TheoryList;
+			sourceTree = "<group>";
+		};
+		8378A7972BDEE3160090942B /* TheoryCard */ = {
+			isa = PBXGroup;
+			children = (
+				8378A7982BDEE32D0090942B /* TheoryCardView.swift */,
+				8378A79A2BDEE4EE0090942B /* TheoryCardViewModel.swift */,
+			);
+			path = TheoryCard;
 			sourceTree = "<group>";
 		};
 		838AF0422BBDAE58002FDA88 /* Chats */ = {
@@ -1138,6 +1152,7 @@
 				83C2B3162B94D73900B69E69 /* TestButtonView.swift in Sources */,
 				83B035EA2BD001C4005C02BA /* ChatsStorage.swift in Sources */,
 				8378A7942BDEDAF20090942B /* TheoryListView.swift in Sources */,
+				8378A7992BDEE32D0090942B /* TheoryCardView.swift in Sources */,
 				833FF9B92BA1ED020032827B /* FormatDate.swift in Sources */,
 				83103ED12B7F924800932A96 /* StartNavigationRouter.swift in Sources */,
 				8378A7912BDED6160090942B /* TheoryTopicsViewModel.swift in Sources */,
@@ -1148,6 +1163,7 @@
 				83A1F7DB2BD10EB500488032 /* ServerGrammar.swift in Sources */,
 				83524D332BCD545000F86E2C /* Message.swift in Sources */,
 				832F0C682BD9340100E8468D /* CardsLearnedViewModel.swift in Sources */,
+				8378A79B2BDEE4EE0090942B /* TheoryCardViewModel.swift in Sources */,
 				83BD01F62B936B620059AB53 /* TestProgressView.swift in Sources */,
 				83B3D5E72BCE996A00B62413 /* MessagesModelMapper.swift in Sources */,
 				838AF0382BBD42D8002FDA88 /* ServerInterests.swift in Sources */,

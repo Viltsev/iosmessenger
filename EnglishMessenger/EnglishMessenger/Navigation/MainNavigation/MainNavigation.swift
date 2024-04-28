@@ -18,4 +18,6 @@ enum MainNavigation: Hashable {
     case pushTheoryMainView
     case pushTheoryTopicsView(LocalCategory)
     case pushTheoryListView(LocalTopic)
+    case pushTheoryListViewSub(LocalSubtopicList)
+    case pushTheoryCardView(LocalTheoryList)
 }

@@ -1,14 +1,14 @@
 //
-//  TheoryListViewModel.swift
+//  TheoryCardViewModel.swift
 //  EnglishMessenger
 //
-//  Created by Данила on 28.04.2024.
+//  Created by Данила on 29.04.2024.
 //
 
 import Foundation
 import Combine
 
-class TheoryListViewModel: ObservableObject {
+class TheoryCardViewModel: ObservableObject {
     let input: Input = Input()
     @Published var output: Output = Output()
     var cancellable = Set<AnyCancellable>()
@@ -19,19 +19,18 @@ class TheoryListViewModel: ObservableObject {
     }
 }
 
-extension TheoryListViewModel {
+extension TheoryCardViewModel {
     func bind() {
         
     }
 }
 
-extension TheoryListViewModel {
+extension TheoryCardViewModel {
     struct Input {
         
     }
     
     struct Output {
-        var theory: LocalTopic?
-        var theorySubtopic: LocalSubtopicList?
+        var theory: LocalTheoryList?
     }
 }
