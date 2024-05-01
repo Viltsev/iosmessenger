@@ -69,6 +69,7 @@
 		833FF9B72BA1E9490032827B /* KeyChainStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833FF9B62BA1E9490032827B /* KeyChainStorage.swift */; };
 		833FF9B92BA1ED020032827B /* FormatDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833FF9B82BA1ED020032827B /* FormatDate.swift */; };
 		83454FBC2B95B611006E608E /* TestingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83454FBB2B95B611006E608E /* TestingViewModel.swift */; };
+		834B86802BE2531300D8917F /* ExerciseMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834B867F2BE2531300D8917F /* ExerciseMainView.swift */; };
 		83505CEE2B91E177005FD7DC /* Alice-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 83505CEC2B91E177005FD7DC /* Alice-Regular.ttf */; };
 		83505CEF2B91E177005FD7DC /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 83505CED2B91E177005FD7DC /* OFL.txt */; };
 		83505CF22B91FF97005FD7DC /* TitleTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83505CF12B91FF97005FD7DC /* TitleTextView.swift */; };
@@ -213,6 +214,7 @@
 		833FF9B62BA1E9490032827B /* KeyChainStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainStorage.swift; sourceTree = "<group>"; };
 		833FF9B82BA1ED020032827B /* FormatDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatDate.swift; sourceTree = "<group>"; };
 		83454FBB2B95B611006E608E /* TestingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingViewModel.swift; sourceTree = "<group>"; };
+		834B867F2BE2531300D8917F /* ExerciseMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseMainView.swift; sourceTree = "<group>"; };
 		83505CEC2B91E177005FD7DC /* Alice-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Alice-Regular.ttf"; sourceTree = "<group>"; };
 		83505CED2B91E177005FD7DC /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
 		83505CF02B91F722005FD7DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -492,6 +494,7 @@
 		83103ECC2B7F601700932A96 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				834B867C2BE252AD00D8917F /* Exercises */,
 				8378A77F2BDEC26B0090942B /* Theory */,
 				8356A2A12BD6CC0B00B89B79 /* Cards */,
 				8356A29E2BD6C1C400B89B79 /* Education */,
@@ -625,6 +628,22 @@
 				83B035E92BD001C4005C02BA /* ChatsStorage.swift */,
 			);
 			path = Storeges;
+			sourceTree = "<group>";
+		};
+		834B867C2BE252AD00D8917F /* Exercises */ = {
+			isa = PBXGroup;
+			children = (
+				834B867D2BE252DA00D8917F /* ExerciseMain */,
+			);
+			path = Exercises;
+			sourceTree = "<group>";
+		};
+		834B867D2BE252DA00D8917F /* ExerciseMain */ = {
+			isa = PBXGroup;
+			children = (
+				834B867F2BE2531300D8917F /* ExerciseMainView.swift */,
+			);
+			path = ExerciseMain;
 			sourceTree = "<group>";
 		};
 		83505CEB2B91E177005FD7DC /* Alice */ = {
@@ -1149,6 +1168,7 @@
 				83524D3E2BCD661500F86E2C /* MainNavigation.swift in Sources */,
 				8356A2A52BD6DF8600B89B79 /* CardsLearnedView.swift in Sources */,
 				83505D202B923D91005FD7DC /* OnboardingView.swift in Sources */,
+				834B86802BE2531300D8917F /* ExerciseMainView.swift in Sources */,
 				83C2B3162B94D73900B69E69 /* TestButtonView.swift in Sources */,
 				83B035EA2BD001C4005C02BA /* ChatsStorage.swift in Sources */,
 				8378A7942BDEDAF20090942B /* TheoryListView.swift in Sources */,

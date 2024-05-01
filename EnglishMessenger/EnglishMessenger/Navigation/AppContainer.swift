@@ -77,6 +77,8 @@ struct AppContainer: View {
                                         .onAppear {
                                             theoryCardViewModel.output.theory = theoryCard
                                         }
+                                case .pushExerciseMainView:
+                                    ExerciseMainView()
                                 }
                             }
                             .navigationBarBackButtonHidden(true)
