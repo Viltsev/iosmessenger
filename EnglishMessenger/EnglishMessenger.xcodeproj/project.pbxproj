@@ -70,6 +70,12 @@
 		833FF9B92BA1ED020032827B /* FormatDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833FF9B82BA1ED020032827B /* FormatDate.swift */; };
 		83454FBC2B95B611006E608E /* TestingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83454FBB2B95B611006E608E /* TestingViewModel.swift */; };
 		834B86802BE2531300D8917F /* ExerciseMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834B867F2BE2531300D8917F /* ExerciseMainView.swift */; };
+		834B86832BE2570300D8917F /* GrammarTrainingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834B86822BE2570300D8917F /* GrammarTrainingView.swift */; };
+		834B86862BE2A5AC00D8917F /* ExerciseQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834B86852BE2A5AC00D8917F /* ExerciseQuestionView.swift */; };
+		834B86892BE2A74200D8917F /* ExerciseTranslationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834B86882BE2A74200D8917F /* ExerciseTranslationView.swift */; };
+		834B868C2BE2BBE600D8917F /* GifImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834B868B2BE2BBE600D8917F /* GifImage.swift */; };
+		834B868E2BE2C0A500D8917F /* tenor.gif in Resources */ = {isa = PBXBuildFile; fileRef = 834B868D2BE2C0A500D8917F /* tenor.gif */; };
+		834B86902BE2C27800D8917F /* ExerciseTranslationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834B868F2BE2C27800D8917F /* ExerciseTranslationViewModel.swift */; };
 		83505CEE2B91E177005FD7DC /* Alice-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 83505CEC2B91E177005FD7DC /* Alice-Regular.ttf */; };
 		83505CEF2B91E177005FD7DC /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 83505CED2B91E177005FD7DC /* OFL.txt */; };
 		83505CF22B91FF97005FD7DC /* TitleTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83505CF12B91FF97005FD7DC /* TitleTextView.swift */; };
@@ -215,6 +221,12 @@
 		833FF9B82BA1ED020032827B /* FormatDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatDate.swift; sourceTree = "<group>"; };
 		83454FBB2B95B611006E608E /* TestingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingViewModel.swift; sourceTree = "<group>"; };
 		834B867F2BE2531300D8917F /* ExerciseMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseMainView.swift; sourceTree = "<group>"; };
+		834B86822BE2570300D8917F /* GrammarTrainingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrammarTrainingView.swift; sourceTree = "<group>"; };
+		834B86852BE2A5AC00D8917F /* ExerciseQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseQuestionView.swift; sourceTree = "<group>"; };
+		834B86882BE2A74200D8917F /* ExerciseTranslationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTranslationView.swift; sourceTree = "<group>"; };
+		834B868B2BE2BBE600D8917F /* GifImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifImage.swift; sourceTree = "<group>"; };
+		834B868D2BE2C0A500D8917F /* tenor.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = tenor.gif; sourceTree = "<group>"; };
+		834B868F2BE2C27800D8917F /* ExerciseTranslationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTranslationViewModel.swift; sourceTree = "<group>"; };
 		83505CEC2B91E177005FD7DC /* Alice-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Alice-Regular.ttf"; sourceTree = "<group>"; };
 		83505CED2B91E177005FD7DC /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
 		83505CF02B91F722005FD7DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -522,6 +534,7 @@
 		83103ED22B7F93E700932A96 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				834B868A2BE2BBCC00D8917F /* Gif */,
 				83BD01F42B936B440059AB53 /* TapBar */,
 				83BD01F32B936B330059AB53 /* TextFields */,
 				83BD01F22B936B280059AB53 /* Texts */,
@@ -633,6 +646,9 @@
 		834B867C2BE252AD00D8917F /* Exercises */ = {
 			isa = PBXGroup;
 			children = (
+				834B86872BE2A71200D8917F /* ExerciseTranslation */,
+				834B86842BE2A59500D8917F /* ExerciseQuestion */,
+				834B86812BE256CD00D8917F /* ExerciseTraining */,
 				834B867D2BE252DA00D8917F /* ExerciseMain */,
 			);
 			path = Exercises;
@@ -644,6 +660,40 @@
 				834B867F2BE2531300D8917F /* ExerciseMainView.swift */,
 			);
 			path = ExerciseMain;
+			sourceTree = "<group>";
+		};
+		834B86812BE256CD00D8917F /* ExerciseTraining */ = {
+			isa = PBXGroup;
+			children = (
+				834B86822BE2570300D8917F /* GrammarTrainingView.swift */,
+			);
+			path = ExerciseTraining;
+			sourceTree = "<group>";
+		};
+		834B86842BE2A59500D8917F /* ExerciseQuestion */ = {
+			isa = PBXGroup;
+			children = (
+				834B86852BE2A5AC00D8917F /* ExerciseQuestionView.swift */,
+			);
+			path = ExerciseQuestion;
+			sourceTree = "<group>";
+		};
+		834B86872BE2A71200D8917F /* ExerciseTranslation */ = {
+			isa = PBXGroup;
+			children = (
+				834B868D2BE2C0A500D8917F /* tenor.gif */,
+				834B86882BE2A74200D8917F /* ExerciseTranslationView.swift */,
+				834B868F2BE2C27800D8917F /* ExerciseTranslationViewModel.swift */,
+			);
+			path = ExerciseTranslation;
+			sourceTree = "<group>";
+		};
+		834B868A2BE2BBCC00D8917F /* Gif */ = {
+			isa = PBXGroup;
+			children = (
+				834B868B2BE2BBE600D8917F /* GifImage.swift */,
+			);
+			path = Gif;
 			sourceTree = "<group>";
 		};
 		83505CEB2B91E177005FD7DC /* Alice */ = {
@@ -1023,6 +1073,7 @@
 				83505D102B922948005FD7DC /* Montserrat-MediumItalic.ttf in Resources */,
 				83505D112B922948005FD7DC /* Montserrat-BlackItalic.ttf in Resources */,
 				83103EB72B7F574700932A96 /* Preview Assets.xcassets in Resources */,
+				834B868E2BE2C0A500D8917F /* tenor.gif in Resources */,
 				83505D0B2B922948005FD7DC /* Montserrat-Light.ttf in Resources */,
 				83505D172B922948005FD7DC /* Montserrat-Italic.ttf in Resources */,
 				83505D192B922948005FD7DC /* Montserrat-ExtraBoldItalic.ttf in Resources */,
@@ -1127,8 +1178,12 @@
 				8378A78C2BDECB740090942B /* TheoryMainViewModel.swift in Sources */,
 				831AE0722B80DFCA00C5B6AF /* Provider.swift in Sources */,
 				8334B75F2B9E02050087716F /* OnboardingEndpoint.swift in Sources */,
+				834B86832BE2570300D8917F /* GrammarTrainingView.swift in Sources */,
+				834B868C2BE2BBE600D8917F /* GifImage.swift in Sources */,
+				834B86902BE2C27800D8917F /* ExerciseTranslationViewModel.swift in Sources */,
 				83103EDE2B7F9DA900932A96 /* RegistrationViewModel.swift in Sources */,
 				8378A7822BDEC2950090942B /* TheoryMainView.swift in Sources */,
+				834B86862BE2A5AC00D8917F /* ExerciseQuestionView.swift in Sources */,
 				83103ED62B7F993F00932A96 /* StartViewModel.swift in Sources */,
 				83B3D5E52BCE97F200B62413 /* MessagesEndpoint.swift in Sources */,
 				831AE0912B81089A00C5B6AF /* UserStorage.swift in Sources */,
@@ -1173,6 +1228,7 @@
 				83B035EA2BD001C4005C02BA /* ChatsStorage.swift in Sources */,
 				8378A7942BDEDAF20090942B /* TheoryListView.swift in Sources */,
 				8378A7992BDEE32D0090942B /* TheoryCardView.swift in Sources */,
+				834B86892BE2A74200D8917F /* ExerciseTranslationView.swift in Sources */,
 				833FF9B92BA1ED020032827B /* FormatDate.swift in Sources */,
 				83103ED12B7F924800932A96 /* StartNavigationRouter.swift in Sources */,
 				8378A7912BDED6160090942B /* TheoryTopicsViewModel.swift in Sources */,

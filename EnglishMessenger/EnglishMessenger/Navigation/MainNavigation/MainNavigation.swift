@@ -21,4 +21,7 @@ enum MainNavigation: Hashable {
     case pushTheoryListViewSub(LocalSubtopicList)
     case pushTheoryCardView(LocalTheoryList)
     case pushExerciseMainView
+    case pushExerciseTraining
+    case pushExerciseQuestion
+    case pushExerciseTranslation
 }

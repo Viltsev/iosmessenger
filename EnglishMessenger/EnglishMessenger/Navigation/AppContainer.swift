@@ -79,6 +79,12 @@ struct AppContainer: View {
                                         }
                                 case .pushExerciseMainView:
                                     ExerciseMainView()
+                                case .pushExerciseTraining:
+                                    GrammarTrainingView()
+                                case .pushExerciseQuestion:
+                                    ExerciseQuestionView()
+                                case .pushExerciseTranslation:
+                                    ExerciseTranslationView()
                                 }
                             }
                             .navigationBarBackButtonHidden(true)

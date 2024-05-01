@@ -54,16 +54,16 @@ extension ExerciseMainView {
     @ViewBuilder
     func menu() -> some View {
         VStack(spacing: 20) {
-            infoBlock(title: "Грамматический тренинг", description: "Вставь пропущенное слово/словосочетание, используя грамматические правила")
-            infoBlock(title: "Ответ на вопрос", description: "Ответь на случайный вопрос и проверь свой ответ на корректность")
-            infoBlock(title: "Перевод текста", description: "Переведи предложенный текст и проверь свой перевод на наличие ошибок")
+            infoBlock(title: "Грамматический тренинг", description: "Вставь пропущенное слово/словосочетание, используя грамматические правила", action: goToTraining)
+            infoBlock(title: "Ответ на вопрос", description: "Ответь на случайный вопрос и проверь свой ответ на корректность", action: goToQuestion)
+            infoBlock(title: "Перевод текста", description: "Переведи предложенный текст и проверь свой перевод на наличие ошибок", action: goToTranslation)
         }
     }
     
     @ViewBuilder
-    func infoBlock(title: String, description: String) -> some View {
+    func infoBlock(title: String, description: String, action: @escaping () -> Void) -> some View {
         Button {
-            
+            action()
         } label: {
             HStack {
                 VStack(alignment: .leading) {
@@ -95,5 +95,19 @@ extension ExerciseMainView {
             .padding(.bottom, 15)
         }
         .buttonStyle(ScaleButtonStyle())
+    }
+}
+
+extension ExerciseMainView {
+    func goToTraining() {
+        router.pushView(MainNavigation.pushExerciseTraining)
+    }
+    
+    func goToQuestion() {
+        router.pushView(MainNavigation.pushExerciseQuestion)
+    }
+    
+    func goToTranslation() {
+        router.pushView(MainNavigation.pushExerciseTranslation)
     }
 }
