@@ -112,6 +112,18 @@
 		8374B2112BDA5C0B00078DD0 /* CreateSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8374B2102BDA5C0B00078DD0 /* CreateSet.swift */; };
 		8374B2132BDA763200078DD0 /* CreateCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8374B2122BDA763200078DD0 /* CreateCard.swift */; };
 		8374B2152BDABBE800078DD0 /* CardsSetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8374B2142BDABBE800078DD0 /* CardsSetViewModel.swift */; };
+		8378A7822BDEC2950090942B /* TheoryMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8378A7812BDEC2950090942B /* TheoryMainView.swift */; };
+		8378A7842BDEC5F40090942B /* TheoryEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8378A7832BDEC5F40090942B /* TheoryEndpoint.swift */; };
+		8378A7862BDEC6670090942B /* ServerTheory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8378A7852BDEC6670090942B /* ServerTheory.swift */; };
+		8378A7882BDEC8170090942B /* LocalTheory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8378A7872BDEC8170090942B /* LocalTheory.swift */; };
+		8378A78A2BDEC8560090942B /* TheoryModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8378A7892BDEC8560090942B /* TheoryModelMapper.swift */; };
+		8378A78C2BDECB740090942B /* TheoryMainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8378A78B2BDECB740090942B /* TheoryMainViewModel.swift */; };
+		8378A78F2BDED0D10090942B /* TheoryTopicsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8378A78E2BDED0D10090942B /* TheoryTopicsView.swift */; };
+		8378A7912BDED6160090942B /* TheoryTopicsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8378A7902BDED6160090942B /* TheoryTopicsViewModel.swift */; };
+		8378A7942BDEDAF20090942B /* TheoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8378A7932BDEDAF10090942B /* TheoryListView.swift */; };
+		8378A7962BDEDB530090942B /* TheoryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8378A7952BDEDB530090942B /* TheoryListViewModel.swift */; };
+		8378A7992BDEE32D0090942B /* TheoryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8378A7982BDEE32D0090942B /* TheoryCardView.swift */; };
+		8378A79B2BDEE4EE0090942B /* TheoryCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8378A79A2BDEE4EE0090942B /* TheoryCardViewModel.swift */; };
 		838AF0382BBD42D8002FDA88 /* ServerInterests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838AF0372BBD42D8002FDA88 /* ServerInterests.swift */; };
 		838AF03A2BBD4323002FDA88 /* LocalInterests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838AF0392BBD4323002FDA88 /* LocalInterests.swift */; };
 		838AF03C2BBD434B002FDA88 /* InterestsModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838AF03B2BBD434B002FDA88 /* InterestsModelMapper.swift */; };
@@ -245,6 +257,18 @@
 		8374B2102BDA5C0B00078DD0 /* CreateSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSet.swift; sourceTree = "<group>"; };
 		8374B2122BDA763200078DD0 /* CreateCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCard.swift; sourceTree = "<group>"; };
 		8374B2142BDABBE800078DD0 /* CardsSetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsSetViewModel.swift; sourceTree = "<group>"; };
+		8378A7812BDEC2950090942B /* TheoryMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheoryMainView.swift; sourceTree = "<group>"; };
+		8378A7832BDEC5F40090942B /* TheoryEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheoryEndpoint.swift; sourceTree = "<group>"; };
+		8378A7852BDEC6670090942B /* ServerTheory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerTheory.swift; sourceTree = "<group>"; };
+		8378A7872BDEC8170090942B /* LocalTheory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalTheory.swift; sourceTree = "<group>"; };
+		8378A7892BDEC8560090942B /* TheoryModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheoryModelMapper.swift; sourceTree = "<group>"; };
+		8378A78B2BDECB740090942B /* TheoryMainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheoryMainViewModel.swift; sourceTree = "<group>"; };
+		8378A78E2BDED0D10090942B /* TheoryTopicsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheoryTopicsView.swift; sourceTree = "<group>"; };
+		8378A7902BDED6160090942B /* TheoryTopicsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheoryTopicsViewModel.swift; sourceTree = "<group>"; };
+		8378A7932BDEDAF10090942B /* TheoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheoryListView.swift; sourceTree = "<group>"; };
+		8378A7952BDEDB530090942B /* TheoryListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheoryListViewModel.swift; sourceTree = "<group>"; };
+		8378A7982BDEE32D0090942B /* TheoryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheoryCardView.swift; sourceTree = "<group>"; };
+		8378A79A2BDEE4EE0090942B /* TheoryCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheoryCardViewModel.swift; sourceTree = "<group>"; };
 		838AF0372BBD42D8002FDA88 /* ServerInterests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerInterests.swift; sourceTree = "<group>"; };
 		838AF0392BBD4323002FDA88 /* LocalInterests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalInterests.swift; sourceTree = "<group>"; };
 		838AF03B2BBD434B002FDA88 /* InterestsModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestsModelMapper.swift; sourceTree = "<group>"; };
@@ -403,6 +427,7 @@
 				83A1F7DE2BD1102200488032 /* GrammarModelMapper.swift */,
 				832F0C632BD92A0500E8468D /* CardModelMapper.swift */,
 				832F0C6D2BD99CCE00E8468D /* CardSetModelMapper.swift */,
+				8378A7892BDEC8560090942B /* TheoryModelMapper.swift */,
 			);
 			path = Mappers;
 			sourceTree = "<group>";
@@ -419,6 +444,7 @@
 				832F0C692BD99C3400E8468D /* ServerCardSet.swift */,
 				8374B2102BDA5C0B00078DD0 /* CreateSet.swift */,
 				8374B2122BDA763200078DD0 /* CreateCard.swift */,
+				8378A7852BDEC6670090942B /* ServerTheory.swift */,
 			);
 			path = ServerModel;
 			sourceTree = "<group>";
@@ -437,6 +463,7 @@
 				83A1F7DC2BD10FBA00488032 /* LocalGrammar.swift */,
 				832F0C612BD9296E00E8468D /* LocalCard.swift */,
 				832F0C6B2BD99CA000E8468D /* LocalCardSet.swift */,
+				8378A7872BDEC8170090942B /* LocalTheory.swift */,
 			);
 			path = LocalModel;
 			sourceTree = "<group>";
@@ -465,6 +492,7 @@
 		83103ECC2B7F601700932A96 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				8378A77F2BDEC26B0090942B /* Theory */,
 				8356A2A12BD6CC0B00B89B79 /* Cards */,
 				8356A29E2BD6C1C400B89B79 /* Education */,
 				838AF0422BBDAE58002FDA88 /* Chats */,
@@ -559,6 +587,7 @@
 				83A1F7E02BD1110500488032 /* GrammarEndpoint.swift */,
 				83C8F6B92BD29C6B00FEBE79 /* GenerateDialogEndpoint.swift */,
 				832F0C5D2BD9288500E8468D /* CardsEndpoint.swift */,
+				8378A7832BDEC5F40090942B /* TheoryEndpoint.swift */,
 			);
 			path = Endpoints;
 			sourceTree = "<group>";
@@ -669,15 +698,70 @@
 		8356A2A12BD6CC0B00B89B79 /* Cards */ = {
 			isa = PBXGroup;
 			children = (
+				8378A77E2BDEC2540090942B /* CardsMain */,
 				83FC43C32BD84B9E003FA5EB /* CardsSet */,
 				83FC43C02BD84B6D003FA5EB /* CardsSets */,
 				83FC43BF2BD84B62003FA5EB /* CardsLearning */,
 				83FC43BE2BD84B57003FA5EB /* CardsLearned */,
 				83FC43BD2BD84B17003FA5EB /* Card */,
+			);
+			path = Cards;
+			sourceTree = "<group>";
+		};
+		8378A77E2BDEC2540090942B /* CardsMain */ = {
+			isa = PBXGroup;
+			children = (
 				8356A2A22BD6CC1900B89B79 /* CardsView.swift */,
 				832F0C5B2BD927DD00E8468D /* CardsViewModel.swift */,
 			);
-			path = Cards;
+			path = CardsMain;
+			sourceTree = "<group>";
+		};
+		8378A77F2BDEC26B0090942B /* Theory */ = {
+			isa = PBXGroup;
+			children = (
+				8378A7972BDEE3160090942B /* TheoryCard */,
+				8378A7922BDEDAD10090942B /* TheoryList */,
+				8378A78D2BDED0AC0090942B /* Topics */,
+				8378A7802BDEC2760090942B /* TheoryMain */,
+			);
+			path = Theory;
+			sourceTree = "<group>";
+		};
+		8378A7802BDEC2760090942B /* TheoryMain */ = {
+			isa = PBXGroup;
+			children = (
+				8378A7812BDEC2950090942B /* TheoryMainView.swift */,
+				8378A78B2BDECB740090942B /* TheoryMainViewModel.swift */,
+			);
+			path = TheoryMain;
+			sourceTree = "<group>";
+		};
+		8378A78D2BDED0AC0090942B /* Topics */ = {
+			isa = PBXGroup;
+			children = (
+				8378A78E2BDED0D10090942B /* TheoryTopicsView.swift */,
+				8378A7902BDED6160090942B /* TheoryTopicsViewModel.swift */,
+			);
+			path = Topics;
+			sourceTree = "<group>";
+		};
+		8378A7922BDEDAD10090942B /* TheoryList */ = {
+			isa = PBXGroup;
+			children = (
+				8378A7932BDEDAF10090942B /* TheoryListView.swift */,
+				8378A7952BDEDB530090942B /* TheoryListViewModel.swift */,
+			);
+			path = TheoryList;
+			sourceTree = "<group>";
+		};
+		8378A7972BDEE3160090942B /* TheoryCard */ = {
+			isa = PBXGroup;
+			children = (
+				8378A7982BDEE32D0090942B /* TheoryCardView.swift */,
+				8378A79A2BDEE4EE0090942B /* TheoryCardViewModel.swift */,
+			);
+			path = TheoryCard;
 			sourceTree = "<group>";
 		};
 		838AF0422BBDAE58002FDA88 /* Chats */ = {
@@ -998,6 +1082,7 @@
 				831AE0972B8120B300C5B6AF /* UserModelMapper.swift in Sources */,
 				83C8F6BA2BD29C6B00FEBE79 /* GenerateDialogEndpoint.swift in Sources */,
 				831AE0842B80F55000C5B6AF /* ErrorAPI.swift in Sources */,
+				8378A78F2BDED0D10090942B /* TheoryTopicsView.swift in Sources */,
 				83A40A8C2B9889AA003A284E /* HomeView.swift in Sources */,
 				832F0C602BD9292C00E8468D /* ServerCard.swift in Sources */,
 				831AE06D2B80D87500C5B6AF /* BaseModelMapper.swift in Sources */,
@@ -1014,13 +1099,17 @@
 				8331F8422B95FD2300058CEC /* ServerTest.swift in Sources */,
 				838AF03A2BBD4323002FDA88 /* LocalInterests.swift in Sources */,
 				832F0C5E2BD9288500E8468D /* CardsEndpoint.swift in Sources */,
+				8378A78A2BDEC8560090942B /* TheoryModelMapper.swift in Sources */,
 				83505D262B9268A0005FD7DC /* OnboardingViewModel.swift in Sources */,
+				8378A7862BDEC6670090942B /* ServerTheory.swift in Sources */,
 				83A1F7D92BD10B3300488032 /* ChatsSearcherFieldStyle.swift in Sources */,
 				83FC43BC2BD8217F003FA5EB /* CardViewModel.swift in Sources */,
 				83103EB22B7F574300932A96 /* StartView.swift in Sources */,
+				8378A78C2BDECB740090942B /* TheoryMainViewModel.swift in Sources */,
 				831AE0722B80DFCA00C5B6AF /* Provider.swift in Sources */,
 				8334B75F2B9E02050087716F /* OnboardingEndpoint.swift in Sources */,
 				83103EDE2B7F9DA900932A96 /* RegistrationViewModel.swift in Sources */,
+				8378A7822BDEC2950090942B /* TheoryMainView.swift in Sources */,
 				83103ED62B7F993F00932A96 /* StartViewModel.swift in Sources */,
 				83B3D5E52BCE97F200B62413 /* MessagesEndpoint.swift in Sources */,
 				831AE0912B81089A00C5B6AF /* UserStorage.swift in Sources */,
@@ -1032,6 +1121,7 @@
 				8374B2152BDABBE800078DD0 /* CardsSetViewModel.swift in Sources */,
 				83524D352BCD546700F86E2C /* ServerMessage.swift in Sources */,
 				8331F8462B95FE9700058CEC /* TestModelMapper.swift in Sources */,
+				8378A7842BDEC5F40090942B /* TheoryEndpoint.swift in Sources */,
 				832F0C5C2BD927DD00E8468D /* CardsViewModel.swift in Sources */,
 				8331F8442B95FE6600058CEC /* LocalTest.swift in Sources */,
 				83A1F7E12BD1110500488032 /* GrammarEndpoint.swift in Sources */,
@@ -1053,6 +1143,7 @@
 				832F0C6A2BD99C3400E8468D /* ServerCardSet.swift in Sources */,
 				8356A2A02BD6C1E800B89B79 /* EducationView.swift in Sources */,
 				83A1F7D72BD10ADF00488032 /* ChatsSearcherField.swift in Sources */,
+				8378A7882BDEC8170090942B /* LocalTheory.swift in Sources */,
 				83524D392BCD5A7B00F86E2C /* ChatsStartViewModel.swift in Sources */,
 				831AE0802B80E21900C5B6AF /* RegistrationEndpoint.swift in Sources */,
 				83524D3E2BCD661500F86E2C /* MainNavigation.swift in Sources */,
@@ -1060,8 +1151,11 @@
 				83505D202B923D91005FD7DC /* OnboardingView.swift in Sources */,
 				83C2B3162B94D73900B69E69 /* TestButtonView.swift in Sources */,
 				83B035EA2BD001C4005C02BA /* ChatsStorage.swift in Sources */,
+				8378A7942BDEDAF20090942B /* TheoryListView.swift in Sources */,
+				8378A7992BDEE32D0090942B /* TheoryCardView.swift in Sources */,
 				833FF9B92BA1ED020032827B /* FormatDate.swift in Sources */,
 				83103ED12B7F924800932A96 /* StartNavigationRouter.swift in Sources */,
+				8378A7912BDED6160090942B /* TheoryTopicsViewModel.swift in Sources */,
 				83505CF22B91FF97005FD7DC /* TitleTextView.swift in Sources */,
 				83454FBC2B95B611006E608E /* TestingViewModel.swift in Sources */,
 				83524D3B2BCD624A00F86E2C /* UsersEndpoint.swift in Sources */,
@@ -1069,6 +1163,7 @@
 				83A1F7DB2BD10EB500488032 /* ServerGrammar.swift in Sources */,
 				83524D332BCD545000F86E2C /* Message.swift in Sources */,
 				832F0C682BD9340100E8468D /* CardsLearnedViewModel.swift in Sources */,
+				8378A79B2BDEE4EE0090942B /* TheoryCardViewModel.swift in Sources */,
 				83BD01F62B936B620059AB53 /* TestProgressView.swift in Sources */,
 				83B3D5E72BCE996A00B62413 /* MessagesModelMapper.swift in Sources */,
 				838AF0382BBD42D8002FDA88 /* ServerInterests.swift in Sources */,
@@ -1080,6 +1175,7 @@
 				831AE08E2B81081E00C5B6AF /* AuthenticationService.swift in Sources */,
 				838AF03F2BBD43FB002FDA88 /* InterestsEndpoint.swift in Sources */,
 				8331F84A2B96317E00058CEC /* Answer.swift in Sources */,
+				8378A7962BDEDB530090942B /* TheoryListViewModel.swift in Sources */,
 				83385A7E2B970790007CC6FB /* TestResultsEndpoint.swift in Sources */,
 				83103ECF2B7F91EF00932A96 /* AppContainer.swift in Sources */,
 				831AE06F2B80D93E00C5B6AF /* UserRegistration.swift in Sources */,

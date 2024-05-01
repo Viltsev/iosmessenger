@@ -86,7 +86,7 @@ extension EducationView {
     }
     
     func goToTheory() {
-        print("to do")
+        router.pushView(MainNavigation.pushTheoryMainView)
     }
     
     func goToExercises() {

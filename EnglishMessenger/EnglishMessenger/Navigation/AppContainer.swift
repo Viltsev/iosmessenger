@@ -12,6 +12,11 @@ struct AppContainer: View {
     @StateObject var mainRouter = MainNavigationRouter()
     @StateObject private var cardViewModel: CardViewModel = CardViewModel()
     @StateObject private var cardsSetViewModel: CardsSetViewModel = CardsSetViewModel()
+    @StateObject private var theoryViewModel: TheoryMainViewModel = TheoryMainViewModel()
+    @StateObject private var theoryTopicsViewModel: TheoryTopicsViewModel = TheoryTopicsViewModel()
+    @StateObject private var theoryListViewModel: TheoryListViewModel = TheoryListViewModel()
+    @StateObject private var theoryListSubViewModel: TheoryListViewModel = TheoryListViewModel()
+    @StateObject private var theoryCardViewModel: TheoryCardViewModel = TheoryCardViewModel()
     
     @State private var isAuth = AuthenticationService.shared.status.value
     
@@ -46,6 +51,31 @@ struct AppContainer: View {
                                         .onAppear {
                                             cardViewModel.output.setId = id
                                             cardViewModel.input.getCardSetSubject.send(id)
+                                        }
+                                case .pushTheoryMainView:
+                                    TheoryMainView(viewModel: theoryViewModel)
+                                        .onAppear {
+                                            theoryViewModel.input.getTheorySubject.send()
+                                        }
+                                case .pushTheoryTopicsView(let category):
+                                    TheoryTopicsView(viewModel: theoryTopicsViewModel)
+                                        .onAppear {
+                                            theoryTopicsViewModel.output.theory = category
+                                        }
+                                case .pushTheoryListView(let topic):
+                                    TheoryListView(viewModel: theoryListViewModel)
+                                        .onAppear {
+                                            theoryListViewModel.output.theory = topic
+                                        }
+                                case .pushTheoryListViewSub(let subtopic):
+                                    TheoryListView(viewModel: theoryListSubViewModel)
+                                        .onAppear {
+                                            theoryListSubViewModel.output.theorySubtopic = subtopic
+                                        }
+                                case .pushTheoryCardView(let theoryCard):
+                                    TheoryCardView(viewModel: theoryCardViewModel)
+                                        .onAppear {
+                                            theoryCardViewModel.output.theory = theoryCard
                                         }
                                 }
                             }
