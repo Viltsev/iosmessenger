@@ -9,6 +9,8 @@ import SwiftUI
 
 struct GrammarTrainingView: View {
     @EnvironmentObject var router: MainNavigationRouter
+    @StateObject private var viewModel: GrammarTrainingViewModel = GrammarTrainingViewModel()
+    
     @State private var theme: String = ""
     
     var body: some View {
@@ -16,6 +18,12 @@ struct GrammarTrainingView: View {
             .ignoresSafeArea()
             .overlay {
                 content()
+            }
+            .onChange(of: viewModel.output.isCorrect) { oldValue, newValue in
+                if newValue == true {
+                    router.pushView(MainNavigation.pushGrammarTrainExercises(viewModel.output.exercises))
+                    viewModel.output.isCorrect.toggle()
+                }
             }
     }
 }
@@ -26,8 +34,28 @@ extension GrammarTrainingView {
         VStack {
             customToolBar()
                 .padding(.bottom, 30)
-            grammarTraining()
-            Spacer()
+            switch viewModel.output.state {
+            case .view:
+                grammarTraining()
+                Spacer()
+            case .loader:
+                Spacer()
+                GifImage(name: "pedro")
+                    .frame(width: 250, height: 250)
+                    .cornerRadius(125)
+                    .background(
+                        Circle()
+                            .stroke(style: StrokeStyle(lineWidth: 2))
+                            .foregroundColor(.mainPurple)
+                    )
+                Spacer()
+            case .error:
+                Spacer()
+                Text("Ошибка! попробуйте снова!")
+                    .foregroundStyle(.mainPurple)
+                    .font(.custom("Montserrat-Bold", size: 20))
+                Spacer()
+            }
         }
     }
     
@@ -62,7 +90,7 @@ extension GrammarTrainingView {
                 .foregroundStyle(.mainPurple)
                 .font(.custom("Montserrat-Bold", size: 16))
                 .padding(.bottom, 20)
-            TextField("Введи интересующую тебя тему...", text: $theme)
+            TextField("Введи интересующую тебя тему...", text: $viewModel.output.topic)
                 .foregroundColor(.mainPurple)
                 .font(.custom("Montserrat-Light", size: 16))
                 .multilineTextAlignment(.center)
@@ -81,7 +109,8 @@ extension GrammarTrainingView {
     @ViewBuilder
     func buttonLearn() -> some View {
         Button {
-//            router.pushView(MainNavigation.pushCardsSets)
+            viewModel.output.state = .loader
+            viewModel.input.trainExercisesSubject.send()
         } label: {
             VStack {
                 Text("Перейти к упражнениям")

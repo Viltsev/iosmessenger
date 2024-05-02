@@ -22,6 +22,7 @@ struct GeneralApi {
     let providerGenerateDialogEndpoint = Provider<GenerateDialogEndpoint>()
     let providerCardsEndpoint = Provider<CardsEndpoint>()
     let providerTheoryEndpoint = Provider<TheoryEndpoint>()
+    let providerExercisesEndpoint = Provider<ExercisesEndpoint>()
 }
 
 extension GeneralApi {
@@ -433,6 +434,24 @@ extension GeneralApi {
             .map(ServerTheory.self)
             .map { serverTheory in
                 TheoryModelMapper().toLocal(serverEntity: serverTheory)
+            }
+            .mapError { error in
+                if error.response?.statusCode == 404 {
+                    return ErrorAPI.notFound
+                } else {
+                    return ErrorAPI.network
+                }
+            }
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+    }
+    
+    func getTrainSentences(topic: String) -> AnyPublisher<[LocalTraining], ErrorAPI> {
+        providerExercisesEndpoint.requestPublisher(.getSentences(topic))
+            .filterSuccessfulStatusCodes()
+            .map([ServerTraining].self)
+            .map { serverTraining in
+                ExerciseTrainingModelMapper().toLocal(list: serverTraining)
             }
             .mapError { error in
                 if error.response?.statusCode == 404 {

@@ -17,6 +17,7 @@ struct AppContainer: View {
     @StateObject private var theoryListViewModel: TheoryListViewModel = TheoryListViewModel()
     @StateObject private var theoryListSubViewModel: TheoryListViewModel = TheoryListViewModel()
     @StateObject private var theoryCardViewModel: TheoryCardViewModel = TheoryCardViewModel()
+    @StateObject private var grammarExercisesViewModel: GTExercisesViewModel = GTExercisesViewModel()
     
     @State private var isAuth = AuthenticationService.shared.status.value
     
@@ -85,6 +86,11 @@ struct AppContainer: View {
                                     ExerciseQuestionView()
                                 case .pushExerciseTranslation:
                                     ExerciseTranslationView()
+                                case .pushGrammarTrainExercises(let exercises):
+                                    GTExercisesView(viewModel: grammarExercisesViewModel)
+                                        .onAppear {
+                                            grammarExercisesViewModel.output.exercises = exercises
+                                        }
                                 }
                             }
                             .navigationBarBackButtonHidden(true)

@@ -24,4 +24,5 @@ enum MainNavigation: Hashable {
     case pushExerciseTraining
     case pushExerciseQuestion
     case pushExerciseTranslation
+    case pushGrammarTrainExercises([LocalTraining])
 }
