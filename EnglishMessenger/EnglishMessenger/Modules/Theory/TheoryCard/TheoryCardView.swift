@@ -17,6 +17,12 @@ struct TheoryCardView: View {
             .overlay {
                 content()
             }
+            .onChange(of: viewModel.output.isShow) { oldValue, newValue in
+                if newValue == true {
+                    router.pushView(MainNavigation.pushGrammarTrainExercises(viewModel.output.exercises))
+                    viewModel.output.isShow.toggle()
+                }
+            }
     }
 }
 
@@ -24,12 +30,19 @@ extension TheoryCardView {
     @ViewBuilder
     func content() -> some View {
         VStack {
-            if let card = viewModel.output.theory {
-                theoryCard(card: card)
+            switch viewModel.output.state {
+            case .loader:
+                loader()
+            case .view:
+                info()
+            case .error:
+                Spacer()
+                Text("Ошибка! попробуйте снова!")
+                    .foregroundStyle(.white)
+                    .font(.custom("Montserrat-Bold", size: 20))
+                Spacer()
             }
-            Spacer()
-            exerciseButton()
-                .padding(.vertical, 15)
+            
         }
         .toolbar(content: {
             ToolbarItem(placement: .topBarTrailing) {
@@ -43,6 +56,30 @@ extension TheoryCardView {
                 }
             }
         })
+    }
+    
+    @ViewBuilder
+    func info() -> some View {
+        if let card = viewModel.output.theory {
+            theoryCard(card: card)
+        }
+        Spacer()
+        exerciseButton()
+            .padding(.vertical, 15)
+    }
+    
+    @ViewBuilder
+    func loader() -> some View {
+        Spacer()
+        GifImage(name: "pedro")
+            .frame(width: 250, height: 250)
+            .cornerRadius(125)
+            .background(
+                Circle()
+                    .stroke(style: StrokeStyle(lineWidth: 2))
+                    .foregroundColor(.mainPurple)
+            )
+        Spacer()
     }
     
     @ViewBuilder
@@ -138,7 +175,10 @@ extension TheoryCardView {
     @ViewBuilder
     func exerciseButton() -> some View {
         Button {
-            // todo: go to exercises
+            viewModel.output.state = .loader
+            if let topic = viewModel.output.theory?.title {
+                viewModel.input.trainExercisesSubject.send(topic)
+            }            
         } label: {
             Text("Упражнения")
                 .foregroundStyle(.white)
