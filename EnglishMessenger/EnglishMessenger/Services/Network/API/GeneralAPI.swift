@@ -463,4 +463,40 @@ extension GeneralApi {
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }
+    
+    func getQuestion() -> AnyPublisher<String, ErrorAPI> {
+        providerExercisesEndpoint.requestPublisher(.getQuestion)
+            .filterSuccessfulStatusCodes()
+            .map(String.self)
+            .map { string in
+                string
+            }
+            .mapError { error in
+                if error.response?.statusCode == 404 {
+                    return ErrorAPI.notFound
+                } else {
+                    return ErrorAPI.network
+                }
+            }
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+    }
+    
+    func sendAnswer(question: String, answer: String) -> AnyPublisher<LocalQuestion, ErrorAPI> {
+        providerExercisesEndpoint.requestPublisher(.sendAnswer(question, answer))
+            .filterSuccessfulStatusCodes()
+            .map(ServerQuestion.self)
+            .map { serverQuestion in
+                ExerciseQuestionModelMapper().toLocal(serverEntity: serverQuestion)
+            }
+            .mapError { error in
+                if error.response?.statusCode == 404 {
+                    return ErrorAPI.notFound
+                } else {
+                    return ErrorAPI.network
+                }
+            }
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+    }
 }

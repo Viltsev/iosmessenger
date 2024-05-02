@@ -83,6 +83,12 @@
 		834B869A2BE2C7FD00D8917F /* GrammarTrainingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834B86992BE2C7FD00D8917F /* GrammarTrainingViewModel.swift */; };
 		834B869C2BE378C400D8917F /* GTExercisesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834B869B2BE378C400D8917F /* GTExercisesView.swift */; };
 		834B869E2BE37C6E00D8917F /* GTExercisesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834B869D2BE37C6E00D8917F /* GTExercisesViewModel.swift */; };
+		834B86A02BE3949300D8917F /* ExerciseQuestionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834B869F2BE3949300D8917F /* ExerciseQuestionViewModel.swift */; };
+		834B86A22BE3A3FE00D8917F /* ServerQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834B86A12BE3A3FE00D8917F /* ServerQuestion.swift */; };
+		834B86A42BE3A48100D8917F /* LocalQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834B86A32BE3A48100D8917F /* LocalQuestion.swift */; };
+		834B86A62BE3A4B400D8917F /* ExerciseQuestionModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834B86A52BE3A4B400D8917F /* ExerciseQuestionModelMapper.swift */; };
+		834B86A82BE3A96800D8917F /* ExQuestionCheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834B86A72BE3A96800D8917F /* ExQuestionCheckView.swift */; };
+		834B86AA2BE3AB1400D8917F /* ExQuestionCheckViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834B86A92BE3AB1400D8917F /* ExQuestionCheckViewModel.swift */; };
 		83505CEE2B91E177005FD7DC /* Alice-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 83505CEC2B91E177005FD7DC /* Alice-Regular.ttf */; };
 		83505CEF2B91E177005FD7DC /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 83505CED2B91E177005FD7DC /* OFL.txt */; };
 		83505CF22B91FF97005FD7DC /* TitleTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83505CF12B91FF97005FD7DC /* TitleTextView.swift */; };
@@ -241,6 +247,12 @@
 		834B86992BE2C7FD00D8917F /* GrammarTrainingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrammarTrainingViewModel.swift; sourceTree = "<group>"; };
 		834B869B2BE378C400D8917F /* GTExercisesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GTExercisesView.swift; sourceTree = "<group>"; };
 		834B869D2BE37C6E00D8917F /* GTExercisesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GTExercisesViewModel.swift; sourceTree = "<group>"; };
+		834B869F2BE3949300D8917F /* ExerciseQuestionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseQuestionViewModel.swift; sourceTree = "<group>"; };
+		834B86A12BE3A3FE00D8917F /* ServerQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerQuestion.swift; sourceTree = "<group>"; };
+		834B86A32BE3A48100D8917F /* LocalQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalQuestion.swift; sourceTree = "<group>"; };
+		834B86A52BE3A4B400D8917F /* ExerciseQuestionModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseQuestionModelMapper.swift; sourceTree = "<group>"; };
+		834B86A72BE3A96800D8917F /* ExQuestionCheckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExQuestionCheckView.swift; sourceTree = "<group>"; };
+		834B86A92BE3AB1400D8917F /* ExQuestionCheckViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExQuestionCheckViewModel.swift; sourceTree = "<group>"; };
 		83505CEC2B91E177005FD7DC /* Alice-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Alice-Regular.ttf"; sourceTree = "<group>"; };
 		83505CED2B91E177005FD7DC /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
 		83505CF02B91F722005FD7DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -458,6 +470,7 @@
 				832F0C6D2BD99CCE00E8468D /* CardSetModelMapper.swift */,
 				8378A7892BDEC8560090942B /* TheoryModelMapper.swift */,
 				834B86952BE2C6C300D8917F /* ExerciseTrainingModelMapper.swift */,
+				834B86A52BE3A4B400D8917F /* ExerciseQuestionModelMapper.swift */,
 			);
 			path = Mappers;
 			sourceTree = "<group>";
@@ -476,6 +489,7 @@
 				8374B2122BDA763200078DD0 /* CreateCard.swift */,
 				8378A7852BDEC6670090942B /* ServerTheory.swift */,
 				834B86912BE2C65F00D8917F /* ServerTraining.swift */,
+				834B86A12BE3A3FE00D8917F /* ServerQuestion.swift */,
 			);
 			path = ServerModel;
 			sourceTree = "<group>";
@@ -496,6 +510,7 @@
 				832F0C6B2BD99CA000E8468D /* LocalCardSet.swift */,
 				8378A7872BDEC8170090942B /* LocalTheory.swift */,
 				834B86932BE2C68C00D8917F /* LocalTraining.swift */,
+				834B86A32BE3A48100D8917F /* LocalQuestion.swift */,
 			);
 			path = LocalModel;
 			sourceTree = "<group>";
@@ -696,6 +711,9 @@
 			isa = PBXGroup;
 			children = (
 				834B86852BE2A5AC00D8917F /* ExerciseQuestionView.swift */,
+				834B869F2BE3949300D8917F /* ExerciseQuestionViewModel.swift */,
+				834B86A72BE3A96800D8917F /* ExQuestionCheckView.swift */,
+				834B86A92BE3AB1400D8917F /* ExQuestionCheckViewModel.swift */,
 			);
 			path = ExerciseQuestion;
 			sourceTree = "<group>";
@@ -1166,6 +1184,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				832F0C662BD92C8B00E8468D /* CardsLearningViewModel.swift in Sources */,
+				834B86A22BE3A3FE00D8917F /* ServerQuestion.swift in Sources */,
 				83A1F7DF2BD1102200488032 /* GrammarModelMapper.swift in Sources */,
 				83B035EE2BD04147005C02BA /* ChatsViewModel.swift in Sources */,
 				83B035E52BCFD07E005C02BA /* SearchChatView.swift in Sources */,
@@ -1180,6 +1199,7 @@
 				831AE06D2B80D87500C5B6AF /* BaseModelMapper.swift in Sources */,
 				83B035E82BCFE290005C02BA /* CurrentScreen.swift in Sources */,
 				831AE08B2B80F8B900C5B6AF /* UserAuthorization.swift in Sources */,
+				834B86AA2BE3AB1400D8917F /* ExQuestionCheckViewModel.swift in Sources */,
 				83FC43C22BD84B9A003FA5EB /* CardsSetView.swift in Sources */,
 				838AF0412BBD6315002FDA88 /* ScaleButtonStyle.swift in Sources */,
 				83BD01EE2B93698A0059AB53 /* TestingView.swift in Sources */,
@@ -1189,6 +1209,7 @@
 				832F0C6E2BD99CCE00E8468D /* CardSetModelMapper.swift in Sources */,
 				83505D1D2B923673005FD7DC /* OnboardingNavigationView.swift in Sources */,
 				8331F8422B95FD2300058CEC /* ServerTest.swift in Sources */,
+				834B86A02BE3949300D8917F /* ExerciseQuestionViewModel.swift in Sources */,
 				838AF03A2BBD4323002FDA88 /* LocalInterests.swift in Sources */,
 				832F0C5E2BD9288500E8468D /* CardsEndpoint.swift in Sources */,
 				8378A78A2BDEC8560090942B /* TheoryModelMapper.swift in Sources */,
@@ -1201,6 +1222,7 @@
 				831AE0722B80DFCA00C5B6AF /* Provider.swift in Sources */,
 				8334B75F2B9E02050087716F /* OnboardingEndpoint.swift in Sources */,
 				834B86832BE2570300D8917F /* GrammarTrainingView.swift in Sources */,
+				834B86A62BE3A4B400D8917F /* ExerciseQuestionModelMapper.swift in Sources */,
 				834B868C2BE2BBE600D8917F /* GifImage.swift in Sources */,
 				834B86902BE2C27800D8917F /* ExerciseTranslationViewModel.swift in Sources */,
 				83103EDE2B7F9DA900932A96 /* RegistrationViewModel.swift in Sources */,
@@ -1236,10 +1258,12 @@
 				83103EDA2B7F9B9800932A96 /* RegistrationView.swift in Sources */,
 				83A40A8A2B9885C3003A284E /* MainTab.swift in Sources */,
 				83524D312BCD506900F86E2C /* SocketService.swift in Sources */,
+				834B86A82BE3A96800D8917F /* ExQuestionCheckView.swift in Sources */,
 				834B869A2BE2C7FD00D8917F /* GrammarTrainingViewModel.swift in Sources */,
 				8356A2A92BD6EE4E00B89B79 /* CardsSetsView.swift in Sources */,
 				83505D1B2B922FE3005FD7DC /* CustomTextField.swift in Sources */,
 				83C2B3182B94EE9C00B69E69 /* PurpleButtonView.swift in Sources */,
+				834B86A42BE3A48100D8917F /* LocalQuestion.swift in Sources */,
 				832F0C6A2BD99C3400E8468D /* ServerCardSet.swift in Sources */,
 				8356A2A02BD6C1E800B89B79 /* EducationView.swift in Sources */,
 				83A1F7D72BD10ADF00488032 /* ChatsSearcherField.swift in Sources */,

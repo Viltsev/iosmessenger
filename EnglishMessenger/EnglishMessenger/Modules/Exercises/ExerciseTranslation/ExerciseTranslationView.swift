@@ -28,14 +28,14 @@ extension ExerciseTranslationView {
             switch viewModel.output.viewState {
             case .loader:
                 Spacer()
-                GifImage(name: "tenor")
-                    .frame(width: 250, height: 250)
-                    .cornerRadius(125)
-                    .background(
-                        Circle()
-                            .stroke(style: StrokeStyle(lineWidth: 2))
-                            .foregroundColor(.mainPurple)
-                    )
+//                GifImage(name: "tenor")
+//                    .frame(width: 250, height: 250)
+//                    .cornerRadius(125)
+//                    .background(
+//                        Circle()
+//                            .stroke(style: StrokeStyle(lineWidth: 2))
+//                            .foregroundColor(.mainPurple)
+//                    )
                 Spacer()
             case .view:
                 Spacer()

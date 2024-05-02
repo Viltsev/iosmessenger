@@ -18,6 +18,7 @@ struct AppContainer: View {
     @StateObject private var theoryListSubViewModel: TheoryListViewModel = TheoryListViewModel()
     @StateObject private var theoryCardViewModel: TheoryCardViewModel = TheoryCardViewModel()
     @StateObject private var grammarExercisesViewModel: GTExercisesViewModel = GTExercisesViewModel()
+    @StateObject private var checkedQuestionViewModel: ExQuestionCheckViewModel = ExQuestionCheckViewModel()
     
     @State private var isAuth = AuthenticationService.shared.status.value
     
@@ -90,6 +91,13 @@ struct AppContainer: View {
                                     GTExercisesView(viewModel: grammarExercisesViewModel)
                                         .onAppear {
                                             grammarExercisesViewModel.output.exercises = exercises
+                                        }
+                                case .pushCheckedQuestion(let checkedAnswer, let question, let answer): 
+                                    ExQuestionCheckView(viewModel: checkedQuestionViewModel)
+                                        .onAppear {
+                                            checkedQuestionViewModel.output.checkedAnswer = checkedAnswer
+                                            checkedQuestionViewModel.output.answer = answer
+                                            checkedQuestionViewModel.output.question = question
                                         }
                                 }
                             }

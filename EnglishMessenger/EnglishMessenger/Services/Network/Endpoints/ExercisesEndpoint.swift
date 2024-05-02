@@ -10,6 +10,8 @@ import Moya
 
 enum ExercisesEndpoint {
     case getSentences(String)
+    case getQuestion
+    case sendAnswer(String, String)
 }
 
 extension ExercisesEndpoint: TargetType {
@@ -21,6 +23,10 @@ extension ExercisesEndpoint: TargetType {
         switch self {
         case .getSentences:
             return "/get_sentence_exercise"
+        case .getQuestion:
+            return "/get_question"
+        case .sendAnswer:
+            return "/send_answer"
         }
     }
     
@@ -32,6 +38,13 @@ extension ExercisesEndpoint: TargetType {
         switch self {
         case .getSentences(let topic):
             return .requestParameters(parameters: ["topic": topic], encoding: URLEncoding.queryString)
+        case .getQuestion:
+            let level = UserDefaults.standard.string(forKey: "languageLevel")
+            print("level = \(level ?? " empty level")")
+            return .requestParameters(parameters: ["level": level ?? "B1"], encoding: URLEncoding.queryString)
+        case .sendAnswer(let question, let answer):
+            return .requestParameters(parameters: ["question": question, "answer": answer],
+                                      encoding: URLEncoding.queryString)
         }
     }
     
