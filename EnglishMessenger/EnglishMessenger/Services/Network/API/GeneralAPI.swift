@@ -499,4 +499,40 @@ extension GeneralApi {
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }
+    
+    func getTranslation(topic: String) -> AnyPublisher<String, ErrorAPI> {
+        providerExercisesEndpoint.requestPublisher(.getTranslationExercise(topic))
+            .filterSuccessfulStatusCodes()
+            .map(String.self)
+            .map { string in
+                string
+            }
+            .mapError { error in
+                if error.response?.statusCode == 404 {
+                    return ErrorAPI.notFound
+                } else {
+                    return ErrorAPI.network
+                }
+            }
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+    }
+    
+    func sendTranslation(text: String, translation: String) -> AnyPublisher<LocalTranslation, ErrorAPI> {
+        providerExercisesEndpoint.requestPublisher(.sendTranslationExercise(text, translation))
+            .filterSuccessfulStatusCodes()
+            .map(ServerTranslation.self)
+            .map { serverTranslation in
+                ExerciseTranslationModelMapper().toLocal(serverEntity: serverTranslation)
+            }
+            .mapError { error in
+                if error.response?.statusCode == 404 {
+                    return ErrorAPI.notFound
+                } else {
+                    return ErrorAPI.network
+                }
+            }
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+    }
 }

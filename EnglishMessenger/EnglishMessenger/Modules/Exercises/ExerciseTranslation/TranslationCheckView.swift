@@ -1,5 +1,5 @@
 //
-//  ExQuestionCheckView.swift
+//  TranslationCheckView.swift
 //  EnglishMessenger
 //
 //  Created by Данила on 02.05.2024.
@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct ExQuestionCheckView: View {
+struct TranslationCheckView: View {
     @EnvironmentObject var router: MainNavigationRouter
-    @StateObject var viewModel: ExQuestionCheckViewModel
+    @StateObject var viewModel: TranslationCheckViewModel
     
     var body: some View {
         Color.mainPurple
@@ -20,17 +20,17 @@ struct ExQuestionCheckView: View {
     }
 }
 
-extension ExQuestionCheckView {
+extension TranslationCheckView {
     @ViewBuilder
     func content() -> some View {
         VStack {
             ScrollView(showsIndicators: false) {
                 VStack(spacing: 20) {
-                    info(title: "Вопрос", description: viewModel.output.question)
-                    info(title: "Твой ответ", description: viewModel.output.answer)
-                    if let checkedAnswer = viewModel.output.checkedAnswer {
-                        info(title: "Исправленный ответ", description: checkedAnswer.correctedAnswer)
-                        infoExplanation(explanation: checkedAnswer.explanation)
+                    info(title: "Текст", description: viewModel.output.text)
+                    info(title: "Твой ответ", description: viewModel.output.translation)
+                    if let checkedTranslation = viewModel.output.checkedTranslation {
+                        info(title: "Исправленный перевод", description: checkedTranslation.correctedText)
+                        infoExplanation(explanation: checkedTranslation.explanations)
                     }
                 }
             }

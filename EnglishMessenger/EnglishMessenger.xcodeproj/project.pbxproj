@@ -89,6 +89,13 @@
 		834B86A62BE3A4B400D8917F /* ExerciseQuestionModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834B86A52BE3A4B400D8917F /* ExerciseQuestionModelMapper.swift */; };
 		834B86A82BE3A96800D8917F /* ExQuestionCheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834B86A72BE3A96800D8917F /* ExQuestionCheckView.swift */; };
 		834B86AA2BE3AB1400D8917F /* ExQuestionCheckViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834B86A92BE3AB1400D8917F /* ExQuestionCheckViewModel.swift */; };
+		834B86AC2BE3F0FA00D8917F /* ServerTranslation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834B86AB2BE3F0FA00D8917F /* ServerTranslation.swift */; };
+		834B86AE2BE3F11B00D8917F /* LocalTranslation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834B86AD2BE3F11B00D8917F /* LocalTranslation.swift */; };
+		834B86B02BE3F13E00D8917F /* ExerciseTranslationModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834B86AF2BE3F13E00D8917F /* ExerciseTranslationModelMapper.swift */; };
+		834B86B22BE3F35100D8917F /* TranslationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834B86B12BE3F35100D8917F /* TranslationView.swift */; };
+		834B86B42BE3F3AE00D8917F /* TranslationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834B86B32BE3F3AE00D8917F /* TranslationViewModel.swift */; };
+		834B86B62BE3F7BD00D8917F /* TranslationCheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834B86B52BE3F7BD00D8917F /* TranslationCheckView.swift */; };
+		834B86B82BE3FA2500D8917F /* TranslationCheckViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834B86B72BE3FA2500D8917F /* TranslationCheckViewModel.swift */; };
 		83505CEE2B91E177005FD7DC /* Alice-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 83505CEC2B91E177005FD7DC /* Alice-Regular.ttf */; };
 		83505CEF2B91E177005FD7DC /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 83505CED2B91E177005FD7DC /* OFL.txt */; };
 		83505CF22B91FF97005FD7DC /* TitleTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83505CF12B91FF97005FD7DC /* TitleTextView.swift */; };
@@ -253,6 +260,13 @@
 		834B86A52BE3A4B400D8917F /* ExerciseQuestionModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseQuestionModelMapper.swift; sourceTree = "<group>"; };
 		834B86A72BE3A96800D8917F /* ExQuestionCheckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExQuestionCheckView.swift; sourceTree = "<group>"; };
 		834B86A92BE3AB1400D8917F /* ExQuestionCheckViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExQuestionCheckViewModel.swift; sourceTree = "<group>"; };
+		834B86AB2BE3F0FA00D8917F /* ServerTranslation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerTranslation.swift; sourceTree = "<group>"; };
+		834B86AD2BE3F11B00D8917F /* LocalTranslation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalTranslation.swift; sourceTree = "<group>"; };
+		834B86AF2BE3F13E00D8917F /* ExerciseTranslationModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTranslationModelMapper.swift; sourceTree = "<group>"; };
+		834B86B12BE3F35100D8917F /* TranslationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationView.swift; sourceTree = "<group>"; };
+		834B86B32BE3F3AE00D8917F /* TranslationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationViewModel.swift; sourceTree = "<group>"; };
+		834B86B52BE3F7BD00D8917F /* TranslationCheckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationCheckView.swift; sourceTree = "<group>"; };
+		834B86B72BE3FA2500D8917F /* TranslationCheckViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationCheckViewModel.swift; sourceTree = "<group>"; };
 		83505CEC2B91E177005FD7DC /* Alice-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Alice-Regular.ttf"; sourceTree = "<group>"; };
 		83505CED2B91E177005FD7DC /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
 		83505CF02B91F722005FD7DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -471,6 +485,7 @@
 				8378A7892BDEC8560090942B /* TheoryModelMapper.swift */,
 				834B86952BE2C6C300D8917F /* ExerciseTrainingModelMapper.swift */,
 				834B86A52BE3A4B400D8917F /* ExerciseQuestionModelMapper.swift */,
+				834B86AF2BE3F13E00D8917F /* ExerciseTranslationModelMapper.swift */,
 			);
 			path = Mappers;
 			sourceTree = "<group>";
@@ -490,6 +505,7 @@
 				8378A7852BDEC6670090942B /* ServerTheory.swift */,
 				834B86912BE2C65F00D8917F /* ServerTraining.swift */,
 				834B86A12BE3A3FE00D8917F /* ServerQuestion.swift */,
+				834B86AB2BE3F0FA00D8917F /* ServerTranslation.swift */,
 			);
 			path = ServerModel;
 			sourceTree = "<group>";
@@ -511,6 +527,7 @@
 				8378A7872BDEC8170090942B /* LocalTheory.swift */,
 				834B86932BE2C68C00D8917F /* LocalTraining.swift */,
 				834B86A32BE3A48100D8917F /* LocalQuestion.swift */,
+				834B86AD2BE3F11B00D8917F /* LocalTranslation.swift */,
 			);
 			path = LocalModel;
 			sourceTree = "<group>";
@@ -723,6 +740,10 @@
 			children = (
 				834B86882BE2A74200D8917F /* ExerciseTranslationView.swift */,
 				834B868F2BE2C27800D8917F /* ExerciseTranslationViewModel.swift */,
+				834B86B12BE3F35100D8917F /* TranslationView.swift */,
+				834B86B32BE3F3AE00D8917F /* TranslationViewModel.swift */,
+				834B86B52BE3F7BD00D8917F /* TranslationCheckView.swift */,
+				834B86B72BE3FA2500D8917F /* TranslationCheckViewModel.swift */,
 			);
 			path = ExerciseTranslation;
 			sourceTree = "<group>";
@@ -1210,9 +1231,11 @@
 				83505D1D2B923673005FD7DC /* OnboardingNavigationView.swift in Sources */,
 				8331F8422B95FD2300058CEC /* ServerTest.swift in Sources */,
 				834B86A02BE3949300D8917F /* ExerciseQuestionViewModel.swift in Sources */,
+				834B86B62BE3F7BD00D8917F /* TranslationCheckView.swift in Sources */,
 				838AF03A2BBD4323002FDA88 /* LocalInterests.swift in Sources */,
 				832F0C5E2BD9288500E8468D /* CardsEndpoint.swift in Sources */,
 				8378A78A2BDEC8560090942B /* TheoryModelMapper.swift in Sources */,
+				834B86B02BE3F13E00D8917F /* ExerciseTranslationModelMapper.swift in Sources */,
 				83505D262B9268A0005FD7DC /* OnboardingViewModel.swift in Sources */,
 				8378A7862BDEC6670090942B /* ServerTheory.swift in Sources */,
 				83A1F7D92BD10B3300488032 /* ChatsSearcherFieldStyle.swift in Sources */,
@@ -1222,12 +1245,14 @@
 				831AE0722B80DFCA00C5B6AF /* Provider.swift in Sources */,
 				8334B75F2B9E02050087716F /* OnboardingEndpoint.swift in Sources */,
 				834B86832BE2570300D8917F /* GrammarTrainingView.swift in Sources */,
+				834B86B82BE3FA2500D8917F /* TranslationCheckViewModel.swift in Sources */,
 				834B86A62BE3A4B400D8917F /* ExerciseQuestionModelMapper.swift in Sources */,
 				834B868C2BE2BBE600D8917F /* GifImage.swift in Sources */,
 				834B86902BE2C27800D8917F /* ExerciseTranslationViewModel.swift in Sources */,
 				83103EDE2B7F9DA900932A96 /* RegistrationViewModel.swift in Sources */,
 				8378A7822BDEC2950090942B /* TheoryMainView.swift in Sources */,
 				834B86862BE2A5AC00D8917F /* ExerciseQuestionView.swift in Sources */,
+				834B86AE2BE3F11B00D8917F /* LocalTranslation.swift in Sources */,
 				83103ED62B7F993F00932A96 /* StartViewModel.swift in Sources */,
 				834B86982BE2C70700D8917F /* ExercisesEndpoint.swift in Sources */,
 				83B3D5E52BCE97F200B62413 /* MessagesEndpoint.swift in Sources */,
@@ -1251,6 +1276,7 @@
 				83BD01F02B936ABB0059AB53 /* BackButtonView.swift in Sources */,
 				83103EC42B7F5EC600932A96 /* Colors.swift in Sources */,
 				834B86942BE2C68C00D8917F /* LocalTraining.swift in Sources */,
+				834B86B22BE3F35100D8917F /* TranslationView.swift in Sources */,
 				83524D372BCD594400F86E2C /* ChatsStartView.swift in Sources */,
 				8374B2132BDA763200078DD0 /* CreateCard.swift in Sources */,
 				831AE0682B80CAC300C5B6AF /* ProfileViewModel.swift in Sources */,
@@ -1260,6 +1286,7 @@
 				83524D312BCD506900F86E2C /* SocketService.swift in Sources */,
 				834B86A82BE3A96800D8917F /* ExQuestionCheckView.swift in Sources */,
 				834B869A2BE2C7FD00D8917F /* GrammarTrainingViewModel.swift in Sources */,
+				834B86B42BE3F3AE00D8917F /* TranslationViewModel.swift in Sources */,
 				8356A2A92BD6EE4E00B89B79 /* CardsSetsView.swift in Sources */,
 				83505D1B2B922FE3005FD7DC /* CustomTextField.swift in Sources */,
 				83C2B3182B94EE9C00B69E69 /* PurpleButtonView.swift in Sources */,
@@ -1295,6 +1322,7 @@
 				83BD01F62B936B620059AB53 /* TestProgressView.swift in Sources */,
 				83B3D5E72BCE996A00B62413 /* MessagesModelMapper.swift in Sources */,
 				838AF0382BBD42D8002FDA88 /* ServerInterests.swift in Sources */,
+				834B86AC2BE3F0FA00D8917F /* ServerTranslation.swift in Sources */,
 				8331F8482B96014B00058CEC /* TestEndpoint.swift in Sources */,
 				8334B75D2B9DFFA80087716F /* Onboarding.swift in Sources */,
 				83524D402BCD663800F86E2C /* MainNavigationRouter.swift in Sources */,

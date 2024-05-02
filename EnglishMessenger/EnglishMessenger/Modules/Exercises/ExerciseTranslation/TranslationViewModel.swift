@@ -1,14 +1,14 @@
 //
-//  ExerciseTranslationViewModel.swift
+//  TranslationViewModel.swift
 //  EnglishMessenger
 //
-//  Created by Данила on 01.05.2024.
+//  Created by Данила on 02.05.2024.
 //
 
 import Foundation
 import Combine
 
-class ExerciseTranslationViewModel: ObservableObject {
+class TranslationViewModel: ObservableObject {
     let input: Input = Input()
     @Published var output: Output = Output()
     var cancellable = Set<AnyCancellable>()
@@ -20,15 +20,16 @@ class ExerciseTranslationViewModel: ObservableObject {
     }
 }
 
-extension ExerciseTranslationViewModel {
+extension TranslationViewModel {
     func bind() {
-       generateText()
+        checkTranslation()
     }
     
-    func generateText() {
-        let request = input.generateTextSubject
+    func checkTranslation() {
+        let request = input.checkTranslation
             .map { [unowned self] in
-                return self.apiService.getTranslation(topic: self.output.topic)
+                return self.apiService.sendTranslation(text: self.output.text,
+                                                       translation: self.output.translation)
                     .materialize()
             }
             .switchToLatest()
@@ -43,29 +44,28 @@ extension ExerciseTranslationViewModel {
         
         request
             .values()
-            .sink { [unowned self] text in
-                self.output.text = text
-                self.output.isGenerated = true
+            .sink { [unowned self] checkedTranslation in
+                self.output.checkedTranslation = checkedTranslation
                 self.output.state = .view
             }
             .store(in: &cancellable)
     }
 }
 
-extension ExerciseTranslationViewModel {
+extension TranslationViewModel {
     struct Input {
-        let generateTextSubject = PassthroughSubject<Void, Never>()
+        let checkTranslation = PassthroughSubject<Void, Never>()
     }
     
     struct Output {
-        var state: ViewState = .view
-        var topic: String = ""
         var text: String = ""
-        var isGenerated: Bool = false
+        var translation: String = ""
+        var state: ViewState = .view
+        var checkedTranslation: LocalTranslation?
     }
     
     enum ViewState {
-        case view
         case loader
+        case view
     }
 }

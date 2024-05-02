@@ -10,12 +10,18 @@ import SwiftUI
 struct ExerciseTranslationView: View {
     @EnvironmentObject var router: MainNavigationRouter
     @StateObject private var viewModel: ExerciseTranslationViewModel = ExerciseTranslationViewModel()
-    @State private var theme: String = ""
+    
     var body: some View {
         Color.profilePinky
             .ignoresSafeArea()
             .overlay {
                 content()
+            }
+            .onChange(of: viewModel.output.isGenerated) { oldValue, newValue in
+                if newValue == true {
+                    router.pushView(MainNavigation.pushTranslationView(viewModel.output.text))
+                    viewModel.output.isGenerated.toggle()
+                }
             }
     }
 }
@@ -25,21 +31,21 @@ extension ExerciseTranslationView {
     func content() -> some View {
         VStack {
             customToolBar()
-            switch viewModel.output.viewState {
+            switch viewModel.output.state {
             case .loader:
                 Spacer()
-//                GifImage(name: "tenor")
-//                    .frame(width: 250, height: 250)
-//                    .cornerRadius(125)
-//                    .background(
-//                        Circle()
-//                            .stroke(style: StrokeStyle(lineWidth: 2))
-//                            .foregroundColor(.mainPurple)
-//                    )
+                GifImage(name: "pedro")
+                    .frame(width: 250, height: 250)
+                    .cornerRadius(125)
+                    .background(
+                        Circle()
+                            .stroke(style: StrokeStyle(lineWidth: 2))
+                            .foregroundColor(.mainPurple)
+                    )
                 Spacer()
             case .view:
                 Spacer()
-                TextField("Введи интересующую тебя тему...", text: $theme)
+                TextField("Введи интересующую тебя тему текста...", text: $viewModel.output.topic)
                     .foregroundColor(.mainPurple)
                     .font(.custom("Montserrat-Light", size: 20))
                     .multilineTextAlignment(.center)
@@ -75,7 +81,8 @@ extension ExerciseTranslationView {
     @ViewBuilder
     func generateButton() -> some View {
         Button {
-            
+            viewModel.output.state = .loader
+            viewModel.input.generateTextSubject.send()
         } label: {
             VStack {
                 Text("Сгенерировать текст")

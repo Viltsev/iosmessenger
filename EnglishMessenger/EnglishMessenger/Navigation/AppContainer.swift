@@ -19,6 +19,8 @@ struct AppContainer: View {
     @StateObject private var theoryCardViewModel: TheoryCardViewModel = TheoryCardViewModel()
     @StateObject private var grammarExercisesViewModel: GTExercisesViewModel = GTExercisesViewModel()
     @StateObject private var checkedQuestionViewModel: ExQuestionCheckViewModel = ExQuestionCheckViewModel()
+    @StateObject private var translationViewModel: TranslationViewModel = TranslationViewModel()
+    @StateObject private var transaltionCheckViewModel: TranslationCheckViewModel = TranslationCheckViewModel()
     
     @State private var isAuth = AuthenticationService.shared.status.value
     
@@ -98,6 +100,18 @@ struct AppContainer: View {
                                             checkedQuestionViewModel.output.checkedAnswer = checkedAnswer
                                             checkedQuestionViewModel.output.answer = answer
                                             checkedQuestionViewModel.output.question = question
+                                        }
+                                case .pushTranslationView(let text):
+                                    TranslationView(viewModel: translationViewModel)
+                                        .onAppear {
+                                            translationViewModel.output.text = text
+                                        }
+                                case .pushTranslationCheckView(let checkedTranslation, let text, let translation):
+                                    TranslationCheckView(viewModel: transaltionCheckViewModel)
+                                        .onAppear {
+                                            transaltionCheckViewModel.output.text = text
+                                            transaltionCheckViewModel.output.translation = translation
+                                            transaltionCheckViewModel.output.checkedTranslation = checkedTranslation
                                         }
                                 }
                             }
