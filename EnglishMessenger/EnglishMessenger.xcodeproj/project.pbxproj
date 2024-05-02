@@ -69,6 +69,33 @@
 		833FF9B72BA1E9490032827B /* KeyChainStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833FF9B62BA1E9490032827B /* KeyChainStorage.swift */; };
 		833FF9B92BA1ED020032827B /* FormatDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833FF9B82BA1ED020032827B /* FormatDate.swift */; };
 		83454FBC2B95B611006E608E /* TestingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83454FBB2B95B611006E608E /* TestingViewModel.swift */; };
+		834B86802BE2531300D8917F /* ExerciseMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834B867F2BE2531300D8917F /* ExerciseMainView.swift */; };
+		834B86832BE2570300D8917F /* GrammarTrainingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834B86822BE2570300D8917F /* GrammarTrainingView.swift */; };
+		834B86862BE2A5AC00D8917F /* ExerciseQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834B86852BE2A5AC00D8917F /* ExerciseQuestionView.swift */; };
+		834B86892BE2A74200D8917F /* ExerciseTranslationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834B86882BE2A74200D8917F /* ExerciseTranslationView.swift */; };
+		834B868C2BE2BBE600D8917F /* GifImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834B868B2BE2BBE600D8917F /* GifImage.swift */; };
+		834B868E2BE2C0A500D8917F /* pedro.gif in Resources */ = {isa = PBXBuildFile; fileRef = 834B868D2BE2C0A500D8917F /* pedro.gif */; };
+		834B86902BE2C27800D8917F /* ExerciseTranslationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834B868F2BE2C27800D8917F /* ExerciseTranslationViewModel.swift */; };
+		834B86922BE2C65F00D8917F /* ServerTraining.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834B86912BE2C65F00D8917F /* ServerTraining.swift */; };
+		834B86942BE2C68C00D8917F /* LocalTraining.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834B86932BE2C68C00D8917F /* LocalTraining.swift */; };
+		834B86962BE2C6C300D8917F /* ExerciseTrainingModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834B86952BE2C6C300D8917F /* ExerciseTrainingModelMapper.swift */; };
+		834B86982BE2C70700D8917F /* ExercisesEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834B86972BE2C70700D8917F /* ExercisesEndpoint.swift */; };
+		834B869A2BE2C7FD00D8917F /* GrammarTrainingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834B86992BE2C7FD00D8917F /* GrammarTrainingViewModel.swift */; };
+		834B869C2BE378C400D8917F /* GTExercisesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834B869B2BE378C400D8917F /* GTExercisesView.swift */; };
+		834B869E2BE37C6E00D8917F /* GTExercisesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834B869D2BE37C6E00D8917F /* GTExercisesViewModel.swift */; };
+		834B86A02BE3949300D8917F /* ExerciseQuestionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834B869F2BE3949300D8917F /* ExerciseQuestionViewModel.swift */; };
+		834B86A22BE3A3FE00D8917F /* ServerQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834B86A12BE3A3FE00D8917F /* ServerQuestion.swift */; };
+		834B86A42BE3A48100D8917F /* LocalQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834B86A32BE3A48100D8917F /* LocalQuestion.swift */; };
+		834B86A62BE3A4B400D8917F /* ExerciseQuestionModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834B86A52BE3A4B400D8917F /* ExerciseQuestionModelMapper.swift */; };
+		834B86A82BE3A96800D8917F /* ExQuestionCheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834B86A72BE3A96800D8917F /* ExQuestionCheckView.swift */; };
+		834B86AA2BE3AB1400D8917F /* ExQuestionCheckViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834B86A92BE3AB1400D8917F /* ExQuestionCheckViewModel.swift */; };
+		834B86AC2BE3F0FA00D8917F /* ServerTranslation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834B86AB2BE3F0FA00D8917F /* ServerTranslation.swift */; };
+		834B86AE2BE3F11B00D8917F /* LocalTranslation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834B86AD2BE3F11B00D8917F /* LocalTranslation.swift */; };
+		834B86B02BE3F13E00D8917F /* ExerciseTranslationModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834B86AF2BE3F13E00D8917F /* ExerciseTranslationModelMapper.swift */; };
+		834B86B22BE3F35100D8917F /* TranslationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834B86B12BE3F35100D8917F /* TranslationView.swift */; };
+		834B86B42BE3F3AE00D8917F /* TranslationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834B86B32BE3F3AE00D8917F /* TranslationViewModel.swift */; };
+		834B86B62BE3F7BD00D8917F /* TranslationCheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834B86B52BE3F7BD00D8917F /* TranslationCheckView.swift */; };
+		834B86B82BE3FA2500D8917F /* TranslationCheckViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834B86B72BE3FA2500D8917F /* TranslationCheckViewModel.swift */; };
 		83505CEE2B91E177005FD7DC /* Alice-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 83505CEC2B91E177005FD7DC /* Alice-Regular.ttf */; };
 		83505CEF2B91E177005FD7DC /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 83505CED2B91E177005FD7DC /* OFL.txt */; };
 		83505CF22B91FF97005FD7DC /* TitleTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83505CF12B91FF97005FD7DC /* TitleTextView.swift */; };
@@ -213,6 +240,33 @@
 		833FF9B62BA1E9490032827B /* KeyChainStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainStorage.swift; sourceTree = "<group>"; };
 		833FF9B82BA1ED020032827B /* FormatDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatDate.swift; sourceTree = "<group>"; };
 		83454FBB2B95B611006E608E /* TestingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingViewModel.swift; sourceTree = "<group>"; };
+		834B867F2BE2531300D8917F /* ExerciseMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseMainView.swift; sourceTree = "<group>"; };
+		834B86822BE2570300D8917F /* GrammarTrainingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrammarTrainingView.swift; sourceTree = "<group>"; };
+		834B86852BE2A5AC00D8917F /* ExerciseQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseQuestionView.swift; sourceTree = "<group>"; };
+		834B86882BE2A74200D8917F /* ExerciseTranslationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTranslationView.swift; sourceTree = "<group>"; };
+		834B868B2BE2BBE600D8917F /* GifImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifImage.swift; sourceTree = "<group>"; };
+		834B868D2BE2C0A500D8917F /* pedro.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = pedro.gif; sourceTree = "<group>"; };
+		834B868F2BE2C27800D8917F /* ExerciseTranslationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTranslationViewModel.swift; sourceTree = "<group>"; };
+		834B86912BE2C65F00D8917F /* ServerTraining.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerTraining.swift; sourceTree = "<group>"; };
+		834B86932BE2C68C00D8917F /* LocalTraining.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalTraining.swift; sourceTree = "<group>"; };
+		834B86952BE2C6C300D8917F /* ExerciseTrainingModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTrainingModelMapper.swift; sourceTree = "<group>"; };
+		834B86972BE2C70700D8917F /* ExercisesEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesEndpoint.swift; sourceTree = "<group>"; };
+		834B86992BE2C7FD00D8917F /* GrammarTrainingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrammarTrainingViewModel.swift; sourceTree = "<group>"; };
+		834B869B2BE378C400D8917F /* GTExercisesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GTExercisesView.swift; sourceTree = "<group>"; };
+		834B869D2BE37C6E00D8917F /* GTExercisesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GTExercisesViewModel.swift; sourceTree = "<group>"; };
+		834B869F2BE3949300D8917F /* ExerciseQuestionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseQuestionViewModel.swift; sourceTree = "<group>"; };
+		834B86A12BE3A3FE00D8917F /* ServerQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerQuestion.swift; sourceTree = "<group>"; };
+		834B86A32BE3A48100D8917F /* LocalQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalQuestion.swift; sourceTree = "<group>"; };
+		834B86A52BE3A4B400D8917F /* ExerciseQuestionModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseQuestionModelMapper.swift; sourceTree = "<group>"; };
+		834B86A72BE3A96800D8917F /* ExQuestionCheckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExQuestionCheckView.swift; sourceTree = "<group>"; };
+		834B86A92BE3AB1400D8917F /* ExQuestionCheckViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExQuestionCheckViewModel.swift; sourceTree = "<group>"; };
+		834B86AB2BE3F0FA00D8917F /* ServerTranslation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerTranslation.swift; sourceTree = "<group>"; };
+		834B86AD2BE3F11B00D8917F /* LocalTranslation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalTranslation.swift; sourceTree = "<group>"; };
+		834B86AF2BE3F13E00D8917F /* ExerciseTranslationModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTranslationModelMapper.swift; sourceTree = "<group>"; };
+		834B86B12BE3F35100D8917F /* TranslationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationView.swift; sourceTree = "<group>"; };
+		834B86B32BE3F3AE00D8917F /* TranslationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationViewModel.swift; sourceTree = "<group>"; };
+		834B86B52BE3F7BD00D8917F /* TranslationCheckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationCheckView.swift; sourceTree = "<group>"; };
+		834B86B72BE3FA2500D8917F /* TranslationCheckViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationCheckViewModel.swift; sourceTree = "<group>"; };
 		83505CEC2B91E177005FD7DC /* Alice-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Alice-Regular.ttf"; sourceTree = "<group>"; };
 		83505CED2B91E177005FD7DC /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
 		83505CF02B91F722005FD7DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -386,6 +440,7 @@
 		83103EBE2B7F5E0400932A96 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				834B868D2BE2C0A500D8917F /* pedro.gif */,
 				83505CF52B922948005FD7DC /* monteserrat */,
 				83505CEB2B91E177005FD7DC /* Alice */,
 				83103EB32B7F574700932A96 /* Assets.xcassets */,
@@ -428,6 +483,9 @@
 				832F0C632BD92A0500E8468D /* CardModelMapper.swift */,
 				832F0C6D2BD99CCE00E8468D /* CardSetModelMapper.swift */,
 				8378A7892BDEC8560090942B /* TheoryModelMapper.swift */,
+				834B86952BE2C6C300D8917F /* ExerciseTrainingModelMapper.swift */,
+				834B86A52BE3A4B400D8917F /* ExerciseQuestionModelMapper.swift */,
+				834B86AF2BE3F13E00D8917F /* ExerciseTranslationModelMapper.swift */,
 			);
 			path = Mappers;
 			sourceTree = "<group>";
@@ -445,6 +503,9 @@
 				8374B2102BDA5C0B00078DD0 /* CreateSet.swift */,
 				8374B2122BDA763200078DD0 /* CreateCard.swift */,
 				8378A7852BDEC6670090942B /* ServerTheory.swift */,
+				834B86912BE2C65F00D8917F /* ServerTraining.swift */,
+				834B86A12BE3A3FE00D8917F /* ServerQuestion.swift */,
+				834B86AB2BE3F0FA00D8917F /* ServerTranslation.swift */,
 			);
 			path = ServerModel;
 			sourceTree = "<group>";
@@ -464,6 +525,9 @@
 				832F0C612BD9296E00E8468D /* LocalCard.swift */,
 				832F0C6B2BD99CA000E8468D /* LocalCardSet.swift */,
 				8378A7872BDEC8170090942B /* LocalTheory.swift */,
+				834B86932BE2C68C00D8917F /* LocalTraining.swift */,
+				834B86A32BE3A48100D8917F /* LocalQuestion.swift */,
+				834B86AD2BE3F11B00D8917F /* LocalTranslation.swift */,
 			);
 			path = LocalModel;
 			sourceTree = "<group>";
@@ -492,6 +556,7 @@
 		83103ECC2B7F601700932A96 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				834B867C2BE252AD00D8917F /* Exercises */,
 				8378A77F2BDEC26B0090942B /* Theory */,
 				8356A2A12BD6CC0B00B89B79 /* Cards */,
 				8356A29E2BD6C1C400B89B79 /* Education */,
@@ -519,6 +584,7 @@
 		83103ED22B7F93E700932A96 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				834B868A2BE2BBCC00D8917F /* Gif */,
 				83BD01F42B936B440059AB53 /* TapBar */,
 				83BD01F32B936B330059AB53 /* TextFields */,
 				83BD01F22B936B280059AB53 /* Texts */,
@@ -588,6 +654,7 @@
 				83C8F6B92BD29C6B00FEBE79 /* GenerateDialogEndpoint.swift */,
 				832F0C5D2BD9288500E8468D /* CardsEndpoint.swift */,
 				8378A7832BDEC5F40090942B /* TheoryEndpoint.swift */,
+				834B86972BE2C70700D8917F /* ExercisesEndpoint.swift */,
 			);
 			path = Endpoints;
 			sourceTree = "<group>";
@@ -625,6 +692,68 @@
 				83B035E92BD001C4005C02BA /* ChatsStorage.swift */,
 			);
 			path = Storeges;
+			sourceTree = "<group>";
+		};
+		834B867C2BE252AD00D8917F /* Exercises */ = {
+			isa = PBXGroup;
+			children = (
+				834B86872BE2A71200D8917F /* ExerciseTranslation */,
+				834B86842BE2A59500D8917F /* ExerciseQuestion */,
+				834B86812BE256CD00D8917F /* ExerciseTraining */,
+				834B867D2BE252DA00D8917F /* ExerciseMain */,
+			);
+			path = Exercises;
+			sourceTree = "<group>";
+		};
+		834B867D2BE252DA00D8917F /* ExerciseMain */ = {
+			isa = PBXGroup;
+			children = (
+				834B867F2BE2531300D8917F /* ExerciseMainView.swift */,
+			);
+			path = ExerciseMain;
+			sourceTree = "<group>";
+		};
+		834B86812BE256CD00D8917F /* ExerciseTraining */ = {
+			isa = PBXGroup;
+			children = (
+				834B86822BE2570300D8917F /* GrammarTrainingView.swift */,
+				834B86992BE2C7FD00D8917F /* GrammarTrainingViewModel.swift */,
+				834B869B2BE378C400D8917F /* GTExercisesView.swift */,
+				834B869D2BE37C6E00D8917F /* GTExercisesViewModel.swift */,
+			);
+			path = ExerciseTraining;
+			sourceTree = "<group>";
+		};
+		834B86842BE2A59500D8917F /* ExerciseQuestion */ = {
+			isa = PBXGroup;
+			children = (
+				834B86852BE2A5AC00D8917F /* ExerciseQuestionView.swift */,
+				834B869F2BE3949300D8917F /* ExerciseQuestionViewModel.swift */,
+				834B86A72BE3A96800D8917F /* ExQuestionCheckView.swift */,
+				834B86A92BE3AB1400D8917F /* ExQuestionCheckViewModel.swift */,
+			);
+			path = ExerciseQuestion;
+			sourceTree = "<group>";
+		};
+		834B86872BE2A71200D8917F /* ExerciseTranslation */ = {
+			isa = PBXGroup;
+			children = (
+				834B86882BE2A74200D8917F /* ExerciseTranslationView.swift */,
+				834B868F2BE2C27800D8917F /* ExerciseTranslationViewModel.swift */,
+				834B86B12BE3F35100D8917F /* TranslationView.swift */,
+				834B86B32BE3F3AE00D8917F /* TranslationViewModel.swift */,
+				834B86B52BE3F7BD00D8917F /* TranslationCheckView.swift */,
+				834B86B72BE3FA2500D8917F /* TranslationCheckViewModel.swift */,
+			);
+			path = ExerciseTranslation;
+			sourceTree = "<group>";
+		};
+		834B868A2BE2BBCC00D8917F /* Gif */ = {
+			isa = PBXGroup;
+			children = (
+				834B868B2BE2BBE600D8917F /* GifImage.swift */,
+			);
+			path = Gif;
 			sourceTree = "<group>";
 		};
 		83505CEB2B91E177005FD7DC /* Alice */ = {
@@ -1004,6 +1133,7 @@
 				83505D102B922948005FD7DC /* Montserrat-MediumItalic.ttf in Resources */,
 				83505D112B922948005FD7DC /* Montserrat-BlackItalic.ttf in Resources */,
 				83103EB72B7F574700932A96 /* Preview Assets.xcassets in Resources */,
+				834B868E2BE2C0A500D8917F /* pedro.gif in Resources */,
 				83505D0B2B922948005FD7DC /* Montserrat-Light.ttf in Resources */,
 				83505D172B922948005FD7DC /* Montserrat-Italic.ttf in Resources */,
 				83505D192B922948005FD7DC /* Montserrat-ExtraBoldItalic.ttf in Resources */,
@@ -1075,6 +1205,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				832F0C662BD92C8B00E8468D /* CardsLearningViewModel.swift in Sources */,
+				834B86A22BE3A3FE00D8917F /* ServerQuestion.swift in Sources */,
 				83A1F7DF2BD1102200488032 /* GrammarModelMapper.swift in Sources */,
 				83B035EE2BD04147005C02BA /* ChatsViewModel.swift in Sources */,
 				83B035E52BCFD07E005C02BA /* SearchChatView.swift in Sources */,
@@ -1084,10 +1215,12 @@
 				831AE0842B80F55000C5B6AF /* ErrorAPI.swift in Sources */,
 				8378A78F2BDED0D10090942B /* TheoryTopicsView.swift in Sources */,
 				83A40A8C2B9889AA003A284E /* HomeView.swift in Sources */,
+				834B86922BE2C65F00D8917F /* ServerTraining.swift in Sources */,
 				832F0C602BD9292C00E8468D /* ServerCard.swift in Sources */,
 				831AE06D2B80D87500C5B6AF /* BaseModelMapper.swift in Sources */,
 				83B035E82BCFE290005C02BA /* CurrentScreen.swift in Sources */,
 				831AE08B2B80F8B900C5B6AF /* UserAuthorization.swift in Sources */,
+				834B86AA2BE3AB1400D8917F /* ExQuestionCheckViewModel.swift in Sources */,
 				83FC43C22BD84B9A003FA5EB /* CardsSetView.swift in Sources */,
 				838AF0412BBD6315002FDA88 /* ScaleButtonStyle.swift in Sources */,
 				83BD01EE2B93698A0059AB53 /* TestingView.swift in Sources */,
@@ -1097,9 +1230,12 @@
 				832F0C6E2BD99CCE00E8468D /* CardSetModelMapper.swift in Sources */,
 				83505D1D2B923673005FD7DC /* OnboardingNavigationView.swift in Sources */,
 				8331F8422B95FD2300058CEC /* ServerTest.swift in Sources */,
+				834B86A02BE3949300D8917F /* ExerciseQuestionViewModel.swift in Sources */,
+				834B86B62BE3F7BD00D8917F /* TranslationCheckView.swift in Sources */,
 				838AF03A2BBD4323002FDA88 /* LocalInterests.swift in Sources */,
 				832F0C5E2BD9288500E8468D /* CardsEndpoint.swift in Sources */,
 				8378A78A2BDEC8560090942B /* TheoryModelMapper.swift in Sources */,
+				834B86B02BE3F13E00D8917F /* ExerciseTranslationModelMapper.swift in Sources */,
 				83505D262B9268A0005FD7DC /* OnboardingViewModel.swift in Sources */,
 				8378A7862BDEC6670090942B /* ServerTheory.swift in Sources */,
 				83A1F7D92BD10B3300488032 /* ChatsSearcherFieldStyle.swift in Sources */,
@@ -1108,9 +1244,17 @@
 				8378A78C2BDECB740090942B /* TheoryMainViewModel.swift in Sources */,
 				831AE0722B80DFCA00C5B6AF /* Provider.swift in Sources */,
 				8334B75F2B9E02050087716F /* OnboardingEndpoint.swift in Sources */,
+				834B86832BE2570300D8917F /* GrammarTrainingView.swift in Sources */,
+				834B86B82BE3FA2500D8917F /* TranslationCheckViewModel.swift in Sources */,
+				834B86A62BE3A4B400D8917F /* ExerciseQuestionModelMapper.swift in Sources */,
+				834B868C2BE2BBE600D8917F /* GifImage.swift in Sources */,
+				834B86902BE2C27800D8917F /* ExerciseTranslationViewModel.swift in Sources */,
 				83103EDE2B7F9DA900932A96 /* RegistrationViewModel.swift in Sources */,
 				8378A7822BDEC2950090942B /* TheoryMainView.swift in Sources */,
+				834B86862BE2A5AC00D8917F /* ExerciseQuestionView.swift in Sources */,
+				834B86AE2BE3F11B00D8917F /* LocalTranslation.swift in Sources */,
 				83103ED62B7F993F00932A96 /* StartViewModel.swift in Sources */,
+				834B86982BE2C70700D8917F /* ExercisesEndpoint.swift in Sources */,
 				83B3D5E52BCE97F200B62413 /* MessagesEndpoint.swift in Sources */,
 				831AE0912B81089A00C5B6AF /* UserStorage.swift in Sources */,
 				838AF03C2BBD434B002FDA88 /* InterestsModelMapper.swift in Sources */,
@@ -1118,6 +1262,7 @@
 				83385A7C2B96FA6F007CC6FB /* TestResultsView.swift in Sources */,
 				83505D282B92782D005FD7DC /* MaskedDateTextField.swift in Sources */,
 				838AF0442BBDAE64002FDA88 /* ChatsView.swift in Sources */,
+				834B869E2BE37C6E00D8917F /* GTExercisesViewModel.swift in Sources */,
 				8374B2152BDABBE800078DD0 /* CardsSetViewModel.swift in Sources */,
 				83524D352BCD546700F86E2C /* ServerMessage.swift in Sources */,
 				8331F8462B95FE9700058CEC /* TestModelMapper.swift in Sources */,
@@ -1130,6 +1275,8 @@
 				8356A2A72BD6EAAC00B89B79 /* CardsLearningView.swift in Sources */,
 				83BD01F02B936ABB0059AB53 /* BackButtonView.swift in Sources */,
 				83103EC42B7F5EC600932A96 /* Colors.swift in Sources */,
+				834B86942BE2C68C00D8917F /* LocalTraining.swift in Sources */,
+				834B86B22BE3F35100D8917F /* TranslationView.swift in Sources */,
 				83524D372BCD594400F86E2C /* ChatsStartView.swift in Sources */,
 				8374B2132BDA763200078DD0 /* CreateCard.swift in Sources */,
 				831AE0682B80CAC300C5B6AF /* ProfileViewModel.swift in Sources */,
@@ -1137,9 +1284,13 @@
 				83103EDA2B7F9B9800932A96 /* RegistrationView.swift in Sources */,
 				83A40A8A2B9885C3003A284E /* MainTab.swift in Sources */,
 				83524D312BCD506900F86E2C /* SocketService.swift in Sources */,
+				834B86A82BE3A96800D8917F /* ExQuestionCheckView.swift in Sources */,
+				834B869A2BE2C7FD00D8917F /* GrammarTrainingViewModel.swift in Sources */,
+				834B86B42BE3F3AE00D8917F /* TranslationViewModel.swift in Sources */,
 				8356A2A92BD6EE4E00B89B79 /* CardsSetsView.swift in Sources */,
 				83505D1B2B922FE3005FD7DC /* CustomTextField.swift in Sources */,
 				83C2B3182B94EE9C00B69E69 /* PurpleButtonView.swift in Sources */,
+				834B86A42BE3A48100D8917F /* LocalQuestion.swift in Sources */,
 				832F0C6A2BD99C3400E8468D /* ServerCardSet.swift in Sources */,
 				8356A2A02BD6C1E800B89B79 /* EducationView.swift in Sources */,
 				83A1F7D72BD10ADF00488032 /* ChatsSearcherField.swift in Sources */,
@@ -1147,12 +1298,16 @@
 				83524D392BCD5A7B00F86E2C /* ChatsStartViewModel.swift in Sources */,
 				831AE0802B80E21900C5B6AF /* RegistrationEndpoint.swift in Sources */,
 				83524D3E2BCD661500F86E2C /* MainNavigation.swift in Sources */,
+				834B869C2BE378C400D8917F /* GTExercisesView.swift in Sources */,
 				8356A2A52BD6DF8600B89B79 /* CardsLearnedView.swift in Sources */,
 				83505D202B923D91005FD7DC /* OnboardingView.swift in Sources */,
+				834B86802BE2531300D8917F /* ExerciseMainView.swift in Sources */,
 				83C2B3162B94D73900B69E69 /* TestButtonView.swift in Sources */,
+				834B86962BE2C6C300D8917F /* ExerciseTrainingModelMapper.swift in Sources */,
 				83B035EA2BD001C4005C02BA /* ChatsStorage.swift in Sources */,
 				8378A7942BDEDAF20090942B /* TheoryListView.swift in Sources */,
 				8378A7992BDEE32D0090942B /* TheoryCardView.swift in Sources */,
+				834B86892BE2A74200D8917F /* ExerciseTranslationView.swift in Sources */,
 				833FF9B92BA1ED020032827B /* FormatDate.swift in Sources */,
 				83103ED12B7F924800932A96 /* StartNavigationRouter.swift in Sources */,
 				8378A7912BDED6160090942B /* TheoryTopicsViewModel.swift in Sources */,
@@ -1167,6 +1322,7 @@
 				83BD01F62B936B620059AB53 /* TestProgressView.swift in Sources */,
 				83B3D5E72BCE996A00B62413 /* MessagesModelMapper.swift in Sources */,
 				838AF0382BBD42D8002FDA88 /* ServerInterests.swift in Sources */,
+				834B86AC2BE3F0FA00D8917F /* ServerTranslation.swift in Sources */,
 				8331F8482B96014B00058CEC /* TestEndpoint.swift in Sources */,
 				8334B75D2B9DFFA80087716F /* Onboarding.swift in Sources */,
 				83524D402BCD663800F86E2C /* MainNavigationRouter.swift in Sources */,

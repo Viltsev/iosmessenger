@@ -90,6 +90,6 @@ extension EducationView {
     }
     
     func goToExercises() {
-        print("to do")
+        router.pushView(MainNavigation.pushExerciseMainView)
     }
 }

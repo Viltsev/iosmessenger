@@ -20,4 +20,12 @@ enum MainNavigation: Hashable {
     case pushTheoryListView(LocalTopic)
     case pushTheoryListViewSub(LocalSubtopicList)
     case pushTheoryCardView(LocalTheoryList)
+    case pushExerciseMainView
+    case pushExerciseTraining
+    case pushExerciseQuestion
+    case pushExerciseTranslation
+    case pushGrammarTrainExercises([LocalTraining])
+    case pushCheckedQuestion(LocalQuestion, String, String)
+    case pushTranslationView(String)
+    case pushTranslationCheckView(LocalTranslation, String, String)
 }

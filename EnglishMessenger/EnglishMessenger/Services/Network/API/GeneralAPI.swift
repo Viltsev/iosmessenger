@@ -22,6 +22,7 @@ struct GeneralApi {
     let providerGenerateDialogEndpoint = Provider<GenerateDialogEndpoint>()
     let providerCardsEndpoint = Provider<CardsEndpoint>()
     let providerTheoryEndpoint = Provider<TheoryEndpoint>()
+    let providerExercisesEndpoint = Provider<ExercisesEndpoint>()
 }
 
 extension GeneralApi {
@@ -433,6 +434,96 @@ extension GeneralApi {
             .map(ServerTheory.self)
             .map { serverTheory in
                 TheoryModelMapper().toLocal(serverEntity: serverTheory)
+            }
+            .mapError { error in
+                if error.response?.statusCode == 404 {
+                    return ErrorAPI.notFound
+                } else {
+                    return ErrorAPI.network
+                }
+            }
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+    }
+    
+    func getTrainSentences(topic: String) -> AnyPublisher<[LocalTraining], ErrorAPI> {
+        providerExercisesEndpoint.requestPublisher(.getSentences(topic))
+            .filterSuccessfulStatusCodes()
+            .map([ServerTraining].self)
+            .map { serverTraining in
+                ExerciseTrainingModelMapper().toLocal(list: serverTraining)
+            }
+            .mapError { error in
+                if error.response?.statusCode == 404 {
+                    return ErrorAPI.notFound
+                } else {
+                    return ErrorAPI.network
+                }
+            }
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+    }
+    
+    func getQuestion() -> AnyPublisher<String, ErrorAPI> {
+        providerExercisesEndpoint.requestPublisher(.getQuestion)
+            .filterSuccessfulStatusCodes()
+            .map(String.self)
+            .map { string in
+                string
+            }
+            .mapError { error in
+                if error.response?.statusCode == 404 {
+                    return ErrorAPI.notFound
+                } else {
+                    return ErrorAPI.network
+                }
+            }
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+    }
+    
+    func sendAnswer(question: String, answer: String) -> AnyPublisher<LocalQuestion, ErrorAPI> {
+        providerExercisesEndpoint.requestPublisher(.sendAnswer(question, answer))
+            .filterSuccessfulStatusCodes()
+            .map(ServerQuestion.self)
+            .map { serverQuestion in
+                ExerciseQuestionModelMapper().toLocal(serverEntity: serverQuestion)
+            }
+            .mapError { error in
+                if error.response?.statusCode == 404 {
+                    return ErrorAPI.notFound
+                } else {
+                    return ErrorAPI.network
+                }
+            }
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+    }
+    
+    func getTranslation(topic: String) -> AnyPublisher<String, ErrorAPI> {
+        providerExercisesEndpoint.requestPublisher(.getTranslationExercise(topic))
+            .filterSuccessfulStatusCodes()
+            .map(String.self)
+            .map { string in
+                string
+            }
+            .mapError { error in
+                if error.response?.statusCode == 404 {
+                    return ErrorAPI.notFound
+                } else {
+                    return ErrorAPI.network
+                }
+            }
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+    }
+    
+    func sendTranslation(text: String, translation: String) -> AnyPublisher<LocalTranslation, ErrorAPI> {
+        providerExercisesEndpoint.requestPublisher(.sendTranslationExercise(text, translation))
+            .filterSuccessfulStatusCodes()
+            .map(ServerTranslation.self)
+            .map { serverTranslation in
+                ExerciseTranslationModelMapper().toLocal(serverEntity: serverTranslation)
             }
             .mapError { error in
                 if error.response?.statusCode == 404 {

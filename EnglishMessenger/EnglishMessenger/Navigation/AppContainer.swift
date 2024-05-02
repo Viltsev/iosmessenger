@@ -17,6 +17,10 @@ struct AppContainer: View {
     @StateObject private var theoryListViewModel: TheoryListViewModel = TheoryListViewModel()
     @StateObject private var theoryListSubViewModel: TheoryListViewModel = TheoryListViewModel()
     @StateObject private var theoryCardViewModel: TheoryCardViewModel = TheoryCardViewModel()
+    @StateObject private var grammarExercisesViewModel: GTExercisesViewModel = GTExercisesViewModel()
+    @StateObject private var checkedQuestionViewModel: ExQuestionCheckViewModel = ExQuestionCheckViewModel()
+    @StateObject private var translationViewModel: TranslationViewModel = TranslationViewModel()
+    @StateObject private var transaltionCheckViewModel: TranslationCheckViewModel = TranslationCheckViewModel()
     
     @State private var isAuth = AuthenticationService.shared.status.value
     
@@ -76,6 +80,38 @@ struct AppContainer: View {
                                     TheoryCardView(viewModel: theoryCardViewModel)
                                         .onAppear {
                                             theoryCardViewModel.output.theory = theoryCard
+                                        }
+                                case .pushExerciseMainView:
+                                    ExerciseMainView()
+                                case .pushExerciseTraining:
+                                    GrammarTrainingView()
+                                case .pushExerciseQuestion:
+                                    ExerciseQuestionView()
+                                case .pushExerciseTranslation:
+                                    ExerciseTranslationView()
+                                case .pushGrammarTrainExercises(let exercises):
+                                    GTExercisesView(viewModel: grammarExercisesViewModel)
+                                        .onAppear {
+                                            grammarExercisesViewModel.output.exercises = exercises
+                                        }
+                                case .pushCheckedQuestion(let checkedAnswer, let question, let answer): 
+                                    ExQuestionCheckView(viewModel: checkedQuestionViewModel)
+                                        .onAppear {
+                                            checkedQuestionViewModel.output.checkedAnswer = checkedAnswer
+                                            checkedQuestionViewModel.output.answer = answer
+                                            checkedQuestionViewModel.output.question = question
+                                        }
+                                case .pushTranslationView(let text):
+                                    TranslationView(viewModel: translationViewModel)
+                                        .onAppear {
+                                            translationViewModel.output.text = text
+                                        }
+                                case .pushTranslationCheckView(let checkedTranslation, let text, let translation):
+                                    TranslationCheckView(viewModel: transaltionCheckViewModel)
+                                        .onAppear {
+                                            transaltionCheckViewModel.output.text = text
+                                            transaltionCheckViewModel.output.translation = translation
+                                            transaltionCheckViewModel.output.checkedTranslation = checkedTranslation
                                         }
                                 }
                             }
