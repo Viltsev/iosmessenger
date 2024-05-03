@@ -96,6 +96,7 @@
 		834B86B42BE3F3AE00D8917F /* TranslationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834B86B32BE3F3AE00D8917F /* TranslationViewModel.swift */; };
 		834B86B62BE3F7BD00D8917F /* TranslationCheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834B86B52BE3F7BD00D8917F /* TranslationCheckView.swift */; };
 		834B86B82BE3FA2500D8917F /* TranslationCheckViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834B86B72BE3FA2500D8917F /* TranslationCheckViewModel.swift */; };
+		834B86BB2BE4223B00D8917F /* DictionaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834B86BA2BE4223B00D8917F /* DictionaryView.swift */; };
 		83505CEE2B91E177005FD7DC /* Alice-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 83505CEC2B91E177005FD7DC /* Alice-Regular.ttf */; };
 		83505CEF2B91E177005FD7DC /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 83505CED2B91E177005FD7DC /* OFL.txt */; };
 		83505CF22B91FF97005FD7DC /* TitleTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83505CF12B91FF97005FD7DC /* TitleTextView.swift */; };
@@ -136,6 +137,7 @@
 		8356A2A52BD6DF8600B89B79 /* CardsLearnedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8356A2A42BD6DF8600B89B79 /* CardsLearnedView.swift */; };
 		8356A2A72BD6EAAC00B89B79 /* CardsLearningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8356A2A62BD6EAAC00B89B79 /* CardsLearningView.swift */; };
 		8356A2A92BD6EE4E00B89B79 /* CardsSetsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8356A2A82BD6EE4E00B89B79 /* CardsSetsView.swift */; };
+		837106212BE4D43C00C2E9C0 /* DictionaryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837106202BE4D43C00C2E9C0 /* DictionaryViewModel.swift */; };
 		8374B2112BDA5C0B00078DD0 /* CreateSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8374B2102BDA5C0B00078DD0 /* CreateSet.swift */; };
 		8374B2132BDA763200078DD0 /* CreateCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8374B2122BDA763200078DD0 /* CreateCard.swift */; };
 		8374B2152BDABBE800078DD0 /* CardsSetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8374B2142BDABBE800078DD0 /* CardsSetViewModel.swift */; };
@@ -267,6 +269,7 @@
 		834B86B32BE3F3AE00D8917F /* TranslationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationViewModel.swift; sourceTree = "<group>"; };
 		834B86B52BE3F7BD00D8917F /* TranslationCheckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationCheckView.swift; sourceTree = "<group>"; };
 		834B86B72BE3FA2500D8917F /* TranslationCheckViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationCheckViewModel.swift; sourceTree = "<group>"; };
+		834B86BA2BE4223B00D8917F /* DictionaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryView.swift; sourceTree = "<group>"; };
 		83505CEC2B91E177005FD7DC /* Alice-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Alice-Regular.ttf"; sourceTree = "<group>"; };
 		83505CED2B91E177005FD7DC /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
 		83505CF02B91F722005FD7DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -308,6 +311,7 @@
 		8356A2A42BD6DF8600B89B79 /* CardsLearnedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsLearnedView.swift; sourceTree = "<group>"; };
 		8356A2A62BD6EAAC00B89B79 /* CardsLearningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsLearningView.swift; sourceTree = "<group>"; };
 		8356A2A82BD6EE4E00B89B79 /* CardsSetsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsSetsView.swift; sourceTree = "<group>"; };
+		837106202BE4D43C00C2E9C0 /* DictionaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryViewModel.swift; sourceTree = "<group>"; };
 		8374B2102BDA5C0B00078DD0 /* CreateSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSet.swift; sourceTree = "<group>"; };
 		8374B2122BDA763200078DD0 /* CreateCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCard.swift; sourceTree = "<group>"; };
 		8374B2142BDABBE800078DD0 /* CardsSetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsSetViewModel.swift; sourceTree = "<group>"; };
@@ -556,6 +560,7 @@
 		83103ECC2B7F601700932A96 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				834B86B92BE4221600D8917F /* Dictionary */,
 				834B867C2BE252AD00D8917F /* Exercises */,
 				8378A77F2BDEC26B0090942B /* Theory */,
 				8356A2A12BD6CC0B00B89B79 /* Cards */,
@@ -754,6 +759,15 @@
 				834B868B2BE2BBE600D8917F /* GifImage.swift */,
 			);
 			path = Gif;
+			sourceTree = "<group>";
+		};
+		834B86B92BE4221600D8917F /* Dictionary */ = {
+			isa = PBXGroup;
+			children = (
+				834B86BA2BE4223B00D8917F /* DictionaryView.swift */,
+				837106202BE4D43C00C2E9C0 /* DictionaryViewModel.swift */,
+			);
+			path = Dictionary;
 			sourceTree = "<group>";
 		};
 		83505CEB2B91E177005FD7DC /* Alice */ = {
@@ -1300,11 +1314,13 @@
 				83524D3E2BCD661500F86E2C /* MainNavigation.swift in Sources */,
 				834B869C2BE378C400D8917F /* GTExercisesView.swift in Sources */,
 				8356A2A52BD6DF8600B89B79 /* CardsLearnedView.swift in Sources */,
+				834B86BB2BE4223B00D8917F /* DictionaryView.swift in Sources */,
 				83505D202B923D91005FD7DC /* OnboardingView.swift in Sources */,
 				834B86802BE2531300D8917F /* ExerciseMainView.swift in Sources */,
 				83C2B3162B94D73900B69E69 /* TestButtonView.swift in Sources */,
 				834B86962BE2C6C300D8917F /* ExerciseTrainingModelMapper.swift in Sources */,
 				83B035EA2BD001C4005C02BA /* ChatsStorage.swift in Sources */,
+				837106212BE4D43C00C2E9C0 /* DictionaryViewModel.swift in Sources */,
 				8378A7942BDEDAF20090942B /* TheoryListView.swift in Sources */,
 				8378A7992BDEE32D0090942B /* TheoryCardView.swift in Sources */,
 				834B86892BE2A74200D8917F /* ExerciseTranslationView.swift in Sources */,
