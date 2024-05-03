@@ -23,6 +23,7 @@ struct GeneralApi {
     let providerCardsEndpoint = Provider<CardsEndpoint>()
     let providerTheoryEndpoint = Provider<TheoryEndpoint>()
     let providerExercisesEndpoint = Provider<ExercisesEndpoint>()
+    let providerDictionaryEndpoint = Provider<DictionaryEndpoint>()
 }
 
 extension GeneralApi {
@@ -524,6 +525,42 @@ extension GeneralApi {
             .map(ServerTranslation.self)
             .map { serverTranslation in
                 ExerciseTranslationModelMapper().toLocal(serverEntity: serverTranslation)
+            }
+            .mapError { error in
+                if error.response?.statusCode == 404 {
+                    return ErrorAPI.notFound
+                } else {
+                    return ErrorAPI.network
+                }
+            }
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+    }
+    
+    func getRussianTranslation(word: String) -> AnyPublisher<LocalDictionary, ErrorAPI> {
+        providerDictionaryEndpoint.requestPublisher(.getRussianTranslation(word))
+            .filterSuccessfulStatusCodes()
+            .map(ServerDictionary.self)
+            .map { serverDictionary in
+                DictionaryModelMapper().toLocal(serverEntity: serverDictionary)
+            }
+            .mapError { error in
+                if error.response?.statusCode == 404 {
+                    return ErrorAPI.notFound
+                } else {
+                    return ErrorAPI.network
+                }
+            }
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+    }
+    
+    func getEnglishTranslation(word: String) -> AnyPublisher<[LocalDictionary], ErrorAPI> {
+        providerDictionaryEndpoint.requestPublisher(.getEnglishTranslation(word))
+            .filterSuccessfulStatusCodes()
+            .map([ServerDictionary].self)
+            .map { serverDictionary in
+                DictionaryModelMapper().toLocal(list: serverDictionary)
             }
             .mapError { error in
                 if error.response?.statusCode == 404 {

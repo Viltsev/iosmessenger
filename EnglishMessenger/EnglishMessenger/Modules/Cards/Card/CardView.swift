@@ -235,6 +235,7 @@ struct CardDetailView: View {
                     .font(.largeTitle)
                     .foregroundStyle(.white)
                     .bold()
+                    .padding(.horizontal, 16)
             }
         }
         .offset(x: offset.width, y: offset.height * 0.4)

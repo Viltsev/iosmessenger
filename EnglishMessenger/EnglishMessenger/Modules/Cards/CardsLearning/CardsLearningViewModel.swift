@@ -48,7 +48,9 @@ extension CardsLearningViewModel {
         request
             .values()
             .sink { [unowned self] cards in
+                self.output.toLearnCards.reverse()
                 self.output.toLearnCards.append(contentsOf: cards)
+                self.output.toLearnCards.reverse()
                 if !self.output.toLearnCards.isEmpty {
                     self.output.viewState = .hasWords
                 } else {
