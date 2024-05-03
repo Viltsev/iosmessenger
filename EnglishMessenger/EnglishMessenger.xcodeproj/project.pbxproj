@@ -138,6 +138,10 @@
 		8356A2A72BD6EAAC00B89B79 /* CardsLearningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8356A2A62BD6EAAC00B89B79 /* CardsLearningView.swift */; };
 		8356A2A92BD6EE4E00B89B79 /* CardsSetsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8356A2A82BD6EE4E00B89B79 /* CardsSetsView.swift */; };
 		837106212BE4D43C00C2E9C0 /* DictionaryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837106202BE4D43C00C2E9C0 /* DictionaryViewModel.swift */; };
+		837106232BE4F3DE00C2E9C0 /* ServerDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837106222BE4F3DE00C2E9C0 /* ServerDictionary.swift */; };
+		837106252BE4F41400C2E9C0 /* LocalDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837106242BE4F41400C2E9C0 /* LocalDictionary.swift */; };
+		837106272BE4F42D00C2E9C0 /* DictionaryModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837106262BE4F42D00C2E9C0 /* DictionaryModelMapper.swift */; };
+		837106292BE4F49600C2E9C0 /* DictionaryEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837106282BE4F49500C2E9C0 /* DictionaryEndpoint.swift */; };
 		8374B2112BDA5C0B00078DD0 /* CreateSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8374B2102BDA5C0B00078DD0 /* CreateSet.swift */; };
 		8374B2132BDA763200078DD0 /* CreateCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8374B2122BDA763200078DD0 /* CreateCard.swift */; };
 		8374B2152BDABBE800078DD0 /* CardsSetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8374B2142BDABBE800078DD0 /* CardsSetViewModel.swift */; };
@@ -312,6 +316,10 @@
 		8356A2A62BD6EAAC00B89B79 /* CardsLearningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsLearningView.swift; sourceTree = "<group>"; };
 		8356A2A82BD6EE4E00B89B79 /* CardsSetsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsSetsView.swift; sourceTree = "<group>"; };
 		837106202BE4D43C00C2E9C0 /* DictionaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryViewModel.swift; sourceTree = "<group>"; };
+		837106222BE4F3DE00C2E9C0 /* ServerDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerDictionary.swift; sourceTree = "<group>"; };
+		837106242BE4F41400C2E9C0 /* LocalDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDictionary.swift; sourceTree = "<group>"; };
+		837106262BE4F42D00C2E9C0 /* DictionaryModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryModelMapper.swift; sourceTree = "<group>"; };
+		837106282BE4F49500C2E9C0 /* DictionaryEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryEndpoint.swift; sourceTree = "<group>"; };
 		8374B2102BDA5C0B00078DD0 /* CreateSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSet.swift; sourceTree = "<group>"; };
 		8374B2122BDA763200078DD0 /* CreateCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCard.swift; sourceTree = "<group>"; };
 		8374B2142BDABBE800078DD0 /* CardsSetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsSetViewModel.swift; sourceTree = "<group>"; };
@@ -490,6 +498,7 @@
 				834B86952BE2C6C300D8917F /* ExerciseTrainingModelMapper.swift */,
 				834B86A52BE3A4B400D8917F /* ExerciseQuestionModelMapper.swift */,
 				834B86AF2BE3F13E00D8917F /* ExerciseTranslationModelMapper.swift */,
+				837106262BE4F42D00C2E9C0 /* DictionaryModelMapper.swift */,
 			);
 			path = Mappers;
 			sourceTree = "<group>";
@@ -510,6 +519,7 @@
 				834B86912BE2C65F00D8917F /* ServerTraining.swift */,
 				834B86A12BE3A3FE00D8917F /* ServerQuestion.swift */,
 				834B86AB2BE3F0FA00D8917F /* ServerTranslation.swift */,
+				837106222BE4F3DE00C2E9C0 /* ServerDictionary.swift */,
 			);
 			path = ServerModel;
 			sourceTree = "<group>";
@@ -532,6 +542,7 @@
 				834B86932BE2C68C00D8917F /* LocalTraining.swift */,
 				834B86A32BE3A48100D8917F /* LocalQuestion.swift */,
 				834B86AD2BE3F11B00D8917F /* LocalTranslation.swift */,
+				837106242BE4F41400C2E9C0 /* LocalDictionary.swift */,
 			);
 			path = LocalModel;
 			sourceTree = "<group>";
@@ -660,6 +671,7 @@
 				832F0C5D2BD9288500E8468D /* CardsEndpoint.swift */,
 				8378A7832BDEC5F40090942B /* TheoryEndpoint.swift */,
 				834B86972BE2C70700D8917F /* ExercisesEndpoint.swift */,
+				837106282BE4F49500C2E9C0 /* DictionaryEndpoint.swift */,
 			);
 			path = Endpoints;
 			sourceTree = "<group>";
@@ -1241,6 +1253,7 @@
 				83103EE32B7FF73C00932A96 /* ProfileView.swift in Sources */,
 				831AE0952B81203800C5B6AF /* User.swift in Sources */,
 				831AE0932B811FD700C5B6AF /* ServerUser.swift in Sources */,
+				837106252BE4F41400C2E9C0 /* LocalDictionary.swift in Sources */,
 				832F0C6E2BD99CCE00E8468D /* CardSetModelMapper.swift in Sources */,
 				83505D1D2B923673005FD7DC /* OnboardingNavigationView.swift in Sources */,
 				8331F8422B95FD2300058CEC /* ServerTest.swift in Sources */,
@@ -1334,6 +1347,7 @@
 				83A1F7DB2BD10EB500488032 /* ServerGrammar.swift in Sources */,
 				83524D332BCD545000F86E2C /* Message.swift in Sources */,
 				832F0C682BD9340100E8468D /* CardsLearnedViewModel.swift in Sources */,
+				837106232BE4F3DE00C2E9C0 /* ServerDictionary.swift in Sources */,
 				8378A79B2BDEE4EE0090942B /* TheoryCardViewModel.swift in Sources */,
 				83BD01F62B936B620059AB53 /* TestProgressView.swift in Sources */,
 				83B3D5E72BCE996A00B62413 /* MessagesModelMapper.swift in Sources */,
@@ -1349,6 +1363,7 @@
 				8331F84A2B96317E00058CEC /* Answer.swift in Sources */,
 				8378A7962BDEDB530090942B /* TheoryListViewModel.swift in Sources */,
 				83385A7E2B970790007CC6FB /* TestResultsEndpoint.swift in Sources */,
+				837106272BE4F42D00C2E9C0 /* DictionaryModelMapper.swift in Sources */,
 				83103ECF2B7F91EF00932A96 /* AppContainer.swift in Sources */,
 				831AE06F2B80D93E00C5B6AF /* UserRegistration.swift in Sources */,
 				832F0C6C2BD99CA000E8468D /* LocalCardSet.swift in Sources */,
@@ -1357,6 +1372,7 @@
 				83103EB02B7F574300932A96 /* EnglishMessengerApp.swift in Sources */,
 				831AE06A2B80CDCB00C5B6AF /* StartNavigation.swift in Sources */,
 				83103EDC2B7F9BA500932A96 /* AuthorizationView.swift in Sources */,
+				837106292BE4F49600C2E9C0 /* DictionaryEndpoint.swift in Sources */,
 				832F0C622BD9296E00E8468D /* LocalCard.swift in Sources */,
 				838C30382B9F708300F098EE /* ImagePicker.swift in Sources */,
 				83103ED42B7F940600932A96 /* ButtonView.swift in Sources */,

@@ -25,6 +25,8 @@ extension DictionaryViewModel {
         createCard()
         chooseSet()
         createWordButtonEnable()
+        getRussianTranslation()
+        getEnglishTranslation()
     }
     
     func getCardSets() {
@@ -113,10 +115,66 @@ extension DictionaryViewModel {
             }
             .store(in: &cancellable)
     }
+    
+    func getRussianTranslation() {
+        let request = input.getRussianTranslationSubject
+            .map { [unowned self] in
+                return self.apiService.getRussianTranslation(word: self.output.searchedWord.lowercased())
+                    .materialize()
+            }
+            .switchToLatest()
+            .share()
+        
+        request
+            .failures()
+            .sink { error in
+                print(error)
+            }
+            .store(in: &cancellable)
+        
+        request
+            .values()
+            .sink { [unowned self] translation in
+                self.output.dictionary.reverse()
+                self.output.dictionary.append(translation)
+                self.output.dictionary.reverse()
+                self.output.searchedWord = ""
+            }
+            .store(in: &cancellable)
+    }
+    
+    func getEnglishTranslation() {
+        let request = input.getEnglishTranslationSubject
+            .map { [unowned self] in
+                return self.apiService.getEnglishTranslation(word: self.output.searchedWord.lowercased())
+                    .materialize()
+            }
+            .switchToLatest()
+            .share()
+        
+        request
+            .failures()
+            .sink { error in
+                print(error)
+            }
+            .store(in: &cancellable)
+        
+        request
+            .values()
+            .sink { [unowned self] translation in
+                self.output.dictionary.reverse()
+                self.output.dictionary.append(contentsOf: translation)
+                self.output.dictionary.reverse()
+                self.output.searchedWord = ""
+            }
+            .store(in: &cancellable)
+    }
 }
 
 extension DictionaryViewModel {
     struct Input {
+        let getRussianTranslationSubject = PassthroughSubject<Void, Never>()
+        let getEnglishTranslationSubject = PassthroughSubject<Void, Never>()
         let setIdSubject = PassthroughSubject<Void, Never>()
         let createCardSubject = PassthroughSubject<Void, Never>()
         let getCardSetSubject = PassthroughSubject<Void, Never>()
@@ -124,25 +182,19 @@ extension DictionaryViewModel {
     }
     
     struct Output {
+        var translationMode: TranslationMode = .english
+        var searchedWord: String = ""
+        var dictionary: [LocalDictionary] = []
         var word: String = ""
         var translation: String = ""
         var sets: [LocalCardSet] = []
         var setId: Int?
         var createWordEnable: Bool = true
-        
         var isSheet: Bool = false
-        var dictionary: [DictionaryWords] = [
-            DictionaryWords(word: "Hello", translation: "Привет"),
-            DictionaryWords(word: "Goodbye", translation: "Пока"),
-            DictionaryWords(word: "Welcome", translation: "Добро пожаловать"),
-            DictionaryWords(word: "Smart", translation: "Умный"),
-            DictionaryWords(word: "Luck", translation: "Удача"),
-        ]
     }
     
-    struct DictionaryWords {
-        var id = UUID()
-        let word: String
-        let translation: String
+    enum TranslationMode {
+        case english
+        case russian
     }
 }

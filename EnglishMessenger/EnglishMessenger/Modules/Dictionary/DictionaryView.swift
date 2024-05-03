@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct DictionaryView: View {
-    @State var text: String = ""
     @StateObject private var viewModel: DictionaryViewModel = DictionaryViewModel()
     
     var body: some View {
@@ -41,14 +40,31 @@ extension DictionaryView {
             }
             .padding(.bottom, 20)
             HStack {
-                TextField("Поиск", text: $text)
+                TextField("Поиск...", text: $viewModel.output.searchedWord)
                     .foregroundColor(.white)
                     .font(.custom("Montserrat-Light", size: 20))
                     .multilineTextAlignment(.leading)
                     .padding([.vertical, .horizontal], 10)
+                    .onSubmit {
+                        if !viewModel.output.searchedWord.isEmpty {
+                            switch viewModel.output.translationMode {
+                            case .english:
+                                viewModel.input.getRussianTranslationSubject.send()
+                            case .russian:
+                                viewModel.input.getEnglishTranslationSubject.send()
+                            }
+                        }
+                    }
                 Spacer()
                 Button {
-                    
+                    if !viewModel.output.searchedWord.isEmpty {
+                        switch viewModel.output.translationMode {
+                        case .english:
+                            viewModel.input.getRussianTranslationSubject.send()
+                        case .russian:
+                            viewModel.input.getEnglishTranslationSubject.send()
+                        }
+                    }
                 } label: {
                     Image("search")
                         .resizable()
@@ -60,6 +76,18 @@ extension DictionaryView {
             .frame(maxWidth: .infinity)
             .background(.lightPurple)
             .cornerRadius(15)
+            .contextMenu {
+                Button {
+                    viewModel.output.translationMode = .english
+                } label: {
+                    Label("Английский-Русский", image: "britain")
+                }
+                Button {
+                    viewModel.output.translationMode = .russian
+                } label: {
+                    Label("Русский-Английский", image: "russia")
+                }
+            }
             .padding(.horizontal, 16)
             .padding(.bottom, 30)
             words()
@@ -73,7 +101,7 @@ extension DictionaryView {
             ScrollView(showsIndicators: false) {
                 VStack {
                     ForEach(viewModel.output.dictionary, id: \.id) { card in
-                        SearchedWords(viewModel: viewModel, text: card.word, translation: card.translation)
+                        SearchedWords(viewModel: viewModel, text: card.word, translation: card.description)
                     }
                 }
             }
@@ -122,14 +150,12 @@ extension DictionaryView {
                 .font(.custom("Montserrat-Light", size: 24))
                 .multilineTextAlignment(.center)
                 .padding()
-//                .onChange(of: viewModel.output.word, setWord)
             
             Text(viewModel.output.translation)
                 .foregroundColor(.mainPurple)
                 .font(.custom("Montserrat-Light", size: 24))
                 .multilineTextAlignment(.center)
                 .padding()
-//                .onChange(of: viewModel.output.translation, setTranslation)
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
