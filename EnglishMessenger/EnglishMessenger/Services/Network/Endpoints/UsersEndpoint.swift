@@ -13,6 +13,7 @@ enum UsersEndpoint {
     case getUserByUsername(String)
     case getChatUser
     case deleteChat(String)
+    case getLastMessage(String)
 }
 
 extension UsersEndpoint: TargetType {
@@ -31,6 +32,8 @@ extension UsersEndpoint: TargetType {
             return "/api/v1/users/fetch_all_chat_users/\(currentEmail ?? "")"
         case .deleteChat(let chatId):
             return "/api/v1/users/delete_chat/\(chatId)"
+        case .getLastMessage(let chatId):
+            return "/api/v1/users/get_last_message/\(chatId)"
         }
     }
     
@@ -47,6 +50,8 @@ extension UsersEndpoint: TargetType {
         case .getChatUser:
             return .requestPlain
         case .deleteChat:
+            return .requestPlain
+        case .getLastMessage:
             return .requestPlain
         }
     }

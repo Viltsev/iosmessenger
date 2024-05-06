@@ -157,16 +157,21 @@ extension ChatsStartViewModel {
     }
     
     @MainActor
-    func findLastMessage(_ recipientUser: User) -> String {
-        let currentEmail = UserDefaults.standard.string(forKey: "email")
-        if let currentEmail = currentEmail {
-            let chatId = generateChatId(senderId: currentEmail, recipientId: recipientUser.email)
-            let lastMessage = recipientUser.chatRoomList.first { chat in
-                chat.chatId == chatId
+    func findLastMessage(_ recipientUser: User) {
+        Task {
+            let currentEmail = UserDefaults.standard.string(forKey: "email")
+            if let currentEmail = currentEmail {
+                let chatId = generateChatId(senderId: currentEmail, recipientId: recipientUser.email)
+                do {
+                    let response = try await apiService.getLastMessage(chatId: chatId)
+                    if let index = self.output.userChatsUsers.firstIndex(where: { $0.id == recipientUser.id }) {
+                        self.output.userChatsUsers[index].lastMessage = response
+                    }
+                    print(response)
+                } catch {
+                    print("Network error!")
+                }
             }
-            return lastMessage?.lastMessage ?? ""
-        } else {
-            return ""
         }
     }
     

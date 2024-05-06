@@ -249,6 +249,26 @@ extension GeneralApi {
         }
     }
     
+    func getLastMessage(chatId: String) async throws -> String {
+        return try await withCheckedThrowingContinuation { continuation in
+            providerUsersData.request(.getLastMessage(chatId)) { result in
+                switch result {
+                case .success(let response):
+                    guard let serverResponse = String(data: response.data, encoding: .utf8) else {
+                        if response.statusCode == 404 {
+                            return continuation.resume(throwing: ErrorAPI.notFound)
+                        } else {
+                            return continuation.resume(throwing: ErrorAPI.network)
+                        }
+                    }
+                    continuation.resume(returning: serverResponse)
+                case .failure:
+                    continuation.resume(throwing: ErrorAPI.network)
+                }
+            }
+        }
+    }
+    
     func generateDialog() -> AnyPublisher<User, ErrorAPI> {
         providerGenerateDialogEndpoint.requestPublisher(.generateDialog)
             .filterSuccessfulStatusCodes()

@@ -97,10 +97,13 @@ extension ChatsStartView {
                             .foregroundStyle(.mainPurple)
                             .padding(.vertical, 5)
                             
-                        Text(viewModel.findLastMessage(user))
+                        Text(user.lastMessage)
                             .font(.subheadline)
                             .foregroundColor(.gray)
                             .padding(.vertical, 5)
+                            .onAppear {
+                                viewModel.findLastMessage(user)
+                            }
                     }
                     .padding(.horizontal, 15)
                     
@@ -141,11 +144,6 @@ extension ChatsStartView {
                         Text(user.username)
                             .font(.headline)
                             .foregroundStyle(.mainPurple)
-                            .padding(.vertical, 5)
-                            
-                        Text(viewModel.findLastMessage(user))
-                            .font(.subheadline)
-                            .foregroundColor(.gray)
                             .padding(.vertical, 5)
                     }
                     .padding(.horizontal, 15)
