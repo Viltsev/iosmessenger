@@ -18,7 +18,8 @@ enum ExercisesEndpoint {
 
 extension ExercisesEndpoint: TargetType {
     var baseURL: URL {
-        URL(string: "http://127.0.0.1:8000")!
+//        URL(string: "http://127.0.0.1:8000")!
+        URL(string: "http://90.156.224.51:8000")!
     }
 
     var path: String {

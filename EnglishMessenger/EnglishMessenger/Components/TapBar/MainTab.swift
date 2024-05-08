@@ -17,13 +17,13 @@ enum MainTab: String, CaseIterable {
     var title: String {
         switch self {
         case .chats:
-            return "Chats"
+            return "Чаты"
         case .profile:
-            return "Home"
+            return "Профиль"
         case .dictionary:
-            return "Dictionary"
+            return "Словарь"
         case .exercises:
-            return "Education"
+            return "Обучение"
         }
     }
 }

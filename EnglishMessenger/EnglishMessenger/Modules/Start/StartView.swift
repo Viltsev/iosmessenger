@@ -62,8 +62,8 @@ extension StartView {
                 TitleTextView(text: "Communicate.\nLearn.\nEnglish.", size: 40)
                 Spacer()
                 VStack(alignment: .leading, spacing: 10) {
-                    ButtonView(text: "Sign In", buttonColor: .mainPurple, size: 35, action: regButtonAction)
-                    ButtonView(text: "Sign Up", buttonColor: .lightPurple, size: 35, action: authButtonAction)
+                    ButtonView(text: "Регистрация", buttonColor: .mainPurple, size: 35, action: regButtonAction)
+                    ButtonView(text: "Авторизация", buttonColor: .lightPurple, size: 35, action: authButtonAction)
                 }
             }
             Spacer()

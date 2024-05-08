@@ -26,7 +26,7 @@ extension SearchChatView {
     func searchView() -> some View {
         VStack {
             HStack {
-                CustomTextField(textFieldLabel: "Find user...", text: $text)
+                CustomTextField(textFieldLabel: "Поиск...", text: $text)
                     .padding(.vertical, 5)
                 Button {
                     backButtonAction()

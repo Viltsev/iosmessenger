@@ -24,7 +24,7 @@ extension TestResultsView {
     func content() -> some View {
         VStack {
             VStack(spacing: 25) {
-                TitleTextView(text: "Congratulations!\nYour level is", size: 30)
+                TitleTextView(text: "Поздравляем\nТвой уровень", size: 30)
                 TitleTextView(text: viewModel.output.currentLevel, size: 50)
                 Spacer()
                 Image("pinkCircle")
@@ -37,7 +37,7 @@ extension TestResultsView {
             }
             .padding(.vertical, 50)
             Spacer()
-            PurpleButtonView(text: "Let's go!", actionPublisher: viewModel.input.goToProfileSubject)
+            PurpleButtonView(text: "Продолжить", actionPublisher: viewModel.input.goToProfileSubject)
                 .padding(.bottom, 20)
         }
         

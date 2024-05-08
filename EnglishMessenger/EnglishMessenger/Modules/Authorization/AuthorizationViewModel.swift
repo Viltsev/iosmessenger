@@ -27,6 +27,7 @@ extension AuthorizationViewModel {
     func bind() {
         authButtonEnable()
         authUser()
+        showPassword()
     }
     
     func authButtonEnable() {
@@ -67,6 +68,14 @@ extension AuthorizationViewModel {
             .store(in: &cancellable)
     }
     
+    func showPassword() {
+        input.showPasswordSubject
+            .sink { [unowned self] _ in
+                self.output.isSecured.toggle()
+            }
+            .store(in: &cancellable)
+    }
+    
     func saveToUserDefaults(user: User) {
         // delete current values from UserDefaults
         UserDefaults.standard.removeObject(forKey: "dateOfBirth")
@@ -93,6 +102,7 @@ extension AuthorizationViewModel {
         let emailSubject = PassthroughSubject<Void, Never>()
         let passwordSubject = PassthroughSubject<Void, Never>()
         let authUserSubject = PassthroughSubject<Void, Never>()
+        let showPasswordSubject = PassthroughSubject<Void, Never>()
     }
     
     struct Output {
@@ -100,5 +110,6 @@ extension AuthorizationViewModel {
         var passwordField = ""
         var isEnabledButton: Bool = true
         var user: User?
+        var isSecured: Bool = true
     }
 }

@@ -26,6 +26,7 @@ extension RegistrationViewModel {
     func bind() {
         registrationButtonEnable()
         registerUser()
+        showPassword()
     }
     
     func registrationButtonEnable() {
@@ -62,6 +63,14 @@ extension RegistrationViewModel {
             .store(in: &cancellable)
     }
     
+    func showPassword() {
+        input.showPasswordSubject
+            .sink { [unowned self] _ in
+                self.output.isSecured.toggle()
+            }
+            .store(in: &cancellable)
+    }
+    
     func saveData(_ password: String, _ email: String) {
         // remove current values
         UserDefaults.standard.removeObject(forKey: "email")
@@ -79,6 +88,7 @@ extension RegistrationViewModel {
         let emailSubject = PassthroughSubject<Void, Never>()
         let passwordSubject = PassthroughSubject<Void, Never>()
         let registerUserSubject = PassthroughSubject<Void, Never>()
+        let showPasswordSubject = PassthroughSubject<Void, Never>()
     }
     
     struct Output {
@@ -87,5 +97,6 @@ extension RegistrationViewModel {
         var emailFieldText: String = ""
         var passwordFieldText: String = ""
         var isEnabledButton: Bool = true
+        var isSecured: Bool = true
     }
 }

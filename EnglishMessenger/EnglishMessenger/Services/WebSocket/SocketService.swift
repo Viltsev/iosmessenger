@@ -22,7 +22,7 @@ class SocketService: ObservableObject, StompClientLibDelegate {
     
     init() {
         self.socketClient = StompClientLib()
-        let url = URL(string: "http://localhost:8080/ws")!
+        let url = URL(string: "http://90.156.224.51:8080/ws")!
         socketClient.openSocketWithURLRequest(request: NSURLRequest(url: url), delegate: self)
     }
         

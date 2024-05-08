@@ -17,16 +17,7 @@ struct RegistrationView: View {
             .overlay {
                 content()
             }
-            .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    Button {
-                        backButtonAction()
-                    } label: {
-                        Image("backButton")
-                            .imageScale(.large)
-                    }
-                }
-            }
+            .ignoresSafeArea(.keyboard)
     }
 }
 
@@ -34,31 +25,55 @@ extension RegistrationView {
     @ViewBuilder
     func content() -> some View {
         VStack {
-            TitleTextView(text: "Sign In", size: 40)
+            customToolBar()
             
-            Image("foxImage")
-                .imageScale(.medium)
+            CustomTextField(textFieldLabel: "Имя...", text: $viewModel.output.firstNameFieldText)
+                .onChange(of: viewModel.output.firstNameFieldText, firstNameAction)
+            CustomTextField(textFieldLabel: "Фамилия...", text: $viewModel.output.lastNameFieldText)
+                .onChange(of: viewModel.output.lastNameFieldText, lastNameAction)
+            CustomTextField(textFieldLabel: "Почта...", text: $viewModel.output.emailFieldText)
+                .onChange(of: viewModel.output.emailFieldText, emailAction)
+            CustomSecuredField(textFieldLabel: "Пароль", text: $viewModel.output.passwordFieldText, isSecured: viewModel.output.isSecured, action: viewModel.input.showPasswordSubject)
+                .onChange(of: viewModel.output.passwordFieldText, passwordAction)
+            button()
             
             Spacer()
             
-            CustomTextField(textFieldLabel: "First Name", text: $viewModel.output.firstNameFieldText)
-                .onChange(of: viewModel.output.firstNameFieldText, firstNameAction)
-            CustomTextField(textFieldLabel: "Last Name", text: $viewModel.output.lastNameFieldText)
-                .onChange(of: viewModel.output.lastNameFieldText, lastNameAction)
-            CustomTextField(textFieldLabel: "Email", text: $viewModel.output.emailFieldText)
-                .onChange(of: viewModel.output.emailFieldText, emailAction)
-            CustomTextField(textFieldLabel: "Password", text: $viewModel.output.passwordFieldText)
-                .onChange(of: viewModel.output.passwordFieldText, passwordAction)
-            button()
+            Image("hedgehog")
+                .resizable()
+                .scaledToFill()
+                .frame(width: 250, height: 250)
+                .padding(.vertical, 25)
+            
+            Spacer()
         }
-        .padding()
+    }
+    
+    @ViewBuilder
+    func customToolBar() -> some View {
+        HStack {
+            Button {
+                router.popView()
+            } label: {
+                Image(systemName: "chevron.left")
+                    .foregroundStyle(.mainPurple)
+                    .font(.title3)
+                    .bold()
+            }
+            Spacer()
+            Text("Регистрация")
+                .foregroundStyle(.mainPurple)
+                .font(.custom("Montserrat-ExtraBold", size: 24))
+            Spacer()
+        }
+        .padding([.horizontal, .vertical], 16)
     }
 }
 
 extension RegistrationView {
     @ViewBuilder
     func button() -> some View {
-        ButtonView(text: "Create an account", buttonColor: .mainPurple, size: 30, action: goToOnboarding)
+        ButtonView(text: "Создать аккаунт", buttonColor: .mainPurple, size: 30, action: goToOnboarding)
             .padding(.vertical, 20)
             .disabled(viewModel.output.isEnabledButton)
     }

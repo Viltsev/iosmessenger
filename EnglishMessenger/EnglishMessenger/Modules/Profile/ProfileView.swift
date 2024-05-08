@@ -37,9 +37,9 @@ extension ProfileView {
                             VStack {
                                 Spacer()
                                 HStack {
-                                    profileButton(title: "Settings", action: nil)
+                                    profileButton(title: "Настройки", action: nil)
                                     Spacer()
-                                    profileButton(title: "Sign Out", action: logout)
+                                    profileButton(title: "Выйти", action: logout)
                                 }
                                 .padding(.horizontal, 16)
                                 GeometryReader { geometry in
@@ -72,10 +72,10 @@ extension ProfileView {
                             .multilineTextAlignment(.center)
                         ScrollView {
                             VStack(spacing: 15) {
-                                infoBlock(text: "Birthday:", value: viewModel.output.dateBirth, arrow: false)
-                                infoBlock(text: "Language level:", value: viewModel.output.languageLevel, arrow: false)
-                                infoBlock(text: "Friends:", value: "100", arrow: true)
-                                infoBlock(text: "Interests", value: "", arrow: true)
+                                infoBlock(text: "День рождения:", value: viewModel.output.dateBirth, arrow: false)
+                                infoBlock(text: "Уровень языка:", value: viewModel.output.languageLevel, arrow: false)
+                                infoBlock(text: "Друзья:", value: "100", arrow: true)
+                                infoBlock(text: "Интересы", value: "", arrow: true)
                             }
                         }
                     }

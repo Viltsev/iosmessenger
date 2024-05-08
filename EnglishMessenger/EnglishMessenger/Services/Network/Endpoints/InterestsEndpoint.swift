@@ -15,7 +15,8 @@ enum InterestsEndpoint {
 
 extension InterestsEndpoint: TargetType {
     var baseURL: URL {
-        URL(string: "http://localhost:8080")!
+//        URL(string: "http://localhost:8080")!
+        URL(string: "http://90.156.224.51:8080")!
     }
     
     var path: String {
