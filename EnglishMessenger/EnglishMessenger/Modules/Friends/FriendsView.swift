@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct FriendsView: View {
+    @StateObject private var viewModel: FriendsViewModel = FriendsViewModel()
     @EnvironmentObject var router: MainNavigationRouter
     
     var body: some View {
@@ -24,7 +25,8 @@ extension FriendsView {
     func content() -> some View {
         VStack {
             customToolBar()
-                .padding(.bottom, 30)
+                .padding(.bottom, 15)
+            searchBar()
             Spacer()
         }
     }
@@ -49,4 +51,33 @@ extension FriendsView {
         .padding([.horizontal, .vertical], 16)
     }
     
+    @ViewBuilder
+    func searchBar() -> some View {
+        HStack {
+            FriendsSearcherField(textFieldLabel: "Поиск друга...", text: $viewModel.output.searchedFriend)
+                .onTapGesture {
+                    withAnimation(.bouncy) {
+                        viewModel.input.changeCurrentScreenSubject.send(.search)
+                        viewModel.output.searchedFriend.append("@")
+                    }
+                }
+                .onSubmit {
+//                    viewModel.input.findUserByUsernameSubject.send(viewModel.output.findUserText)
+                }
+                .padding(.vertical, 10)
+            if viewModel.output.state == .search {
+                Button {
+                    withAnimation(.bouncy) {
+                        viewModel.input.changeCurrentScreenSubject.send(.friends)
+                        viewModel.output.searchedFriend = ""
+                    }
+                } label: {
+                    Text("Отмена")
+                        .foregroundStyle(Color.mainPurple)
+                        .font(.custom("Montserrat-Light", size: 15))
+                }
+            }
+        }
+        .padding(.horizontal, 16)
+    }
 }
