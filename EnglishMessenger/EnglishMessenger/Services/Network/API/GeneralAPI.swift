@@ -24,6 +24,7 @@ struct GeneralApi {
     let providerTheoryEndpoint = Provider<TheoryEndpoint>()
     let providerExercisesEndpoint = Provider<ExercisesEndpoint>()
     let providerDictionaryEndpoint = Provider<DictionaryEndpoint>()
+    let providerFriendsEndpoint = Provider<FriendsEndpoint>()
 }
 
 extension GeneralApi {
@@ -581,6 +582,114 @@ extension GeneralApi {
             .map([ServerDictionary].self)
             .map { serverDictionary in
                 DictionaryModelMapper().toLocal(list: serverDictionary)
+            }
+            .mapError { error in
+                if error.response?.statusCode == 404 {
+                    return ErrorAPI.notFound
+                } else {
+                    return ErrorAPI.network
+                }
+            }
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+    }
+    
+    func getFriends() -> AnyPublisher<[User], ErrorAPI> {
+        providerFriendsEndpoint.requestPublisher(.getFriends)
+            .filterSuccessfulStatusCodes()
+            .map([ServerUser].self)
+            .map { serverUsers in
+                UserModelMapper().toLocal(list: serverUsers)
+            }
+            .mapError { error in
+                if error.response?.statusCode == 404 {
+                    return ErrorAPI.notFound
+                } else {
+                    return ErrorAPI.network
+                }
+            }
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+    }
+    
+    func getFriendsRequests() -> AnyPublisher<[User], ErrorAPI> {
+        providerFriendsEndpoint.requestPublisher(.getRequests)
+            .filterSuccessfulStatusCodes()
+            .map([ServerUser].self)
+            .map { serverUsers in
+                UserModelMapper().toLocal(list: serverUsers)
+            }
+            .mapError { error in
+                if error.response?.statusCode == 404 {
+                    return ErrorAPI.notFound
+                } else {
+                    return ErrorAPI.network
+                }
+            }
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+    }
+    
+    func addingFriend(email: String) -> AnyPublisher<String, ErrorAPI> {
+        providerFriendsEndpoint.requestPublisher(.addFriendRequest(email))
+            .filterSuccessfulStatusCodes()
+            .map(String.self)
+            .map { string in
+                string
+            }
+            .mapError { error in
+                if error.response?.statusCode == 404 {
+                    return ErrorAPI.notFound
+                } else {
+                    return ErrorAPI.network
+                }
+            }
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+    }
+    
+    func acceptRequest(email: String) -> AnyPublisher<String, ErrorAPI> {
+        providerFriendsEndpoint.requestPublisher(.acceptRequest(email))
+            .filterSuccessfulStatusCodes()
+            .map(String.self)
+            .map { string in
+                string
+            }
+            .mapError { error in
+                if error.response?.statusCode == 404 {
+                    return ErrorAPI.notFound
+                } else {
+                    return ErrorAPI.network
+                }
+            }
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+    }
+    
+    func rejectRequest(email: String) -> AnyPublisher<String, ErrorAPI> {
+        providerFriendsEndpoint.requestPublisher(.rejectRequest(email))
+            .filterSuccessfulStatusCodes()
+            .map(String.self)
+            .map { string in
+                string
+            }
+            .mapError { error in
+                if error.response?.statusCode == 404 {
+                    return ErrorAPI.notFound
+                } else {
+                    return ErrorAPI.network
+                }
+            }
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+    }
+    
+    func getFriendsCount() -> AnyPublisher<Int, ErrorAPI> {
+        providerFriendsEndpoint.requestPublisher(.getFriendsCount)
+            .filterSuccessfulStatusCodes()
+            .map([String].self)
+            .map { string in
+                string.count
             }
             .mapError { error in
                 if error.response?.statusCode == 404 {

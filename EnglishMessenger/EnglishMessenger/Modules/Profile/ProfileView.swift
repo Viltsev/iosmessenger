@@ -20,6 +20,9 @@ struct ProfileView: View {
             .overlay {
                 profileBlock()
             }
+            .onAppear {
+                viewModel.input.friendsCountSubject.send()
+            }
     }
 }
 
@@ -76,7 +79,7 @@ extension ProfileView {
                                 infoBlock(text: "День рождения:", value: viewModel.output.dateBirth, arrow: false)
                                 infoBlock(text: "Уровень языка:", value: viewModel.output.languageLevel, arrow: false)
 //                                infoBlock(text: "Друзья:", value: "100", arrow: true)
-                                friendsButton(text: "Друзья", value: "100")
+                                friendsButton(text: "Друзья:", value: viewModel.output.friendsCount)
                                 infoBlock(text: "Интересы", value: "", arrow: true)
                             }
                         }
@@ -112,7 +115,7 @@ extension ProfileView {
     }
     
     @ViewBuilder
-    func friendsButton(text: String, value: String) -> some View {
+    func friendsButton(text: String, value: Int) -> some View {
         Button {
             mainRouter.pushView(MainNavigation.pushFriendsView)
         } label: {

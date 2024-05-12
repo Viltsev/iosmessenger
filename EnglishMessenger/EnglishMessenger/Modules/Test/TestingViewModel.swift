@@ -135,6 +135,7 @@ extension TestingViewModel {
         UserDefaults.standard.removeObject(forKey: "username")
         UserDefaults.standard.removeObject(forKey: "languageLevel")
         UserDefaults.standard.removeObject(forKey: "avatar")
+        UserDefaults.standard.removeObject(forKey: "friendsCount")
         
         // add new values to UserDefaults
         UserDefaults.standard.setValue(user.firstName, forKey: "firstName")
@@ -142,6 +143,7 @@ extension TestingViewModel {
         UserDefaults.standard.setValue(user.username, forKey: "username")
         UserDefaults.standard.setValue(user.languageLevel, forKey: "languageLevel")
         UserDefaults.standard.setValue(user.photo, forKey: "avatar")
+        UserDefaults.standard.setValue(user.photo, forKey: "friendsCount")
         FormatDate.formatDate(dateOfBirth: user.dateOfBirth)
     }
 }

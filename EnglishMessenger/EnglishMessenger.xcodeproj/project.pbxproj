@@ -190,6 +190,8 @@
 		83D6B4B32BF0DBA7002635CF /* FriendsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D6B4B22BF0DBA7002635CF /* FriendsViewModel.swift */; };
 		83D6B4B52BF0DCEE002635CF /* FriendsSearcherField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D6B4B42BF0DCEE002635CF /* FriendsSearcherField.swift */; };
 		83D6B4B92BF0F67C002635CF /* FriendRequestsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D6B4B82BF0F67C002635CF /* FriendRequestsView.swift */; };
+		83E9B72E2BF14A54006784D7 /* FriendsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E9B72D2BF14A54006784D7 /* FriendsEndpoint.swift */; };
+		83E9B7302BF14D38006784D7 /* FriendRequestsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E9B72F2BF14D38006784D7 /* FriendRequestsViewModel.swift */; };
 		83F740752BA06BEA004BA2F4 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 83F740742BA06BEA004BA2F4 /* SDWebImageSwiftUI */; };
 		83FC43BA2BD7C59E003FA5EB /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FC43B92BD7C59E003FA5EB /* CardView.swift */; };
 		83FC43BC2BD8217F003FA5EB /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FC43BB2BD8217F003FA5EB /* CardViewModel.swift */; };
@@ -374,6 +376,8 @@
 		83D6B4B22BF0DBA7002635CF /* FriendsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewModel.swift; sourceTree = "<group>"; };
 		83D6B4B42BF0DCEE002635CF /* FriendsSearcherField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsSearcherField.swift; sourceTree = "<group>"; };
 		83D6B4B82BF0F67C002635CF /* FriendRequestsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendRequestsView.swift; sourceTree = "<group>"; };
+		83E9B72D2BF14A54006784D7 /* FriendsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsEndpoint.swift; sourceTree = "<group>"; };
+		83E9B72F2BF14D38006784D7 /* FriendRequestsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendRequestsViewModel.swift; sourceTree = "<group>"; };
 		83FC43B92BD7C59E003FA5EB /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		83FC43BB2BD8217F003FA5EB /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
 		83FC43C12BD84B9A003FA5EB /* CardsSetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsSetView.swift; sourceTree = "<group>"; };
@@ -685,6 +689,7 @@
 				8378A7832BDEC5F40090942B /* TheoryEndpoint.swift */,
 				834B86972BE2C70700D8917F /* ExercisesEndpoint.swift */,
 				837106282BE4F49500C2E9C0 /* DictionaryEndpoint.swift */,
+				83E9B72D2BF14A54006784D7 /* FriendsEndpoint.swift */,
 			);
 			path = Endpoints;
 			sourceTree = "<group>";
@@ -1061,6 +1066,7 @@
 			isa = PBXGroup;
 			children = (
 				83D6B4B82BF0F67C002635CF /* FriendRequestsView.swift */,
+				83E9B72F2BF14D38006784D7 /* FriendRequestsViewModel.swift */,
 			);
 			path = FriendsRequests;
 			sourceTree = "<group>";
@@ -1296,6 +1302,7 @@
 				83103EE32B7FF73C00932A96 /* ProfileView.swift in Sources */,
 				831AE0952B81203800C5B6AF /* User.swift in Sources */,
 				831AE0932B811FD700C5B6AF /* ServerUser.swift in Sources */,
+				83E9B7302BF14D38006784D7 /* FriendRequestsViewModel.swift in Sources */,
 				837106252BE4F41400C2E9C0 /* LocalDictionary.swift in Sources */,
 				83D6B4B12BF0D85F002635CF /* FriendsView.swift in Sources */,
 				832F0C6E2BD99CCE00E8468D /* CardSetModelMapper.swift in Sources */,
@@ -1313,6 +1320,7 @@
 				83FC43BC2BD8217F003FA5EB /* CardViewModel.swift in Sources */,
 				83103EB22B7F574300932A96 /* StartView.swift in Sources */,
 				8378A78C2BDECB740090942B /* TheoryMainViewModel.swift in Sources */,
+				83E9B72E2BF14A54006784D7 /* FriendsEndpoint.swift in Sources */,
 				831AE0722B80DFCA00C5B6AF /* Provider.swift in Sources */,
 				8334B75F2B9E02050087716F /* OnboardingEndpoint.swift in Sources */,
 				834B86832BE2570300D8917F /* GrammarTrainingView.swift in Sources */,

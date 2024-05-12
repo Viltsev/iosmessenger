@@ -18,4 +18,6 @@ struct User: Identifiable, Hashable {
     var languageLevel: String
     var photo: String
     var lastMessage: String
+    var isRequested: Bool = false
+    var friendsCount: Int
 }

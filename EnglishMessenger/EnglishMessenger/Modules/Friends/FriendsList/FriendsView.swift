@@ -18,6 +18,9 @@ struct FriendsView: View {
             .overlay {
                 content()
             }
+            .onAppear {
+                viewModel.input.getFriendsSubject.send()
+            }
     }
 }
 
@@ -93,29 +96,42 @@ extension FriendsView {
     @ViewBuilder
     func searchScreen() -> some View {
         List(viewModel.output.findedUsers, id: \.id) { user in
-            Button {
-//                router.pushView(MainNavigation.pushChatView(user))
-            } label: {
-                HStack {
-                    WebImage(url: URL(string: user.photo))
+            HStack {
+                WebImage(url: URL(string: user.photo))
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 70, height: 70)
+                    .cornerRadius(35)
+                    .background(
+                        Circle()
+                            .stroke(style: StrokeStyle(lineWidth: 2))
+                            .foregroundColor(.white)
+                    )
+                
+                VStack(alignment: .leading) {
+                    Text("\(user.firstName) \(user.lastName)")
+                        .font(.custom("Montserrat-Regular", size: 15))
+                        .foregroundStyle(.mainPurple)
+                        .padding(.top, 5)
+                    Text(user.username)
+                        .font(.custom("Montserrat-Light", size: 15))
+                        .foregroundStyle(.lightPurple)
+                        .padding(.top, 3)
+                        .padding(.bottom, 5)
+                }
+                
+                .padding(.horizontal, 15)
+                Spacer()
+                Button {
+                    viewModel.input.addingFriendViewSubject.send(user.id)
+                    viewModel.input.addingFriendSubject.send(user.email)
+                } label: {
+                    Image(systemName: user.isRequested ? "checkmark.circle" : "plus.circle")
                         .resizable()
                         .scaledToFill()
-                        .frame(width: 70, height: 70)
-                        .cornerRadius(35)
-                        .background(
-                            Circle()
-                                .stroke(style: StrokeStyle(lineWidth: 2))
-                                .foregroundColor(.white)
-                        )
-                    
-                    VStack(alignment: .leading) {
-                        Text(user.username)
-                            .font(.headline)
-                            .foregroundStyle(.mainPurple)
-                            .padding(.vertical, 5)
-                    }
-                    .padding(.horizontal, 15)
-                    
+                        .foregroundStyle(.mainPurple)
+                        .frame(width: 20, height: 20)
+                        .padding(.horizontal, 5)
                 }
             }
         }
@@ -170,7 +186,7 @@ extension FriendsView {
                     .padding(.vertical, 10)
                 Spacer()
             }
-            List(viewModel.output.findedUsers, id: \.id) { user in
+            List(viewModel.output.friendsList, id: \.id) { user in
                 HStack {
                     WebImage(url: URL(string: user.photo))
                         .resizable()
@@ -205,6 +221,16 @@ extension FriendsView {
                             .frame(width: 20, height: 20)
                             .padding(.horizontal, 5)
                     }
+                }
+                .swipeActions {
+                    Button {
+                        
+                    } label: {
+                        Text("Удалить из друзей")
+                            .font(.custom("Montserrat-Bold", size: 10))
+                            .foregroundStyle(.white)
+                    }
+                    .tint(.red)
                 }
             }
             .padding(.horizontal, -16)
