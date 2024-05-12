@@ -70,7 +70,7 @@ extension ProfileView {
                             .foregroundColor(.mainPurple)
                             .font(.custom("Montserrat-Light", size: 20))
                             .multilineTextAlignment(.center)
-                        ScrollView {
+                        ScrollView(showsIndicators: false) {
                             VStack(spacing: 15) {
                                 infoBlock(text: "День рождения:", value: viewModel.output.dateBirth, arrow: false)
                                 infoBlock(text: "Уровень языка:", value: viewModel.output.languageLevel, arrow: false)
