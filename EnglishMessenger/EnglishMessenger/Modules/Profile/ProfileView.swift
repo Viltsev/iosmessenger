@@ -11,6 +11,7 @@ import SDWebImageSwiftUI
 
 struct ProfileView: View {
     @StateObject private var viewModel = ProfileViewModel()
+    @EnvironmentObject var mainRouter: MainNavigationRouter
     @EnvironmentObject var router: StartNavigationRouter
     
     var body: some View {
@@ -74,7 +75,8 @@ extension ProfileView {
                             VStack(spacing: 15) {
                                 infoBlock(text: "День рождения:", value: viewModel.output.dateBirth, arrow: false)
                                 infoBlock(text: "Уровень языка:", value: viewModel.output.languageLevel, arrow: false)
-                                infoBlock(text: "Друзья:", value: "100", arrow: true)
+//                                infoBlock(text: "Друзья:", value: "100", arrow: true)
+                                friendsButton(text: "Друзья", value: "100")
                                 infoBlock(text: "Интересы", value: "", arrow: true)
                             }
                         }
@@ -107,6 +109,30 @@ extension ProfileView {
         .background(.white)
         .cornerRadius(15)
         .padding(.horizontal, 16)
+    }
+    
+    @ViewBuilder
+    func friendsButton(text: String, value: String) -> some View {
+        Button {
+            mainRouter.pushView(MainNavigation.pushFriendsView)
+        } label: {
+            HStack {
+                Text("\(text) \(value)")
+                    .foregroundColor(.mainPurple)
+                    .font(.custom("Montserrat-Light", size: 15))
+                    .padding(.horizontal, 15)
+                    .padding(.vertical, 20)
+                Spacer()
+                Image(systemName: "chevron.right")
+                    .font(.title3)
+                    .padding(.horizontal, 15)
+                    .padding(.vertical, 20)
+            }
+            .frame(maxWidth: .infinity)
+            .background(.white)
+            .cornerRadius(15)
+            .padding(.horizontal, 16)
+        }
     }
     
     @ViewBuilder

@@ -186,6 +186,7 @@
 		83C2B3162B94D73900B69E69 /* TestButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C2B3152B94D73900B69E69 /* TestButtonView.swift */; };
 		83C2B3182B94EE9C00B69E69 /* PurpleButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C2B3172B94EE9C00B69E69 /* PurpleButtonView.swift */; };
 		83C8F6BA2BD29C6B00FEBE79 /* GenerateDialogEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C8F6B92BD29C6B00FEBE79 /* GenerateDialogEndpoint.swift */; };
+		83D6B4B12BF0D85F002635CF /* FriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D6B4B02BF0D85F002635CF /* FriendsView.swift */; };
 		83F740752BA06BEA004BA2F4 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 83F740742BA06BEA004BA2F4 /* SDWebImageSwiftUI */; };
 		83FC43BA2BD7C59E003FA5EB /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FC43B92BD7C59E003FA5EB /* CardView.swift */; };
 		83FC43BC2BD8217F003FA5EB /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FC43BB2BD8217F003FA5EB /* CardViewModel.swift */; };
@@ -366,6 +367,7 @@
 		83C2B3152B94D73900B69E69 /* TestButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestButtonView.swift; sourceTree = "<group>"; };
 		83C2B3172B94EE9C00B69E69 /* PurpleButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurpleButtonView.swift; sourceTree = "<group>"; };
 		83C8F6B92BD29C6B00FEBE79 /* GenerateDialogEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateDialogEndpoint.swift; sourceTree = "<group>"; };
+		83D6B4B02BF0D85F002635CF /* FriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsView.swift; sourceTree = "<group>"; };
 		83FC43B92BD7C59E003FA5EB /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		83FC43BB2BD8217F003FA5EB /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
 		83FC43C12BD84B9A003FA5EB /* CardsSetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsSetView.swift; sourceTree = "<group>"; };
@@ -575,6 +577,7 @@
 		83103ECC2B7F601700932A96 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				83D6B4AF2BF0D84F002635CF /* Friends */,
 				834B86B92BE4221600D8917F /* Dictionary */,
 				834B867C2BE252AD00D8917F /* Exercises */,
 				8378A77F2BDEC26B0090942B /* Theory */,
@@ -1029,6 +1032,14 @@
 			path = TapBar;
 			sourceTree = "<group>";
 		};
+		83D6B4AF2BF0D84F002635CF /* Friends */ = {
+			isa = PBXGroup;
+			children = (
+				83D6B4B02BF0D85F002635CF /* FriendsView.swift */,
+			);
+			path = Friends;
+			sourceTree = "<group>";
+		};
 		83FC43BD2BD84B17003FA5EB /* Card */ = {
 			isa = PBXGroup;
 			children = (
@@ -1261,6 +1272,7 @@
 				831AE0952B81203800C5B6AF /* User.swift in Sources */,
 				831AE0932B811FD700C5B6AF /* ServerUser.swift in Sources */,
 				837106252BE4F41400C2E9C0 /* LocalDictionary.swift in Sources */,
+				83D6B4B12BF0D85F002635CF /* FriendsView.swift in Sources */,
 				832F0C6E2BD99CCE00E8468D /* CardSetModelMapper.swift in Sources */,
 				83505D1D2B923673005FD7DC /* OnboardingNavigationView.swift in Sources */,
 				8331F8422B95FD2300058CEC /* ServerTest.swift in Sources */,

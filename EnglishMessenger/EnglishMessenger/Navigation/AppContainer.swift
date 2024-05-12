@@ -113,6 +113,8 @@ struct AppContainer: View {
                                             transaltionCheckViewModel.output.translation = translation
                                             transaltionCheckViewModel.output.checkedTranslation = checkedTranslation
                                         }
+                                case .pushFriendsView:
+                                    FriendsView()
                                 }
                             }
                             .navigationBarBackButtonHidden(true)
