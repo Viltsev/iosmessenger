@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct FriendsView: View {
     @StateObject private var viewModel: FriendsViewModel = FriendsViewModel()
@@ -27,6 +28,14 @@ extension FriendsView {
             customToolBar()
                 .padding(.bottom, 15)
             searchBar()
+                .padding(.bottom, 20)
+            
+            switch viewModel.output.state {
+            case .friends:
+                mainScreen()
+            case .search:
+                searchScreen()
+            }
             Spacer()
         }
     }
@@ -62,7 +71,7 @@ extension FriendsView {
                     }
                 }
                 .onSubmit {
-//                    viewModel.input.findUserByUsernameSubject.send(viewModel.output.findUserText)
+                    viewModel.input.findUserByUsernameSubject.send(viewModel.output.searchedFriend)
                 }
                 .padding(.vertical, 10)
             if viewModel.output.state == .search {
@@ -79,5 +88,129 @@ extension FriendsView {
             }
         }
         .padding(.horizontal, 16)
+    }
+    
+    @ViewBuilder
+    func searchScreen() -> some View {
+        List(viewModel.output.findedUsers, id: \.id) { user in
+            Button {
+//                router.pushView(MainNavigation.pushChatView(user))
+            } label: {
+                HStack {
+                    WebImage(url: URL(string: user.photo))
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 70, height: 70)
+                        .cornerRadius(35)
+                        .background(
+                            Circle()
+                                .stroke(style: StrokeStyle(lineWidth: 2))
+                                .foregroundColor(.white)
+                        )
+                    
+                    VStack(alignment: .leading) {
+                        Text(user.username)
+                            .font(.headline)
+                            .foregroundStyle(.mainPurple)
+                            .padding(.vertical, 5)
+                    }
+                    .padding(.horizontal, 15)
+                    
+                }
+            }
+        }
+        .background(Color.profilePinky)
+        .listStyle(.sidebar)
+        .scrollContentBackground(.hidden)
+    }
+    
+    @ViewBuilder
+    func mainScreen() -> some View {
+        VStack {
+            friendsRequests()
+            myFriends()
+        }
+        .padding(.horizontal, 16)
+    }
+    
+    @ViewBuilder
+    func friendsRequests() -> some View {
+        VStack {
+            Divider()
+            Button {
+                
+            } label: {
+                HStack {
+                    Image(systemName: "person.2.fill")
+                        .resizable()
+                        .scaledToFill()
+                        .foregroundStyle(.mainPurple)
+                        .frame(width: 20, height: 20)
+                        .padding(.horizontal, 5)
+                        .padding(.vertical, 8)
+                    Text("Заявки в друзья")
+                        .font(.headline)
+                        .foregroundStyle(.mainPurple)
+                        .padding(.vertical, 10)
+                        .padding(.horizontal, 15)
+                    Spacer()
+                }
+            }
+            Divider()
+        }
+    }
+    
+    @ViewBuilder
+    func myFriends() -> some View {
+        VStack {
+            HStack {
+                Text("Мои друзья")
+                    .font(.headline)
+                    .foregroundStyle(.mainPurple)
+                    .padding(.vertical, 10)
+                Spacer()
+            }
+            List(viewModel.output.findedUsers, id: \.id) { user in
+                HStack {
+                    WebImage(url: URL(string: user.photo))
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 50, height: 50)
+                        .cornerRadius(25)
+                        .background(
+                            Circle()
+                                .stroke(style: StrokeStyle(lineWidth: 2))
+                                .foregroundColor(.white)
+                        )
+                        .padding(.trailing, 10)
+                    VStack(alignment: .leading) {
+                        Text("\(user.firstName) \(user.lastName)")
+                            .font(.subheadline)
+                            .foregroundStyle(.mainPurple)
+                            .padding(.top, 5)
+                        Text(FormatDate.getFormatDate(user.dateOfBirth))
+                            .font(.footnote)
+                            .foregroundStyle(.lightPurple)
+                            .padding(.top, 3)
+                            .padding(.bottom, 5)
+                    }
+                    Spacer()
+                    Button {
+                        print("go to message")
+                    } label: {
+                        Image(systemName: "message")
+                            .resizable()
+                            .scaledToFill()
+                            .foregroundStyle(.mainPurple)
+                            .frame(width: 20, height: 20)
+                            .padding(.horizontal, 5)
+                    }
+                }
+            }
+            .padding(.horizontal, -16)
+            .background(Color.profilePinky)
+            .listStyle(.sidebar)
+            .scrollContentBackground(.hidden)
+        }
     }
 }

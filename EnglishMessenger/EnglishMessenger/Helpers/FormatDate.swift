@@ -22,4 +22,19 @@ struct FormatDate {
             print("Невозможно преобразовать строку в дату")
         }
     }
+    
+    static func getFormatDate(_ dateOfBirth: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        let dateString = dateOfBirth
+        
+        if let date = dateFormatter.date(from: dateString) {
+            dateFormatter.dateFormat = "dd.MM.yyyy"
+            
+            let formattedDateString = dateFormatter.string(from: date)
+            return formattedDateString
+        } else {
+            return ""
+        }
+    }
 }
