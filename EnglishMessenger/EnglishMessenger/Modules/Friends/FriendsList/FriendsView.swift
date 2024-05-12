@@ -212,7 +212,7 @@ extension FriendsView {
                     }
                     Spacer()
                     Button {
-                        print("go to message")
+                        router.pushView(MainNavigation.pushChatView(user))
                     } label: {
                         Image(systemName: "message")
                             .resizable()

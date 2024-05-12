@@ -48,7 +48,7 @@ extension FriendRequestsViewModel {
         request
             .values()
             .sink { [unowned self] requests in
-                self.output.requestsList = requests
+                self.output.requestsList = requests.reversed()
                 self.output.state = .users
             }
             .store(in: &cancellable)

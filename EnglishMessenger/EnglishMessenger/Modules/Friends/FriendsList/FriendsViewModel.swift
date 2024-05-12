@@ -80,7 +80,7 @@ extension FriendsViewModel {
         request
             .values()
             .sink { [unowned self] friends in
-                self.output.friendsList = friends
+                self.output.friendsList = friends.reversed()
             }
             .store(in: &cancellable)
     }

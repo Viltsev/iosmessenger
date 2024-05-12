@@ -201,12 +201,14 @@ struct CardDetailView: View {
     
         ZStack {
             cardView(text: card.text)
+                .padding(.horizontal, 16)
                 .rotation3DEffect(
                     .degrees(isFlipped ? 0 : -90),
                                           axis: (x: 0.0, y: 1.0, z: 0.0)
                 )
                 .animation(isFlipped ? .linear.delay(0.35) : .linear, value: isFlipped)
             cardView(text: card.explanation)
+                .padding(.horizontal, 16)
                 .rotation3DEffect(
                     .degrees(isFlipped ? 90 : 0),
                                           axis: (x: 0.0, y: 1.0, z: 0.0)
