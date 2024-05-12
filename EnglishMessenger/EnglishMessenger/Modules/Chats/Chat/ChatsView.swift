@@ -52,7 +52,7 @@ struct ChatsView: View {
             .background(Color.gray.opacity(0.1))
             Spacer()
             HStack {
-                TextField("Message...", text: $socketService.message, axis: .vertical)
+                TextField("Сообщение...", text: $socketService.message, axis: .vertical)
                     .padding(.vertical, 10)
                     .padding(.horizontal, 10)
                     .background(Color.gray.opacity(0.1))

@@ -101,7 +101,7 @@ extension OnboardingView {
     func usernameView() -> some View {
         VStack(alignment: .center, spacing: 15) {
             Spacer()
-            TitleTextView(text: "Your Username", size: 35)
+            TitleTextView(text: "Введи username", size: 35)
             TextField("@", text: $viewModel.output.username)
                 .foregroundColor(.mainPurple)
                 .font(.custom("Montserrat-Light", size: 30))
@@ -115,7 +115,8 @@ extension OnboardingView {
     func birthView() -> some View {
         VStack(alignment: .center, spacing: 15) {
             Spacer()
-            TitleTextView(text: "What’s your birth date?", size: 35)
+            TitleTextView(text: "Твой День рождения", size: 30)
+                .padding(.horizontal, 16)
             MaskedDateTextField(text: $dateText)
             Spacer()
         }
@@ -126,7 +127,7 @@ extension OnboardingView {
     func photoView() -> some View {
         VStack(alignment: .center, spacing: 25) {
             Spacer()
-            TitleTextView(text: "Add a photo?", size: 35)
+            TitleTextView(text: "Добавь фото", size: 35)
             Button {
                 // todo: add photo action
                 showingImagePicker.toggle()
@@ -161,7 +162,8 @@ extension OnboardingView {
     func interestsView() -> some View {
         VStack(alignment: .center, spacing: 25) {
             Spacer()
-            TitleTextView(text: "Choose topics you interested", size: 35)
+            TitleTextView(text: "Выбери интересующие тебя темы", size: 35)
+                .padding(.horizontal, 16)
             ScrollView(.vertical, showsIndicators: false) {
                 VStack(spacing: 15) {
                     ForEach(viewModel.output.interestsArray, id: \.id) { interest in
@@ -198,7 +200,8 @@ extension OnboardingView {
     func pretestView() -> some View {
         VStack(alignment: .center, spacing: 25) {
             Spacer()
-            TitleTextView(text: "Let’s check your language level", size: 35)
+            TitleTextView(text: "Давай проверим твой уровень английского", size: 35)
+                .padding(.horizontal, 16)
             Image("bookTest")
                 .scaledToFit()
             
@@ -207,8 +210,8 @@ extension OnboardingView {
                 goToTestingView()
             } label: {
                 VStack {
-                    Text("Continue")
-                        .font(.custom("Montserrat-Regular", size: 25))
+                    Text("Продолжить")
+                        .font(.custom("Montserrat-Regular", size: 20))
                         .foregroundStyle(.mainPurple)
                         .padding(.horizontal, 100)
                         .padding(.vertical, 16)
@@ -219,6 +222,7 @@ extension OnboardingView {
                         .foregroundColor(.mainPurple)
                 )
             }
+            .padding(.horizontal, 16)
             .padding(.bottom, 16)
 //            Spacer()
         }

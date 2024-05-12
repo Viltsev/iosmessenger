@@ -28,4 +28,6 @@ enum MainNavigation: Hashable {
     case pushCheckedQuestion(LocalQuestion, String, String)
     case pushTranslationView(String)
     case pushTranslationCheckView(LocalTranslation, String, String)
+    case pushFriendsView
+    case pushFriendsRequestsView
 }

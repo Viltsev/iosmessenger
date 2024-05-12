@@ -13,6 +13,7 @@ class ProfileViewModel: ObservableObject {
     let input: Input = Input()
     @Published var output: Output = Output()
     var cancellable = Set<AnyCancellable>()
+    let apiService = GeneralApi()
     
     init() {
         bind()
@@ -22,7 +23,7 @@ class ProfileViewModel: ObservableObject {
 extension ProfileViewModel {
     func bind() {
         logout()
-        
+        friendsCount()
     }
     
     func logout() {
@@ -33,11 +34,36 @@ extension ProfileViewModel {
             }
             .store(in: &cancellable)
     }
+    
+    func friendsCount() {
+        let request = input.friendsCountSubject
+            .map { [unowned self] _ in
+                return self.apiService.getFriendsCount()
+                    .materialize()
+            }
+            .switchToLatest()
+            .share()
+        
+        request
+            .failures()
+            .sink { error in
+                print(error)
+            }
+            .store(in: &cancellable)
+        
+        request
+            .values()
+            .sink { [unowned self] count in
+                self.output.friendsCount = count
+            }
+            .store(in: &cancellable)
+    }
 }
 
 extension ProfileViewModel {
     struct Input {
         let logoutSubject = PassthroughSubject<StartNavigationRouter, Never>()
+        let friendsCountSubject = PassthroughSubject<Void, Never>()
     }
     
     struct Output {
@@ -47,6 +73,6 @@ extension ProfileViewModel {
         var dateBirth: String = UserDefaults.standard.string(forKey: "dateOfBirth") ?? "DateOfBirth"
         var languageLevel: String = UserDefaults.standard.string(forKey: "languageLevel") ?? "Level not found"
         var photo: URL? = URL(string: UserDefaults.standard.string(forKey: "avatar") ?? "")
-        // var photo: URL? = UserDefaults.standard.url(forKey: "avatar")
+        var friendsCount: Int = UserDefaults.standard.integer(forKey: "friendsCount")
     }
 }

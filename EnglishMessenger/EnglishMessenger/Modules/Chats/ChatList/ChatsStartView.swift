@@ -37,7 +37,7 @@ extension ChatsStartView {
     @ViewBuilder
     func searchBar() -> some View {
         HStack {
-            ChatsSearcherField(textFieldLabel: "Find user...", text: $viewModel.output.findUserText, action: viewModel.input.findCompanionSubject)
+            ChatsSearcherField(textFieldLabel: "Поиск...", text: $viewModel.output.findUserText, action: viewModel.input.findCompanionSubject)
                 .onTapGesture {
                     withAnimation(.bouncy) {
                         viewModel.input.changeCurrentScreenSubject.send(.search)
@@ -55,8 +55,9 @@ extension ChatsStartView {
                         viewModel.output.findUserText = ""
                     }
                 } label: {
-                    Text("Cancel")
+                    Text("Отмена")
                         .foregroundStyle(Color.mainPurple)
+                        .font(.custom("Montserrat-Light", size: 15))
                 }
             }
         }

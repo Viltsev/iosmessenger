@@ -27,6 +27,7 @@ extension AuthorizationViewModel {
     func bind() {
         authButtonEnable()
         authUser()
+        showPassword()
     }
     
     func authButtonEnable() {
@@ -67,6 +68,14 @@ extension AuthorizationViewModel {
             .store(in: &cancellable)
     }
     
+    func showPassword() {
+        input.showPasswordSubject
+            .sink { [unowned self] _ in
+                self.output.isSecured.toggle()
+            }
+            .store(in: &cancellable)
+    }
+    
     func saveToUserDefaults(user: User) {
         // delete current values from UserDefaults
         UserDefaults.standard.removeObject(forKey: "dateOfBirth")
@@ -76,6 +85,7 @@ extension AuthorizationViewModel {
         UserDefaults.standard.removeObject(forKey: "username")
         UserDefaults.standard.removeObject(forKey: "languageLevel")
         UserDefaults.standard.removeObject(forKey: "avatar")
+        UserDefaults.standard.removeObject(forKey: "friendsCount")
         
         // add new values to UserDefaults
         UserDefaults.standard.setValue(user.firstName, forKey: "firstName")
@@ -84,6 +94,7 @@ extension AuthorizationViewModel {
         UserDefaults.standard.setValue(user.email, forKey: "email")
         UserDefaults.standard.setValue(user.languageLevel, forKey: "languageLevel")
         UserDefaults.standard.setValue(user.photo, forKey: "avatar")
+        UserDefaults.standard.setValue(user.friendsCount, forKey: "friendsCount")
         FormatDate.formatDate(dateOfBirth: user.dateOfBirth)
     }
 }
@@ -93,6 +104,7 @@ extension AuthorizationViewModel {
         let emailSubject = PassthroughSubject<Void, Never>()
         let passwordSubject = PassthroughSubject<Void, Never>()
         let authUserSubject = PassthroughSubject<Void, Never>()
+        let showPasswordSubject = PassthroughSubject<Void, Never>()
     }
     
     struct Output {
@@ -100,5 +112,6 @@ extension AuthorizationViewModel {
         var passwordField = ""
         var isEnabledButton: Bool = true
         var user: User?
+        var isSecured: Bool = true
     }
 }

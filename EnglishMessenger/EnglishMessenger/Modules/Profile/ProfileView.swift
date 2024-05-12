@@ -11,6 +11,7 @@ import SDWebImageSwiftUI
 
 struct ProfileView: View {
     @StateObject private var viewModel = ProfileViewModel()
+    @EnvironmentObject var mainRouter: MainNavigationRouter
     @EnvironmentObject var router: StartNavigationRouter
     
     var body: some View {
@@ -18,6 +19,9 @@ struct ProfileView: View {
             .ignoresSafeArea()
             .overlay {
                 profileBlock()
+            }
+            .onAppear {
+                viewModel.input.friendsCountSubject.send()
             }
     }
 }
@@ -37,9 +41,9 @@ extension ProfileView {
                             VStack {
                                 Spacer()
                                 HStack {
-                                    profileButton(title: "Settings", action: nil)
+                                    profileButton(title: "Настройки", action: nil)
                                     Spacer()
-                                    profileButton(title: "Sign Out", action: logout)
+                                    profileButton(title: "Выйти", action: logout)
                                 }
                                 .padding(.horizontal, 16)
                                 GeometryReader { geometry in
@@ -70,12 +74,13 @@ extension ProfileView {
                             .foregroundColor(.mainPurple)
                             .font(.custom("Montserrat-Light", size: 20))
                             .multilineTextAlignment(.center)
-                        ScrollView {
+                        ScrollView(showsIndicators: false) {
                             VStack(spacing: 15) {
-                                infoBlock(text: "Birthday:", value: viewModel.output.dateBirth, arrow: false)
-                                infoBlock(text: "Language level:", value: viewModel.output.languageLevel, arrow: false)
-                                infoBlock(text: "Friends:", value: "100", arrow: true)
-                                infoBlock(text: "Interests", value: "", arrow: true)
+                                infoBlock(text: "День рождения:", value: viewModel.output.dateBirth, arrow: false)
+                                infoBlock(text: "Уровень языка:", value: viewModel.output.languageLevel, arrow: false)
+//                                infoBlock(text: "Друзья:", value: "100", arrow: true)
+                                friendsButton(text: "Друзья:", value: viewModel.output.friendsCount)
+                                infoBlock(text: "Интересы", value: "", arrow: true)
                             }
                         }
                     }
@@ -107,6 +112,30 @@ extension ProfileView {
         .background(.white)
         .cornerRadius(15)
         .padding(.horizontal, 16)
+    }
+    
+    @ViewBuilder
+    func friendsButton(text: String, value: Int) -> some View {
+        Button {
+            mainRouter.pushView(MainNavigation.pushFriendsView)
+        } label: {
+            HStack {
+                Text("\(text) \(value)")
+                    .foregroundColor(.mainPurple)
+                    .font(.custom("Montserrat-Light", size: 15))
+                    .padding(.horizontal, 15)
+                    .padding(.vertical, 20)
+                Spacer()
+                Image(systemName: "chevron.right")
+                    .font(.title3)
+                    .padding(.horizontal, 15)
+                    .padding(.vertical, 20)
+            }
+            .frame(maxWidth: .infinity)
+            .background(.white)
+            .cornerRadius(15)
+            .padding(.horizontal, 16)
+        }
     }
     
     @ViewBuilder

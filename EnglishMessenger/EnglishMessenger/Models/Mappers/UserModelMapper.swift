@@ -17,7 +17,8 @@ final class UserModelMapper: BaseModelMapper<ServerUser, User> {
              dateOfBirth: serverEntity.dateOfBirth ?? "",
              languageLevel: serverEntity.languageLevel ?? "",
              photo: "https://s3.timeweb.cloud/c69f4719-fa278707-76a9-4ddc-bc9e-bc582ad152d2/\(serverEntity.photo ?? "1.jpg")", 
-             lastMessage: ""
+             lastMessage: "",
+             friendsCount: serverEntity.emailFriends.count
         )
     }
 }

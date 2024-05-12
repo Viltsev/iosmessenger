@@ -165,8 +165,13 @@ extension ChatsStartViewModel {
                 do {
                     let response = try await apiService.getLastMessage(chatId: chatId)
                     if let index = self.output.userChatsUsers.firstIndex(where: { $0.id == recipientUser.id }) {
-                        self.output.userChatsUsers[index].lastMessage = response
+                        if response.contains("timestamp") {
+                            self.output.userChatsUsers[index].lastMessage = ""
+                        } else {
+                            self.output.userChatsUsers[index].lastMessage = response
+                        }
                     }
+                    
                     print(response)
                 } catch {
                     print("Network error!")
