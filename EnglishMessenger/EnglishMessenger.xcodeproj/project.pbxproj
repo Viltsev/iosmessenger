@@ -189,6 +189,7 @@
 		83D6B4B12BF0D85F002635CF /* FriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D6B4B02BF0D85F002635CF /* FriendsView.swift */; };
 		83D6B4B32BF0DBA7002635CF /* FriendsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D6B4B22BF0DBA7002635CF /* FriendsViewModel.swift */; };
 		83D6B4B52BF0DCEE002635CF /* FriendsSearcherField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D6B4B42BF0DCEE002635CF /* FriendsSearcherField.swift */; };
+		83D6B4B92BF0F67C002635CF /* FriendRequestsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D6B4B82BF0F67C002635CF /* FriendRequestsView.swift */; };
 		83F740752BA06BEA004BA2F4 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 83F740742BA06BEA004BA2F4 /* SDWebImageSwiftUI */; };
 		83FC43BA2BD7C59E003FA5EB /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FC43B92BD7C59E003FA5EB /* CardView.swift */; };
 		83FC43BC2BD8217F003FA5EB /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FC43BB2BD8217F003FA5EB /* CardViewModel.swift */; };
@@ -372,6 +373,7 @@
 		83D6B4B02BF0D85F002635CF /* FriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsView.swift; sourceTree = "<group>"; };
 		83D6B4B22BF0DBA7002635CF /* FriendsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewModel.swift; sourceTree = "<group>"; };
 		83D6B4B42BF0DCEE002635CF /* FriendsSearcherField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsSearcherField.swift; sourceTree = "<group>"; };
+		83D6B4B82BF0F67C002635CF /* FriendRequestsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendRequestsView.swift; sourceTree = "<group>"; };
 		83FC43B92BD7C59E003FA5EB /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		83FC43BB2BD8217F003FA5EB /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
 		83FC43C12BD84B9A003FA5EB /* CardsSetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsSetView.swift; sourceTree = "<group>"; };
@@ -1040,10 +1042,27 @@
 		83D6B4AF2BF0D84F002635CF /* Friends */ = {
 			isa = PBXGroup;
 			children = (
+				83D6B4B72BF0F665002635CF /* FriendsRequests */,
+				83D6B4B62BF0F653002635CF /* FriendsList */,
+			);
+			path = Friends;
+			sourceTree = "<group>";
+		};
+		83D6B4B62BF0F653002635CF /* FriendsList */ = {
+			isa = PBXGroup;
+			children = (
 				83D6B4B02BF0D85F002635CF /* FriendsView.swift */,
 				83D6B4B22BF0DBA7002635CF /* FriendsViewModel.swift */,
 			);
-			path = Friends;
+			path = FriendsList;
+			sourceTree = "<group>";
+		};
+		83D6B4B72BF0F665002635CF /* FriendsRequests */ = {
+			isa = PBXGroup;
+			children = (
+				83D6B4B82BF0F67C002635CF /* FriendRequestsView.swift */,
+			);
+			path = FriendsRequests;
 			sourceTree = "<group>";
 		};
 		83FC43BD2BD84B17003FA5EB /* Card */ = {
@@ -1335,6 +1354,7 @@
 				8356A2A32BD6CC1900B89B79 /* CardsView.swift in Sources */,
 				83B8E6C72BEB8DD400486BEE /* CustomSecuredFieldStyle.swift in Sources */,
 				83103EDA2B7F9B9800932A96 /* RegistrationView.swift in Sources */,
+				83D6B4B92BF0F67C002635CF /* FriendRequestsView.swift in Sources */,
 				83A40A8A2B9885C3003A284E /* MainTab.swift in Sources */,
 				83524D312BCD506900F86E2C /* SocketService.swift in Sources */,
 				834B86A82BE3A96800D8917F /* ExQuestionCheckView.swift in Sources */,

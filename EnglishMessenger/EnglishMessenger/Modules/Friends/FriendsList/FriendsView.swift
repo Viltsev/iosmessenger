@@ -63,7 +63,7 @@ extension FriendsView {
     @ViewBuilder
     func searchBar() -> some View {
         HStack {
-            FriendsSearcherField(textFieldLabel: "Поиск друга...", text: $viewModel.output.searchedFriend)
+            FriendsSearcherField(textFieldLabel: "Поиск", text: $viewModel.output.searchedFriend)
                 .onTapGesture {
                     withAnimation(.bouncy) {
                         viewModel.input.changeCurrentScreenSubject.send(.search)
@@ -138,7 +138,7 @@ extension FriendsView {
         VStack {
             Divider()
             Button {
-                
+                router.pushView(MainNavigation.pushFriendsRequestsView)
             } label: {
                 HStack {
                     Image(systemName: "person.2.fill")
@@ -149,7 +149,7 @@ extension FriendsView {
                         .padding(.horizontal, 5)
                         .padding(.vertical, 8)
                     Text("Заявки в друзья")
-                        .font(.headline)
+                        .font(.custom("Montserrat-Bold", size: 15))
                         .foregroundStyle(.mainPurple)
                         .padding(.vertical, 10)
                         .padding(.horizontal, 15)
@@ -165,7 +165,7 @@ extension FriendsView {
         VStack {
             HStack {
                 Text("Мои друзья")
-                    .font(.headline)
+                    .font(.custom("Montserrat-Bold", size: 15))
                     .foregroundStyle(.mainPurple)
                     .padding(.vertical, 10)
                 Spacer()
@@ -185,11 +185,11 @@ extension FriendsView {
                         .padding(.trailing, 10)
                     VStack(alignment: .leading) {
                         Text("\(user.firstName) \(user.lastName)")
-                            .font(.subheadline)
+                            .font(.custom("Montserrat-Regular", size: 15))
                             .foregroundStyle(.mainPurple)
                             .padding(.top, 5)
-                        Text(FormatDate.getFormatDate(user.dateOfBirth))
-                            .font(.footnote)
+                        Text("\(FormatDate.getFormatDate(user.dateOfBirth)),  \(user.languageLevel)")
+                            .font(.custom("Montserrat-Light", size: 15))
                             .foregroundStyle(.lightPurple)
                             .padding(.top, 3)
                             .padding(.bottom, 5)

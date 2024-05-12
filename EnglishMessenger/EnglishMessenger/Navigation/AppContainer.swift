@@ -115,6 +115,8 @@ struct AppContainer: View {
                                         }
                                 case .pushFriendsView:
                                     FriendsView()
+                                case .pushFriendsRequestsView:
+                                    FriendRequestsView()
                                 }
                             }
                             .navigationBarBackButtonHidden(true)
