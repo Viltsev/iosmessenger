@@ -32,6 +32,7 @@ struct HomeView: View {
                     .setUpTab(.exercises)
                     .environmentObject(mainRouter)
             }
+            .padding(.bottom, -30)
             
             CustomTabBar()
         }

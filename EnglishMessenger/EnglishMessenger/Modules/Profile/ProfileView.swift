@@ -78,7 +78,6 @@ extension ProfileView {
                             VStack(spacing: 15) {
                                 infoBlock(text: "День рождения:", value: viewModel.output.dateBirth, arrow: false)
                                 infoBlock(text: "Уровень языка:", value: viewModel.output.languageLevel, arrow: false)
-//                                infoBlock(text: "Друзья:", value: "100", arrow: true)
                                 friendsButton(text: "Друзья:", value: viewModel.output.friendsCount)
                                 infoBlock(text: "Интересы", value: "", arrow: true)
                             }
